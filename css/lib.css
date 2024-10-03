@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+/*************************Components  --start*******************************/
+
+
+/*
+* Menu
+*/
+.-lib--menu {
+    position: relative;
+    z-index: var(--z-dropdown);
+}
+.-lib--menu-backdrop {
+    position: fixed;
+    top: 3.6em;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: calc(var(--z-dropdown) + 1);
+    display: none;
+}
+
+.-lib--menu-body {
+    position: inherit;
+    z-index: calc(var(--z-dropdown) + 2);
+}
+
+
+.-lib--menu-toggle {
+    position: absolute;
+    font-size: 3em;
+    top: -1.2em;
+    right: 0.1em;
+    width: 1em;
+    height: 1em;
+    line-height: 0.9;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    /* button appearane */
+    appearance: none;
+    border: none;
+    background: none;
+    margin: 0;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+}
+.-lib--menu-toggle::before {
+    display: block;
+    content: "\2261";
+    color: var(--text-color);
+    /* font-size: 2.4em; */
+    /* text-indent: 0; */
+}
+
+.-lib--menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0;
+}
+
+.-lib--menu.is-open .-lib--menu-dropdown {
+    display: block;
+}
+
+
+.-lib--menu.is-open .-lib--menu-backdrop {
+    display: block;
+    /* z-index: var(--z-modal-backdrop); */
+}
+.-lib--menu.is-open .-lib--menu-toggle::before {
+    content: "\00d7";
+}
+@media (min-width: 35em) {
+    .-lib--menu-toggle {
+        display: none;
+    }
+
+    .-lib--menu-dropdown {
+        display: block;
+        position: static;
+    }
+}
+
+
+/*************************Components  --end*******************************/
+
+/*************************Utilities  --start*******************************/
+
+/*
+* For screen reader
+*/
+.-utils--sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+}
+
+/*
+* positioned button
+*/
+.-utils--position-btn {
+    position: absolute;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    /* button appearane */
+    appearance: none;
+    border: none;
+    background: none;
+    margin: 0;
+    cursor: pointer;
+    border: 0;
+}
+.-utils--color--1 {
+    background-color: rgb(36, 150, 112);
+}
+.-utils--color--2 {
+    background-color: rgb(123, 123, 214);
+}
+.-utils--color--3 {
+    background-color: rgb(196, 122, 80);
+}
+.-utils--color--4 {
+    background-color: rgb(146, 107, 146);
+}
+/*************************Utilities  --end*******************************/

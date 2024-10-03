@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/*
+ * Header section
+ */
+.logo {
+    padding-top: .8em;
+    padding-left: 1em;
+}
+.logo img {
+    height: 2.5em;
+    aspect-ratio: 4.75 / 1;
+}
+
+.contact-us--icons {
+    display: none;
+}
+.contact-us--icons > a > img {
+    width: 2em;
+    height: 2em;
+}
+@media (min-width: 50em) {
+    .contact-us--icons {
+        display: inline-block;
+    }
+}
+
+.header {
+    background-color: #fff;
+    border-bottom: 1px solid #dedede;
+}
+
+@media (min-width:50em) {
+    .header {
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+    .header > .logo {
+        align-self: center;
+        padding-right: 2em;
+    }
+    .header > .-lib--menu {
+        flex: 1;
+    }
+    .header > .contact-us--icons {
+        text-align: right;
+        padding-right: 1em;
+    }
+}

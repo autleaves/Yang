@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+.topicpath {
+	margin-left: 2em;
+}
+.topicpath ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.topicpath ol li {
+	display: inline;
+	margin-right: .3em;
+}
+.topicpath ol li a {
+	padding-right: 1em;
+}
+
+.nav-second {
+    border: 1px solid white;
+    border-radius: var(--radius-A);
+}
+
+main > .contents {
+    display: flex;
+}
+.contents aside {
+    margin-left: 2em;
+    flex: 1;
+}
+.contents article {
+    flex: 4;
+}

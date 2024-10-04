@@ -20,11 +20,7 @@
     <script src="../../js/search.js" type="text/javascript" defer></script>
     <script src="../../js/menu.js" type="text/javascript" defer></script>
     <title>Algorithms</title>
-    <style>
-        .nav-second ol { counter-reset: item;padding-left: 0; }
-        .nav-second ol li{ display: block }
-        .nav-second ol li:before { content: counters(item, ".") " "; counter-increment: item }
-    </style>
+    
     
 </head>
 
@@ -55,25 +51,47 @@
             <a href="mailto:@gmail.com"><img src="../../images/base/email-mark.png" alt="Email"></a>
         </div>
     </header>
-    <main>
-        <div class="topicpath null">
-            <ol>
-                <li><a href="index.html">home</a>&gt;</li>
-                <li>Fundamentals</li>
-            </ol>
-        </div>
+    <main class="">
+        
         <div class="contents">
-            <aside class="nav-second">
-                <ol>
-                    <li><a href="">Fundamentals</a>
+            
+            <aside class="">
+                <div class="topicpath null">
                     <ol>
-                    <li><a href="#">Programming Model</a></li>
-                    <li><a href="#">Data Abstraction</a></li>
-                    <li><a href="#">Bags, Queues, and Stacks</a></li>
+                        <li class="topicpath-icon"><span>&nbsp</span></li>
+                        <li><a href="index.html">Home</a>&nbsp;&gt;</li>
+                        <li>Fundamentals</li>
                     </ol>
-                    </li>
-                </ol>
-                <ol>
+                </div>
+                <ul class="sub-nav ">
+                    <!-- <li><a href="">Fundamentals</a>
+                    <ol> -->
+                    <li class="sub-nav-current"><a href="#">
+                        <div class="icon-container ">&nbsp;
+                        </div>
+                        <div class="">
+                            <span>Programming Model</span>
+                        </div>
+                    </a></li>
+                    
+                    <li><a href="#">
+                        <div class="icon-container ">&nbsp;
+                        </div>
+                        <div class="">
+                            <span>Data Abstraction</span>
+                        </div>
+                    </a></li>
+                    <li><a href="#">
+                        <div class="icon-container ">&nbsp;
+                        </div>
+                        <div class="">
+                            <span>Bags, Queues, and Stacks</span>
+                        </div>
+                    </a></li>
+                    <!-- </ol>
+                    </li> -->
+                </ul>
+                <!-- <ol>
                     <li><a href="">Sorting</a>
                     <ol>
                     <li><a href="#">Elementary Sorts</a></li>
@@ -113,7 +131,7 @@
                     <li><a href="#">Data Compression</a></li>
                     </ol>
                     </li>
-                </ol>
+                </ol> -->
             </aside>
             <article>
                 <section>

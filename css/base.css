@@ -102,6 +102,22 @@ a:active {
   color: #000;
 }
 
+.a_initial a {
+  color: #0066cc;
+  text-decoration: none;
+}
+.a_initial a:visited {
+  color: revert;
+}
+.a_initial a:hover {
+  color: revert;
+}
+.a_initial a:active {
+  color: revert;
+}
+a.underline {
+  text-decoration: underline;
+}
 /*
  * utilities
  */

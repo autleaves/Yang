@@ -28,6 +28,7 @@
 .header {
     background-color: #fff;
     border-bottom: 1px solid #dedede;
+    margin-bottom: 3em;
 }
 
 @media (min-width:50em) {

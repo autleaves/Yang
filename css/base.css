@@ -73,16 +73,27 @@ main {
 h1, h2, h3, h4 {
   font-family: Poppins, sans-serif;
   letter-spacing: 0.03em;
+  margin:0;
+  padding-top: .3em;
+  padding-bottom: .3em;
 }
-
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 h2 {
   font-size: 1.3rem;
   font-weight: 500;
 }
-
+em {
+  font-weight: 500;
+}
 @media (min-width: 50em) {
+  h1 {
+    font-size: 1.8rem;
+  }
   h2 {
-    font-size: 1.85rem;
+    font-size: 1.5rem;
   }
 }
 /*
@@ -102,6 +113,22 @@ a:active {
   color: #000;
 }
 
+.a_initial a {
+  color: #0066cc;
+  text-decoration: none;
+}
+.a_initial a:visited {
+  color: revert;
+}
+.a_initial a:hover {
+  color: revert;
+}
+.a_initial a:active {
+  color: revert;
+}
+a.underline {
+  text-decoration: underline;
+}
 /*
  * utilities
  */

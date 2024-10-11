@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/lib.css" rel="stylesheet">
+    <link href="../../css/common.css" rel="stylesheet">
+    <link href="../../css/coms/com-nav.css" rel="stylesheet">
+    <link href="../../css/coms/com-search.css" rel="stylesheet">
+    <link href="../../css/coms/com-explore.css" rel="stylesheet">
+    <link href="../../css/header.css" rel="stylesheet">
+    <link href="../../css/footer.css" rel="stylesheet">
+
+    <script src="../../js/search.js" type="text/javascript" defer></script>
+    <script src="../../js/menu.js" type="text/javascript" defer></script>
+    <title>Algorithms</title>
+
+
+</head>
+
+<body class="fundamentals">
+    <header class="header null">
+        <div class="logo null">
+            <a href="../../index.html"><img src="../../images/base/logo2.png"></a>
+        </div>
+        <nav class="-lib--menu null" id="main-menu">
+            <div class="-lib--menu-backdrop"></div>
+            <div class="-lib--menu-body">
+                <button class="-lib--menu-toggle -utils--position-btn" id="toggle-menu">
+                    <i class="-utils--sr-only">toggle menu</i>
+                </button>
+                <div class="-lib--menu-dropdown null">
+                    <ul class="nav-menu">
+                        <li class="nav_fundamentals"><a href="../../pages/fu/fundamentals.html">Fundamentals</a></li>
+                        <li class="nav_sortings"><a href="../../pages/so/sortings.html">Sorting</a></li>
+                        <li class="nav_searching"><a href="../../pages/se/searching.html">Searching</a></li>
+                        <li class="nav_graphs"><a href="../../pages/gr/graphs.html">Graphs</a></li>
+                        <li class="nav_strings"><a href="../../pages/st/strings.html">Strings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="contact-us--icons null">
+            <a href="https://github.com/"><img src="../../images/base/github-mark.png" alt="GitHub"></a>
+            <a href="mailto:@gmail.com"><img src="../../images/base/email-mark.png" alt="Email"></a>
+        </div>
+    </header>
+    <main class="">
+
+        <div class="contents">
+
+            <aside class="">
+                <div class="topicpath null">
+                    <ol>
+                        <li class="topicpath-icon"><span>&nbsp</span></li>
+                        <li><a class="underline" href="index.html">Home</a>&nbsp;&gt;</li>
+                        <li>Fundamentals</li>
+                    </ol>
+                </div>
+                <!-- <div>>>>>>>>>>>>>>>>>>>>>>>>>>>>></div> -->
+                <ul class="sub-nav ">
+                    <!-- <li><a href="">Fundamentals</a>
+                    <ol> -->
+                    <li class="sub-nav-current"><a href="#">
+                            <div class="icon-container ">&nbsp;
+                            </div>
+                            <div class="">
+                                <span>Programming Model</span>
+                            </div>
+                        </a></li>
+
+                    <li><a href="#">
+                            <div class="icon-container ">&nbsp;
+                            </div>
+                            <div class="">
+                                <span>Data Abstraction</span>
+                            </div>
+                        </a></li>
+                    <li><a href="#">
+                            <div class="icon-container ">&nbsp;
+                            </div>
+                            <div class="">
+                                <span>Bags, Queues, and Stacks</span>
+                            </div>
+                        </a></li>
+                    <!-- </ol>
+                    </li> -->
+                </ul>
+            </aside>
+            <article>
+                <section class="section">
+                    <div class="section-container ">
+                        <div class="section-title chapter-title">
+                            <h1>Programming Model</h1>
+                            <span role="button" aria-expanded="true" data-icon-name="ChevronDownMed" class="ChevronDownMed" style="transform: rotate(180deg); transition: transform 0.1s linear; font-size: 16px; font-family: &quot;AMC Icons&quot;; color: rgb(96, 94, 92);"></span>
+                        </div>
+                        <div class="section-content chapter-content">
+                            <p>
+                                Our study of algorithms is based upon implementing them as programs written in the Java
+                                programming language. We do so for several reasons:
+                            </p>
+                            <ul>
+                                <li> Our programs are concise, elegant, and complete descriptions of algorithms.
+                                <li> You can run the programs to study properties of the algorithms.
+                                <li> You can put the algorithms immediately to good use in applications.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">Primitive data types and expressions.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                A <em>data type</em> is a set of values and a set of operations on those values.
+                                The following four primitive data types are the basis of the Java language:
+                            </p>
+                            <ul>
+                                <li><em>Integers</em>, with arithmetic operations (<tt>int</tt>)
+                                <li><em>Real numbers</em>, again with arithmetic operations (<tt>double</tt>)
+                                <li><em>Booleans</em>, the set of values { <em>true</em>, <em>false</em> }
+                                    with logical operations (<tt>boolean</tt>)
+                                <li><em>Characters</em>, the alphanumeric characters and symbols that you type
+                                    (<tt>char</tt>)
+                            </ul>
+                            A Java program manipulates <em>variables</em> that are named with
+                            <em>identifiers</em>. Each variable is associated with a data
+                            type and stores one of the permissible data-type values.
+                            We use <em>expressions</em> to apply the operations associated with each type.
+        
+                            <blockquote>
+                                <IMG SRC="../../images/pages/fu/11model/building-blocks.png" alt="basic building blocks for Java programs">
+                            </blockquote>
+        
+                            The following table summarizes the set of values and most common operations on those
+                            values for Java's <tt>int</tt>, <tt>double</tt>, <tt>boolean</tt>, and <tt>char</tt>
+                            data types.
+        
+                            <blockquote>
+                                <IMG SRC="../../images/pages/fu/11model/primitive.png" alt="primitive data types in Java">
+                            </blockquote>
+                            <ul>
+                                <li><em>Expressions.</em> Typical expressions are <em>infix</em>.
+                                    When an expression contains more than one operator, the
+                                    <em>precedence order</em> specifies the order in which they are
+                                    applied:
+                                    The operators <tt>*</tt> and <tt>/</tt> (and <tt>%</tt>)
+                                    have higher precedence than (are applied before)
+                                    the <tt>+</tt> and <tt>-</tt> operators; among logical operators, <tt>!</tt>
+                                    is the highest precedence, followed by <tt>&&</tt> and and then <tt>||</tt>.
+                                    Generally, operators of the same precedence are
+                                    <em>left associative</em> (applied left to right).
+                                    You can use parentheses to override these rules.
+    
+                                <li><em>Type conversion.</em>
+                                    Numbers are automatically promoted to a more inclusive type if no
+                                    information is lost.For example, in the expression <tt>1 + 2.5</tt>,
+                                    the <tt>1</tt> is promoted to the <tt>double</tt> value <tt>1.0</tt> and
+                                    the expression evaluates to the <tt>double</tt> value <t>3.5</tt>.
+                                        A <em>cast</em> is a directive to convert a value of one type into a value of
+                                        another
+                                        type. For example <tt>(int) 3.7</tt> is <tt>3</tt>.
+                                        Casting a <tt>double</tt> to an <tt>int</tt> truncates toward zero.
+    
+                                <li><em>Comparisons.</em>
+                                    The following <em>mixed-type</em> operators compare two values of the same
+                                    type and produce a <tt>boolean</tt> value:
+                                    <ul>
+                                        <li><em>equal</em> (<tt>==</tt>)
+                                        <li><em>not equal</em> (<tt>!=</tt>)
+                                        <li><em>less than</em> (<tt>&lt;</tt>)
+                                        <li><em>less than or equal</em> (<tt>&lt;=</tt>)
+                                        <li><em>greater than</em> (<tt>&gt;</tt>)
+                                        <li><em>greater than or equal</em> (<tt>&gt;=</tt>)
+                                    </ul>
+                                <li><em>Other primitive types.</em>
+                                    Java's <tt>int</tt> has a 32-bit representation; Java's <tt>double</tt> type
+                                    has a 64-bit representation.
+                                    Java has five additional primitive data types:
+                                    <ul>
+                                        <li>64-bit integers, with arithmetic operations (<tt>long</tt>)
+                                        <li>16-bit integers, with arithmetic operations (<tt>short</tt>)
+                                        <li>16-bit characters, with arithmetic operations (<tt>char</tt>)
+                                        <li>8-bit integers, with arithmetic operations (<tt>byte</tt>)
+                                        <li>32-bit single-precision real numbers, with arithmetic operations(<tt>float</tt>)
+                                    </ul>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">Statements.</h2>
+                        </div>
+                        <div class="section-content">
+                            A Java program is composed of <em>statements</em>,
+                            which define the computation by creating and manipulating variables,
+                            assigning data-type values to them,
+                            and controlling the flow of execution of such operations.
+
+
+                    <ul>
+                        <p>
+                            <li><em>Declarations</em>
+                                create variables of a specified type and name them with identifiers.
+                                Java is a <em>strongly typed</em> language because the Java compiler
+                                checks for consistency.
+                                The <em>scope</em> of a variable is the part of the program where it is
+                                defined.
+
+                                <p>
+                            <li><em>Assignments</em>
+                                associate a data-type value (defined by an expression) with a variable.
+
+                                <p>
+                            <li><em>Initializing declarations</em>
+                                combine a declaration with an assignment to initialize a variable at the same
+                                time it is declared.
+
+                                <p>
+                            <li><em>Implicit assignments.</em>
+                                The following shortcuts are available when our purpose is to modify a variable's value
+                                relative to the current value:
+                                <ul>
+
+                                    <p>
+                                        <li>Increment/decrement operators: the code <tt>i++</tt> is shorthand for <tt>i
+                                                = i + 1</tt>.
+                                            The code <tt>++i</tt> is the same except that the expression value is taken
+                                            <em>after</em>
+                                            the increment/decrement, not before.
+
+                                            <p>
+                                        <li>Other compound operators: the code <tt> i /= 2</tt> is shorthand for
+                                            <tt>i = i/2</tt>.
+                                </ul>
+
+                                <p>
+                            <li><em>Conditionals</em>
+                                provide for a simple change in the flow of execution&mdash;execute the
+                                statements in one of two blocks, depending on a specified condition.
+
+                                <p>
+                            <li><em>Loops</em>
+                                provide for a more profound change in the flow of execution&mdash;execute
+                                the statements in a block as long as a given condition is true.
+                                We refer to the statements in the block in a loop as the <em>body</em> of the loop.
+
+                                <p>
+                            <li><em>Break and continue.</em>
+                                Java supports two additional statements for use within while loops:
+                                <ul>
+                                    <p>
+                                        <li>The <code class="highlight">break</code> statement, which immediately exits
+                                            the loop
+                                            <p>
+                                        <li>The <code class="highlight">continue</code> statement, which immediately
+                                            begins the next iteration of the
+                                            loop
+                                </ul>
+
+                                <p>
+                            <li><em>For notation.</em>
+                                Many loops follow this scheme: initialize an index variable to some value and then use a
+                                <code class="highlight">while</code> loop to test a loop continuation condition
+                                involving the index variable,
+                                where the last statement in the <code class="highlight">while</code> loop increments the
+                                index variable.
+                                You can express such loops compactly with Java's <code class="highlight">for</code>
+                                notation.
+
+                                <p>
+                            <li><em>Single-statement blocks.</em>
+                                If a block of statements in a conditional or a loop has only a single statement, the
+                                curly
+                                braces may be omitted.
+
+
+                    </ul>
+
+                    <p>
+                        <br>
+                        The following table illustrates different kinds of Java statements.
+
+                    <p>
+
+                    <blockquote>
+                        <IMG SRC="../../images/pages/fu/11model/statements.png" alt="Java statements">
+                    </blockquote>
+                </section>
+
+                    <h2>Arrays.</h2>
+                    An <em>array</em> stores a sequence of values that are all of the same type.
+                    If we have <tt>N</tt> values, we can use the notation <tt>a[i]</tt> to refer
+                    to the <tt>i</tt>th value for any value of <tt>i</tt> from <tt>0</tt> to
+                    <tt>N-1</tt>.
+
+                    <ul>
+                        <p>
+                            <li><em>Creating and initializing an array.</em>
+                                Making an array in a Java program involves three distinct steps:
+                                <ul>
+                                    <p>
+                                        <li> Declare the array name and type.
+                                            <p>
+                                        <li> Create the array.
+                                            <p>
+                                        <li> Initialize the array values.
+                                </ul>
+
+                                <p>
+                            <li><em>Default array initialization.</em>
+                                For economy in code, we often take advantage of Java's
+                                default array initialization convention
+                                and combine all three steps into a single statement.
+                                The default initial value is zero for numeric types and <tt>false</tt>
+                                for type <tt>boolean</tt>.
+
+                                <p>
+                            <li><em>Initializing declaration.</em>
+                                We can specify the initialization values at compile time,
+                                by listing literal values between curly braces, separated by commas.
+
+                                <p>
+                                <blockquote>
+                                    <IMG SRC="../../images/pages/fu/11model/array.png" alt="declaring, creating, and initializing an array">
+                                </blockquote>
+
+                                <p>
+                            <li><em>Using an array.</em>
+                                Once we create an array, its size is fixed.
+                                A program can refer to the length of an array <tt>a[]</tt> with the code
+                                <tt>a.length</tt>.
+                                Java does <em>automatic bounds checking</em>&mdash;if you access an array with
+                                an illegal index your program will terminate with an
+                                <a
+                                    href="http://download.oracle.com/javase/6/docs/api/java/lang/ArrayIndexOutOfBoundsException.html">ArrayIndexOutOfBoundsException</a>.
+
+
+                                <p>
+                            <li><em>Aliasing.</em>
+                                An array name refers to the whole array&mdash;if we assign one array name to another,
+                                then both refer to the same array, as illustrated in the following code fragment.
+                                <blockquote>
+                                    <table>
+                                        <TR>
+                                            <TD>
+                                                <pre>
+                    int[] a = new int[N];
+                    ...
+                    a[i] = 1234;
+                    ...
+                    int[] b = a;
+                    ...
+                    b[i] = 5678;   // a[i] is now 5678.
+                    </pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </blockquote>
+                                This situation is known as <em>aliasing</em> and can lead to subtle bugs.
+
+
+                                <p>
+                            <li><em>Two-dimensional arrays.</em>
+                                A two-dimensional array in Java is an array of one-dimensional arrays.
+                                A two-dimensional array may be <em>ragged</em>
+                                (its arrays may all be of differing lengths), but we most often work with
+                                (for appropriate parameters M and N) M-by-N two-dimensional arrays.
+                                To refer to the entry in row <tt>i</tt> and column <tt>j</tt>
+                                of a two-dimensional array <tt>a[][]</tt>, we use the notation
+                                <tt>a[i][j]</tt>.
+
+                    </ul>
+
+
+
+                    <p>
+                    <h2>Static methods.</h2>
+                    Static methods are called <em>functions</em>
+                    in many programming languages, since they can behave like
+                    mathematical functions.
+                    Each static method is a sequence of statements that are executed,
+                    one after the other, when the static method is <em>called</em>.
+
+
+                    <ul>
+                        <p>
+                            <li><em>Defining a static method.</em>
+                                A <em>method</em> encapsulates a computation that is defined as a
+                                sequence of statements.
+                                A method takes <em>arguments</em>
+                                (values of given data types) and computes a <em>return value</em>
+                                of some data type or causes a <em>side effect</em>.
+                                Each static method is composed of a <em>signature</em>
+                                and a <em>body</em>.
+
+
+                                <p>
+                                <blockquote>
+                                    <IMG SRC="../../images/pages/fu/11model/static-method.png" alt="anatomy of a static method">
+                                </blockquote>
+
+                                <p>
+                            <li><em>Invoking a static method.</em>
+                                A call on a static method is its name followed by
+                                expressions that specify argument values in parentheses, separated by commas.
+                                When a method is called, its argument variables are initialized
+                                with the values of the corresponding expressions in the call.
+                                A <tt>return</tt> statement terminates a static method, returning control to the caller.
+                                If the static method is to compute a value,
+                                that value must be specified in a <tt>return</tt> statement.
+
+
+
+                                <p>
+                            <li><em>Properties of methods.</em>
+                                Java methods have the following features:
+
+
+                                <ul>
+
+                                    <p>
+                                        <li><em>Arguments are passed by value.</em>
+                                            When calling a function, the argument value is fully evaluated and the
+                                            resulting value is <em>copied</em> into argument variable.
+                                            This is known as <em>pass by value</em>. Array (and other object) references
+                                            are also passed by value: the method cannot change the reference, but it
+                                            can change the entries in the array (or value of the object).
+
+
+                                            <p>
+                                        <li><em>Method names can be overloaded.</em>
+                                            Methods within a class can have the same name, provided they have different
+                                            signatures. This features is known as <em>overloading</em>.
+
+                                            <p>
+                                        <li><em>A method has a single return value but may have multiple return
+                                                statements.</em>
+                                            A Java method can provide only one return value.
+                                            Control goes back to the calling program as soon as the
+                                            first <tt>return</tt> statement is reached.
+
+                                            <p>
+                                        <li><em>A method can have side effects.</em>
+                                            A method may use the keyword <tt>void</tt> as its return type,
+                                            to indicate that it has no return value and produces side effects
+                                            (consume input, produce output, change entries in an array,
+                                            or otherwise change the state of the system).
+
+
+                                </ul>
+
+                                <p>
+                            <li><em>Recursion.</em>
+                                A <em>recursive</em> method is a method that calls itself either directly or indirectly.
+                                There are three important rules of thumb in developing recursive programs:
+                                <ul>
+                                    <p>
+                                        <li> The recursion has a <em>base case</em>.
+                                            <p>
+                                        <li> Recursive calls must address subproblems that are <em>smaller</em>
+                                            in some sense, so that recursive calls converge to the base case.
+                                            <p>
+                                        <li> Recursive calls should not address subproblems that <em>overlap</em>.
+                                </ul>
+
+                                <p>
+                            <li><em>Basic programming model.</em>
+                                A <em>library of static methods</em> is a set of static methods that
+                                are defined in a Java class.
+                                A basic model for Java programming is to develop a program that
+                                addresses a specific computational task by creating a library of static methods,
+                                one of which is named <tt>main()</tt>.
+
+                                <p>
+                            <li><em>Modular programming.</em>
+                                Libraries of static methods enable <em>modular programming</em>,
+                                where static methods in one library can call static methods defined in
+                                other libraries.
+                                This approach has many important advantages.
+
+                                <ul>
+                                    <p>
+                                        <li> Work with modules of reasonable size
+                                            <p>
+                                        <li> Share and reuse code without having to reimplement it
+                                            <p>
+                                        <li> Substitute improved implementations
+                                            <p>
+                                        <li> Develop appropriate abstract models for addressing programming problems
+                                            <p>
+                                        <li> Localize debugging
+                                </ul>
+
+
+                                <p>
+                            <li><em>Unit testing.</em>
+                                A best practice in Java programming is to include a <tt>main()</tt>
+                                in every library of static methods that tests the methods in the library.
+
+
+                                <p>
+                            <li><em>External libraries.</em>
+                                We use static methods from three different kinds of libraries,
+                                each requiring (slightly) differing procedures for code reuse.
+                                <ul>
+                                    <p>
+                                        <li> Standard system libraries in <tt>java.lang</tt>,
+                                            including <tt>java.lang.Math</tt>, <tt>java.lang.Integer</tt>, and
+                                            <tt>java.lang.Double</tt>. This libraries are always available in Java.
+
+                                            <p>
+                                        <li> Imported system libraries such as <tt>java.util.Arrays</tt>.
+                                            An <tt>import</tt> statement at the beginning of the program is
+                                            needed to use such libraries.
+
+                                            <p>
+                                        <li> Libraries in this book.
+                                            Follow <a href="../code">these instructions</a> for adding
+                                            <a href="../code/algs4.jar">algs4.jar</a> to your Java classpath.
+
+                                </ul>
+
+                                <p>
+                                    To invoke a method from another library, we prepend the
+                                    library name to the method name for each call:
+                                    <tt>Math.sqrt()</tt>, <tt>Arrays.sort()</tt>,
+                                    <tt>BinarySearch.rank()</tt>, and <tt>StdIn.readInt()</tt>.
+
+                    </ul>
+
+
+                    <p><br><br><br>
+                        <hr>
+                    <p><br><br><br>
+
+
+
+
+
+                    <p>
+                    <h2>APIs.</h2>
+
+                    <ul>
+                        <p>
+                            <li><em>Java libraries.</em>
+
+                                <p>
+                            <li><em>Our standard libraries.</em>
+
+                                <p>
+                            <li><em>Your own libraries.</em>
+
+                    </ul>
+
+                    <p>
+                    <h2>Strings.</h2>
+
+                    <p>
+                    <blockquote>
+                        <IMG SRC="../../images/pages/fu/11model/string.png" alt="Java's string data type">
+                    </blockquote>
+
+                    <ul>
+                        <p>
+                            <li><em>Concatenation.</em>
+
+                                <p>
+                            <li><em>Conversion.</em>
+
+                                <p>
+                            <li><em>Automatic conversion.</em>
+
+                                <p>
+                            <li><em>Command-line arguments.</em>
+                    </ul>
+
+
+                    <p>
+                    <h2>Input and output.</h2>
+
+                    <ul>
+                        <p>
+                            <li><em>Commands and arguments.</em>
+
+                                <p>
+                                <blockquote>
+                                    <IMG SRC="../../images/pages/fu/11model/command.png" alt="anatomy of a command">
+                                </blockquote>
+
+
+                                <p>
+                            <li><em>Standard output.</em>
+
+                                <p>
+                            <li><em>Formatted output.</em>
+
+                                <p>
+                                <blockquote>
+                                    <IMG SRC="../../images/pages/fu/11model/printf.png" alt="printf formatting conventions">
+                                </blockquote>
+
+                                <p>
+                            <li><em>Standard input.</em>
+
+                                <p>
+                            <li><em>Redirection and piping.</em>
+
+                                <p>
+                                <blockquote>
+                                    <IMG SRC="../../images/pages/fu/11model/redirect.png" alt="redirection and piping from the command line">
+                                </blockquote>
+
+                                <p>
+                            <li><em>Input and output from a file.</em>
+
+                                <p>
+                            <li><em>Standard drawing.</em>
+
+                    </ul>
+
+
+
+
+
+
+                    <p>
+                    <h2>Binary search.</h2>
+                    Below is a complete Java program
+                    <a href="BinarySearch.java.html">BinarySearch.java</a>
+                    that illustrates many of the
+                    basic features of our programming model. It implement a classic
+                    algorithm known as <em>binary search</em> and tests it for an
+                    application known as <em>allowlist filtering</em>.
+
+                    <p>
+                        <center>
+                            <IMG SRC="../../images/pages/fu/11model/binary-search-anatomy.png" alt="anatomy of binary search">
+                        </center>
+
+                        The static method <tt>rank()</tt> takes an integer key and a <em>sorted</em>
+                        array of <tt>int</tt> values as arguments and returns the index of the key
+                        if it is present in the array, -1 otherwise.
+                        It accomplishes this task by maintaining variables <tt>lo</tt>
+                        and <tt>hi</tt> such that the key is in <tt>a[lo..hi]</tt>
+                        if it is in the array, then entering into a loop that tests the
+                        middle entry in the interval (at index <tt>mid</tt>).
+                        If the key is equal to <tt>a[mid]</tt>, the return value is <tt>mid</tt>;
+                        otherwise the method cuts the interval size about in half,
+                        looking at the left half if the key is less than <tt>a[mid]</tt>
+                        and at the right half if the key is greater than <tt>a[mid]</tt>.
+                        The process terminates when the key is found or the interval is empty.
+
+                    <p>
+                        <center>
+                            <IMG SRC="../../images/pages/fu/11model/binary-search.png" alt="binary search in an ordered array">
+                        </center>
+
+                    <ul>
+                        <p>
+                            <li><em>Development client.</em>
+
+                                <p>
+                            <li><em>Allowlisting.</em>
+                                For testing, we use the sample files
+                                <a href="tinyAllowlist.txt">tinyAllowlist.txt</a>,
+                                <a href="tinyText.txt">tinyText.txt</a>,
+                                <a href="largeAllowlist.txt">largeAllowlist.txt</a>, and
+                                <a href="largeText.txt">largeText.txt</a>.
+
+                                <p>
+                            <li><em>Performance.</em>
+
+                    </ul>
+
+                    <!--
+                    <p><em>Correctness / program verification.</em>
+                    In the early 1970s, Dijkstra championed the approach
+                    of developing a program
+                    along with a proof of correctness.
+                    Deceptively simple program and surprisingly hard to
+                    implement correctly.
+                    Bentley: asked professional programmers to code up the
+                    description of binary search in their favorite language.
+                    After a couple hours, most programmers believed they
+                    had written correct code. After 30 minutes of analysis
+                    and review, 90% had bugs.
+                    Knuth 6.2.1: first binary search algorithm was published in 1946,
+                    but first published binary search without bugs did not
+                    appear until 1962.
+                    -->
+
+
+
+
+
+
+                    <p><br><br><br>
+                        <hr>
+                    <p><br><br><br>
+
+
+                    <p><br>
+                    <p>
+                    <h2>Input and output libraries.</h2>
+                    Here is a list of the input and output libraries that we use throughout
+                    the textbook and beyond.
+
+                    <p><br>
+
+                    <blockquote>
+                        <table cellspacing="1" cellpadding="4" border="0" bgcolor="#ffffff">
+
+                            <tr align=center>
+                                <th align=center width=180><b>PROGRAM</B></th>
+                                <th align=center width=325><b>DESCRIPTION / JAVADOC</B></th>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="read numbers and text from standard input"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdIn.java.html">StdIn.java</a>
+                                </td>
+                                <td><a title="read numbers and text from standard input"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdIn.html">read
+                                        numbers and text from standard input</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="write numbers and text to standard output"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdOut.java.html">StdOut.java</a>
+                                </td>
+                                <td><a title="write numbers and text to standard output"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdOut.html">write
+                                        numbers and text to standard output</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="draw geometric shapes in a window"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdDraw.java.html">StdDraw.java</a>
+                                </td>
+                                <td><a title="draw geometric shapes in a window"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdDraw.html">draw
+                                        geometric shapes in a window</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="create, play, and manipulate sound"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdAudio.java.html">StdAudio.java</a>
+                                </td>
+                                <td><a title="create, play, and manipulate sound"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdAudio.html">create,
+                                        play, and manipulate sound</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="generate random numbers"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdRandom.java.html">StdRandom.java</a>
+                                </td>
+                                <td><a title="generate random numbers"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdRandom.html">generate
+                                        random numbers</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="compute statistics"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdStats.java.html">StdStats.java</a>
+                                </td>
+                                <td><a title="compute statistics"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdStats.html">compute
+                                        statistics</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="read and write 1D and 2D arrays"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdArrayIO.java.html">StdArrayIO.java</a>
+                                </td>
+                                <td><a title="read and write 1D and 2D arrays"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdArrayIO.html">read
+                                        and write 1D and 2D arrays</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="read numbers and text from files and URLs"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/In.java.html">In.java</a>
+                                </td>
+                                <td><a title="read numbers and text from files and URLs"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/In.html">read
+                                        numbers and text from files and URLs</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="write numbers and text to files"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Out.java.html">Out.java</a>
+                                </td>
+                                <td><a title="write numbers and text to files"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/Out.html">write
+                                        numbers and text to files</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="draw geometric shapes"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Draw.java.html">Draw.java</a>
+                                </td>
+                                <td><a title="draw geometric shapes"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/Draw.html">draw
+                                        geometric shapes</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="support keyboard and mouse events in Draw"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/DrawListener.java.html">DrawListener.java</a>
+                                </td>
+                                <td><a title="support keyboard and mouse events in Draw"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/DrawListener.html">support
+                                        keyboard and mouse events in Draw</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="process digital images"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Picture.java.html">Picture.java</a>
+                                </td>
+                                <td><a title="process digital images"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/Picture.html">process
+                                        digital images</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="measure running time"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Stopwatch.java.html">Stopwatch.java</a>
+                                </td>
+                                <td><a title="measure running time"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/Stopwatch.html">measure
+                                        running time</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="read bits from standard input"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BinaryStdIn.java.html">BinaryStdIn.java</a>
+                                </td>
+                                <td><a title="read bits from standard input"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/BinaryStdIn.html">read
+                                        bits from standard input</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="write bits to standard output"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BinaryStdOut.java.html">BinaryStdOut.java</a>
+                                </td>
+                                <td><a title="write bits to standard output"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/BinaryStdOut.html">write
+                                        bits to standard output</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="read bits from files and URLs"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BinaryIn.java.html">BinaryIn.java</a>
+                                </td>
+                                <td><a title="read bits from files and URLs"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/BinaryIn.html">read
+                                        bits from files and URLs</a></td>
+                            </tr>
+
+                            <tr align=center bgcolor="#ebebeb">
+                                <td><a title="write bits to files"
+                                        href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BinaryOut.java.html">BinaryOut.java</a>
+                                </td>
+                                <td><a title="write bits to files"
+                                        href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/BinaryOut.html">write
+                                        bits to files</a></td>
+                            </tr>
+
+
+                        </table>
+
+                    </blockquote>
+
+
+                    <p><br>
+                        We briefly describe the input and output libraries and include a sample client.
+
+
+                    <p><br>
+                    <h2>Standard input and standard output.</h2>
+                    <a href="StdIn.java.html">StdIn.java</a> and
+                    <a href="StdOut.java.html">StdOut.java</a> are libraries
+                    for reading in numbers and text from standard input and printing out
+                    numbers and text to standard output.
+                    Our versions have a simpler interface than the corresponding Java ones
+                    (and provide a few technical improvements).
+                    <a href="RandomSeq.java.html">RandomSeq.java</a> generates random numbers
+                    in a given range.
+                    <a href="Average.java.html">Average.java</a> reads in
+                    a sequence of real numbers from standard input and prints their
+                    average on standard output.
+
+                    <blockquote>
+                        <table>
+                            <TR>
+                                <TD>
+                                    <pre>
+                    % java Average
+                    10.0 5.0 6.0 3.0 7.0 32.0
+                    3.14 6.67 17.71
+                    &lt;Ctrl-d&gt;
+                    Average is 10.05777777777778
+                    </pre>
+                                </td>
+                            </tr>
+                        </table>
+                    </blockquote>
+
+                    <a href="In.java.html">In.java</a> and
+                    <a href="Out.java.html">Out.java</a> are object-oriented
+                    versions that support multiple input and output streams,
+                    including reading from a file or URL and writing to a file.
+
+
+                    <p><br>
+                    <h2>Standard drawing.</h2>
+                    <a href="StdDraw.java.html">StdDraw.java</a> is an easy-to-use library
+                    for drawing geometric shapes, such as points, lines, and circles.
+                    <a href="RightTriangle.java.html">RightTriangle.java</a>
+                    draws a right triangle and a circumscribing circle.
+
+                    <p>
+                        <br>
+                        <a href="Draw.java.html">Draw.java</a> is an object-oriented
+                        versions that support drawing in multiple windows.
+
+                    <p><br>
+                    <h2>Standard audio.</h2>
+                    <a href="StdAudio.java.html">StdAudio.java</a> is an easy-to-use library
+                    for synthesizing sound.
+                    <a href="Tone.java.html">Tone.java</a> reads in a frequency
+                    and duration from the command line, and it sonifies a sine wave of the
+                    given frequency for the given duration.
+
+                    <blockquote>
+                        <table>
+                            <TR>
+                                <TD>
+                                    <pre>
+                    % java Tone 440.0 3.0
+                    <embed src="A.wav" loop="false" autoplay="false" width="140" height="40"></embed>
+                    </pre>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </blockquote>
+
+                    <p><br>
+                    <h2>Image processing.</h2>
+                    <a href="Picture.java.html">Picture.java</a> is an easy-to-use library
+                    for image processing.
+                    <a href="Scale.java.html">Scale.java</a> takes
+                    the name of a picture file and two integers (width w and height h)
+                    as command-line arguments and scales the image to w-by-h.
+
+                    <p>
+                        <center>
+                            <TABLE BORDER=0 CELLPADDING=2 CELLSPACING=0 width=450>
+                                <tr>
+                                    <td>
+                                        <TABLE width="355" border="0">
+                                            <TD align=left><b><tt>% java Scale mandrill.jpg 298 298</tt></b></TD>
+                                        </TABLE>
+                                        <IMG SRC="mandrill.jpg" alt="298-by-298">
+
+                                    <td>
+                                        <TABLE width="280" border="0">
+                                            <TD align=left><b><tt>% java Scale mandrill.jpg 200 200</tt></b></TD>
+                                        </TABLE>
+                                        <IMG SRC="mandrill200x200.jpg" alt="200-by-400">
+
+                                    <td>
+                                        <TABLE width="270" border="0">
+                                            <TD align=left><b><tt>% java Scale mandrill.jpg 200 400</tt></b></TD>
+                                        </TABLE>
+                                        <IMG SRC="mandrill200x400.jpg" alt="200-by-400">
+
+                                </tr>
+
+                                </tr>
+                            </table>
+                        </center>
+
+
+                    <p><br>
+
+
+                    <h4>Q + A</h4>
+
+
+                    <p><b>Q.</b>
+                        How important is it to use a good shuffling algorithm?
+                    <p><b>A.</b>
+                        <!-- How We Learned to Cheat at Online Poker: A Study in Software Security  -->
+                        Here's an <a
+                            href="http://www.datamation.com/entdev/article.php/616221/How-We-Learned-to-Cheat-at-Online-Poker-A-Study-in-Software-Security.htm">
+                            amusing anecdote</a> of what happens when you don't do it
+                        correctly (and your business is online poker!).
+                        If you're running an online casino, here's the recommended
+                        approach for shuffling a deck of cards: (i) get a cryptographically
+                        secure pseudo-random number generator, (ii) assign a random 64-bit
+                        number to each card, (iii) sort the cards according to their
+                        number.
+
+
+                    <h4>Creative Problems</h4>
+
+                    <ol>
+
+                        <p>
+                            <li value=27><b>Binomial distribution.</b>
+                                Estimate the number of recursive calls that would be used by
+                                the method call <tt>binomial1(100, 50, .25)</tt>
+                                in <a href="Binomial.java.html">Binomial.java</a>.
+                                Develop a better
+                                implementation that is based on saving computed values in an array.
+
+                    </ol>
+
+
+                    <h4>Web Exercises</h4>
+
+                    <ol>
+
+                        <p>
+                            <li><b>Sattolo's algorithm.</b>
+                                Write a program <a href="Sattolo.java.html">Sattolo.java</a>
+                                that generates a unifomly distributed
+                                cycle of length N using <a
+                                    href="http://en.wikipedia.org/wiki/Fisher–Yates_shuffle#Sattolo.27s_algorithm">Sattolo's
+                                    algorithm</a>.
+
+
+                                <p>
+                            <li><b>Wget.</b>
+                                Write a program
+                                <a href="Wget.java.html">Wget.java</a> that reads in
+                                data from the URL specified on the command line and saves it
+                                in a file with the same name.
+
+                                <blockquote>
+                                    <table>
+                                        <TR>
+                                            <TD>
+                                                <pre>
+                    % java Wget http://introcs.cs.princeton.edu/data/codes.csv
+                    % more codes.csv
+                    United States,USA,00
+                    Alabama,AL,01
+                    Alaska,AK,02
+                    ...
+                    </pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </blockquote>
+
+                                <p>
+                            <li><b>Right triangle.</b>
+                                Write a client
+                                <a href="RightTriangle.java.html">RightTriangle.java</a>
+                                that draws a right triangle and a circumscribing circle.
+
+                                <p>
+                                <blockquote>
+                                    <tt>&nbsp; % java RightTriangle</tt><br>
+                                    <IMG SRC="right-triangle.png" alt="right triangle and circumscribing circle">
+                                </blockquote>
+
+                                <p>
+                            <li><b>Bouncing ball.</b>
+                                Write a program
+                                <a href="BouncingBall.java.html">BouncingBall.java</a>
+                                that illustrates the motion of a bouncing ball.
+
+                                <p>
+                                <blockquote>
+                                    <video controls="controls" width="500" name="bouncing ball"
+                                        poster="BouncingBall.jpg" src="BouncingBall.mov">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </blockquote>
+
+                    </ol>
+
+            </article>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner">
+            <small>Copyright &copy; 2024 Yeung, Inc.</small>
+        </div>
+    </footer>
+</body>
+
+</html>

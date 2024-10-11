@@ -92,6 +92,13 @@ ul.sub-nav li  div + div {
 	padding: 0 2em;
 	margin-right: 3em;
 }
+.section-container > .section-title {
+	/* background-color: #d4e2f1; */
+	margin: 0 -2em;
+	border-bottom: 1px solid #dedede;
+	border-radius: inherit inherit 0 0; 
+	text-indent: 2em;
+}
 .section-container > p {
 	text-indent: 2em;
 }
@@ -114,4 +121,11 @@ table.sourcecode-list th {
 }
 table.sourcecode-list tr:nth-child(odd) {
 	background-color: #f2f2f2;
+}
+
+h2.section-title {
+	background-color: #0066cc;
+}
+.chapter-title h1 {
+	text-align: center;
 }

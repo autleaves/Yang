@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/lib.css" rel="stylesheet">
+    <link href="../../css/common.css" rel="stylesheet">
+    <link href="../../css/coms/com-nav.css" rel="stylesheet">
+    <link href="../../css/coms/com-search.css" rel="stylesheet">
+    <link href="../../css/coms/com-explore.css" rel="stylesheet">
+    <link href="../../css/header.css" rel="stylesheet">
+    <link href="../../css/footer.css" rel="stylesheet">
+
+    <script src="../../js/search.js" type="text/javascript" defer></script>
+    <script src="../../js/menu.js" type="text/javascript" defer></script>
+    <title>Algorithms</title>
+
+
+</head>
+
+<body class="fundamentals">
+    <header class="header null">
+        <div class="logo null">
+            <a href="../../index.html"><img src="../../images/base/logo2.png"></a>
+        </div>
+        <nav class="-lib--menu null" id="main-menu">
+            <div class="-lib--menu-backdrop"></div>
+            <div class="-lib--menu-body">
+                <button class="-lib--menu-toggle -utils--position-btn" id="toggle-menu">
+                    <i class="-utils--sr-only">toggle menu</i>
+                </button>
+                <div class="-lib--menu-dropdown null">
+                    <ul class="nav-menu">
+                        <li class="nav_fundamentals"><a href="../../pages/fu/fundamentals.html">Fundamentals</a></li>
+                        <li class="nav_sorting"><a href="../../pages/so/sorting.html">Sorting</a></li>
+                        <li class="nav_searching"><a href="../../pages/se/searching.html">Searching</a></li>
+                        <li class="nav_graphs"><a href="../../pages/gr/graphs.html">Graphs</a></li>
+                        <li class="nav_strings"><a href="../../pages/st/strings.html">Strings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="contact-us--icons null">
+            <a href="https://github.com/"><img src="../../images/base/github-mark.png" alt="GitHub"></a>
+            <a href="mailto:@gmail.com"><img src="../../images/base/email-mark.png" alt="Email"></a>
+        </div>
+    </header>
+    <main class="">
+        <div class="contents">
+            <aside class="">
+                <div class="topicpath null">
+                    <ol>
+                        <li class="topicpath-icon"><span>&nbsp</span></li>
+                        <li><a class="underline" href="../../index.html">Home</a>&nbsp;&gt;</li>
+                        <li><a class="underline" href="./fundamentals.html">Fundamentals</a>&nbsp;&gt;</li>
+                        <!-- <li>Bags, Queues, and Stacks</li> -->
+                    </ol>
+                </div>
+                <!-- <div>>>>>>>>>>>>>>>>>>>>>>>>>>>>></div> -->
+                <ul class="sub-nav ">
+                    <!-- <li><a href="">Fundamentals</a>
+                    <ol> -->
+                    <li><a href="./Programming Model.html">
+                        <div class="icon-container ">&nbsp;
+                        </div>
+                        <div class="">
+                            <span>Programming Model</span>
+                        </div>
+                        </a></li>
+                    <li><a href="./Data Abstraction.html">
+                            <div class="icon-container ">&nbsp;
+                            </div>
+                            <div class="">
+                                <span>Data Abstraction</span>
+                            </div>
+                        </a></li>
+                    <li class="sub-nav-current"><a href="./Bags, Queues, and Stacks.html">
+                            <div class="icon-container ">&nbsp;
+                            </div>
+                            <div class="">
+                                <span>Bags, Queues, and Stacks</span>
+                            </div>
+                        </a></li>
+                    <!-- </ol>
+                    </li> -->
+                </ul>
+            </aside>
+            <article>
+                <section class="section">
+                    <div class="section-container ">
+                        <div class="section-title chapter-title">
+                            <h1>Bags, Queues, and Stacks</h1>
+                            <span role="button" aria-expanded="true" data-icon-name="ChevronDownMed" class="ChevronDownMed" style="transform: rotate(180deg); transition: transform 0.1s linear; font-size: 16px; font-family: &quot;AMC Icons&quot;; color: rgb(96, 94, 92);"></span>
+                        </div>
+                        <div class="section-content chapter-content">
+                            <p>
+                                Several fundamental data types involve collections of objects.
+                                Specifically, the set of values is a collection of objects,
+                                and the operations revolve around adding, removing, or examining 
+                                objects in the collection. In this section,
+                                we consider three such data types, known as the bag, the queue,
+                                and the stack. They differ in the specification of which object is to be 
+                                removed or examined next.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;APIs.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We define the APIs for bags, queues, and stacks. Beyond the basics, these APIs reflect two Java features: generics and iterable collections.
+                            </p>
+                                <IMG SRC="../../images/pages/fu/13stacks/collection-apis.png" alt = "APIs for bag, queue, and stack">
+                            </p>    
+                            <ul>
+                                <li><em>Generics.</em>
+                                An essential characteristic of collection ADTs is that we should
+                                be able to use them for any type of data.
+                                A specific Java mechanism known as <em>generics</em> enables this capability.
+                                The notation  <code>&lt;Item&gt;</code> after the class name in each of
+                                our APIs defines the name <code>Item</code> as a <em>type parameter</em>, a 
+                                symbolic placeholder for some concrete type to be used by the client.
+                                You can read <code>Stack&lt;Item&gt;</code> as "stack of items." For example, you can write
+                                code such as
+                                <blockquote>
+                                    <table>
+                                    <TR><TD><pre>
+                                    Stack&lt;String&gt; stack = new Stack&lt;String&gt;();
+                                    stack.push("Test");
+                                    ...
+                                    String next = stack.pop(); 
+                                    </pre></td></tr>
+                                    </table>
+                                </blockquote>
+                                to use a stack for <code>String</code> objects.
+                                
+                                <li><em>Autoboxing.</em>
+                                    Type parameters have to be instantiated as reference types, so Java automatically
+                                    converts between a primitive type and its corresponding wrapper type in
+                                    assignments, method arguments, and arithmetic/logic expressions.
+                                    This conversion enables us to use generics with primitive types, as
+                                    in the following code:
+                                
+                                    <blockquote>
+                                        <table>
+                                        <TR><TD><pre>
+                                        Stack&lt;Integer&gt; stack = new Stack&lt;Integer&gt;();
+                                        stack.push(17);        // autoboxing (int -> Integer)
+                                        int i = stack.pop();   // unboxing   (Integer -> int)
+                                        </pre></td></tr>
+                                        </table>
+                                    </blockquote>
+                                        Automatically casting a primitive type to a wrapper type is known as <em>autoboxing</em>,
+                                        and automatically casting a wrapper type to a primitive type is known as 
+                                        <em>unboxing</em>.
+                                        <p><li><em>Iterable collections.</em>
+                                        For many applications, the client's requirement is just to process each 
+                                        of the items in some way, or to <em>iterate</em> through the items in the collection.
+                                        Java's <em>foreach</em> statement supports this paradigm.
+                                        For example, suppose that <code>collection</code> is a <code>Queue&lt;Transaction&gt;</code>.
+                                        Then, if the collection is iterable, the client can print a transaction list with
+                                        a single statement:
+                                    <blockquote>
+                                        <table>
+                                            <TR><TD><pre>
+                                            for (Transaction t : collection)
+                                            StdOut.println(t);
+                                            </pre></td></tr>
+                                        </table>
+                                    </blockquote>
+                                <li><em>Bags.</em>
+                                    A <em>bag</em> is a collection where removing items is not
+                                    supported&mdash;its purpose is to provide clients with the ability to collect
+                                    items and then to iterate through the collected items.
+                                    <a href = "Stats.java.html">Stats.java</a> is a bag client that reads a sequence
+                                    of real numbers from standard input and prints out their mean and standard
+                                    deviation.
+                                <li><em>FIFO queues.</em>
+                                    A <em>FIFO queue</em> is a collection 
+                                    that is based on the <em>first-in-first-out</em> (FIFO) policy.
+                                    The policy of doing tasks in the same order that they arrive is one that we encounter 
+                                    frequently in everyday life: from people waiting in line at a theater, to cars waiting in 
+                                    line at a toll booth, to tasks waiting to be serviced by an application on your computer. 
+                                
+                                <li><em>Pushdown stack.</em>
+                                    A <em>pushdown stack</em> is a collection that is based on the 
+                                    <em>last-in-first-out</em> (LIFO) policy.
+                                    When you click a hyperlink, your browser displays the new page (and pushes onto a stack). You 
+                                    can keep clicking on hyperlinks to visit new pages, but you can always revisit the previous 
+                                    page by clicking the back button (popping it from the stack).
+                                    <a href = "Reverse.java.html">Reverse.java</a> is a stack client that reads a sequence
+                                    of integers from standard input and prints them in reverse order.
+                                
+                                <li><em>Arithmetic expression evaluation.</em>
+                                    <a href = "Evaluate.java.html">Evaluate.java</a> is a stack client
+                                    that evaluates fully parenthesized arithmetic expressions.
+                                    It uses Dijkstra's 2-stack algorithm:
+                                    <ul>
+                                        <li>Push operands onto the operand stack.
+                                        <li>Push operators onto the operator stack.
+                                        <li>Ignore left parentheses.
+                                        <li>On encountering a right parenthesis, pop an operator, pop the requisite number
+                                        of operands, and push onto the operand stack the result of applying that
+                                        operator to those operands.
+                                    </ul>
+                                    This code is a simple example of an <em>interpreter</em>.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Array and resizing array implementations of collections.</h2>
+                        </div>
+                        <div class="section-content">
+                            <ul>
+                                <li><em>Fixed-capacity stack of strings.</em>
+                                    <a href = "FixedCapacityStackOfStrings.java.html">FixedCapacityStackOfString.java</a>
+                                    implements a fixed-capacity stack of strings using an array.
+                                <li><em>Fixed-capacity generic stack.</em>
+                                    <a href = "FixedCapacityStack.java.html">FixedCapacityStack.java</a>
+                                    implements a generic fixed-capacity stack.
+                                <li><em>Array resizing stack.</em>
+                                    <a href = "ResizingArrayStack.java.html">ResizingArrayStack.java</a>
+                                    implements a generic stack using a <em>resizing array</em>.
+                                    With a resizing array, we dynamically adjust the size of the array
+                                    so that it is both sufficiently large to hold all of the items and not
+                                    so large as to waste an excessive amount of space.
+                                    We <em>double</em> the size of the array in <code>push()</code> if it is full;
+                                    we <em>halve</em> the size of the array in <code>pop()</code> if it is less than
+                                    one-quarter full.
+                                <li><em>Array resizing queue.</em>
+                                    <a href = "ResizingArrayQueue.java.html">ResizingArrayQueue.java</a>
+                                    implements the queue API with a resizing array.
+                            </ul>
+                        </div>    
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Linked lists.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                A <em>linked list</em> is a recursive data structure that is either 
+                                empty (<em>null</em>) or a reference to a <em>node</em> having a 
+                                generic item and a reference to a linked list.
+                                To implement a linked list, we start with a <em>nested class</em> that defines
+                                the node abstraction
+                            </p>
+                            <blockquote>
+                                <table>
+                                <TR><TD>
+                                    <pre>
+                                        private class Node {
+                                        Item item;
+                                        Node next;
+                                        }
+                                    </pre>
+                                </td></tr>
+                                </table>
+                                </blockquote>
+                                <ul>
+                                    <li><em>Building a linked list.</em>
+                                    To build a linked list that contains the items
+                                    <code>to</code>, <code>be</code>, and <code>or</code>, we create a
+                                    <code>Node</code> for each item, set the item field in each of the nodes to the desired value,
+                                    and set the <code>next</code> fields to build the linked list.
+                                    <p><IMG SRC="../../images/pages/fu/13stacks/linked-list.png" alt = "building a linked list"></p>
+                                <li><em>Insert at the beginning.</em>
+                                    The easiest place to insert a new node in a linked list is at the beginning.
+                                    <p>
+                                        <IMG SRC="../../images/pages/fu/13stacks/linked-list-insert-front.png" alt = "inserting a new node at the beginning of a linked list">
+                                    </p>
+                                <li><em>Remove from the beginning.</em>
+                                    Removing the first node in a linked list is also easy.
+                                    <p>
+                                        <IMG SRC="../../images/pages/fu/13stacks/linked-list-remove-first.png" alt = "removing the first node in a linked list">
+                                    </p>
+                                <li><em>Insert at the end.</em>
+                                    To insert a node at the end of a linked list, we maintain a link to the last node in the list.
+                                    <p>
+                                    <IMG SRC="../../images/pages/fu/13stacks/linked-list-insert-end.png" alt = "inserting a node at the end of a linked list">
+                                    </p>
+                                <li><em>Traversal.</em>
+                                    The following is the idiom for traversing the nodes in a linked list.
+                                    <blockquote>
+                                    <table>
+                                    <TR><TD><pre>
+                                        for (Node x = first; x != null; x = x.next) {
+                                        // process x.item
+                                        }
+                                    </pre></td></tr>
+                                    </table>
+                                    </blockquote>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Linked-list implementations of collections.</h2>
+                        </div>
+                        <div class="section-content">
+                            <ul>
+                                <li><em>Linked list implementation of a stack.</em>
+                                    <a href = "Stack.java.html">Stack.java</a> implements 
+                                    a generic stack using a linked list.
+                                    It maintains the stack as a linked list, with the top of the stack at the
+                                    beginning, referenced by an instance variable <code>first</code>.
+                                    To <code>push()</code> an item, we add it to the beginning 
+                                    of the list; to <code>pop()</code> an item, we remove it from the 
+                                    beginning of the list.
+                                
+                                <li><em>Linked list implementation of a queue.</em>
+                                    Program <a href = "Queue.java.html">Queue.java</a> implements
+                                    a generic FIFO queue using a linked list.
+                                    It maintains the queue as a linked list in order from least recently to
+                                    most recently added items, with the beginning of the queue
+                                    referenced by an instance variable <code>first</code> and the end of 
+                                    the queue referenced by an instance variable <code>last</code>.
+                                    To <code>enqueue()</code> an item, we add it to the end of the list;
+                                    to <code>dequeue()</code> an item, we remove it from the beginning of the list.
+                                
+                                <li><em>Linked list implementation of a bag.</em>
+                                    Program <a href = "Bag.java.html">Bag.java</a> implements
+                                    a generic bag using a linked list.
+                                    The implementation is the same as <a href = "Stack.java.html">Stack.java</a>
+                                    except for changing the name of <code>push()</code> to <code>add()</code> and removing
+                                    <code>pop()</code>.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Iteration.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                To consider the task of implementing iteration, we start with a snippet of client code that 
+                                prints all of the items in a collection of strings, one per line:
+                                <blockquote>
+                                    <pre>
+                                    Stack&lt;String&gt; collection = new Stack&lt;String&gt;();
+                                    ...
+                                    for (String s : collection)
+                                    StdOut.println(s);
+                                    ...
+                                    </pre>
+                                </blockquote>
+                            </p>
+                            <p>
+                                This <em>foreach</em> statement is shorthand for the following <code>while</code>
+                                statement:
+                                <blockquote>
+                                    <pre>
+                                    Iterator&lt;String&gt; i = collection.iterator();
+                                    while (i.hasNext()) { 
+                                    String s = i.next();
+                                    StdOut.println(s);
+                                    }
+                                    </pre>
+                                </blockquote>
+                            </p>
+                            <p>
+                                To implement iteration in a collection:
+                                <ul>
+                                    <li> 
+                                        Include the following <code>import</code> statement
+                                        so that our code can refer to Java's
+                                        <a href = "http://download.oracle.com/javase/6/docs/api/java/util/Iterator.html">java.util.Iterator</a>
+                                        interface:
+                                        <blockquote>
+                                            <pre>
+                                            import java.util.Iterator;
+                                            </pre>
+                                        </blockquote>
+                                    <li> 
+                                        Add the following to the class declaration,
+                                        a promise to provide an <code>iterator()</code> method,
+                                        as specified in 
+                                        the
+                                        <a href = "http://download.oracle.com/javase/6/docs/api/java/lang/Iterable.html">java.lang.Iterable</a> interface:
+                                        <blockquote>
+                                            <pre>
+                                            implements Iterable&lt;Item&gt;
+                                            </pre>
+                                        </blockquote>
+                                    <li>
+                                        Implement a method <code>iterator()</code> that returns an object from a class
+                                        that implements the <code>Iterator</code> interface:
+                                        <blockquote>
+                                            <pre>
+                                                public Iterator&lt;Item&gt; iterator() {
+                                                    return new LinkedIterator();
+                                                }
+                                            </pre>
+                                        </blockquote>
+                                    <li>
+                                        Implement a nested class that implements the <code>Iterator</code> interface
+                                        by including the methods
+                                        <code>hasNext()</code>, <code>next()</code>, and <code>remove()</code>.
+                                        We always use an empty method for the optional <code>remove()</code> method
+                                        because interleaving
+                                        iteration with operations that modify the data structure is best avoided.
+                                        <ul>
+                                            <li>
+                                                The nested class <code>LinkedIterator</code> in <a href = "Bag.java.html">Bag.java</a>
+                                                illustrates how to implement a class that implements the <code>Iterator</code>
+                                                interface when the underlying data structure is a linked list.
+                                            <li>
+                                                The nested class <code>ArrayIterator</code>
+                                                in <a href = "ResizingArrayBag.java.html">ResizingArrayBag.java</a>
+                                                does the same when the underlying data structure is an array.
+                                        </ul>
+                                </ul>
+                            </p>    
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;Autoboxing Q + A</h2>
+                        </div>
+                        <div class="section-content">
+                                <p>
+                                    <b>Q.</b> How does autoboxing handle the following code fragment?
+                                    <blockquote>
+                                        <pre>
+                                        Integer a = null;
+                                        int b = a;
+                                        </pre>
+                                    </blockquote>
+                                </p>
+                                <p>
+                                    <b>A.</b> It results in a run-time error. Primitive type can store every
+                                    value of their corresponding wrapper type except <code>null</code>.
+                                </p>
+                                <p>
+                                    <b>Q.</b> Why does the first group of statements print <code>true</code>,
+                                    but the second <code>false</code>?
+                                    <blockquote>
+                                        <pre>
+                                        Integer a1 = 100;
+                                        Integer a2 = 100;
+                                        System.out.println(a1 == a2);   // true
+                                        
+                                        Integer b1 = new Integer(100);
+                                        Integer b2 = new Integer(100);
+                                        System.out.println(b1 == b2);   // false
+                                        
+                                        Integer c1 = 150;
+                                        Integer c2 = 150;
+                                        System.out.println(c1 == c2);   // false
+                                        
+                                        </pre>
+                                    </blockquote>
+                                </p>
+                                <p>
+                                    <b>A.</b> The second prints <code>false</code> because <code>b1</code> and
+                                    <code>b2</code> are references to different Integer objects.
+                                    The first and third code fragments rely on autoboxing.
+                                    Surprisingly the first prints true because values between -128 and
+                                    127 appear to refer to the same immutable Integer objects (Java's implementation
+                                    of <code>valueOf()</code> retrieves a cached values if the integer is between
+                                    -128 and 127),
+                                    while Java constructs new objects for each integer outside this range.
+                                </p>
+                                <p>
+                                    Here is another
+                                    <a href = "Autoboxing.java.html">Autoboxing.java</a> anomaly.
+                                </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;Generics Q + A</h2>
+                        </div>
+                        <div class="section-content">
+                            <p><b>Q.</b> Are generics solely for auto-casting?</p>
+                            <p>
+                                <b>A.</b> No, but we will use them only for 
+                                "concrete parameterized types", where each data type 
+                                is parameterized by a single type.
+                                The primary benefit is to discover type-mismatch errors at compile time
+                                instead of run time.
+                                There are other more general (and more complicated) uses of generics,
+                                including wildcards. This generality is useful for handling
+                                subtypes and inheritance.
+                                For more information, see this 
+                                <a href = "http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html">
+                                Generics FAQ</a> and this 
+                                <a href = "http://docs.oracle.com/javase/tutorial/java/generics">Java generics tutorial</a>.
+                            </p>
+                            <p><b>Q.</b> Can concrete parameterized types be used in the same way as
+                            normal types?</p>
+                            <p>
+                                <b>A.</b> Yes, with a few exceptions (array creation,
+                                exception handling, with <code>instanceof</code>, and in a class literal).
+                            <p><b>Q.</b> Can I make the Node class static?</b></p>
+                            <p>
+                                <b>A.</b>
+                                For <a href = "LinkedStackOfStrings.java.html">LinkedStackOfString.java</a>,
+                                you can do so with no other changes and save 8 bytes (of inner class overhead)
+                                per node.
+                                However, the nested class <code>Node</code> in <a href = "LinkedStack.java.html">LinkedStack.java</a>
+                                uses the type information of <code>Item</code> from the outer class, so you would need to
+                                do a bit of extra work to make it static.
+                                <a href = "Stack.java.html">Stack.java</a> accomplishes
+                                this by making the nested class (and the nester iterator) generic: there are 
+                                three separate generic type parameters, each of which is named <code>Item</code>.
+                            <p>
+                                <b>Q.</b> Why do I get a "can't create an array of generics" error 
+                                when I try to create an array of generics?
+                                <blockquote>
+                                    <pre>
+                                    public class ResizingArrayStack&lt;Item&gt; {
+                                    Item[] a = new Item[1];
+                                    </pre>
+                                </blockquote>
+                            </p>
+                            <p>
+                                <b>A.</b> Unfortunately, creating arrays of generics is not possible in Java 1.5.
+                                The underlying cause is that arrays in Java are <em>covariant</em>,
+                                but generics are not.
+                                In other words, <code>String[]</code> is a subtype of
+                                <code>Object[]</code>, but <code>Stack&lt;String&gt;</code> is not a
+                                subtype of <code>Stack&lt;Object&gt;</code>.
+                                To get around this defect, you need to perform an unchecked cast
+                                as in <a href = "ResizingArrayStack.java.html">ResizingArrayStack.java</a>.
+                                <a href = "ResizingArrayStackWithReflection.java.html">ResizingArrayStackWithReflection.java</a>
+                                is an (unwieldy) alternative that avoids the unchecked cast by using reflection.
+                            </p>
+                            <p><b>Q.</b> So, why are arrays covariant?</p>
+                            <p>
+                                <b>A.</b> 
+                                Many programmers (and programming language theorists)
+                                consider covariant arrays to be a serious defect in Java's type system:
+                                they incur unnecessary run-time performance overhead
+                                (for example, see
+                                <a href = "http://download.oracle.com/javase/6/docs/api/java/lang/ArrayStoreException.html">ArrayStoreException</a>)
+                                and can lead to subtle bugs.
+                                Covariant arrays were introduced in Java to circumvent
+                                the problem that Java didn't originally include
+                                generics in its design, e.g., to
+                                implement <code>Arrays.sort(Comparable[])</code> and have it be callable with an
+                                input array of type <code>String[]</code>.
+                            </p>
+                            <p>
+                                <b>Q.</b> Can I create and return a new array of a parameterized type, e.g.,
+                                to implement a <code>toArray()</code> method for a generic queue?</b>
+                            </p>
+                            <p>
+                                <b>A.</b> Not easily.
+                                You can do it using reflection provided that the client passes an object of the
+                                desired concrete type to <code>toArray()</code>
+                                This is the (awkward) approach taken by Java's Collection Framework.
+                                <a href = "GenericArrayFactory.java.html">GenericArrayFactory.java</a>
+                                provides an alternate solution in which the client passes a variable of type <code>Class</code>.
+                                See also Neal Gafter's blog for a solution that uses 
+                                <a href = "http://gafter.blogspot.ru/2004/09/puzzling-through-erasure-answer.html">type tokens</a>.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;Iterator Q + A</h2>
+                        </div>
+                        <div class="section-content">
+                            <p><b>Q.</b> Why is the construct called <em>foreach</em> if it uses the keyword <code>for</code>?</p>
+                            <p><b>A.</b> Other languages use the keyword <code>foreach</code>, but the Java developers did
+                            not want to introduce a new keyword and break backward compatibility.</p>
+                            
+                            <p><b>Q.</b> Are <code>String</code>s iterable?</p>
+                            <p><b>A.</b> No.</p>
+                            
+                            <p><b>Q.</b> Are arrays <code>Iterable</code>?</p>
+                            <p><b>A.</b> No. You can use the foreach syntax with them. However,
+                            you can not pass an array to a method that expects an <code>Iterable</code>
+                            or return an array from a method which returns an <code>Iterable</code>.
+                            This would be convenient, but it doesn't work that way.</p>
+                            
+                            <p>
+                                <b>Q.</b> What's wrong with the following code fragment?
+                                <blockquote>
+                                    <pre>
+                                    String s;
+                                    for (s : listOfStrings)
+                                    System.out.println(s);
+                                    </pre>
+                                </blockquote>
+                            </p>
+                            <p>
+                                <b>A.</b> The enhanced for loop requires that the iterating variable
+                                be declared inside the loop.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner">
+            <small>Copyright &copy; 2024 Yang, Inc.</small>
+        </div>
+    </footer>
+</body>
+</html>

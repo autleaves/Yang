@@ -57,7 +57,7 @@
         color: var(--text-color);
     }
     .fundamentals   li.nav_fundamentals > a,
-    .sortings       li.nav_sortings > a,
+    .sorting       li.nav_sorting > a,
     .searching      li.nav_searching > a,
     .graphs         li.nav_graphs > a,
     .strings        li.nav_strings > a,

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/lib.css" rel="stylesheet">
+    <link href="../../css/common.css" rel="stylesheet">
+    <link href="../../css/coms/com-nav.css" rel="stylesheet">
+    <link href="../../css/coms/com-search.css" rel="stylesheet">
+    <link href="../../css/coms/com-explore.css" rel="stylesheet">
+    <link href="../../css/header.css" rel="stylesheet">
+    <link href="../../css/footer.css" rel="stylesheet">
+
+    <script src="../../js/search.js" type="text/javascript" defer></script>
+    <script src="../../js/menu.js" type="text/javascript" defer></script>
+    <title>Algorithms</title>
+
+
+</head>
+
+<body class="fundamentals">
+    <header class="header null">
+        <div class="logo null">
+            <a href="../../index.html"><img src="../../images/base/logo2.png"></a>
+        </div>
+        <nav class="-lib--menu null" id="main-menu">
+            <div class="-lib--menu-backdrop"></div>
+            <div class="-lib--menu-body">
+                <button class="-lib--menu-toggle -utils--position-btn" id="toggle-menu">
+                    <i class="-utils--sr-only">toggle menu</i>
+                </button>
+                <div class="-lib--menu-dropdown null">
+                    <ul class="nav-menu">
+                        <li class="nav_fundamentals"><a href="../../pages/fu/fundamentals.html">Fundamentals</a></li>
+                        <li class="nav_sorting"><a href="../../pages/so/sorting.html">Sorting</a></li>
+                        <li class="nav_searching"><a href="../../pages/se/searching.html">Searching</a></li>
+                        <li class="nav_graphs"><a href="../../pages/gr/graphs.html">Graphs</a></li>
+                        <li class="nav_strings"><a href="../../pages/st/strings.html">Strings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="contact-us--icons null">
+            <a href="https://github.com/"><img src="../../images/base/github-mark.png" alt="GitHub"></a>
+            <a href="mailto:@gmail.com"><img src="../../images/base/email-mark.png" alt="Email"></a>
+        </div>
+    </header>
+    <main class="">
+        <div class="contents">
+            <aside class="">
+                <div class="topicpath null">
+                    <ol>
+                        <li class="topicpath-icon"><span>&nbsp</span></li>
+                        <li><a class="underline" href="../../index.html">Home</a>&nbsp;&gt;</li>
+                        <li><a class="underline" href="./fundamentals.html">Fundamentals</a>&nbsp;&gt;</li>
+                        <!-- <li>Bags, Queues, and Stacks</li> -->
+                    </ol>
+                </div>
+                <!-- <div>>>>>>>>>>>>>>>>>>>>>>>>>>>>></div> -->
+                <ul class="sub-nav ">
+                    <!-- <li><a href="">Fundamentals</a>
+                    <ol> -->
+                    <li><a href="./Programming Model.html">
+                        <div class="icon-container ">&nbsp;
+                        </div>
+                        <div class="">
+                            <span>Programming Model</span>
+                        </div>
+                    </a></li>
+                    <li class="sub-nav-current"><a href="./Data Abstraction.html">
+                            <div class="icon-container ">&nbsp;
+                            </div>
+                            <div class="">
+                                <span>Data Abstraction</span>
+                            </div>
+                        </a></li>
+                    <li><a href="./Bags, Queues, and Stacks.html">
+                            <div class="icon-container ">&nbsp;
+                            </div>
+                            <div class="">
+                                <span>Bags, Queues, and Stacks</span>
+                            </div>
+                        </a></li>
+                    <!-- </ol>
+                    </li> -->
+                </ul>
+            </aside>
+            <article>
+                <section class="section">
+                    <div class="section-container ">
+                        <div class="section-title chapter-title">
+                            <h1>Data Abstraction</h1>
+                            <span role="button" aria-expanded="true" data-icon-name="ChevronDownMed"
+                                class="ChevronDownMed"
+                                style="transform: rotate(180deg); transition: transform 0.1s linear; font-size: 16px; font-family: &quot;AMC Icons&quot;; color: rgb(96, 94, 92);"></span>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Object-oriented programming.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>Programming in Java is largely based on building data types.
+                                This style of programming is known as <em>object-oriented programming</em>,
+                                as it revolves around the concept of an <em>object</em>,
+                                an entity that holds a data type value. With Java's
+                                primitive types we are largely confined to programs that operate on numbers,
+                                but with reference types we can write programs that operate on strings, pictures,
+                                sounds, or any of hundreds of other abstractions that are available
+                                in Java's standard libraries or on our booksite.
+                                Even more significant than libraries of predefined data types is that the range of
+                                data types available in Java programming is open-ended, because you can
+                                define your own data types.</p>
+
+                            <ul>
+                                    <li><em>Data types.</em>
+                                        A <em>data type</em> is a set of values and a set of
+                                        operations on those values.
+                                    <li><em>Abstract data types.</em>
+                                        An <em>abstract data type</em> is a data type whose internal
+                                        representation is hidden from the client.
+                                    <li><em>Objects.</em>
+                                        An <em>object</em> is an entity that can take on a data-type value.
+                                        Objects are characterized by three essential properties:
+                                        The <em>state</em> of an object is a value from its data type;
+                                        the <em>identity</em> of an object distinguishes one object from another;
+                                        the <em>behavior</em> of an object is the effect of data-type operations.
+                                        In Java, a <em>reference</em> is a mechanism for accessing an object.
+                                    <li><em>Applications programming interface (API).</em>
+                                        To specify the behavior of an abstract data type,
+                                        we use an <em>application programming interface</em> (API),
+                                        which is a list of <em>constructors</em> and <em>instance methods</em>
+                                        (operations), with an informal description of the effect of each,
+                                        as in this API for <code>Counter</code>:
+                                        <p>
+                                            <center>
+                                                <IMG SRC="../../images/pages/fu/12oop/counter-api.png" alt="api for counter">
+                                            </center>
+                                        </p>
+                                    <li><em>Client.</em>
+                                        A client is a program that uses a data type.
+                                    <li><em>Implementation.</em>
+                                        An implementation is the code that implements the data type specified in an API.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Using abstract data types.</h2>
+                            <p>A client does not need to know how a data type is implemented
+                                in order to be able to use it.
+                            </p>
+                        </div>
+                        <div class="section-content">
+                            <ul>
+                                <li><em>Creating objects.</em>
+                                    Each data-type value is stored in an object.
+                                    To create (or <em>instantiate</em>) an individual object,
+                                    we invoke a <em>constructor</em> by using the keyword <code>new</code>.
+                                    Each time that a client uses <code>new</code>, the system
+                                    allocates memory space for the object, initializes its value,
+                                    and returns a reference to the object.
+                                    <p>
+                                        <center>
+                                            <IMG SRC="../../images/pages/fu/12oop/constructor.png" alt="constructor">
+                                        </center>
+                                    </p>
+                                <li><em>Invoking instance methods.</em>
+                                    The purpose of an instance method is to operate on data-type values.
+                                    Instance methods have all of
+                                    the properties of static methods: arguments are passed by value,
+                                    method names can be overloaded, they may have a return value, and they may cause
+                                    side
+                                    effects. They have an additional property that characterizes them:
+                                    <em>each invocation is associated with an object</em>.
+                                    <p>
+                                        <center>
+                                            <IMG SRC="../../images/pages/fu/12oop/instance-method.png" alt="instance method">
+                                        </center>
+                                    </p>
+                                <li><em>Using objects.</em>
+                                    Declarations give us variable names for objects that we can use in code.
+                                    To use a given data type, we:
+                                    <ul>
+                                        <li> Declare variables of the type, for use in referring to objects
+                                        <li> Use the keyword <code>new</code> to invoke a constructor that
+                                            creates objects of the type
+                                        <li> Use the object name to invoke instance methods,
+                                            either as statements or within expressions
+                                    </ul>
+                                    <p>
+                                        For example,
+                                        <a href="Flips.java.html">Flips.java</a> is a
+                                        <a href="Counter.java.html">Counter.java</a> client that
+                                        takes a command-line argument <code>T</code> and simulate <code>T</code>
+                                        coin flips.
+                                    </p>
+                                <li><em>Assignment statements.</em>
+                                    An assignment statement with a reference type creates a copy of the reference
+                                    (and does not create a new object).
+                                    This situation is known as <em>aliasing</em>:
+                                    both variables refer to the same object.
+                                    Aliasing is a common source of bugs in Java programs,
+                                    as illustrated by the following example:
+
+                                    <blockquote>
+                                        <table>
+                                            <TR>
+                                                <TD>
+                                                    <pre>
+                                                    Counter c1 = new Counter("ones");
+                                                    c1.increment();
+                                                    Counter c2 = c1;
+                                                    c2.increment(); 
+                                                    StdOut.println(c1);
+                                                    </pre>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </blockquote>
+                                    The code prints the string <code>"2 ones"</code>.
+
+                                <li><em>Objects as arguments.</em>
+                                    You can pass objects as arguments to methods.
+                                    Java passes a <em>copy</em> of the argument value from the calling program to
+                                    the method.
+                                    This arrangement is known as <em>pass by value</em>.
+                                    If you pass a reference to an object of type <code>Counter</code>, Java
+                                    passes a copy of that reference. Thus, the method cannot change the original
+                                    reference
+                                    (make it point to a different <code>Counter</code>), but it can change the
+                                    value of the object, for example by using the reference to call
+                                    <code>increment()</code>.
+                                <li><em>Objects as return values.</em>
+                                    You can also use an object as a return value from a method. The method
+                                    might return an object passed to it as an argument, as in
+                                    <a href="FlipsMax.java.html">FlipsMax.java</a>, or it might
+                                    create an object and return a reference to it.
+                                    This capability is important because Java
+                                    methods allow only one return value&mdash;using objects
+                                    enables us to write code that, in effect, returns multiple values.
+                                <li><em>Arrays are objects.</em>
+                                    In Java, every value of any nonprimitive type is an object. In particular,
+                                    arrays are objects. As with strings, there is special language support
+                                    for certain operations on arrays: declarations, initialization, and indexing.
+                                    As with any other object, when we pass an array
+                                    to a method or use an array variable on the right hand side of an assignment
+                                    statement, we are
+                                    making a copy of the array reference, not a copy of the array.
+                                <li><em>Arrays of objects.</em>
+                                    Array entries can be of any type.
+                                    When we create an array of objects, we do so in two steps:
+                                    create the array, using the bracket syntax for array constructors;
+                                    create each object in the array, using a standard
+                                    constructor for each.
+                                    <a href="Rolls.java.html">Rolls.java</a> simulates rolling a die, using an array
+                                    of
+                                    <code>Counter</code> objects to keep track of the number of occurrences
+                                    of each possible value.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Examples of abstract data types</h2>
+                        </div>
+                        <div class="section-content">
+                            <ul>
+                                <li><em>Geometric objects.</em>
+                                    A natural example of object-oriented programming is designing
+                                    data types for geometric objects.
+                                    <ul>
+                                        <li> <a href="Point2D.java.html">Point2D.java</a> is a data type for points
+                                            in the plane.
+                                        <li> <a href="Interval1D.java.html">Interval1D.java</a> is a data type for
+                                            one-dimensional intervals.
+                                        <li><a href="Interval2D.java.html">Interval2D.java</a> is a data type for
+                                            two-dimensional intervals.
+                                    </ul>
+                                <li><em>Information processing.</em>
+                                    Abstract data types provide a natural mechanism for organizing and
+                                    processing information.
+                                    the information
+                                    <ul>
+                                        <li> <a href="Date.java.html">Date.java</a> is a data type
+                                            that represents the day, month, and year.
+                                        <li> <a href="Transaction.java.html">Transaction.java</a> is a data type
+                                            that represents a customer, a date, and an amount.
+                                    </ul>
+                                <li><em>Accumulator.</em>
+                                    <a href="Accumulator.java.html">Accumulator.java</a>
+                                    defines an ADT that provides to clients the ability to
+                                    maintain a running average of data values.
+                                    For example, we use this data type frequently in this book to process
+                                    experimental results.
+                                    <a href="VisualAccumulator.java.html">VisualAccumulator.java</a>
+                                    in an enhanced version that also plots the data (in gray) and
+                                    the running average (in red).
+                                <li><em>Strings.</em>
+                                    Java's <code>String</code> data type in an important and useful ADT.
+                                    A <code>String</code> is an indexed sequence of <code>char</code> values.
+                                    <code>String</code> has dozens of instance methods, including the
+                                    following:
+                                    <p>
+                                        <center>
+                                            <IMG SRC="../../images/pages/fu/12oop/string-api.png" alt="string api">
+                                        </center>
+                                    </p>
+                                    <code>String</code> has special language support for initialization
+                                    and concatenation: instead of creating and initializing a
+                                    string with a constructor, we can use a string literal;
+                                    instead of invoking the method <code>concat()</code> we can use the
+                                    <code>+</code>
+                                    operator.
+                                <li><em>Input and output revisited.</em>
+                                    A disadvantage of the <code>StdIn</code>, <code>StdOut</code>, and
+                                    <code>StdDraw</code>
+                                    libraries of Section 1.1 is that they restrict us to working with just
+                                    one input file, one output file, and one drawing for any
+                                    given program. With object-oriented programming, we can define
+                                    similar mechanisms that allow us to work with <em>multiple</em>
+                                    input streams, output streams, and drawings within one program.
+                                    Specifically, our standard library includes the data types
+                                    <a href="In.java.html">In.java</a>,
+                                    <a href="Out.java.html">Out.java</a>, and
+                                    <a href="Draw.java.html">Draw.java</a> that
+                                    support multiple input and output streams.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Implementing abstract data types.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We implement ADTs with a Java class, putting the code in
+                                a file with the same name as the class, followed by the .java extension.
+                                The first statements in the file declare <em>instance variables</em>
+                                that define the data-type values. Following the
+                                instance variables are the <em>constructor</em> and the
+                                <em>instance methods</em> that implement operations on data-type values.
+                            </p>
+                            <ul>
+                                <li><em>Instance variables.</em>
+                                    To define data-type values (the state of each object), we declare
+                                    instance variables in much the same way as we declare local variables.
+                                    There are numerous values corresponding to each instance variable (one
+                                    for each object that is an instance of the data type).
+                                    Each declaration is qualified
+                                    by a <em>visibility modifier</em>. In ADT implementations, we use
+                                    <code>private</code>,
+                                    using a Java language mechanism to enforce the idea that the representation
+                                    of an ADT is to be hidden from the
+                                    client, and also <code>final</code>, if the value is not to be changed once
+                                    it is initialized.
+                                <li><em>Constructors.</em>
+                                    The constructor establishes an object's identity and
+                                    initializes the instance variables.
+                                    Constructors always share the same name as the class. We can overload the name
+                                    and have multiple constructors with different signatures, just as with methods.
+                                    If no other
+                                    constructor is defined, a default no-argument constructor is
+                                    implicit, has no arguments, and initializes instance values to default values.
+                                    The default
+                                    values of instance variables are 0 for primitive numeric types,
+                                    <code>false</code>
+                                    for <code>boolean</code>, and <code>null</code>.
+                                <li><em>Instance methods.</em>
+                                    Instance methods specify the data-type operations.
+                                    Each instance method has a return type, a <em>signature</em>
+                                    (which specifies its name and the types and names of its parameter variables),
+                                    and a <em>body</em> (which consists of a sequence of statements,
+                                    including a <em>return</em> statement that provides a value of the return
+                                    type back to the client).
+                                    When a client invokes a method, the parameter values (if any) are initialized
+                                    with client
+                                    values, the statements are executed until a return value is computed, and the
+                                    value is
+                                    returned to the client.
+                                    Instance methods may be <em>public</em> (specified in the API)
+                                    or <em>private</em> (used to organize the computation and not available to
+                                    clients).
+                                    <p>
+                                        <center>
+                                            <IMG SRC="../../images/pages/fu/12oop/counter-anatomy.png" alt="anatomy of a class">
+                                        </center>
+                                    </p>
+                                <li><em>Scope.</em>
+                                    Instance methods use three kinds of
+                                    variables: parameter variables, local variables, and instance variables.
+                                    The first two of these are the same as for static methods:
+                                    parameter variables are specified in the method
+                                    signature and initialized with client values when the method is called, and
+                                    local variables
+                                    are declared and initialized within the method body. The scope of parameter
+                                    variables is the
+                                    entire method; the scope of local variables is the following statements in the
+                                    block where
+                                    they are defined. Instance variables hold data-type values
+                                    for objects in a class, and their scope is the entire class (whenever there is
+                                    an ambiguity,
+                                    you can use the <code>this</code> prefix to identify instance variables).
+
+                                    <p>
+                                        <center>
+                                            <IMG SRC="../../images/pages/fu/12oop/scope.png" alt="scope">
+                                        </center>
+                                    </p>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Designing abstract data types.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We put important information related to designing data types in one place
+                                for reference and to set the stage for implementations
+                                throughout this book.
+                            </p>
+                            <ul>
+                                <li><em>Encapsulation.</em>
+                                    A hallmark of object-oriented programming is that it enables us to
+                                    <em>encapsulate</em> data types within their implementations, to facilitate
+                                    separate development of clients and data type implementations.
+                                    Encapsulation enables modular programming.
+                                <li><em>Designing APIs.</em>
+                                    One of the most important and most challenging steps in building modern
+                                    software is designing APIs.
+                                    Ideally, an API would clearly articulate behavior for all possible
+                                    inputs, including side effects, and then we would have software to check
+                                    that implementations meet the specification. Unfortunately, a
+                                    fundamental result from theoretical computer science known as the
+                                    <em>specification problem</em> implies that this goal is actually
+                                    impossible to achieve. There are numerous potential pitfalls
+                                    when designing an API:
+                                    <ul>
+                                        <li> Too hard to implement, making it difficult or impossible to
+                                            develop.
+                                        <li> Too hard to use, leading to complicated client code.
+                                        <li> Too narrow, omitting methods that clients need.
+                                        <li> Too wide, including a large number of methods not needed
+                                            by any client.
+                                        <li> Too general, providing no useful abstractions.
+                                        <li> Too specific, providing an abstraction so diffuse as to be useless.
+                                        <li> Too dependent on a particular representation, therefore not
+                                            freeing client code from the details of the representation.
+                                    </ul>
+                                    <p>
+                                        In summary, provide to clients the methods they need and no others.
+                                    </p>
+                                <li><em>Algorithms and ADTs.</em>
+                                    Data abstraction is naturally suited to the study of algorithms, because it
+                                    helps us provide a
+                                    framework within which we can precisely specify both what an algorithm needs to
+                                    accomplish and
+                                    how a client can make use of an algorithm.
+                                    For example, our allowlisting example at the beginning of
+                                    the chapter is naturally cast as an ADT client,
+                                    based on the following operations:
+                                    <ul>
+                                        <li> Construct a SET from an array of given values.
+                                        <li> Determine whether a given value is in the set.
+                                    </ul>
+                                    <p>
+                                        These operations are encapsulated in
+                                        <a href="StaticSETofInts.java.html">StaticSETofInts.java</a>
+                                        and <a href="Allowlist.java.html">Allowlist.java</a>.
+                                    </p>
+                                <li><em>Interface inheritance.</em>
+                                    Java provides language support for defining relationships among objects,
+                                    known as <em>inheritance</em>.
+                                    The first inheritance mechanism that we consider is known as <em>subtyping</em>,
+                                    which allows us to specify a relationship between otherwise unrelated
+                                    classes by specifying in an <em>interface</em> a set of common methods that
+                                    each implementing class must contain.
+                                    We use interface inheritance for
+                                    <em>comparison</em> and for <em>iteration</em>.
+                                    <p>
+                                        <center>
+                                            <IMG SRC="../../images/pages/fu/12oop/interfaces.png"
+                                                alt="Java interfaces used in this book">
+                                        </center>
+                                    </p>
+                                <li><em>Implementation inheritance.</em>
+                                    Java also supports another inheritance mechanism known as <em>subclassing</em>,
+                                    which is a powerful technique that enables a programmer to change behavior
+                                    and add functionality without rewriting an entire class from scratch.
+                                    The idea is to define a new class (<em>subclass</em>)
+                                    that inherits instance methods and instance variables from another class
+                                    (<em>superclass</em>).
+                                    We avoid subclassing in this book because it generally works against
+                                    encapsulation.
+                                    Certain vestiges of the approach are built in to Java and therefore unavoidable:
+                                    specifically, every class is a subclass of
+                                    <a
+                                        href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html">Object</a>.
+                                    <p>
+                                        <center>
+                                            <IMG SRC="../../images/pages/fu/12oop/inherited.png"
+                                                alt="Inherited methods from Object used in this book">
+                                        </center>
+                                    </p>
+                                <li><em>String conversion.</em>
+                                    Every Java type inherits <code>toString()</code> from
+                                    <a
+                                        href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html">Object</a>.
+                                    This convention is the basis for Java's automatic conversion of one operand of
+                                    the
+                                    concatenation operator <code>+</code> to a <code>String</code> whenever the
+                                    other operand is a <code>String</code>.
+                                    We generally include implementations of <code>toString()</code> that override
+                                    the
+                                    default, as in <a href="Date.java.html">Date.java</a> and
+                                    <a href="Transaction.java.html">Transaction.java</a>.
+                                <li><em> Wrapper types.</em> Java supplies built-in
+                                    reference types known as <em>wrapper types</em>,
+                                    one for each of the primitive types:
+                                    <table cellspacing="1" cellpadding="4" border="0" bgcolor="#ffffff">
+                                        <tr align=center>
+                                            <th align=center width=150><b>primitive type</b></th>
+                                            <th align=center width=150><b>wrapper type</B></th>
+                                        </tr>
+                                        <tr align=center bgcolor="#ebebeb">
+                                            <td><code>boolean</code>
+                                            <td><a
+                                                    href="http://download.oracle.com/javase/6/docs/api/java/lang/Boolean.html">Boolean</a>
+                                        </tr>
+                                        <tr align=center bgcolor="#ebebeb">
+                                            <td><code>byte</code>
+                                            <td><a
+                                                    href="http://download.oracle.com/javase/6/docs/api/java/lang/Byte.html">Byte</a>
+                                        </tr>
+                                        <tr align=center bgcolor="#ebebeb">
+                                            <td><code>char</code>
+                                            <td><a
+                                                    href="http://download.oracle.com/javase/6/docs/api/java/lang/Character.html">Character</a>
+                                        </tr>
+                                        <tr align=center bgcolor="#ebebeb">
+                                            <td><code>double</code>
+                                            <td><a
+                                                    href="http://download.oracle.com/javase/6/docs/api/java/lang/Double.html">Double</a>
+                                        </tr>
+                                        <tr align=center bgcolor="#ebebeb">
+                                            <td><code>float</code>
+                                            <td><a
+                                                    href="http://download.oracle.com/javase/6/docs/api/java/lang/Float.html">Float</a>
+                                        </tr>
+                                        <tr align=center bgcolor="#ebebeb">
+                                            <td><code>int</code>
+                                            <td><a
+                                                    href="http://download.oracle.com/javase/6/docs/api/java/lang/Integer.html">Integer</a>
+                                        </tr>
+                                        <tr align=center bgcolor="#ebebeb">
+                                            <td><code>long</code>
+                                            <td><a
+                                                    href="http://download.oracle.com/javase/6/docs/api/java/lang/Long.html">Long</a>
+                                        </tr>
+                                        <tr align=center bgcolor="#ebebeb">
+                                            <td><code>short</code>
+                                            <td><a
+                                                    href="http://download.oracle.com/javase/6/docs/api/java/lang/Short.html">Short</a>
+                                        </tr>
+                                    </table>
+                                    <p>
+                                        Java automatically converts from primitive types to
+                                        wrapper types (<em>autoboxing</em>) and back (<em>auto-unboxing</em>) when
+                                        warranted.
+                                    <p>
+                                <li><em>Equality.</em>
+                                    What does it mean for two objects to be equal?
+                                    If we test equality with <code>(a == b)</code>
+                                    where <code>a</code> and <code>b</code> are reference variables of the same
+                                    type,
+                                    we are testing whether they have the same identity: whether the
+                                    <em>references</em>
+                                    are equal.
+                                    Typical clients would rather be able to test
+                                    whether the <em>data-type values</em> (object state) are the same.
+                                    Every Java type inherits the method <code>equals()</code> from
+                                    <a
+                                        href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html">Object</a>.
+                                    Java provides natural implementations both for
+                                    standard types such as <code>Integer</code>,
+                                    <code>Double</code>, and <code>String</code>
+                                    and for more complicated types such as
+                                    <a
+                                        href="http://download.oracle.com/javase/6/docs/api/java/io/File.html">java.io.File</a>
+                                    and
+                                    <a
+                                        href="http://download.oracle.com/javase/6/docs/api/java/net/URL.html">java.net.URL</a>.
+                                    When we define our own data types
+                                    we need to override <code>equals()</code>.
+                                    Java's convention is that <code>equals()</code> must be an <em>equivalence
+                                        relation</em>:
+                                    <ul>
+                                        <li> <em>Reflexive</em>: <code>x.equals(x)</code> is true.
+                                        <li> <em>Symmetric</em>: <code>x.equals(y)</code> is true if and only if
+                                            <code>y.equals(x)</code>
+                                            is true.
+                                        <li> <em>Transitive</em>: if <code>x.equals(y)</code> and
+                                            <code>y.equals(z)</code>
+                                            are true, then so is <code>x.equals(z)</code>.
+                                    </ul>
+                                    <p>
+                                        In addition, it must take an <code>Object</code> as argument and satisfy
+                                        the following properties.
+                                    </p>
+                                    <ul>
+                                        <li><em>Consistent</em>: multiple invocations of
+                                            <code>x.equals(y)</code> consistently
+                                            return the same value, provided neither object is modified.
+                                        <li><em>Not null</em>: <code>x.equals(null)</code> returns false.
+                                    </ul>
+                                    <p>
+                                        Adhering to these Java conventions can be tricky, as illustrated
+                                        for <a href="Date.java.html">Date.java</a> and
+                                        <a href="Transaction.java.html">Transaction.java</a>.
+                                    </p>
+                                <li><em>Memory management.</em>
+                                    One of Java's most significant features is its ability to <em>automatically</em>
+                                    manage memory. When an object can no longer be referenced, it is said to be
+                                    <em>orphaned</em>.
+                                    Java keeps track of orphaned objects and returning
+                                    the memory they use to a pool of free memory.
+                                    Reclaiming memory in this way is known as <em>garbage collection</em>.
+                                <li><em>Immutability.</em>
+                                    An <em>immutable</em> data type has the property that
+                                    the value of an object never changes once constructed.
+                                    By contrast, a <em>mutable</em> data type
+                                    manipulates object values that are intended to change.
+                                    Java's language support for helping to enforce immutability is
+                                    the <code>final</code> modifier. When you declare a variable to be
+                                    <code>final</code>,
+                                    you are promising to assign it a value only once, either in an initializer
+                                    or in the constructor. Code that could modify the
+                                    value of a <code>final</code> variable leads to a compile-time error.
+                                    <p><a href="Vector.java.html">Vector.java</a> is an immutable
+                                        data type for vectors. In order to guarantee immutability, it
+                                        <em>defensively copies</em> the mutable constructor argument.
+                                    </p>
+                                <li><em>Exceptions and errors</em> are disruptive events
+                                    that handle unforeseen errors <em>outside</em> our control.
+                                    We have already encountered the following exceptions and errors:
+                                    <ul>
+                                        <li>
+                                            <a
+                                                href="http://download.oracle.com/javase/6/docs/api/java/lang/ArithmeticException.html">ArithmeticException</a>.
+                                            Thrown when an exceptional arithmetic condition (such as integer
+                                            division by zero) occurs.
+                                        <li>
+                                            <a
+                                                href="http://download.oracle.com/javase/6/docs/api/java/lang/ArrayIndexOutOfBoundsException.html">ArrayIndexOutOfBoundsException</a>.
+                                            Thrown when an array is accessed with an illegal index.
+                                        <li>
+                                            <a
+                                                href="http://download.oracle.com/javase/6/docs/api/java/lang/NullPointerException.html">NullPointerException</a>.
+                                            Thrown when <code>null</code> is used where an object is required.
+                                        <li>
+                                            <a
+                                                href="http://download.oracle.com/javase/6/docs/api/java/lang/OutOfMemoryError.html">OutOfMemoryError</a>.
+                                            Thrown when the Java Virtual Machine cannot allocate an object
+                                            because it is out of memory.
+                                        <li>
+                                            <a
+                                                href="http://download.oracle.com/javase/6/docs/api/java/lang/StackOverflowError.html">StackOverflowError</a>.
+                                            Thrown when a recursive method recurs too deeply.
+                                    </ul>
+                                    <p>
+                                        You can also create your own exceptions. The simplest kind is a
+                                        <a
+                                            href="http://download.oracle.com/javase/6/docs/api/java/lang/RuntimeException.html">RuntimeException</a>
+                                        that terminates execution of the program and prints an error message.
+                                    </p>
+                                    <blockquote>
+                                        <table>
+                                            <TR>
+                                                <TD>
+                                                    <pre>
+                                                    throw new RuntimeException("Error message here.");
+                                                    </pre>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </blockquote>
+                                <li><em>Assertions</em> are boolean expressions which verify assumptions
+                                    that we make <em>within</em> code we develop.
+                                    If the expression is false, the program will terminate and report
+                                    an error message.
+                                    For example, suppose that you have a computed value that you might use to
+                                    index into an array. If this value were negative, it would cause an
+                                    <code>ArrayIndexOutOfBoundsException</code> sometime later.
+                                    But if you write the code
+                                    <blockquote>
+                                        <table>
+                                            <TR>
+                                                <TD>
+                                                    <pre>
+                                                    assert index >= 0; 
+                                                    </pre>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </blockquote>
+                                    you can pinpoint the place where the error occurred.
+                                    By default, assertions are disabled.You can enable them from the command line by
+                                    using the <code>-enableassertions</code> flag (<code>-ea</code> for short).
+                                    Assertions are for debugging: your program
+                                    should not rely on assertions for normal operation since they may be disabled.
+                            </ul>
+                        </div>
+                    </div>
+                </section>           
+                <section class="section"></section>
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;Q + A.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>Q. Are there any truly immutable classes in Java?</p>
+                            <p>
+                                A. If you use reflection, you can access the <code>private</code>
+                                fields of any class and change them.
+                                Program <a href="MutableString.java.html">MutableString.java</a>
+                                demonstrates how to mutate a <code>String</code>.
+                                Program <a href="MutableInteger.java.html">MutableInteger.java</a>
+                                demonstrates that this is true even if the instance variable is
+                                final.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner">
+            <small>Copyright &copy; 2024 Yang, Inc.</small>
+        </div>
+    </footer>
+</body>
+
+</html>

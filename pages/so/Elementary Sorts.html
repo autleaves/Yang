@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/lib.css" rel="stylesheet">
+    <link href="../../css/common.css" rel="stylesheet">
+    <link href="../../css/coms/com-nav.css" rel="stylesheet">
+    <link href="../../css/coms/com-search.css" rel="stylesheet">
+    <link href="../../css/coms/com-explore.css" rel="stylesheet">
+    <link href="../../css/header.css" rel="stylesheet">
+    <link href="../../css/footer.css" rel="stylesheet">
+
+    <script src="../../js/search.js" type="text/javascript" defer></script>
+    <script src="../../js/menu.js" type="text/javascript" defer></script>
+    <title>Algorithms</title>
+
+
+</head>
+
+<body class="sorting">
+    <header class="header null">
+        <div class="logo null">
+            <a href="../../index.html"><img src="../../images/base/logo2.png"></a>
+        </div>
+        <nav class="-lib--menu null" id="main-menu">
+            <div class="-lib--menu-backdrop"></div>
+            <div class="-lib--menu-body">
+                <button class="-lib--menu-toggle -utils--position-btn" id="toggle-menu">
+                    <i class="-utils--sr-only">toggle menu</i>
+                </button>
+                <div class="-lib--menu-dropdown null">
+                    <ul class="nav-menu">
+                        <li class="nav_fundamentals"><a href="../../pages/fu/fundamentals.html">Fundamentals</a></li>
+                        <li class="nav_sorting"><a href="../../pages/so/sorting.html">Sorting</a></li>
+                        <li class="nav_searching"><a href="../../pages/se/searching.html">Searching</a></li>
+                        <li class="nav_graphs"><a href="../../pages/gr/graphs.html">Graphs</a></li>
+                        <li class="nav_strings"><a href="../../pages/st/strings.html">Strings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="contact-us--icons null">
+            <a href="https://github.com/"><img src="../../images/base/github-mark.png" alt="GitHub"></a>
+            <a href="mailto:@gmail.com"><img src="../../images/base/email-mark.png" alt="Email"></a>
+        </div>
+    </header>
+    <main class="">
+        <div class="contents">
+            <aside class="">
+                <div class="topicpath null">
+                    <ol>
+                        <li class="topicpath-icon"><span>&nbsp;</span></li>
+                        <li><a class="underline" href="../../index.html">Home</a>&nbsp;&gt;</li>
+                        <li><a class="underline" href="./sorting.html">Sorting</a>&nbsp;&gt;</li>
+                        <!-- <li>Bags, Queues, and Stacks</li> -->
+                    </ol>
+                </div>
+                <!-- <div>>>>>>>>>>>>>>>>>>>>>>>>>>>>></div> -->
+                <ul class="sub-nav ">
+                    <!-- <li><a href="">Fundamentals</a>
+                    <ol> -->
+                    <li class="sub-nav-current"><a href="./Elementary Sorts.html">
+                        <div class="icon-container ">&nbsp;
+                        </div>
+                        <div class="">
+                            <span>Elementary Sorts</span>
+                        </div>
+                        </a></li>
+                    <li><a href="./Mergesort.html">
+                            <div class="icon-container ">&nbsp;
+                            </div>
+                            <div class="">
+                                <span>Mergesort</span>
+                            </div>
+                        </a></li>
+                    <li><a href="./Quicksort.html">
+                            <div class="icon-container ">&nbsp;
+                            </div>
+                            <div class="">
+                                <span>Quicksort</span>
+                            </div>
+                        </a></li>
+                    <li><a href="./Priority Queues.html">
+                            <div class="icon-container ">&nbsp;
+                            </div>
+                            <div class="">
+                                <span>Priority Queues</span>
+                            </div>
+                        </a></li>
+                    <!-- </ol>
+                    </li> -->
+                </ul>
+            </aside>
+            <article>
+                <section class="section">
+                    <div class="section-container ">
+                        <div class="section-title chapter-title">
+                            <h1>Elementary Sorts</h1>
+                        </div>
+                        <div class="section-content chapter-content">
+                            <p>
+                                In this section, we shall study two elementary sorting methods 
+                                (selection sort and insertion sort) and a variation of one of them (shellsort).
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Rules of the game.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                            Our primary concern is algorithms for rearranging arrays of items
+                            where each item contains a <em>key</em>.
+                            The objective is to rearrange the items such that their keys 
+                            are in ascending order.
+                            In Java, the abstract notion of a key is captured in a built-in
+                            mechanism&mdash;the <code>Comparable</code> interface.
+                            With but a few exceptions, our sort code refers to the data only through two 
+                            operations: the method <code>less()</code> that compares objects and the
+                            method <code>exch()</code> that exchanges them.
+                            </p>
+                            <blockquote>
+                                <pre>
+                                    private static boolean less(Comparable v, Comparable w) {
+                                    return (v.compareTo(w) < 0);
+                                    }
+                                    
+                                    private static void exch(Comparable[] a, int i, int j) {
+                                    Comparable swap = a[i];
+                                    a[i] = a[j];
+                                    a[j] = swap;
+                                    } 
+                                </pre>
+                            </blockquote>
+                            <ul>
+                                <li><em>Sorting cost model.</em> When studying sorting algorithms,
+                                    we count <em>compares</em> and <em>exchanges</em>. For algorithms that do
+                                    not use exchanges, we count <em>array accesses</em>.
+                            
+                                <li><em>Extra memory.</em>
+                                    The sorting algorithms we consider divide into two basic types:
+                                    those that sort <em>in place</em> (no extra memory except perhaps for a
+                                    small function-call stack or a constant number of instance variables),
+                                    and those that need enough extra memory to hold another copy of the array 
+                                    to be sorted.
+                            
+                                <li><em>Types of data.</em>
+                                    Our sort code is effective for any type of data that implements Java's
+                                    <a href = "http://download.oracle.com/javase/6/docs/api/java/lang/Comparable.html">Comparable
+                                        interface</a>.
+                                <!--
+                                Java's numeric wrapper types such as <code>Integer</code>
+                                and <code>Double</code> implement the <code>Comparable</code> interface, as do 
+                                <code>String</code> and various advanced types such as <code>File</code>, <code>URL</code>,
+                                and <code>Date</code>.
+                                -->
+                                    This means that there is a method <code>compareTo()</code> for which
+                                    <code>v.compareTo(w)</code> returns an integer that is negative, zero, or positive
+                                    when v < w, v = w, or v > w, respectively.
+                                    The method must implement a <em>total order</em>:
+                                    <ul>
+                                        <li><em>Reflexive:</em>  for all v, v = v.
+                                        <li><em>Antisymmetric:</em> for all v and w, if (v < w) then (w > v); and if (v = w) then (w = v).
+                                        <li><em>Transitive:</em> for all v, w, and x, if (v &le; w) and (w &le; x), then v &le; x.
+                                    </ul>
+                                    <p>
+                                    In addition, <code>v.compareTo(w)</code> must throw an exception if 
+                                    <code>v</code> and <code>w</code> are of incompatible types or if either is <code>null</code>.
+                                    </p>
+                                    <p>
+                                    <a href = "Date.java.html">Date.java</a> illustrates how to implement
+                                    the <code>Comparable</code> interface for a user-defined type.
+                                    </p>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Selection sort.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                One of the simplest sorting algorithms works as follows: First, find 
+                                the smallest item in the array, and exchange it with the first entry.
+                                Then, find the next smallest item and exchange it with the second entry.
+                                Continue in this way until the entire array is sorted.
+                                This method is called <em>selection sort</em> because it works by repeatedly
+                                selecting the smallest remaining item.
+                                <a href = "Selection.java.html">Selection.java</a> is an implementation 
+                                of this method.
+                            </p>
+                            <p>
+                                <IMG SRC="../../images/pages/so/21elementary/selection.png" alt = "Selection sort">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Selection sort uses ~n<sup>2</sup>/2 compares and n exchanges to sort an 
+                                array of length n.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Insertion sort.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                The algorithm that people often use to sort bridge hands is to 
+                                consider the cards one at a time, inserting each into its proper place among
+                                those already considered (keeping them sorted).
+                                In a computer implementation, we need to 
+                                make space for the current item by moving larger items one position to 
+                                the right, before inserting the current item into the vacated position.
+                                <a href = "Insertion.java.html">Insertion.java</a> is an implementation
+                                of this method, which is called <em>insertion sort</em>.
+                            </p>
+                            <p>
+                                <IMG SRC="../../images/pages/so/21elementary/insertion.png" alt = "Selection sort">
+                            </p>
+                                
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                For randomly ordered arrays of length N with with distinct keys,
+                                insertion sort uses 
+                                ~N<sup>2</sup>/4 compares and ~N<sup>2</sup>/4 exchanges on the average.
+                                The worst case is ~ N<sup>2</sup>/2 compares and ~ N<sup>2</sup>/2
+                                exchanges and the best case is N-1 compares and 0 exchanges. 
+                                Insertion sort works well for certain types of nonrandom arrays
+                                that often arise in practice, even if they are huge.
+                                An <em>inversion</em> is a pair of keys that are out of order in the array.
+                                For instance, <code>E X A M P L E</code> has 11 inversions:
+                                E-A,  X-A,  X-M,  X-P,  X-L,  X-E,  M-L,  M-E,  P-L,  P-E, and  L-E. 
+                                If the number of inversions in an array is less than a constant multiple of the array size, 
+                                we say that the array is <em>partially sorted</em>.
+                                </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                The number of exchanges used by insertion sort is equal to the number 
+                                of inversions in the array, and the number of compares is at least equal to the
+                                number of inversions and at most equal to the number of inversions plus the array size. 
+                                </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Property.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                For randomly ordered arrays of distinct values,
+                                the running times of insertion sort and selection sort are quadratic and 
+                                within a small constant factor of one another.
+                                <a href = "SortCompare.java.html">SortCompare.java</a> 
+                                uses the <code>sort()</code> methods in the 
+                                classes named as command-line arguments to perform the given number of experiments
+                                (sorting arrays of the given size) and prints the ratio of the observed running 
+                                times of the algorithms.    
+                                </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Visualizing sorting algorithms.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We use a simple visual representation to help describe the properties
+                                of sorting algorithms. We use vertical bars, to be sorted by their heights. 
+                                <a href ="SelectionBars.java.html">SelectionBars.java</a> and
+                                <a href ="InsertionBars.java.html">InsertionBars.java</a> produce these
+                                visualizations.
+                            </p>
+                            <p>
+                                <IMG SRC="../../images/pages/so/21elementary/bars.png" alt = "Visualization of selection sort and insertion sort">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Shellsort.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Shellsort is a simple extension of insertion sort that gains speed 
+                                by allowing exchanges of entries that are far apart, to produce partially sorted arrays 
+                                that can be efficiently sorted, eventually by insertion sort. 
+                                The idea is to rearrange the array to give it the property that taking every <em>h</em>th 
+                                entry (starting anywhere) yields a sorted sequence. 
+                                Such an array is said to be <em>h-sorted</em>.
+                            </p>
+                            <p>
+                                <IMG SRC="../../images/pages/so/21elementary/h-sorted.png" alt = "An h-sorted file in shellsort">
+                            </p>
+                            <p>
+                                By h-sorting for some large values of h, we can move entries
+                                in the array long distances and thus 
+                                make it easier to h-sort for smaller values of h. Using such 
+                                a procedure for any increment sequence of values of h that 
+                                ends in 1 will produce a sorted array: that is shellsort. 
+                                <a href = "Shell.java.html">Shell.java</a> is an implementation of this method.
+                            </p>
+                            <p>
+                                <IMG SRC="../../images/pages/so/21elementary/shell.png" width = 400 alt = "Shellsort">
+                            </p>
+                            <p>
+                                <a href ="ShellBars.java.html">ShellBars.java</a> 
+                                produces a visualization of shellsort.
+                            </p>
+                            <p>
+                                <IMG SRC="../../images/pages/so/21elementary/shell-bars.png" alt = "Shellsort visualization">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Property.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                The number of compares used by shellsort with the increments 1, 4, 
+                                13, 40, 121, 364, ... is bounded by a small multiple of N times
+                                the number of increments used. 
+                                </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                The number of compares used by shellsort with the increments 1, 4, 
+                                13, 40, 121, 364, ... is O(N<sup>3/2</sup>).
+                                </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Q + A</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                <b>Q.</b> The compiler gives a warning when I compile <a href = "Insertion.java.html">Insertion.java</a>.
+                                Is ther any way to avoid this?
+                                <blockquote>
+                                    <pre>
+                                    Insertion.java:73: warning: [unchecked] unchecked call to compareTo(T)
+                                                as a member of the raw type java.lang.Comparable
+                                        return (v.compareTo(w) < 0);
+                                    </pre>
+                                </blockquote>
+                                </p>
+                            <p>
+                                <b>A.</b> Yes, if you use static generics,
+                                as in <a href = "InsertionPedantic.java.html">InsertionPedantic.java</a>.
+                                It leads to awkward (but warning-free) code.
+                                </p>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner">
+            <small>Copyright &copy; 2024 Yang, Inc.</small>
+        </div>
+    </footer>
+</body>
+
+</html>

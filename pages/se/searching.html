@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
     <link href="../../css/base.css" rel="stylesheet">
     <link href="../../css/lib.css" rel="stylesheet">
     <link href="../../css/common.css" rel="stylesheet">
@@ -19,7 +21,7 @@
 
     <script src="../../js/search.js" type="text/javascript" defer></script>
     <script src="../../js/menu.js" type="text/javascript" defer></script>
-    <title>Algorithms</title>
+    <title>Searching</title>
 </head>
 
 <body class="searching">
@@ -104,12 +106,39 @@
                         </div>
                         <div>
                             <p>
-                            
+                                Modern computing and the internet have made accessible a vast amount of information.
+                                The ability to efficiently search through this information
+                                is fundamental to computation.
+                                This chapter describes classical <em>searching</em> algorithms
+                                that have proven to be effective in numerous applications for decades.
+                                We use the term <em>symbol table</em> to describe an abstract mechanism
+                                where we save information (a <em>value</em>) that we can later
+                                search for and retrieve by specifying a <em>key</em>.
                             </p>
-                            <p>
-                            
-                            </p>
-                            
+                            <ul class="a_initial">
+                                
+                                <li>
+                                    <p>
+                                    3.1 <a href="./Elementary Symbol Tables.html"><strong>Elementary Symbol Tables</strong></a>
+                                    includes unordered and ordered implementations, using arrays or linked lists.
+                                    </p>
+                                <li>
+                                    <p>
+                                    3.2 <a href="./Binary Search Trees.html"><strong>Binary Search Trees</strong></a>
+                                    describes binary search trees.
+                                    </p>
+                                <li>
+                                    <p>
+                                    3.3 <a href="./Balanced Search Trees.html"><strong>Balanced Search Trees</strong></a>
+                                    describes red-black BSTs, a data structure that guarantees logarithmic
+                                    performance per symbol table operation.
+                                    </p>
+                                <li>
+                                    <p>
+                                    3.4 <a href="./Hash Tables.html"><strong>Hash Tables</strong></a>
+                                    describes two classic hashing algorithms: separate chaining and linear probing.
+                                    </p>
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -120,22 +149,122 @@
                         </div>
                         <div>
                             <p>
-                                
+                                Below is a list of Java programs in this chapter.
+                                Click on the program name to access the Java code; click on the reference number
+                                for a brief description; read the textbook for a full discussion.
                             </p>
                             <p>
-                                
-                            </p>
-                        </div>
-                    </div>
-                </section>
-                <section class="section">
-                    <div class="section-container">
-                        <div class="section-title">
-                            <h2 class="">Sorting demos.</h2>
-                        </div>
-                        <div class="section-content">
-                            <p>
-                                
+                            <blockquote>
+                                <table class="sourcecode-list a_initial">
+                                    <tr>
+                                        <th width=50>REF</th>
+                                        <th width=220>PROGRAM</th>
+                                        <th width=220>DESCRIPTION / JAVADOC</th>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../31elementary/index.php#-">-</a></td>
+                                        <td><a title="frequency counter"
+                                                href="../31elementary/FrequencyCounter.java.html">FrequencyCounter.java</a>
+                                        </td>
+                                        <td>frequency counter</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../31elementary/index.php#3.1">3.1</a></td>
+                                        <td><a title="sequential search"
+                                                href="../31elementary/SequentialSearchST.java.html">SequentialSearchST.java</a>
+                                        </td>
+                                        <td>sequential search</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../31elementary/index.php#3.2">3.2</a></td>
+                                        <td><a title="binary search"
+                                                href="../31elementary/BinarySearchST.java.html">BinarySearchST.java</a>
+                                        </td>
+                                        <td>binary search</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../32bst/index.php#3.3">3.3</a></td>
+                                        <td><a title="binary search tree" href="../32bst/BST.java.html">BST.java</a>
+                                        </td>
+                                        <td>binary search tree</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../33balanced/index.php#3.4">3.4</a></td>
+                                        <td><a title="red-black tree"
+                                                href="../33balanced/RedBlackBST.java.html">RedBlackBST.java</a></td>
+                                        <td>red-black tree</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../34hash/index.php#3.5">3.5</a></td>
+                                        <td><a title="separate chaining hash table"
+                                                href="../34hash/SeparateChainingHashST.java.html">SeparateChainingHashST.java</a>
+                                        </td>
+                                        <td>separate chaining hash table</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../34hash/index.php#3.6">3.6</a></td>
+                                        <td><a title="linear probing hash table"
+                                                href="../34hash/LinearProbingHashST.java.html">LinearProbingHashST.java</a>
+                                        </td>
+                                        <td>linear probing hash table</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../35applications/index.php#-">-</a></td>
+                                        <td><a title="ordered symbol table"
+                                                href="../35applications/ST.java.html">ST.java</a></td>
+                                        <td>ordered symbol table</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../35applications/index.php#-">-</a></td>
+                                        <td><a title="ordered set" href="../35applications/SET.java.html">SET.java</a>
+                                        </td>
+                                        <td>ordered set</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../35applications/index.php#-">-</a></td>
+                                        <td><a title="remove duplicates"
+                                                href="../35applications/DeDup.java.html">DeDup.java</a></td>
+                                        <td>remove duplicates</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../35applications/index.php#-">-</a></td>
+                                        <td><a title="allowlist filter"
+                                                href="../35applications/AllowFilter.java.html">AllowFilter.java</a></td>
+                                        <td>allowlist filter</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../35applications/index.php#-">-</a></td>
+                                        <td><a title="blocklist filter"
+                                                href="../35applications/BlockFilter.java.html">BlockFilter.java</a></td>
+                                        <td>blocklist filter</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../35applications/index.php#-">-</a></td>
+                                        <td><a title="dictionary lookup"
+                                                href="../35applications/LookupCSV.java.html">LookupCSV.java</a></td>
+                                        <td>dictionary lookup</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../35applications/index.php#-">-</a></td>
+                                        <td><a title="index and inverted index"
+                                                href="../35applications/LookupIndex.java.html">LookupIndex.java</a></td>
+                                        <td>index and inverted index</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../35applications/index.php#-">-</a></td>
+                                        <td><a title="file indexing"
+                                                href="../35applications/FileIndex.java.html">FileIndex.java</a></td>
+                                        <td>file indexing</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="../35applications/index.php#-">-</a></td>
+                                        <td><a title="sparse vector"
+                                                href="../35applications/SparseVector.java.html">SparseVector.java</a>
+                                        </td>
+                                        <td>sparse vector</td>
+                                    </tr>
+                                </table>
+                            </blockquote>
                             </p>
                         </div>
                     </div>

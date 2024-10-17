@@ -89,7 +89,10 @@ ul.sub-nav li  div + div {
 	background-color: #FFF;
 	border: 1px solid #f2f2f2;
 	border-radius: var(--radius-C);
-	padding: 0 2em;
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: 0;
+	padding-bottom: 1em;
 	margin-right: 3em;
 }
 .section-container > .section-title {
@@ -127,5 +130,9 @@ h2.section-title {
 	background-color: #0066cc;
 }
 .chapter-title h1 {
+	text-align: center;
+}
+
+.section-container .illustration {
 	text-align: center;
 }

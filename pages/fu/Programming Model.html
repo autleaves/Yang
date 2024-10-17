@@ -21,7 +21,7 @@
 
     <script src="../../js/search.js" type="text/javascript" defer></script>
     <script src="../../js/menu.js" type="text/javascript" defer></script>
-    <title>Algorithms</title>
+    <title>Programming Model</title>
 
 
 </head>
@@ -130,19 +130,21 @@
                                 <li><em>Characters</em>, the alphanumeric characters and symbols that you type
                                     (<code>char</code>)
                             </ul>
-                            A Java program manipulates <em>variables</em> that are named with
-                            <em>identifiers</em>. Each variable is associated with a data
-                            type and stores one of the permissible data-type values.
-                            We use <em>expressions</em> to apply the operations associated with each type.
-        
+                            <p>
+                                A Java program manipulates <em>variables</em> that are named with
+                                <em>identifiers</em>. Each variable is associated with a data
+                                type and stores one of the permissible data-type values.
+                                We use <em>expressions</em> to apply the operations associated with each type.
+                            </p>
                             <blockquote>
                                 <IMG SRC="../../images/pages/fu/11model/building-blocks.png" alt="basic building blocks for Java programs">
                             </blockquote>
-        
-                            The following table summarizes the set of values and most common operations on those
-                            values for Java's <code>int</code>, <code>double</code>, <code>boolean</code>, and <code>char</code>
-                            data types.
-        
+                            </p>
+                            <p>
+                                The following table summarizes the set of values and most common operations on those
+                                values for Java's <code>int</code>, <code>double</code>, <code>boolean</code>, and <code>char</code>
+                                data types.
+                            </p>
                             <blockquote>
                                 <IMG SRC="../../images/pages/fu/11model/primitive.png" alt="primitive data types in Java">
                             </blockquote>
@@ -260,6 +262,7 @@
                                     braces may be omitted.
                             </ul>
                             The following table illustrates different kinds of Java statements.
+                            
                             <blockquote>
                                 <IMG SRC="../../images/pages/fu/11model/statements.png" alt="Java statements">
                             </blockquote>
@@ -491,6 +494,7 @@
                                     <blockquote>
                                         <IMG SRC="../../images/pages/fu/11model/command.png" alt="anatomy of a command">
                                     </blockquote>
+                                    </p>
                                 <li><em>Standard output.</em>
                                 <li><em>Formatted output.</em>
                                     <blockquote>
@@ -521,9 +525,8 @@
                             algorithm known as <em>binary search</em> and tests it for an
                             application known as <em>allowlist filtering</em>.
                             </p>
-                            <center>
-                                <IMG SRC="../../images/pages/fu/11model/binary-search-anatomy.png" alt="anatomy of binary search">
-                            </center>
+                            <IMG SRC="../../images/pages/fu/11model/binary-search-anatomy.png" alt="anatomy of binary search">
+                            <p>
                             The static method <code>rank()</code> takes an integer key and a <em>sorted</em>
                             array of <code>int</code> values as arguments and returns the index of the key
                             if it is present in the array, -1 otherwise.
@@ -536,9 +539,8 @@
                             looking at the left half if the key is less than <code>a[mid]</code>
                             and at the right half if the key is greater than <code>a[mid]</code>.
                             The process terminates when the key is found or the interval is empty.
-                            <center>
-                                <IMG SRC="../../images/pages/fu/11model/binary-search.png" alt="binary search in an ordered array">
-                            </center>
+                            </p>
+                            <IMG SRC="../../images/pages/fu/11model/binary-search.png" alt="binary search in an ordered array">
                             <ul>
                                 <li><em>Development client.</em>
                                 <li><em>Allowlisting.</em>
@@ -579,13 +581,12 @@
                             the textbook and beyond.
                             </p>
                             <blockquote>
-                                <table cellspacing="1" cellpadding="4" border="0" bgcolor="#ffffff">
-
-                                    <tr align=center>
-                                        <th align=center width=180><b>PROGRAM</B></th>
-                                        <th align=center width=325><b>DESCRIPTION / JAVADOC</B></th>
+                                <table class="sourcecode-list a_initial">
+                                    <tr>
+                                        <th width=180><b>PROGRAM</B></th>
+                                        <th width=360><b>DESCRIPTION / JAVADOC</B></th>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="read numbers and text from standard input"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdIn.java.html">StdIn.java</a>
                                         </td>
@@ -593,7 +594,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdIn.html">read
                                                 numbers and text from standard input</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="write numbers and text to standard output"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdOut.java.html">StdOut.java</a>
                                         </td>
@@ -601,7 +602,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdOut.html">write
                                                 numbers and text to standard output</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="draw geometric shapes in a window"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdDraw.java.html">StdDraw.java</a>
                                         </td>
@@ -609,7 +610,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdDraw.html">draw
                                                 geometric shapes in a window</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="create, play, and manipulate sound"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdAudio.java.html">StdAudio.java</a>
                                         </td>
@@ -617,7 +618,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdAudio.html">create,
                                                 play, and manipulate sound</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="generate random numbers"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdRandom.java.html">StdRandom.java</a>
                                         </td>
@@ -625,7 +626,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdRandom.html">generate
                                                 random numbers</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="compute statistics"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdStats.java.html">StdStats.java</a>
                                         </td>
@@ -633,7 +634,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdStats.html">compute
                                                 statistics</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="read and write 1D and 2D arrays"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdArrayIO.java.html">StdArrayIO.java</a>
                                         </td>
@@ -641,7 +642,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/StdArrayIO.html">read
                                                 and write 1D and 2D arrays</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="read numbers and text from files and URLs"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/In.java.html">In.java</a>
                                         </td>
@@ -649,7 +650,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/In.html">read
                                                 numbers and text from files and URLs</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="write numbers and text to files"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Out.java.html">Out.java</a>
                                         </td>
@@ -657,7 +658,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/Out.html">write
                                                 numbers and text to files</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="draw geometric shapes"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Draw.java.html">Draw.java</a>
                                         </td>
@@ -665,7 +666,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/Draw.html">draw
                                                 geometric shapes</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="support keyboard and mouse events in Draw"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/DrawListener.java.html">DrawListener.java</a>
                                         </td>
@@ -673,7 +674,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/DrawListener.html">support
                                                 keyboard and mouse events in Draw</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="process digital images"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Picture.java.html">Picture.java</a>
                                         </td>
@@ -681,7 +682,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/Picture.html">process
                                                 digital images</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="measure running time"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Stopwatch.java.html">Stopwatch.java</a>
                                         </td>
@@ -689,7 +690,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/Stopwatch.html">measure
                                                 running time</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="read bits from standard input"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BinaryStdIn.java.html">BinaryStdIn.java</a>
                                         </td>
@@ -697,7 +698,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/BinaryStdIn.html">read
                                                 bits from standard input</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="write bits to standard output"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BinaryStdOut.java.html">BinaryStdOut.java</a>
                                         </td>
@@ -705,7 +706,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/BinaryStdOut.html">write
                                                 bits to standard output</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="read bits from files and URLs"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BinaryIn.java.html">BinaryIn.java</a>
                                         </td>
@@ -713,7 +714,7 @@
                                                 href="https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/BinaryIn.html">read
                                                 bits from files and URLs</a></td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
+                                    <tr>
                                         <td><a title="write bits to files"
                                                 href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BinaryOut.java.html">BinaryOut.java</a>
                                         </td>

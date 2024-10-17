@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
     <link href="../../css/base.css" rel="stylesheet">
     <link href="../../css/lib.css" rel="stylesheet">
     <link href="../../css/common.css" rel="stylesheet">
@@ -19,7 +21,7 @@
 
     <script src="../../js/search.js" type="text/javascript" defer></script>
     <script src="../../js/menu.js" type="text/javascript" defer></script>
-    <title>Algorithms</title>
+    <title>Sorting</title>
 
 </head>
 
@@ -106,34 +108,43 @@
                         </div>
                         <div>
                             <p>
-                            Sorting is the process of rearranging a sequence of objects
-                            so as to put them in some logical order.
-                            Sorting plays a major role in commercial data processing and in modern
-                            scientific computing. Applications abound in transaction processing,
-                            combinatorial optimization, astrophysics, molecular dynamics, linguistics,
-                            genomics, weather prediction, and many other fields.
+                                Sorting is the process of rearranging a sequence of objects
+                                so as to put them in some logical order.
+                                Sorting plays a major role in commercial data processing and in modern
+                                scientific computing. Applications abound in transaction processing,
+                                combinatorial optimization, astrophysics, molecular dynamics, linguistics,
+                                genomics, weather prediction, and many other fields.
                             </p>
                             <p>
-                            In this chapter, we consider several classical sorting methods and an efficient 
-                            implementation of a fundamental data type known as the priority queue.
-                            We discuss the theoretical basis for comparing sorting algorithms and
-                            conclude the chapter with a 
-                            survey of applications of sorting and priority-queue algorithms.
+                                In this chapter, we consider several classical sorting methods and an efficient
+                                implementation of a fundamental data type known as the priority queue.
+                                We discuss the theoretical basis for comparing sorting algorithms and
+                                conclude the chapter with a
+                                survey of applications of sorting and priority-queue algorithms.
                             </p>
-                            <ul>
-                                <li> <a href = "../21elementary"><em>2.1 Elementary Sorts</em></a>
-                                introduces selection sort, insertion sort, and shellsort.
-                                <li> <a href = "../22mergesort"><em>2.2 Mergesort</em></a>
-                                describes megesort, a sorting algorithm that is guaranteed to run in 
-                                linearithmic time.
-                                <li> <a href = "../23quicksort"><em>2.3 Quicksort</em></a>
-                                describes quicksort, which is used more widely than any other sorting algorithm.
-                                <li> <a href = "../24pq"><em>2.4 Priority Queues</em></a>
-                                introduces the priority queue data type and an efficient implementation
-                                using a binary heap. It also introdues heapsort.
-                                <li> <a href = "../25applications"><em>2.5 Applications</em></a>
-                                describes applications of sorting, including 
-                                using alternate orderings, selection, the system sort, and stability.
+                            <ul class="a_initial">
+                                <li>
+                                    <p>
+                                    2.1 <a href="../21elementary"><strong>Elementary Sorts</strong></a>
+                                    introduces selection sort, insertion sort, and shellsort.
+                                    </p>
+                                <li>
+                                    <p>
+                                    2.2 <a href="../22mergesort"><strong>Mergesort</strong></a>
+                                    describes megesort, a sorting algorithm that is guaranteed to run in
+                                    linearithmic time.
+                                    </p>
+                                <li>
+                                    <p>
+                                    2.3 <a href="../23quicksort"><strong>Quicksort</strong></a>
+                                    describes quicksort, which is used more widely than any other sorting algorithm.
+                                    </p>
+                                <li>
+                                    <p>
+                                    2.4 <a href="../24pq"><strong>Priority Queues</strong></a>
+                                    introduces the priority queue data type and an efficient implementation
+                                    using a binary heap. It also introdues heapsort.
+                                    </p>
                             </ul>
                         </div>
                     </div>
@@ -145,120 +156,141 @@
                         </div>
                         <div>
                             <p>
-                                Below is a list of Java programs in this chapter.     
+                                Below is a list of Java programs in this chapter.
                                 Click on the program name to access the Java code; click on the reference number
                                 for a brief description; read the textbook for a full discussion.
                             </p>
                             <p>
-                                <blockquote>    
-                                    <table cellspacing="1" cellpadding="4" border="0" bgcolor="#ffffff">
-                                    <tr align=center>
-                                    <th width =  50>REF</th>
-                                    <th width = 220>PROGRAM</th>
-                                    <th width = 220>DESCRIPTION / JAVADOC</th>
+                            <blockquote>
+                                <table class="sourcecode-list a_initial">
+                                    <tr>
+                                        <th width=50>REF</th>
+                                        <th width=220>PROGRAM</th>
+                                        <th width=220>DESCRIPTION / JAVADOC</th>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../21elementary/index.php#2.1">2.1</a></td>
-                                    <td><a title = "insertion sort"  href="../21elementary/Insertion.java.html">Insertion.java</a></td>
-                                    <td>insertion sort</td>
+                                    <tr>
+                                        <td><a href="#2.1">2.1</a></td>
+                                        <td><a title="insertion sort"
+                                                href="../21elementary/Insertion.java.html">Insertion.java</a></td>
+                                        <td>insertion sort</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../21elementary/index.php#-">-</a></td>
-                                    <td><a title = "insertion sort (optimized)"  href="../21elementary/InsertionX.java.html">InsertionX.java</a></td>
-                                    <td>insertion sort (optimized)</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="insertion sort (optimized)"
+                                                href="../21elementary/InsertionX.java.html">InsertionX.java</a></td>
+                                        <td>insertion sort (optimized)</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../21elementary/index.php#-">-</a></td>
-                                    <td><a title = "binary insertion sort"  href="../21elementary/BinaryInsertion.java.html">BinaryInsertion.java</a></td>
-                                    <td>binary insertion sort</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="binary insertion sort"
+                                                href="../21elementary/BinaryInsertion.java.html">BinaryInsertion.java</a>
+                                        </td>
+                                        <td>binary insertion sort</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../21elementary/index.php#2.2">2.2</a></td>
-                                    <td><a title = "selection sort"  href="../21elementary/Selection.java.html">Selection.java</a></td>
-                                    <td>selection sort</td>
+                                    <tr>
+                                        <td><a href="#2.2">2.2</a></td>
+                                        <td><a title="selection sort"
+                                                href="../21elementary/Selection.java.html">Selection.java</a></td>
+                                        <td>selection sort</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../21elementary/index.php#2.3">2.3</a></td>
-                                    <td><a title = "shellsort"  href="../21elementary/Shell.java.html">Shell.java</a></td>
-                                    <td>shellsort</td>
+                                    <tr>
+                                        <td><a href="#2.3">2.3</a></td>
+                                        <td><a title="shellsort" href="../21elementary/Shell.java.html">Shell.java</a>
+                                        </td>
+                                        <td>shellsort</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../22mergesort/index.php#2.4">2.4</a></td>
-                                    <td><a title = "top-down mergesort"  href="../22mergesort/Merge.java.html">Merge.java</a></td>
-                                    <td>top-down mergesort</td>
+                                    <tr>
+                                        <td><a href="#2.4">2.4</a></td>
+                                        <td><a title="top-down mergesort"
+                                                href="../22mergesort/Merge.java.html">Merge.java</a></td>
+                                        <td>top-down mergesort</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../22mergesort/index.php#-">-</a></td>
-                                    <td><a title = "bottom-up mergesort"  href="../22mergesort/MergeBU.java.html">MergeBU.java</a></td>
-                                    <td>bottom-up mergesort</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="bottom-up mergesort"
+                                                href="../22mergesort/MergeBU.java.html">MergeBU.java</a></td>
+                                        <td>bottom-up mergesort</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../22mergesort/index.php#-">-</a></td>
-                                    <td><a title = "optimized mergesort"  href="../22mergesort/MergeX.java.html">MergeX.java</a></td>
-                                    <td>optimized mergesort</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="optimized mergesort"
+                                                href="../22mergesort/MergeX.java.html">MergeX.java</a></td>
+                                        <td>optimized mergesort</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../22mergesort/index.php#-">-</a></td>
-                                    <td><a title = "number of inversions"  href="../22mergesort/Inversions.java.html">Inversions.java</a></td>
-                                    <td>number of inversions</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="number of inversions"
+                                                href="../22mergesort/Inversions.java.html">Inversions.java</a></td>
+                                        <td>number of inversions</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../23quicksort/index.php#2.5">2.5</a></td>
-                                    <td><a title = "quicksort"  href="../23quicksort/Quick.java.html">Quick.java</a></td>
-                                    <td>quicksort</td>
+                                    <tr>
+                                        <td><a href="#2.5">2.5</a></td>
+                                        <td><a title="quicksort" href="../23quicksort/Quick.java.html">Quick.java</a>
+                                        </td>
+                                        <td>quicksort</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../23quicksort/index.php#-">-</a></td>
-                                    <td><a title = "quicksort with 3-way partitioning"  href="../23quicksort/Quick3way.java.html">Quick3way.java</a></td>
-                                    <td>quicksort with 3-way partitioning</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="quicksort with 3-way partitioning"
+                                                href="../23quicksort/Quick3way.java.html">Quick3way.java</a></td>
+                                        <td>quicksort with 3-way partitioning</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../23quicksort/index.php#-">-</a></td>
-                                    <td><a title = "optimized 2-way quicksort"  href="../23quicksort/QuickX.java.html">QuickX.java</a></td>
-                                    <td>optimized 2-way quicksort</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="optimized 2-way quicksort"
+                                                href="../23quicksort/QuickX.java.html">QuickX.java</a></td>
+                                        <td>optimized 2-way quicksort</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../23quicksort/index.php#-">-</a></td>
-                                    <td><a title = "optimized 3-way quicksort"  href="../23quicksort/QuickBentleyMcIlroy.java.html">QuickBentleyMcIlroy.java</a></td>
-                                    <td>optimized 3-way quicksort</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="optimized 3-way quicksort"
+                                                href="../23quicksort/QuickBentleyMcIlroy.java.html">QuickBentleyMcIlroy.java</a>
+                                        </td>
+                                        <td>optimized 3-way quicksort</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../24pq/index.php#-">-</a></td>
-                                    <td><a title = "priority queue client"  href="../24pq/TopM.java.html">TopM.java</a></td>
-                                    <td>priority queue client</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="priority queue client" href="../24pq/TopM.java.html">TopM.java</a>
+                                        </td>
+                                        <td>priority queue client</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../24pq/index.php#2.6">2.6</a></td>
-                                    <td><a title = "max heap priority queue"  href="../24pq/MaxPQ.java.html">MaxPQ.java</a></td>
-                                    <td>max heap priority queue</td>
+                                    <tr>
+                                        <td><a href="#2.6">2.6</a></td>
+                                        <td><a title="max heap priority queue"
+                                                href="../24pq/MaxPQ.java.html">MaxPQ.java</a></td>
+                                        <td>max heap priority queue</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../24pq/index.php#-">-</a></td>
-                                    <td><a title = "min heap priority queue"  href="../24pq/MinPQ.java.html">MinPQ.java</a></td>
-                                    <td>min heap priority queue</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="min heap priority queue"
+                                                href="../24pq/MinPQ.java.html">MinPQ.java</a></td>
+                                        <td>min heap priority queue</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../24pq/index.php#-">-</a></td>
-                                    <td><a title = "index min heap priority queue"  href="../24pq/IndexMinPQ.java.html">IndexMinPQ.java</a></td>
-                                    <td>index min heap priority queue</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="index min heap priority queue"
+                                                href="../24pq/IndexMinPQ.java.html">IndexMinPQ.java</a></td>
+                                        <td>index min heap priority queue</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../24pq/index.php#-">-</a></td>
-                                    <td><a title = "index max heap priority queue"  href="../24pq/IndexMaxPQ.java.html">IndexMaxPQ.java</a></td>
-                                    <td>index max heap priority queue</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="index max heap priority queue"
+                                                href="../24pq/IndexMaxPQ.java.html">IndexMaxPQ.java</a></td>
+                                        <td>index max heap priority queue</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../24pq/index.php#-">-</a></td>
-                                    <td><a title = "multiway merge"  href="../24pq/Multiway.java.html">Multiway.java</a></td>
-                                    <td>multiway merge</td>
+                                    <tr>
+                                        <td><a href="#-">-</a></td>
+                                        <td><a title="multiway merge"
+                                                href="../24pq/Multiway.java.html">Multiway.java</a></td>
+                                        <td>multiway merge</td>
                                     </tr>
-                                    <tr align=center bgcolor="#ebebeb">
-                                    <td><a href = "../24pq/index.php#2.7">2.7</a></td>
-                                    <td><a title = "heapsort"  href="../24pq/Heap.java.html">Heap.java</a></td>
-                                    <td>heapsort</td>
+                                    <tr>
+                                        <td><a href="#2.7">2.7</a></td>
+                                        <td><a title="heapsort" href="../24pq/Heap.java.html">Heap.java</a></td>
+                                        <td>heapsort</td>
                                     </tr>
-                                    </table>
-                                </blockquote>
+                                </table>
+                            </blockquote>
                             </p>
                         </div>
                     </div>
@@ -271,19 +303,21 @@
                         <div class="section-content">
                             <p>
                                 Below are some interesting sorting demos.
-                                <ul>
-                                    <p><li> <a href = "http://www.sorting-algorithms.com">Sorting Algorithm Animations</a>
-                                    by David Martin.
-                                    <p><li> <a href = "http://panthema.net/2013/sound-of-sorting/">Audibilization and Visualization
-                                    of Sorting Algorithms</a> by Timo Bingmann.
-                                    <p><li> <a href = "https://www.youtube.com/watch?v=m1PS8IR6Td0">The Sound of Quicksort</a>.
-                                    <p><li> Robot visualizations of 
-                                    <a href = "https://www.youtube.com/watch?v=aXXWXz5rF64">quicksort</a> and
-                                    <a href = "https://www.youtube.com/watch?v=es2T6KY45cA">mergesort</a>.
-                                    <p><li> <a href = "http://sorting.at">Sorting visualizations</a> by Carlo Zapponi,
-                                    using inversion count as a measure of progress.
-                                </ul>
                             </p>
+                            <ul>
+                                <li> <a href="http://www.sorting-algorithms.com">Sorting Algorithm Animations</a>
+                                    by David Martin.
+                                <li> <a href="http://panthema.net/2013/sound-of-sorting/">Audibilization and
+                                        Visualization
+                                        of Sorting Algorithms</a> by Timo Bingmann.
+                                <li> <a href="https://www.youtube.com/watch?v=m1PS8IR6Td0">The Sound of
+                                        Quicksort</a>.
+                                <li> Robot visualizations of
+                                    <a href="https://www.youtube.com/watch?v=aXXWXz5rF64">quicksort</a> and
+                                    <a href="https://www.youtube.com/watch?v=es2T6KY45cA">mergesort</a>.
+                                <li> <a href="http://sorting.at">Sorting visualizations</a> by Carlo Zapponi,
+                                    using inversion count as a measure of progress.
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -298,4 +332,3 @@
 </body>
 
 </html>
-

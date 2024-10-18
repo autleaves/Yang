@@ -1,6 +1,6 @@
 
 
-const nav_menuButton = document.getElementById('toggle-menu');
+const nav_menuButton = document.querySelector('#toggle-menu');
 nav_menuButton.addEventListener('click', function(event) {
     event.preventDefault();
     const menu = document.getElementById('main-menu');

@@ -105,7 +105,7 @@
                 <section class="section">
                     <div class="section-container ">
                         <div class="section-title chapter-title">
-                            <h1>Bags, Queues, and Stacks</h1>
+                            <h1>Shortest Paths</h1>
                         </div>
                         <div class="section-content chapter-content">
                             
@@ -115,20 +115,572 @@
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class="">&sect;&nbsp;</h2>
+                            <h2 class="">&sect;&nbsp;Shortest paths.</h2>
                         </div>
                         <div class="section-content">
-                            
+                            <p>
+                                An edge-weighted digraph is a digraph where we associate weights or costs with each edge.
+                                A <em>shortest path</em> from vertex s to vertex t is a directed path
+                                from s to t with the property that no other such path has a lower weight.
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/44sp/shortest-path.png" alt = "Shortest path">
+                            </p>
+                            <p>
                         </div>
                     </div>
                 </section>
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;</h2>
+                            <h2 class="">&sect;&nbsp;Properties.</h2>
                         </div>
                         <div class="section-content">
+                            <p>
+                                We summarize several important properties and assumptions.
+                            </p>
+                            <ul>
+                                <li><em>Paths are directed.</em>
+                                    A shortest path must respect the direction of its edges.
+                                
+                                <li><em>The weights are not necessarily distances.</em>
+                                    Geometric intuition can be helpful, but the edge weights weights might
+                                    represent time or cost.
+                                
+                                <li><em>Not all vertices need be reachable.</em>
+                                    If t is not reachable from s, there is no path at all,
+                                    and therefore there is no shortest path from s to t.
+                                
+                                <li><em>Negative weights introduce complications.</em>
+                                    For the moment, we assume that edge weights are positive (or zero).
+                                
+                                <li><em>Shortest paths are normally simple.</em>
+                                    Our algorithms ignore zero-weight edges that form cycles,
+                                    so that the shortest paths they find have no cycles.
+                                
+                                <li><em> Shortest paths are not necessarily unique.</em>
+                                    There may be multiple paths of the lowest weight from one vertex to another;
+                                    we are content to find any one of them.
+                                
+                                <li><em>Parallel edges and self-loops may be present.</em>
+                                    In the text, we assume that parallel edges are not present and
+                                    use the notation v->w to refer to the edge from v to w, but our code handles 
+                                    them without difficulty.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Edge-weighted digraph data type.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We represent the weighted edges using the following API:
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/44sp/directed-edge-api.png" alt = "API for a weighted directed edge">
+                            </p>
+                            <p>
+                                The <tt>from()</tt> and <tt>to()</tt> methods are useful
+                                for accessing the edge's vertices.
+                                <a href = "DirectedEdge.java.html">DirectedEdge.java</a> implements this API.
+                            </p>
+                            <p>
+                            We represent edge-weighted digraphs using the following API:
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/44sp/edge-weighted-digraph-api.png" alt = "API for an
+                                    edge-weighted graph">
+                            </p>
+                            <p>
+                                <a href = "EdgeWeightedDigraph.java.html">EdgeWeightedDigraph.java</a>
+                                implements the API using the adjacency-lists representation.
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/44sp/edge-weighted-digraph-representation.png" alt = "edge-weighted digraph representation">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Shortest paths API.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We use the following API for computing the shortest paths of an edge-weighted digraph:
+                            </p>  
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/44sp/sp-api.png" alt = "API for SP implementations">
+                            </p>
+                            <p>
+                                We prepare some test data:
+                            </p>
+                                <ul>
+                                    <li>
+                                        <a href = "tinyEWD.txt">tinyEWD.txt</a>
+                                        contains 8 vertices and 15 edges
+                                    <li>
+                                        <a href = "mediumEWD.txt">mediumEWD.txt</a>
+                                        contains 250 vertices and 2,546 edges
+                                    <li>
+                                        <a href = "1000EWD.txt">1000EWG.txt</a>
+                                        contains 1,000 vertices and 16,866 edges
+                                    <li>
+                                        <a href = "10000EWD.txt">10000EWG.txt</a>
+                                        contains 10,000 vertices and 123,462 edges
+                                    <li>
+                                        <a href = "largeEWD.txt">largeEWG.txt</a>
+                                        contains one million vertices and 15,172,126 edges.
+                                </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Data structures for single-source shortest paths.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Given an edge-weighted digraph and a designated vertex s,
+                                a <em>shortest-paths tree</em> (SPT) is a subgraph containing s
+                                and all the vertices reachable from s that forms a directed tree
+                                rooted at s such that every tree path is a shortest path in the digraph.
+                            </p>
+                            <p>
+                                We represent the shortest paths with two vertex-indexed arrays:
+                            </p>
+                            <ul>
+                                <li><em>Edges on the shortest-paths tree</em>:
+                                    <tt>edgeTo[v]</tt> is the the last edge on a shortest path from s to v.
+                                <li><em>Distance to the source</em>: <tt>distTo[v]</tt> is the
+                                    length of the shortest path from s to v.
+                            </ul>
                             
+                            <!--
+                            By convention, <tt>edgeTo[s]</tt> is <tt>null</tt> and <tt>distTo[s]</tt> is 0.
+                            We also adopt the convention that distances to vertices that are not
+                            reachable from the source are all <tt>Double.POSITIVE_INFINITY</tt>.
+                            -->
+                            
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/44sp/spt.png" width = 350 alt = "Shortest paths tree">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Relaxation.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Our shortest-paths implementations are based on an operation known as 
+                                <em>relaxation</em>.
+                                We initialize <tt>distTo[s]</tt> to 0 and
+                                <tt>distTo[v]</tt> to infinity for all other vertices v.
+                            </p>
+                            <ul>
+                                <li><em>Edge relaxation.</em>
+                                    To relax an edge v->w means to test whether the best known way from s to w is to
+                                    go from s to v, then take the edge from v to w, and, if so, update our data structures.
+                                    <blockquote>
+                                        <div class="container">
+<pre class="sourcecode">
+private void relax(DirectedEdge e) {
+    int v = e.from(), w = e.to();
+    if (distTo[w] > distTo[v] + e.weight()) {
+        distTo[w] = distTo[v] + e.weight();
+        edgeTo[w] = e;
+    }
+}
+</pre>
+                                        </div>
+                                    </blockquote>
+                                    <p class="container--aligncenter">
+                                        <img src="../../images/pages/gr/44sp/relaxation-edge.png" alt = "edge relaxation">
+                                    </p>
+                                
+                                <li><em>Vertex relaxation.</em>
+                                    All of our implementations actually relax all the edges pointing from
+                                    a given vertex.
+                                
+                                    <blockquote>
+                                        <div class="container">
+<pre class="sourcecode">
+private void relax(EdgeWeightedDigraph G, int v) {
+    for (DirectedEdge e : G.adj(v)) {
+        int w = e.to();
+        if (distTo[w] > distTo[v] + e.weight()) {
+            distTo[w] = distTo[v] + e.weight();
+            edgeTo[w] = e;
+        }
+    }
+}
+</pre>
+                                        </div>
+                                    </blockquote>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                 <!--
+                <p><h2>Proposition. (shortest-paths optimality conditions)</h2>
+                Let G be an edge-weighted digraph with source s.
+                Suppose that for each vertex v reachable from s that
+                <tt>distTo[v]</tt> is the length of some path from <tt>s</tt> to <tt>v</tt>
+                and for each vertex v not reachable from s,
+                <tt>distTo[v]</tt> is equal to infinity.
+                These values are the lengths of <em>shortest</em> paths if and only if
+                they satisfy <tt>distTo[w] <= distTo[v] + e.weight()</tt>
+                for each edge e = v->w.
+                
+                The optimality conditions lead to a generic algorithm. For the moment,
+                we restrict attention to nonnegative weights.
+                
+                <p><h2>Propsition. (generic shortest paths algorithm)</h2>
+                Initialize <tt>distTo[s]</tt> to 0 and all other <tt>distTo[]</tt>
+                values to infinity, and proceed as follows:
+                Relax any edge in G, continuing until no edge is eligible.
+                For all vertices v reachable from <tt>s</tt>,
+                the value of <tt>distTo[v]</tt> after this computation is
+                the length of a shortest path from <tt>s</tt> to <tt>v</tt>
+                (and the value of <tt>edgeTo[]</tt> is the last edge on that path).
+                -->
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Dijkstra's algorithm.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Dijkstra's algorithm
+                                initializing <tt>dist[s]</tt> to 0 and all other <tt>distTo[]</tt>
+                                entries to positive infinity. Then, it repeatedly relaxes and
+                                adds to the tree a non-tree vertex with the lowest <tt>distTo[]</tt> value,
+                                continuing until all vertices are on the tree or no non-tree vertex
+                                has a finite <tt>distTo[]</tt> value.
+                                <a href = "DijkstraSP.java.html">DijkstraSP.java</a> is an
+                                efficient implementation of Dijkstra's algorithm.
+                                It uses <a href = "IndexMinPQ.java.html">IndexMinPQ.java</a> for
+                                the priority queue.
+                            </p>  
+                                <!--
+                                <p>
+                                <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/44sp/dijkstra-trace.png" alt = "Trace of Dijkstra's algorithm">
+                                </p>
+                                <p>
+                                -->
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Proposition.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Dijkstra's algorithm solves the single-source shortest-paths problem in edge-weighted
+                                digraphs with nonnegative weights using extra space proportional to V and
+                                time proportional to E log V (in the worst case).
+                            </p>
+                            <!--
+                            Our implementation of Dijkstra's algorithm is effective for solving other
+                            versions of the problem.
+                            <ul>
+                            
+                            <li><em>Single-source shortest paths in undirected graphs.</em>
+                            To find the shortest paths in undirected graphs,
+                            build an edge-weighted digraph with the same vertices and with two directed
+                            edges (one in each direction) corresponding to each edge in the graph.
+                            
+                            <li><em>Source-sink shortest paths.</em>
+                            To find the shortest path from s to t, use Dijkstra's algorithm, but 
+                            terminate the search as soon as t comes off the priority queue.
+                            
+                            <li><em>All-pairs shortest paths.</em>
+                            <a href = "DijkstraAllPairsSP.java.html">DijkstraAllPairsSP.java</a> solves
+                            the all-pairs shortest paths problem by running Dijkstra's algorithm
+                            from each vertex in the graph.
+                            </ul>
+                            -->
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Acyclic edge-weighted digraphs.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We use the term <em>edge-weighted DAG</em> to refer to an acyclic edge-weighted 
+                                digraph.
+                            </p>
+                            <ul>
+                                <li><em>Single-source shortest paths problem in edge-weighted DAGs.</em>
+                                    We now consider an algorithm for finding shortest paths that is simpler and faster 
+                                    than Dijkstra's algorithm for edge-weighted DAGs.
+                                    <ul>
+                                        <li> It solves the single-source problem in linear time.
+                                        <li> It handles negative edge weights.
+                                        <li> It solves related problems, such as finding longest paths.
+                                    </ul>
+                                    <p>
+                                        The algorithm combines vertex relaxation with topological sorting.
+                                        We initialize <tt>distTo[s]</tt> to 0 and all other <tt>distTo[]</tt>
+                                        values to infinity, then relax the vertices, one by one, taking the 
+                                        vertices in <em>topological order</em>.
+                                        <a href = "AcyclicSP.java.html">AcyclicSP.java</a> is an implementation
+                                        of this approach.
+                                        It relies on this version of 
+                                        <a href = "Topological.java.html">Topological.java</a>, extended
+                                        to support edge-weighted digraphs.
+                                    </p>
+                                
+                                <li><em>Single-source longest paths problem in edge-weighted DAGs.</em>
+                                    We can solve the single-source longest paths problems in edge-weighted DAGs
+                                    by initializing the <tt>distTo[]</tt> values to negative infinity
+                                    and switching the sense of the inequality in <tt>relax()</tt>.
+                                    <a href = "AcyclicLP.java.html">AcyclicLP.java</a> implements this approach.
+                                
+                                <li><em>Critical path method.</em>
+                                    We consider the parallel precedence-constrained job scheduling problem:
+                                    Given a set of jobs of specified duration to be completed, with precedence 
+                                    constraints that specify that certain jobs have to be completed before
+                                    certain other jobs are begun, how can we schedule the jobs on identical
+                                    processors (as many as needed) such that they are all completed in
+                                    the minimum amount of time while still respecting the constraints?
+                                    <p class="container--aligncenter">
+                                        <img src="../../images/pages/gr/44sp/scheduling-problem.png" alt = "Job-scheduling problem">
+                                    </p>
+                                    <p class="container--aligncenter">
+                                        <img src="../../images/pages/gr/44sp/scheduling-solution.png" alt = "Job-scheduling solution">
+                                    </p>
+                                    <p>
+                                        This problem can be solved by formulating it as a longest paths problem
+                                        in an edge-weighted DAG:
+                                        Create an edge-weighted DAG with a source s, a sink t, and two
+                                        vertices for each job (a start vertex and an end vertex).
+                                        For each job, add an edge from its start vertex to its end vertex with
+                                        weight equal to its duration.
+                                        For each precedence constraint v->w, add a zero-weight edge from the
+                                        end vertex corresponding to v to the beginning vertex corresponding to w.
+                                        Also add zero-weight edges from the source to each job's
+                                        start vertex and from each job's end vertex to the sink.
+                                    </p>
+                                    <p class="container--aligncenter">
+                                        <img src="../../images/pages/gr/44sp/scheduling-reduction.png" alt = "Job-scheduling problem reduction to longest paths">
+                                    </p>
+                                    <p>
+                                        Now, schedule each job at the time given by the length of its longest
+                                        path from the source.
+                                    </p>
+                                    <p class="container--aligncenter">
+                                        img src="../../images/pages/gr/44sp/scheduling-critical-path.png" alt = "Job-scheduling problem critical path">
+                                    </p>
+                                    <p>
+                                        <a href = "CPM.java.html">CPM.java</a> is an implementation of the
+                                        critical path method.
+                                    </p>
+                                </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Proposition.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                By relaxing vertices in topological order, we can solve the single-source
+                                shortest-paths and longest-paths problems for edge-weighted DAGs in
+                                time proportional to E + V.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Shortest paths in general edge-weighted digraphs.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We can solve shortest path problems if (i) all weights are nonnegative
+                                or (ii) there are no cycles. 
+                            </p>
+                            <ul>
+                                <li><em>Negative cycles.</em>
+                                    A <em>negative cycle</em> is a directed cycle whose total weight (sum of the weights
+                                    of its edges) is negative.
+                                    The concept of a shortest path is meaningless if there is a negative cycle.
+                                    <p class="container--aligncenter">
+                                        <img src="../../images/pages/gr/44sp/tinyEWDnc.png" alt = "an edge-weighted digraph with a negative cycle">
+                                    </p>
+                                    <p>
+                                        Accordingly, we consider edge-weighted digraphs with no negative cycles.
+                                    </p>
+                                <li><em>Bellman-Ford algorithm.</em>
+                                    Initialize <tt>distTo[s]</tt> to 0 and 
+                                    all other <tt>distTo[]</tt> values to infinity. Then, considering the digraph's 
+                                    edges in any order, and relax all edges. Make V such passes.
+                                    <blockquote>
+                                        <div class="container">
+<pre class="sourcecode">
+for (int pass = 0; pass < G.V(); pass++)
+for (int v = 0; v < G.V(); v++)
+    for (DirectedEdge e : G.adj(v))
+        relax(e);
+</pre>
+                                        </div>
+                                    </blockquote>
+                                    <p>
+                                        We do not consider this version in detail because it <em>always</em>
+                                        relaxes V E edges.
+                                    </p>
+                                
+                                <li><em>Queue-based Bellman-Ford algorithm.</em>
+                                    The only edges that could lead to a change in <tt>distTo[]</tt> are those
+                                    leaving a vertex whose <tt>distTo[]</tt> value changed in the previous pass. To keep 
+                                    track of such vertices, we use a FIFO queue. 
+                                    <a href = "BellmanFordSP.java.html">BellmanFordSP.java</a> implements this approach
+                                    by maintaining two additional data structures:
+                                    <ul>
+                                        <li> A queue of vertices to be relaxed
+                                        <li> A vertex-index boolean array <tt>onQ[]</tt> that indicates which
+                                            vertices are on the queue, to avoid duplicates
+                                    </ul>
+                                
+                                <li><em>Negative cycle detection.</em>
+                                    In many applications, our goal is to check for and
+                                    to check for and extract negative cycles. Accordingly, we add the following
+                                    methods to the API:
+                                    <p class="container--aligncenter">
+                                        <img src="../../images/pages/gr/44sp/negative-cycle-api.png" alt = "API for negative cycle detection">
+                                    </p>
+                                    <p>
+                                        There is a negative cycle reachable from the source if and only if the queue
+                                        is nonempty after the Vth pass through all the edges.
+                                        Moreover, the subgraph of edges in our <tt>edgeTo[]</tt> array must contain 
+                                        a negative cycle. Accordingly, to implement <tt>negativeCycle()</tt>
+                                        <a href ="BellmanFordSP.java.html">BellmanFordSP.java</a>
+                                        builds an edge-weighted digraph from the edges in <tt>edgeTo[]</tt>
+                                        and looks for a cycle in that digraph. To find the cycle, it uses
+                                        <a href = "EdgeWeightedDirectedCycle.java.html">EdgeWeightedDirectedCycle.java</a>,
+                                        a version of <a href = "../42directed/DirectedCycle.java.html">DirectedCycle.java</a>
+                                        from Section 4.3, adapted to work for edge-weighted digraphs.
+                                        We amortize the cost of this check by performing this check only after
+                                        every Vth edge relaxation.
+                                    </p>
+                                
+                                <li><em>Arbitrage detection.</em>
+                                    Consider a market for financial transactions that is based on
+                                    trading commodities.
+                                    The table in <a href = "rates.txt">rates.txt</a>
+                                    shows conversion rates among currencies.
+                                    The first line in the file is the number V of currencies;
+                                    then the file has one line per currency,
+                                    giving its name followed by the conversion rates to the other currencies.
+                                    An <em>arbitrage opportunity</em> is a directed cycle 
+                                    such that the product of the exchange rates is greater than one.
+                                    For example, our table says that 1,000 U.S. dollars will buy 
+                                    1,000.00 &times; .741 = 741 euros,
+                                    then we can buy 741 &times; 1.366  = 1,012.206 Canadian dollars with our euros,
+                                    and finally, 1,012.206 &times; .995 = 1,007.14497 U.S. dollars with our Canadian
+                                    dollars, a 7.14497-dollar profit!
+                                    <p class="container--aligncenter">
+                                    <table>
+                                        <tr>
+                                            <td><img src="../../images/pages/gr/44sp/rates.png" alt = "Exchange rates"></td>
+                                            <td>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            <td><img src="../../images/pages/gr/44sp/arbitrage.png" alt = "Arbitrage opportunity"></td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p>
+                                        To formulate the arbitrage problem as a negative-cycle detection problem,
+                                        replace each weight by its <em>logarithm</em>, negated. With this change,
+                                        computing path weights by multiplying edge weights in the original problem
+                                        corresponds to adding them in the transformed problem.
+                                        <a href = "Arbitrage.java.html">Arbitrage.java</a> identifies
+                                        arbitrage opportunities in a currency-exchange network by solving the
+                                        corresponding negative cycle detection problem.
+                                    </p>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                There exists a shortest path from s to v in an edge-weighted digraph
+                                if and only if there exists at least one directed path from s to v
+                                and no vertex on any directed path from s to v is on a negative cycle.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                The Bellman-Ford algorithm solves
+                                the single-source shortest-paths problem from a given source s
+                                (or finds a negative cycle reachable from s) for any edge-weighted digraph
+                                with V vertices and E edges, in time proportional to E V and extra space
+                                proportional to V, in the worst case.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Q + A</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                <b>Q.</b> Does Dijkstra's algorithm work with negative weights?
+                            </p>
+                            <p>
+                                <b>A.</b> Yes and no. There are two shortest paths algorithms known
+                                as <em>Dijkstra's algorithm</em>, depending on whether a vertex can be
+                                enqueued on the priority queue more than once.
+                                When the weights are nonnegative, the two versions coincide 
+                                (as no vertex will be enqueued more than once).
+                                The version implemented in <a href = "DijkstraSP.java.html">DijkstraSP.java</a>
+                                (which allows a vertex
+                                to be enqueued more than once) is correct in
+                                the presence of negative edge weights (but no negative cycles) but its
+                                running time is exponential in the worst case.
+                                (We note that <a href = "DijkstraSP.java.html">DijkstraSP.java</a> throws
+                                an exception if the edge-weighted digraph has an edge with a negative weight,
+                                so that a programmer is not surprised by this exponential behavior.)
+                                If we modify <a href = "DijkstraSP.java.html">DijkstraSP.java</a>
+                                so that a vertex cannot be enqueued more than once (e.g., using a <tt>marked[]</tt>
+                                array to mark those vertices that have been relaxed), then the algorithm
+                                is guaranteed to run in <em>E</em> log <em>V</em> time but it may yield
+                                incorrect results when there are edges with negative weights.
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -143,542 +695,3 @@
 </body>
 
 </html>
-
-<div id = "content">
-    <H1>4.4 &nbsp; Shortest Paths</H1>
-    
-    <p><br>
-    
-    <h2>Shortest paths.</h2>
-    An edge-weighted digraph is a digraph where we associate weights or costs with each edge.
-    A <em>shortest path</em> from vertex s to vertex t is a directed path
-    from s to t with the property that no other such path has a lower weight.
-    
-    
-    <p>
-    <center>
-    <img src = "images/shortest-path.png" alt = "Shortest path">
-    </center>
-    <p>
-    
-    
-    <p><h2>Properties.</h2>
-    We summarize several important properties and assumptions.
-    
-    <ul>
-    
-    <p><li><em>Paths are directed.</em>
-    A shortest path must respect the direction of its edges.
-    
-    <p><li><em>The weights are not necessarily distances.</em>
-    Geometric intuition can be helpful, but the edge weights weights might
-    represent time or cost.
-    
-    <p><li><em>Not all vertices need be reachable.</em>
-    If t is not reachable from s, there is no path at all,
-    and therefore there is no shortest path from s to t.
-    
-    <p><li><em>Negative weights introduce complications.</em>
-    For the moment, we assume that edge weights are positive (or zero).
-    
-    <p><li><em>Shortest paths are normally simple.</em>
-    Our algorithms ignore zero-weight edges that form cycles,
-    so that the shortest paths they find have no cycles.
-    
-    <p><li><em> Shortest paths are not necessarily unique.</em>
-    There may be multiple paths of the lowest weight from one vertex to another;
-    we are content to find any one of them.
-    
-    <p><li><em>Parallel edges and self-loops may be present.</em>
-    In the text, we assume that parallel edges are not present and
-    use the notation v->w to refer to the edge from v to w, but our code handles 
-    them without difficulty.
-    
-    </ul>
-    
-    
-    <p><h2>Edge-weighted digraph data type.</h2>
-    We represent the weighted edges using the following API:
-    
-    <p>
-    <center>
-    <img src = "images/directed-edge-api.png" alt = "API for a weighted directed edge">
-    </center>
-    <p>
-    <br>
-    
-    The <tt>from()</tt> and <tt>to()</tt> methods are useful
-    for accessing the edge's vertices.
-    <a href = "DirectedEdge.java.html">DirectedEdge.java</a> implements this API.
-    
-    
-    <p>
-    We represent edge-weighted digraphs using the following API:
-    
-    <p>
-    <center>
-    <img src = "images/edge-weighted-digraph-api.png" alt = "API for an
-    edge-weighted graph">
-    </center>
-    <p>
-    <br>
-    
-    <a href = "EdgeWeightedDigraph.java.html">EdgeWeightedDigraph.java</a>
-    implements the API using the adjacency-lists representation.
-    
-    <p>
-    <center>
-    <img src = "images/edge-weighted-digraph-representation.png" alt = "edge-weighted digraph representation">
-    </center>
-    <p>
-    <br>
-    
-    <p><h2>Shortest paths API.</h2>
-    We use the following API for computing the shortest paths of an edge-weighted digraph:
-    
-    
-    <p>
-    <center>
-    <img src = "images/sp-api.png" alt = "API for SP implementations">
-    </center>
-    <p>
-    <br>
-    
-    We prepare some test data:
-    <ul>
-    <li>
-    <a href = "tinyEWD.txt">tinyEWD.txt</a>
-    contains 8 vertices and 15 edges
-    <li>
-    <a href = "mediumEWD.txt">mediumEWD.txt</a>
-    contains 250 vertices and 2,546 edges
-    <li>
-    <a href = "1000EWD.txt">1000EWG.txt</a>
-    contains 1,000 vertices and 16,866 edges
-    <li>
-    <a href = "10000EWD.txt">10000EWG.txt</a>
-    contains 10,000 vertices and 123,462 edges
-    <li>
-    <a href = "largeEWD.txt">largeEWG.txt</a>
-    contains one million vertices and 15,172,126 edges.
-    
-    </ul>
-    
-    
-    
-    <p><h2>Data structures for single-source shortest paths.</h2>
-    Given an edge-weighted digraph and a designated vertex s,
-    a <em>shortest-paths tree</em> (SPT) is a subgraph containing s
-    and all the vertices reachable from s that forms a directed tree
-    rooted at s such that every tree path is a shortest path in the digraph.
-    
-    
-    <p>
-    We represent the shortest paths with two vertex-indexed arrays:
-    
-    <ul>
-    <p><li><em>Edges on the shortest-paths tree</em>:
-    <tt>edgeTo[v]</tt> is the the last edge on a shortest path from s to v.
-    
-    <p><li><em>Distance to the source</em>: <tt>distTo[v]</tt> is the
-    length of the shortest path from s to v.
-    
-    </ul>
-    
-    <!--
-    By convention, <tt>edgeTo[s]</tt> is <tt>null</tt> and <tt>distTo[s]</tt> is 0.
-    We also adopt the convention that distances to vertices that are not
-    reachable from the source are all <tt>Double.POSITIVE_INFINITY</tt>.
-    -->
-    
-    <p>
-    <center>
-    <img src = "images/spt.png" width = 350 alt = "Shortest paths tree">
-    </center>
-    
-    
-    <p><h2>Relaxation.</h2>
-    Our shortest-paths implementations are based on an operation known as 
-    <em>relaxation</em>.
-    We initialize <tt>distTo[s]</tt> to 0 and
-    <tt>distTo[v]</tt> to infinity for all other vertices v.
-    
-    <ul>
-    <p><li><em>Edge relaxation.</em>
-    To relax an edge v->w means to test whether the best known way from s to w is to
-    go from s to v, then take the edge from v to w, and, if so, update our data structures.
-    
-    
-    <blockquote>
-    <table>
-    <TR><TD><pre>
-    private void relax(DirectedEdge e) {
-        int v = e.from(), w = e.to();
-        if (distTo[w] > distTo[v] + e.weight()) {
-            distTo[w] = distTo[v] + e.weight();
-            edgeTo[w] = e;
-        }
-    }
-    </pre></td></tr>
-    </table>
-    </blockquote>
-    
-    
-    <p>
-    <center>
-    <img src = "images/relaxation-edge.png" alt = "edge relaxation">
-    </center>
-    
-    <p><li><em>Vertex relaxation.</em>
-    All of our implementations actually relax all the edges pointing from
-    a given vertex.
-    
-    <blockquote>
-    <table>
-    <TR><TD><pre>
-    private void relax(EdgeWeightedDigraph G, int v) {
-        for (DirectedEdge e : G.adj(v)) {
-            int w = e.to();
-            if (distTo[w] > distTo[v] + e.weight()) {
-                distTo[w] = distTo[v] + e.weight();
-                edgeTo[w] = e;
-            }
-        }
-    }
-    </pre></td></tr>
-    </table>
-    </blockquote>
-    </ul>
-    
-    
-    <!--
-    
-    <p><h2>Proposition. (shortest-paths optimality conditions)</h2>
-    Let G be an edge-weighted digraph with source s.
-    Suppose that for each vertex v reachable from s that
-    <tt>distTo[v]</tt> is the length of some path from <tt>s</tt> to <tt>v</tt>
-    and for each vertex v not reachable from s,
-    <tt>distTo[v]</tt> is equal to infinity.
-    These values are the lengths of <em>shortest</em> paths if and only if
-    they satisfy <tt>distTo[w] <= distTo[v] + e.weight()</tt>
-    for each edge e = v->w.
-    
-    The optimality conditions lead to a generic algorithm. For the moment,
-    we restrict attention to nonnegative weights.
-    
-    <p><h2>Propsition. (generic shortest paths algorithm)</h2>
-    Initialize <tt>distTo[s]</tt> to 0 and all other <tt>distTo[]</tt>
-    values to infinity, and proceed as follows:
-    Relax any edge in G, continuing until no edge is eligible.
-    For all vertices v reachable from <tt>s</tt>,
-    the value of <tt>distTo[v]</tt> after this computation is
-    the length of a shortest path from <tt>s</tt> to <tt>v</tt>
-    (and the value of <tt>edgeTo[]</tt> is the last edge on that path).
-    -->
-    
-    
-    <p><h2>Dijkstra's algorithm.</h2>
-    Dijkstra's algorithm
-    initializing <tt>dist[s]</tt> to 0 and all other <tt>distTo[]</tt>
-    entries to positive infinity. Then, it repeatedly relaxes and
-    adds to the tree a non-tree vertex with the lowest <tt>distTo[]</tt> value,
-    continuing until all vertices are on the tree or no non-tree vertex
-    has a finite <tt>distTo[]</tt> value.
-    
-    <p>
-    <a href = "DijkstraSP.java.html">DijkstraSP.java</a> is an
-    efficient implementation of Dijkstra's algorithm.
-    It uses <a href = "IndexMinPQ.java.html">IndexMinPQ.java</a> for
-    the priority queue.
-    
-    <!--
-    <p>
-    <center>
-    <img src = "images/dijkstra-trace.png" alt = "Trace of Dijkstra's algorithm">
-    </center>
-    <p>
-    -->
-    
-    <p><h2>Proposition.</h2>
-    Dijkstra's algorithm solves the single-source shortest-paths problem in edge-weighted
-    digraphs with nonnegative weights using extra space proportional to V and
-    time proportional to E log V (in the worst case).
-    
-    <!--
-    Our implementation of Dijkstra's algorithm is effective for solving other
-    versions of the problem.
-    <ul>
-    
-    <p><li><em>Single-source shortest paths in undirected graphs.</em>
-    To find the shortest paths in undirected graphs,
-    build an edge-weighted digraph with the same vertices and with two directed
-    edges (one in each direction) corresponding to each edge in the graph.
-    
-    <p><li><em>Source-sink shortest paths.</em>
-    To find the shortest path from s to t, use Dijkstra's algorithm, but 
-    terminate the search as soon as t comes off the priority queue.
-    
-    <p><li><em>All-pairs shortest paths.</em>
-    <a href = "DijkstraAllPairsSP.java.html">DijkstraAllPairsSP.java</a> solves
-    the all-pairs shortest paths problem by running Dijkstra's algorithm
-    from each vertex in the graph.
-    </ul>
-    -->
-    
-    
-    <p><h2>Acyclic edge-weighted digraphs.</h2>
-    We use the term <em>edge-weighted DAG</em> to refer to an acyclic edge-weighted 
-    digraph.
-    
-    <ul>
-    <p><li><em>Single-source shortest paths problem in edge-weighted DAGs.</em>
-    We now consider an algorithm for finding shortest paths that is simpler and faster 
-    than Dijkstra's algorithm for edge-weighted DAGs.
-    <ul>
-    <p><li> It solves the single-source problem in linear time.
-    <p><li> It handles negative edge weights.
-    <p><li> It solves related problems, such as finding longest paths.
-    </ul>
-    
-    <p>
-    The algorithm combines vertex relaxation with topological sorting.
-    We initialize <tt>distTo[s]</tt> to 0 and all other <tt>distTo[]</tt>
-    values to infinity, then relax the vertices, one by one, taking the 
-    vertices in <em>topological order</em>.
-    <a href = "AcyclicSP.java.html">AcyclicSP.java</a> is an implementation
-    of this approach.
-    It relies on this version of 
-    <a href = "Topological.java.html">Topological.java</a>, extended
-    to support edge-weighted digraphs.
-    
-    <p><li><em>Single-source longest paths problem in edge-weighted DAGs.</em>
-    We can solve the single-source longest paths problems in edge-weighted DAGs
-    by initializing the <tt>distTo[]</tt> values to negative infinity
-    and switching the sense of the inequality in <tt>relax()</tt>.
-    <a href = "AcyclicLP.java.html">AcyclicLP.java</a> implements this approach.
-    
-    <p><li><em>Critical path method.</em>
-    We consider the parallel precedence-constrained job scheduling problem:
-    Given a set of jobs of specified duration to be completed, with precedence 
-    constraints that specify that certain jobs have to be completed before
-    certain other jobs are begun, how can we schedule the jobs on identical
-    processors (as many as needed) such that they are all completed in
-    the minimum amount of time while still respecting the constraints?
-    
-    <p>
-    <center>
-    <img src = "images/scheduling-problem.png" alt = "Job-scheduling problem">
-    </center>
-    <p>
-    
-    <p>
-    <center>
-    <img src = "images/scheduling-solution.png" alt = "Job-scheduling solution">
-    </center>
-    <p>
-    
-    This problem can be solved by formulating it as a longest paths problem
-    in an edge-weighted DAG:
-    Create an edge-weighted DAG with a source s, a sink t, and two
-    vertices for each job (a start vertex and an end vertex).
-    For each job, add an edge from its start vertex to its end vertex with
-    weight equal to its duration.
-    For each precedence constraint v->w, add a zero-weight edge from the
-    end vertex corresponding to v to the beginning vertex corresponding to w.
-    Also add zero-weight edges from the source to each job's
-    start vertex and from each job's end vertex to the sink.
-    
-    <p>
-    <center>
-    <img src = "images/scheduling-reduction.png" alt = "Job-scheduling problem reduction to longest paths">
-    </center>
-    
-    <p>
-    Now, schedule each job at the time given by the length of its longest
-    path from the source.
-    
-    <p>
-    <center>
-    <img src = "images/scheduling-critical-path.png" alt = "Job-scheduling problem critical path">
-    </center>
-    <p>
-    
-    <a href = "CPM.java.html">CPM.java</a> is an implementation of the
-    critical path method.
-    
-    
-    </ul>
-    
-    <p><h2>Proposition.</h2>
-    By relaxing vertices in topological order, we can solve the single-source
-    shortest-paths and longest-paths problems for edge-weighted DAGs in
-    time proportional to E + V.
-    
-    
-    
-    <p><h2>Shortest paths in general edge-weighted digraphs.</h2>
-    We can solve shortest path problems if (i) all weights are nonnegative
-    or (ii) there are no cycles. 
-    
-    <ul>
-    
-    <p><li><em>Negative cycles.</em>
-    A <em>negative cycle</em> is a directed cycle whose total weight (sum of the weights
-    of its edges) is negative.
-    The concept of a shortest path is meaningless if there is a negative cycle.
-    
-    <p>
-    <center>
-    <img src = "images/tinyEWDnc.png" alt = "an edge-weighted digraph with a negative cycle">
-    </center>
-    <p>
-    
-    Accordingly, we consider edge-weighted digraphs with no negative cycles.
-    
-    
-    
-    <p><li><em>Bellman-Ford algorithm.</em>
-    Initialize <tt>distTo[s]</tt> to 0 and 
-    all other <tt>distTo[]</tt> values to infinity. Then, considering the digraph's 
-    edges in any order, and relax all edges. Make V such passes.
-    
-    
-    <blockquote>
-    <table>
-    <TR><TD><pre>
-    for (int pass = 0; pass < G.V(); pass++)
-       for (int v = 0; v < G.V(); v++)
-          for (DirectedEdge e : G.adj(v))
-              relax(e);
-    </pre></td></tr>
-    </table>
-    </blockquote>
-    
-    We do not consider this version in detail because it <em>always</em>
-    relaxes V E edges.
-    
-    <p><li><em>Queue-based Bellman-Ford algorithm.</em>
-    The only edges that could lead to a change in <tt>distTo[]</tt> are those
-    leaving a vertex whose <tt>distTo[]</tt> value changed in the previous pass. To keep 
-    track of such vertices, we use a FIFO queue. 
-    <a href = "BellmanFordSP.java.html">BellmanFordSP.java</a> implements this approach
-    by maintaining two additional data structures:
-    <ul>
-    <p><li> A queue of vertices to be relaxed
-    <p><li> A vertex-index boolean array <tt>onQ[]</tt> that indicates which
-    vertices are on the queue, to avoid duplicates
-    </ul>
-    
-    <p><li><em>Negative cycle detection.</em>
-    In many applications, our goal is to check for and
-    to check for and extract negative cycles. Accordingly, we add the following
-    methods to the API:
-    
-    <p>
-    <center>
-    <img src = "images/negative-cycle-api.png" alt = "API for negative cycle detection">
-    </center>
-    <p>
-    <br>
-    
-    
-    There is a negative cycle reachable from the source if and only if the queue
-    is nonempty after the Vth pass through all the edges.
-    Moreover, the subgraph of edges in our <tt>edgeTo[]</tt> array must contain 
-    a negative cycle. Accordingly, to implement <tt>negativeCycle()</tt>
-    <a href ="BellmanFordSP.java.html">BellmanFordSP.java</a>
-    builds an edge-weighted digraph from the edges in <tt>edgeTo[]</tt>
-    and looks for a cycle in that digraph. To find the cycle, it uses
-    <a href = "EdgeWeightedDirectedCycle.java.html">EdgeWeightedDirectedCycle.java</a>,
-    a version of <a href = "../42directed/DirectedCycle.java.html">DirectedCycle.java</a>
-    from Section 4.3, adapted to work for edge-weighted digraphs.
-    We amortize the cost of this check by performing this check only after
-    every Vth edge relaxation.
-    
-    
-    <p><li><em>Arbitrage detection.</em>
-    Consider a market for financial transactions that is based on
-    trading commodities.
-    The table in <a href = "rates.txt">rates.txt</a>
-    shows conversion rates among currencies.
-    The first line in the file is the number V of currencies;
-    then the file has one line per currency,
-    giving its name followed by the conversion rates to the other currencies.
-    An <em>arbitrage opportunity</em> is a directed cycle 
-    such that the product of the exchange rates is greater than one.
-    For example, our table says that 1,000 U.S. dollars will buy 
-    1,000.00 &times; .741 = 741 euros,
-    then we can buy 741 &times; 1.366  = 1,012.206 Canadian dollars with our euros,
-    and finally, 1,012.206 &times; .995 = 1,007.14497 U.S. dollars with our Canadian
-    dollars, a 7.14497-dollar profit!
-    
-    
-    <center>
-    <table>
-    <TR>
-    <td><img src = "images/rates.png" alt = "Exchange rates"></td>
-    <td>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </td>
-    <td><img src = "images/arbitrage.png" alt = "Arbitrage opportunity"></td>
-    </td></tr>
-    </table>
-    </center>
-    
-    
-    <p>
-    To formulate the arbitrage problem as a negative-cycle detection problem,
-    replace each weight by its <em>logarithm</em>, negated. With this change,
-    computing path weights by multiplying edge weights in the original problem
-    corresponds to adding them in the transformed problem.
-    <a href = "Arbitrage.java.html">Arbitrage.java</a> identifies
-    arbitrage opportunities in a currency-exchange network by solving the
-    corresponding negative cycle detection problem.
-    
-    
-    
-    
-    </ul>
-    
-    <p><h3>Proposition.</h3>
-    There exists a shortest path from s to v in an edge-weighted digraph
-    if and only if there exists at least one directed path from s to v
-    and no vertex on any directed path from s to v is on a negative cycle.
-    
-    <p><h3>Proposition.</h3>
-    The Bellman-Ford algorithm solves
-    the single-source shortest-paths problem from a given source s
-    (or finds a negative cycle reachable from s) for any edge-weighted digraph
-    with V vertices and E edges, in time proportional to E V and extra space
-    proportional to V, in the worst case.
-    
-    
-    
-    
-    <P>
-    <H4>Q + A</H4>
-    
-    
-    <p><b>Q.</b> Does Dijkstra's algorithm work with negative weights?
-    <p><b>A.</b> Yes and no. There are two shortest paths algorithms known
-    as <em>Dijkstra's algorithm</em>, depending on whether a vertex can be
-    enqueued on the priority queue more than once.
-    When the weights are nonnegative, the two versions coincide 
-    (as no vertex will be enqueued more than once).
-    The version implemented in <a href = "DijkstraSP.java.html">DijkstraSP.java</a>
-    (which allows a vertex
-    to be enqueued more than once) is correct in
-    the presence of negative edge weights (but no negative cycles) but its
-    running time is exponential in the worst case.
-    (We note that <a href = "DijkstraSP.java.html">DijkstraSP.java</a> throws
-    an exception if the edge-weighted digraph has an edge with a negative weight,
-    so that a programmer is not surprised by this exponential behavior.)
-    If we modify <a href = "DijkstraSP.java.html">DijkstraSP.java</a>
-    so that a vertex cannot be enqueued more than once (e.g., using a <tt>marked[]</tt>
-    array to mark those vertices that have been relaxed), then the algorithm
-    is guaranteed to run in <em>E</em> log <em>V</em> time but it may yield
-    incorrect results when there are edges with negative weights.
-    
-    
-    <p><br>

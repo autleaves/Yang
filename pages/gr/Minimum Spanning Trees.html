@@ -105,7 +105,7 @@
                 <section class="section">
                     <div class="section-container ">
                         <div class="section-title chapter-title">
-                            <h1>Bags, Queues, and Stacks</h1>
+                            <h1>Minimum Spanning Trees</h1>
                         </div>
                         <div class="section-content chapter-content">
                             
@@ -115,20 +115,341 @@
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class="">&sect;&nbsp;</h2>
+                            <h2 class="">&sect;&nbsp;Minimum spanning tree.</h2>
                         </div>
                         <div class="section-content">
-                            
+                            <p>
+                            An <em>edge-weighted graph</em> is a graph where we
+                            associate <em>weights</em> or <em>costs</em> with each edge.
+                            A <em>minimum spanning tree (MST)</em> of an edge-weighted graph
+                            is a spanning tree whose weight (the sum of the weights of its edges)
+                            is no larger than the weight of any other spanning tree.
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/43mst/mst.png" alt = "Minimum spanning tree">
+                            </p>
+                            <p>
                         </div>
                     </div>
                 </section>
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;</h2>
+                            <h2 class="">&sect;&nbsp;Assumptions.</h2>
                         </div>
                         <div class="section-content">
-                            
+                            <p>
+                                To streamline the presentation, we adopt the following conventions:
+                            </p>
+                            <ul>
+                                <li> <em>The graph is connected.</em>
+                                    The spanning-tree condition in our definition implies that the graph
+                                    must be connected for an MST to exist.
+                                    If a graph is not connected, we can adapt our algorithms to compute
+                                    the MSTs of each of its connected components, collectively known as a
+                                    <em>minimum spanning forest</em>.
+                                
+                                <li> <em>The edge weights are not necessarily distances.</em>
+                                    Geometric intuition is sometimes beneficial, but the edge weights
+                                    can be arbitrary.
+                                
+                                <li><em> The edge weights may be zero or negative.</em>
+                                    If the edge weights are all positive, it suffices to define the MST as
+                                    the subgraph with minimal total weight that connects all the vertices.
+                                
+                                <li><em>The edge weights are all different.</em>
+                                    If edges can have equal weights, the minimum spanning tree may not be unique.
+                                    Making this assumption simplifies some of our proofs, but all of our 
+                                    our algorithms work properly even in the presence of equal weights.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Underlying principles.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We recall two of the defining properties of a tree:
+                            </p>
+                            <ul>
+                                <li> Adding an edge that connects two vertices in a tree creates a
+                                unique cycle.
+                                <li> Removing an edge from a tree breaks it into two separate
+                                subtrees.
+                            </ul>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/43mst/tree-add-edge.png" alt = "Adding an edge to a spanning tree">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <img src="../../images/pages/gr/43mst/tree-remove-edge.png" alt = "Removing an edge from a spanning tree">
+                            </p>
+                            <p>
+                                A <em>cut</em> of a graph is a partition of its vertices into two
+                                disjoint sets. A <em>crossing edge</em> is an edge that connects a vertex
+                                in one set with a vertex in the other.
+                                We recall For simplicity, we assume all edge weights are distinct.
+                                Under this assumption, the MST is unique.
+                                Define cut and cycle.
+                                The following properties lead to a number of MST algorithms.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition. (Cut property)</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Given any cut in an edge-weighted graph (with all edge weights
+                                distinct),
+                                the crossing edge of minimum weight is in the MST of the graph.
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/43mst/cut-property.png" alt = "Cut property">
+                            </p>
+                            <p>
+                                The cut property is the basis for the algorithms that we consider for
+                                the MST problem. Specifically, they are special cases of the
+                                <em>greedy algorithm</em>.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition. (Greedy MST algorithm)</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                The following method colors black all edges in the the MST of any
+                                connected edge-weighted graph with V vertices: Starting with all edges colored 
+                                gray, find a cut with no black edges, color its minimum-weight edge
+                                black, and continue until V-1 edges have been colored black.
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/43mst/mst-greedy.png" alt="Greedy algorithm for the
+                                    minimum spanning tree problem">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Edge-weighted graph data type.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We represent the weighted edges using the following API:
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/43mst/edge-api.png" alt = "API for a weighted edge">
+                            </p>
+                            <p>
+                                The <code>either()</code> and <code>other()</code> methods are useful
+                                for accessing the edge's vertices; the <code>compareTo()</code> method
+                                compares edges by weight.
+                                <a href = "Edge.java.html">Edge.java</a> is a straightforward
+                                implementation.
+                            </p>
+                            <p>
+                                We represent edge-weighted graphs using the following API:
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/43mst/edge-weighted-graph-api.png" alt="API for an
+                                    edge-weighted graph">
+                            </p>
+                            <p>
+                                We allow parallel edges and self-loops.
+                                <a href = "EdgeWeightedGraph.java.html">EdgeWeightedGraph.java</a>
+                                implements the API using the adjacency-lists representation.
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src = "../../images/pages/gr/43mst/edge-weighted-graph-representation.png" alt = "edge-weighted graph representation">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;MST API.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We use the following API for computing an MST of an edge-weighted
+                                graph:
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/43mst/mst-api.png" alt = "API for MST implementations">
+                            </p>
+                            <p>
+                                We prepare some test data:
+                            </p>
+                            <ul>
+                                <li>
+                                    <a href = "tinyEWG.txt">tinyEWG.txt</a>
+                                    contains 8 vertices and 16 edges
+                                <li>
+                                    <a href = "mediumEWG.txt">mediumEWG.txt</a>
+                                    contains 250 vertices and 1,273 edges
+                                <li>
+                                    <a href = "1000EWG.txt">1000EWG.txt</a>
+                                    contains 1,000 vertices and 8,433 edges
+                                <li>
+                                    <a href = "10000EWG.txt">10000EWG.txt</a>
+                                    contains 10,000 vertices and 61,731 edges
+                                <li>
+                                    <a href = "largeEWG.txt">largeEWG.txt</a>
+                                    contains one million vertices and 7,586,063 edges
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Prim's algorithm.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Prim's algorithm works by attaching a new edge to a single growing tree 
+                                at each step:
+                                Start with any vertex as a single-vertex tree; then add V-1 edges to
+                                it, always taking next (coloring black) the minimum-weight edge that
+                                connects a vertex on the tree to a vertex not yet on the tree
+                                (a crossing edge for the cut defined by tree vertices).
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/43mst/prim.png" alt = "Prim's MST algorithm">
+                            </p>
+                            <p>
+                                The one-sentence description of Prim's algorithm leaves unanswered a
+                                key question: How do we (efficiently) find the crossing edge of
+                                minimal weight?
+                            </p>
+                            <ul>
+                                <li><em>Lazy implementation.</em>
+                                    We use a priority queue to hold the
+                                    crossing edges and find one of minimal weight.
+                                    Each time that we add an edge to the tree, we also add a vertex to the
+                                    tree. To maintain the set of crossing edges,
+                                    we need to add to  the priority queue all edges from that vertex to
+                                    any non-tree vertex.
+                                    But we must do more: any edge connecting the
+                                    vertex just  added to a tree vertex that is already on the priority queue now
+                                    becomes <em>ineligible</em> (it is no longer a crossing edge because
+                                    it connects two tree vertices).
+                                    The lazy implementation leaves such edges on the priority
+                                    queue, deferring the ineligibility test to when we remove them.
+                                    <p>
+                                        <a href = "LazyPrimMST.java.html">LazyPrimMST.java</a> is an
+                                        implementation of this lazy approach. It relies on the 
+                                        <a href = "MinPQ.java.html">MinPQ.java</a> priority queue.
+                                    </p>
+                                    <p class="container--aligncenter">
+                                        <img src="../../images/pages/gr/43mst/prim-lazy.png" alt = "Prim's algorithm (lazy implementation)
+                                            for the minimum spanning tree problem">
+                                    </p>
+                                
+                                <li><em>Eager implementation.</em>
+                                    To improve the lazy implementation of Prim's algorithm, we might try 
+                                    to delete ineligible edges from the priority queue, so that the
+                                    priority queue contains only the crossing edges.
+                                    But we can eliminate even more edges. The key is to note that our
+                                    only interest is in the <em>minimal</em> edge 
+                                    from each non-tree vertex to a tree vertex. When we add a vertex v to
+                                    the tree, the only 
+                                    possible change with respect to each non-tree vertex w is that adding
+                                    v brings w closer 
+                                    than before to the tree. In short, we do not need to keep on the
+                                    priority queue all of the 
+                                    edges from w to vertices tree&mdash;we just need to keep track of the
+                                    minimum-weight edge 
+                                    and check whether the addition of v to the tree necessitates that we
+                                    update that minimum (because of an edge v-w that has lower weight),
+                                    which we can do as we process 
+                                    each edge in s adjacency list. In other words, we maintain on the
+                                    priority queue just 
+                                    one edge for each non-tree vertex: the shortest edge that connects it
+                                    to the tree. 
+                                    <p class="container--aligncenter">
+                                        <img src="../../images/pages/gr/43mst/prim-eager.png" alt = "Prim's algorithm (eager implementation)
+                                            for the minimum spanning tree problem">
+                                    </p>
+                                    <p>
+                                        <a href = "PrimMST.java.html">PrimMST.java</a> is an implementation
+                                        of this eager approach. It relies on the 
+                                        <a href = "IndexMinPQ.java.html">IndexMinPQ.java</a> indexed priority
+                                        queue to perform the <em>decrease-key</em> operation.
+                                    </p>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Prim's algorithm computes the MST of any connected edge-weighted graph.
+                                The lazy version of Prim's algorithm uses space proportional to E and
+                                time proportional to E log E (in the worst case) to compute the MST
+                                of a connected edge-weighted graph with E edges and V vertices;
+                                the eager version uses space proportional to V and time proportional
+                                to E log V (in the worst case).
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Kruskal's algorithm.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Kruskal's algorithm processes the edges in order of their 
+                                weight values (smallest to largest), taking for the MST (coloring black)
+                                each edge that does not form a cycle with edges previously added,
+                                stopping after adding V-1 edges.
+                                The black edges form a forest of trees that evolves gradually into a single tree,
+                                the MST. 
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/43mst/kruskal.png" alt = "Kruskal's algorithm for the minimum spanning tree problem">
+                            </p>
+                            <p>
+                                To implement Kruskal's algorithm, we use a priority queue to consider the edges
+                                in order by weight, a union-find data structure to identify those that cause 
+                                cycles, and a queue to collect the MST edges.
+                                Program <a href = "KruskalMST.java.html">KruskalMST.java</a>
+                                implements Kruskal's algorithm along these lines. It uses the helper 
+                                <a href = "MinPQ.java.html">MinPQ.java</a>,
+                                <a href = "UF.java.html">UF.java</a>, and
+                                <a href = "Queue.java.html">Queue.java</a> data types.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Kruskal's algorithm computes the MST of any connected edge-weighted graph
+                                with E edges and V vertices using extra space
+                                proportional to E and time proportional to E log E (in the worst case).
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -143,324 +464,3 @@
 </body>
 
 </html>
-
-<div id = "content">
-    <H1>4.3 &nbsp; Minimum Spanning Trees</H1>
-    
-    <p><br>
-    
-    <h2>Minimum spanning tree.</h2>
-    An <em>edge-weighted graph</em> is a graph where we
-    associate <em>weights</em> or <em>costs</em> with each edge.
-    A <em>minimum spanning tree (MST)</em> of an edge-weighted graph
-    is a spanning tree whose weight (the sum of the weights of its edges)
-    is no larger than the weight of any other spanning tree.
-    
-    <p>
-    <center>
-    <img src = "images/mst.png" alt = "Minimum spanning tree">
-    </center>
-    <p>
-    
-    
-    <p><h2>Assumptions.</h2>
-    To streamline the presentation, we adopt the following conventions:
-    
-    <ul>
-    
-    <li> <em>The graph is connected.</em>
-    The spanning-tree condition in our definition implies that the graph
-    must be connected for an MST to exist.
-    If a graph is not connected, we can adapt our algorithms to compute
-    the MSTs of each of its connected components, collectively known as a
-    <em>minimum spanning forest</em>.
-    
-    <li> <em>The edge weights are not necessarily distances.</em>
-    Geometric intuition is sometimes beneficial, but the edge weights
-    can be arbitrary.
-    
-    <li><em> The edge weights may be zero or negative.</em>
-    If the edge weights are all positive, it suffices to define the MST as
-    the subgraph with minimal total weight that connects all the vertices.
-    
-    <li><em>The edge weights are all different.</em>
-    If edges can have equal weights, the minimum spanning tree may not be unique.
-    Making this assumption simplifies some of our proofs, but all of our 
-    our algorithms work properly even in the presence of equal weights.
-    
-    </ul>
-    
-    
-    
-    <p><h2>Underlying principles.</h2>
-    We recall two of the defining properties of a tree:
-    <ul>
-    
-    <li> Adding an edge that connects two vertices in a tree creates a
-    unique cycle.
-    
-    <li> Removing an edge from a tree breaks it into two separate
-    subtrees.
-    
-    </ul>
-    
-    <p>
-    <center>
-    <img src = "images/tree-add-edge.png" alt = "Adding an edge to a spanning tree">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src = "images/tree-remove-edge.png" alt = "Removing an edge from a spanning tree">
-    
-    </center>
-    <p>
-    <br>
-    
-    A <em>cut</em> of a graph is a partition of its vertices into two
-    disjoint sets. A <em>crossing edge</em> is an edge that connects a vertex
-    in one set with a vertex in the other.
-    
-    
-    We recall For simplicity, we assume all edge weights are distinct.
-    Under this assumption, the MST is unique.
-    Define cut and cycle.
-    The following properties lead to a number of MST algorithms.
-    
-    <p><h3>Proposition. (Cut property)</h3>
-    Given any cut in an edge-weighted graph (with all edge weights
-    distinct),
-    the crossing edge of minimum weight is in the MST of the graph.
-    
-    
-    <p>
-    <center>
-    <img src = "images/cut-property.png" alt = "Cut property">
-    </center>
-    <p>
-    <br>
-    
-    
-    
-    The cut property is the basis for the algorithms that we consider for
-    the MST problem. Specifically, they are special cases of the
-    <em>greedy algorithm</em>.
-    
-    
-    <p><h3>Proposition. (Greedy MST algorithm)</h3>
-    The following method colors black all edges in the the MST of any
-    connected edge-weighted graph with V vertices: Starting with all edges colored 
-    gray, find a cut with no black edges, color its minimum-weight edge
-    black, and continue until V-1 edges have been colored black.
-    
-    
-    <p>
-    <center>
-    <img src = "images/mst-greedy.png" alt = "Greedy algorithm for the
-    minimum spanning tree problem">
-    </center>
-    <p>
-    <br>
-    
-    
-    
-    <p><h2>Edge-weighted graph data type.</h2>
-    We represent the weighted edges using the following API:
-    
-    <p>
-    <center>
-    <img src = "images/edge-api.png" alt = "API for a weighted edge">
-    </center>
-    <p>
-    <br>
-    
-    The <tt>either()</tt> and <tt>other()</tt> methods are useful
-    for accessing the edge's vertices; the <tt>compareTo()</tt> method
-    compares edges by weight.
-    <a href = "Edge.java.html">Edge.java</a> is a straightforward
-    implementation.
-    
-    
-    <p>
-    We represent edge-weighted graphs using the following API:
-    
-    <p>
-    <center>
-    <img src = "images/edge-weighted-graph-api.png" alt = "API for an
-    edge-weighted graph">
-    </center>
-    <p>
-    <br>
-    
-    We allow parallel edges and self-loops.
-    <a href = "EdgeWeightedGraph.java.html">EdgeWeightedGraph.java</a>
-    implements the API using the adjacency-lists representation.
-    
-    <p>
-    <center>
-    <img width = 550 src = "images/edge-weighted-graph-representation.png" alt = "edge-weighted graph representation">
-    </center>
-    <p>
-    <br>
-    
-    <p><h2>MST API.</h2>
-    We use the following API for computing an MST of an edge-weighted
-    graph:
-    
-    <p>
-    <center>
-    <img src = "images/mst-api.png" alt = "API for MST implementations">
-    </center>
-    <p>
-    <br>
-    
-    We prepare some test data:
-    <ul>
-    <li>
-    <a href = "tinyEWG.txt">tinyEWG.txt</a>
-    contains 8 vertices and 16 edges
-    <li>
-    <a href = "mediumEWG.txt">mediumEWG.txt</a>
-    contains 250 vertices and 1,273 edges
-    <li>
-    <a href = "1000EWG.txt">1000EWG.txt</a>
-    contains 1,000 vertices and 8,433 edges
-    <li>
-    <a href = "10000EWG.txt">10000EWG.txt</a>
-    contains 10,000 vertices and 61,731 edges
-    <li>
-    <a href = "largeEWG.txt">largeEWG.txt</a>
-    contains one million vertices and 7,586,063 edges
-    </ul>
-    
-    
-    
-    
-    <p><h2>Prim's algorithm.</h2>
-    Prim's algorithm works by attaching a new edge to a single growing tree 
-    at each step:
-    Start with any vertex as a single-vertex tree; then add V-1 edges to
-    it, always taking next (coloring black) the minimum-weight edge that
-    connects a vertex on the tree to a vertex not yet on the tree
-    (a crossing edge for the cut defined by tree vertices).
-    
-    
-    <p>
-    <center>
-    <img src = "images/prim.png" alt = "Prim's MST algorithm">
-    </center>
-    <p>
-    <br>
-    
-    The one-sentence description of Prim's algorithm leaves unanswered a
-    key question: How do we (efficiently) find the crossing edge of
-    minimal weight?
-    
-    <ul>
-    
-    <li><em>Lazy implementation.</em>
-    We use a priority queue to hold the
-    crossing edges and find one of minimal weight.
-    Each time that we add an edge to the tree, we also add a vertex to the
-    tree. To maintain the set of crossing edges,
-    we need to add to  the priority queue all edges from that vertex to
-    any non-tree vertex.
-    But we must do more: any edge connecting the
-    vertex just  added to a tree vertex that is already on the priority queue now
-    becomes <em>ineligible</em> (it is no longer a crossing edge because
-    it connects two tree vertices).
-    The lazy implementation leaves such edges on the priority
-    queue, deferring the ineligibility test to when we remove them.
-    
-    <p>
-    <a href = "LazyPrimMST.java.html">LazyPrimMST.java</a> is an
-    implementation of this lazy approach. It relies on the 
-    <a href = "MinPQ.java.html">MinPQ.java</a> priority queue.
-    
-    <p>
-    <center>
-    <img src = "images/prim-lazy.png" alt = "Prim's algorithm (lazy implementation)
-    for the minimum spanning tree problem">
-    </center>
-    <p>
-    <br>
-    
-    <li><em>Eager implementation.</em>
-    To improve the lazy implementation of Prim's algorithm, we might try 
-    to delete ineligible edges from the priority queue, so that the
-    priority queue contains only the crossing edges.
-    But we can eliminate even more edges. The key is to note that our
-    only interest is in the <em>minimal</em> edge 
-    from each non-tree vertex to a tree vertex. When we add a vertex v to
-    the tree, the only 
-    possible change with respect to each non-tree vertex w is that adding
-    v brings w closer 
-    than before to the tree. In short, we do not need to keep on the
-    priority queue all of the 
-    edges from w to vertices tree&mdash;we just need to keep track of the
-    minimum-weight edge 
-    and check whether the addition of v to the tree necessitates that we
-    update that minimum (because of an edge v-w that has lower weight),
-    which we can do as we process 
-    each edge in s adjacency list. In other words, we maintain on the
-    priority queue just 
-    one edge for each non-tree vertex: the shortest edge that connects it
-    to the tree. 
-    
-    <p>
-    <center>
-    <img src = "images/prim-eager.png" alt = "Prim's algorithm (eager implementation)
-    for the minimum spanning tree problem">
-    </center>
-    <p>
-    <br>
-    
-    <p>
-    <a href = "PrimMST.java.html">PrimMST.java</a> is an implementation
-    of this eager approach. It relies on the 
-    <a href = "IndexMinPQ.java.html">IndexMinPQ.java</a> indexed priority
-    queue to perform the <em>decrease-key</em> operation.
-    
-    </ul>
-    
-    
-    
-    <p><h3>Proposition.</h3>
-    Prim's algorithm computes the MST of any connected edge-weighted graph.
-    The lazy version of Prim's algorithm uses space proportional to E and
-    time proportional to E log E (in the worst case) to compute the MST
-    of a connected edge-weighted graph with E edges and V vertices;
-    the eager version uses space proportional to V and time proportional
-    to E log V (in the worst case).
-    
-    
-    <p><br>
-    <p><h2>Kruskal's algorithm.</h2>
-    Kruskal's algorithm processes the edges in order of their 
-    weight values (smallest to largest), taking for the MST (coloring black)
-    each edge that does not form a cycle with edges previously added,
-    stopping after adding V-1 edges.
-    The black edges form a forest of trees that evolves gradually into a single tree,
-    the MST. 
-    
-    
-    <p>
-    <center>
-    <img src = "images/kruskal.png" alt = "Kruskal's algorithm for the minimum spanning tree problem">
-    </center>
-    <p>
-    <br>
-    
-    To implement Kruskal's algorithm, we use a priority queue to consider the edges
-    in order by weight, a union-find data structure to identify those that cause 
-    cycles, and a queue to collect the MST edges.
-    Program <a href = "KruskalMST.java.html">KruskalMST.java</a>
-    implements Kruskal's algorithm along these lines. It uses the helper 
-    <a href = "MinPQ.java.html">MinPQ.java</a>,
-    <a href = "UF.java.html">UF.java</a>, and
-    <a href = "Queue.java.html">Queue.java</a> data types.
-    
-    <p><h3>Proposition.</h3>
-    Kruskal's algorithm computes the MST of any connected edge-weighted graph
-    with E edges and V vertices using extra space
-    proportional to E and time proportional to E log E (in the worst case).
-    
-    
-    <p><br>

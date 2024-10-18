@@ -133,6 +133,21 @@ a:active {
 .a_initial a:active {
   color: revert;
 }
+
+section a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+section a:visited {
+  color: revert;
+}
+section a:hover {
+  color: revert;
+}
+section a:active {
+  color: revert;
+}
+
 a.underline {
   text-decoration: underline;
 }

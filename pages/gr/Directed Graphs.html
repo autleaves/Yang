@@ -105,7 +105,7 @@
                 <section class="section">
                     <div class="section-container ">
                         <div class="section-title chapter-title">
-                            <h1>Bags, Queues, and Stacks</h1>
+                            <h1>Directed Graphs</h1>
                         </div>
                         <div class="section-content chapter-content">
                             
@@ -115,23 +115,368 @@
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class="">&sect;&nbsp;</h2>
+                            <h2 class="">&sect;&nbsp;Digraphs.</h2>
                         </div>
                         <div class="section-content">
-                            
+                            <p>
+                                A <em>directed graph</em> (or <em>digraph</em>)
+                                is a set of <em>vertices</em> and a collection
+                                of <em>directed edges</em> that each connects an ordered pair of vertices.
+                                We say that a directed edge <em>points from</em> the first vertex in the
+                                pair and <em>points to</em> the second vertex in the pair.
+                                We use the names 0 through V-1 for the vertices in a V-vertex graph.
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/42digraph/digraph.png" alt = "Digraph">
+                            </p>
                         </div>
                     </div>
                 </section>
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;</h2>
+                            <h2 class="">&sect;&nbsp;Glossary.</h2>
                         </div>
                         <div class="section-content">
-                            
+                            <p>
+                                Here are some definitions that we use.
+                            </p>
+                            <ul>
+                                <li> 
+                                    A <em>self-loop</em> is an edge that connects a vertex to
+                                    itself.
+                                <li>
+                                    Two edges are <em>parallel</em> if they connect the same ordered pair of
+                                    vertices.
+                                
+                                <!--
+                                <li>
+                                When an edge connects two vertices, we say that the vertices are
+                                <em>adjacent to</em> one another and that the edge is 
+                                <em>incident on</em> both vertices.
+                                -->
+                                
+                                <li>
+                                    The <em>outdegree</em> of a vertex is the number of edges pointing from it.
+                                <li>
+                                    he <em>indegree</em> of a vertex is the number of edges pointing to it.
+                                <li>
+                                    A <em>subgraph</em> is a subset of a digraph's edges (and associated
+                                    vertices) that constitutes a digraph.
+                                <li>
+                                    A <em>directed path</em> in a digraph is a sequence
+                                    of vertices in which there is a (directed) edge
+                                    pointing from each vertex in the sequence to its successor in the sequence,
+                                    with no repeated edges.
+                                <li>
+                                    A directed path is <em>simple</em> if it has no repeated vertices.
+                                
+                                <li>
+                                    A <em>directed cycle</em> is a directed path (with at least one edge) 
+                                    whose first and last vertices are the same.
+                                <li>
+                                    A directed cycle is <em>simple</em> if it has no repeated vertices
+                                    (other than the requisite repetition of the first and last vertices).
+                                <li>
+                                    he <em>length</em> of a path or a cycle is its number of edges.
+                                <li>
+                                    We say that a vertex <code>w</code> is <em>reachable from</em> a vertex <code>v</code>
+                                    if there exists a directed path from <code>v</code> to <code>w</code>.
+                                <li>
+                                    We say that two vertices <code>v</code> and <code>w</code> are <em>strongly connected</em>
+                                    if they are mutually reachable: there is a directed path from <code>v</code> to <code>w</code>
+                                    and a directed path from <code>w</code> to <code>v</code>.
+                                <li>
+                                    A digraph is <em>strongly connected</em> if there is a directed path from
+                                    every vertex to every other vertex.
+                                <li>
+                                    A digraph that is not strongly connected consists of a set of
+                                    <em>strongly connected components</em>, which are maximal strongly connected
+                                    subgraphs.
+                                <li>
+                                    A <em>directed acyclic graph</em> (or DAG) is a digraph with no 
+                                    directed cycles.
+                            </ul>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/42digraph/digraph-anatomy.png" alt = "Anatomy of a Graph">
+                                &nbsp;&nbsp;&nbsp;
+                                <img src="../../images/pages/gr/42digraph/strong-components.png" alt = "A digraph and its strong components">
+                            </p>
                         </div>
                     </div>
                 </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Digraph graph data type.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We implement the following digraph API.
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/42digraph/digraph-api.png" alt = "Digraph API">
+                            </p>
+                            <p>
+                                The key method <code>adj()</code> allows client code
+                                to iterate through the vertices adjacent from a given vertex. 
+                            </p>    
+                            <p>
+                                We prepare the test data 
+                                <a href = "tinyDG.txt">tinyDG.txt</a>
+                                using the following input file format.
+                            <p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/42digraph/digraph-input.png" alt = "Digraph input format">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Graph representation.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We use the <em>adjacency-lists representation</em>, where we maintain
+                                a vertex-indexed array of lists of the vertices connected by an edge
+                                to each vertex.
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/42digraph/adjacency-lists.png" alt = "Adjacency-lists
+                                representation of an undirected graph">
+                            </p>
+                            <p>
+                                <a href = "Digraph.java.html">Digraph.java</a>
+                                implements the digraph API using the adjacency-lists representation.
+                                <a href = "AdjMatrixDigraph.java.html">AdjMatrixDigraph.java</a>
+                                implements the same API using the adjacency-matrix representation.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Reachability in digraphs.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Depth-first search and breadth-first search are fundamentally digraph-processing
+                                algorithms.
+                            </p>
+                            <ul>
+                                <li><em>Single-source reachability:</em>
+                                    Given a digraph and source <code>s</code>, is there a directed path from 
+                                    s to v? If so, find such a path.
+                                    <a href = "DirectedDFS.java.html">DirectedDFS.java</a>
+                                    uses depth-first search to solve this problem.
+                                
+                                <li><em>Multiple-source reachability:</em>
+                                    Given a digraph and a <em>set</em> of source vertices,
+                                    is there a directed path from <em>any</em> vertex in the set
+                                    to v?
+                                    <a href = "DirectedDFS.java.html">DirectedDFS.java</a>
+                                    uses depth-first search to solve this problem.
+                                
+                                <li><em>Single-source directed paths:</em> given a digraph and source
+                                    <code>s</code>, is there a directed path from s to v? If so, find such a path.
+                                    <a href = "DepthFirstDirectedPaths.java.html">DepthFirstDirectedPaths.java</a>
+                                    uses depth-first search to solve this problem.
+                                
+                                <li><em>Single-source shortest directed paths</em>: given a digraph and source
+                                    <code>s</code>, is there a directed path from 
+                                    s to v? If so, find a shortest such path.
+                                    <a href = "BreadthFirstDirectedPaths.java.html">BreadthFirstDirectedPaths.java</a>
+                                    uses breadth-first search to solve this problem.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Cycles and DAGs.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Directed cycles are of particular importance in applications that
+                                involve processing digraphs.
+                                
+                                The input file
+                                <a href = "tinyDAG.txt">tinyDAG.txt</a>
+                                corresponds to the following DAG:
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/42digraph/dag.png" alt = "DAG">
+                            </p>
+                                
+                            <!--
+                            For example, consider a college student planning a 
+                            course schedule, under the constraint that certain courses are prerequisite
+                            for certain other courses.
+                            If we further assume that the student can take only one course at a time, we have an
+                            instance of the
+                            <em>Precedence-constrained scheduling problem</em>:
+                            Given a set of jobs to be completed,
+                            with precedence constraints that specify that certain jobs have to be
+                            completed before certain other jobs are begun,
+                            how can we schedule the jobs such that they are all
+                            completed while still respecting the constraints?
+                            -->
+                                
+                            <ul>
+                                <li><em>Directed cycle detection</em>: does a given digraph have a directed
+                                    cycle? If so, find such a cycle.
+                                    <a href = "DirectedCycle.java.html">DirectedCycle.java</a>
+                                    solves this problem using depth-first search.
+                                <li><em>Depth-first orders</em>: 
+                                    Depth-first search search visits each vertex exactly once. 
+                                    Three vertex orderings are of interest in typical applications:
+                                    <ul>
+                                        <li><em>Preorder</em>: Put the vertex on a queue before the recursive calls.
+                                        <li><em>Postorder</em>: Put the vertex on a queue after the recursive calls.
+                                        <li><em>Reverse postorder</em>: Put the vertex on a stack after the recursive calls.
+                                    </ul>
+                                    <a href = "DepthFirstOrder.java.html">DepthFirstOrder.java</a> computes these
+                                    orders.
+                                    <p class="container--aligncenter">
+                                        <img src="../../images/pages/gr/42digraph/depth-first-orders.png" alt = "Preorder, postorder, and reverse postorder">
+                                    </p>
+                                
+                                <li><em>Topological sort</em>: given a digraph, put the vertices in order
+                                    such that all its directed edges point from a vertex earlier in the order to a
+                                    vertex later in the order (or report that doing so is not possible).
+                                    <a href = "Topological.java.html">Topological.java</a> solves this problem
+                                    using depth-first search. Remarkably, a reverse postorder in a DAG provides 
+                                    a topological order.
+                                    <p class="container--aligncenter">
+                                        <img src="../../images/pages/gr/42digraph/topological-sort.png" alt = "Topologial sort">
+                                    </p>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                A digraph has a topological order if and only if it is a DAG.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Reverse postorder in a DAG is a topological sort.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                With depth-first search, we can topologically sort a DAG in time proportional
+                                to V + E.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Strong connectivity.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Strong connectivity is an equivalence relation on the set of vertices:
+                            </p>
+                            <ul>
+                                <li><em>Reflexive</em>: Every vertex v is strongly connected to itself.
+                                <li><em>Symmetric</em>: If v is strongly connected to w, then w is
+                                    strongly connected to v.
+                                <li><em>Transitive</em>: If v is strongly connected to w and w
+                                    is strongly connected to x, then v is also strongly connected to x.
+                            </ul>
+                            <p>
+                                Strong connectivity partitions the vertices into equivalence classes,
+                                which we refer to as <em>strong components</em> for short.
+                                We seek to implement the following API:
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/gr/42digraph/scc-api.png" alt = "API for strong components">
+                            </p>
+                            <p>
+                                Remarkably, <a href = "KosarajuSharirSCC.java.html">KosarajuSharirSCC.java</a> implements
+                                the API with just a few lines of code added to
+                                <a href = "../41graph/CC.java.html">CC.java</a>, as follows:
+                            </p>
+                            <ul>
+                                <li>Given a digraph G, use <a href = "DepthFirstOrder.java.html">DepthFirstOrder.java</a>
+                                    to compute the reverse postorder of its reverse, G<sup>R</sup>.
+                                <li>Run standard DFS on G, but consider the unmarked vertices
+                                    in the order just computed instead of the standard numerical order.
+                                <li>
+                                    All vertices reached on a call to the recursive <code>dfs()</code>
+                                    from the constructor are in a strong component (!), so identify them as in CC.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                The Kosaraju-Sharir algorithm uses
+                                preprocessing time and space proportional to V + E to support
+                                constant-time strong connectivity queries in a digraph.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Transitive closure.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                The <em>transitive closure</em> of a digraph G is another digraph
+                                with the same set of vertices, but with an edge from v to w 
+                                if and only if w is reachable from v in G.
+                            </p>
+                            <p class="container--aligncenter">
+                                <img src="../../images/pages/gr/42digraph/transitive-closure.png" alt = "Transitive closure">
+                            </p>
+                            <p>
+                                <a href = "TransitiveClosure.java.html">TransitiveClosure.java</a> computes the
+                                transitive closure of a digraph by running depth-first search
+                                from each vertex and storing the results.
+                                This solution is ideal for small or dense digraphs,
+                                but it is not a solution for the large digraphs we might encounter
+                                in practice because the constructor uses space proportional to V^2
+                                and time proportional to V (V + E).
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                
             </article>
         </div>
     </main>
@@ -143,335 +488,3 @@
 </body>
 
 </html>
-
-
-<div id = "content">
-    <H1>4.2 &nbsp; Directed Graphs</H1>
-    <p><br>
-    
-    <h2>Digraphs.</h2>
-    A <em>directed graph</em> (or <em>digraph</em>)
-    is a set of <em>vertices</em> and a collection
-    of <em>directed edges</em> that each connects an ordered pair of vertices.
-    We say that a directed edge <em>points from</em> the first vertex in the
-    pair and <em>points to</em> the second vertex in the pair.
-    We use the names 0 through V-1 for the vertices in a V-vertex graph.
-    
-    <p>
-    <center>
-    <img src = "images/digraph.png" alt = "Digraph">
-    </center>
-    <p>
-    <br>
-    
-    <p><h2>Glossary.</h2>
-    Here are some definitions that we use.
-    <ul>
-    
-    <li> 
-    A <em>self-loop</em> is an edge that connects a vertex to
-    itself.
-    
-    <li>
-    Two edges are <em>parallel</em> if they connect the same ordered pair of
-    vertices.
-    
-    <!--
-    <li>
-    When an edge connects two vertices, we say that the vertices are
-    <em>adjacent to</em> one another and that the edge is 
-    <em>incident on</em> both vertices.
-    -->
-    
-    <li>
-    The <em>outdegree</em> of a vertex is the number of edges pointing from it.
-    
-    <li>
-    The <em>indegree</em> of a vertex is the number of edges pointing to it.
-    
-    <li>
-    A <em>subgraph</em> is a subset of a digraph's edges (and associated
-    vertices) that constitutes a digraph.
-    
-    <li>
-    A <em>directed path</em> in a digraph is a sequence
-    of vertices in which there is a (directed) edge
-    pointing from each vertex in the sequence to its successor in the sequence,
-    with no repeated edges.
-    
-    <li>
-    A directed path is <em>simple</em> if it has no repeated vertices.
-    
-    <li>
-    A <em>directed cycle</em> is a directed path (with at least one edge) 
-    whose first and last vertices are the same.
-    
-    <li>
-    A directed cycle is <em>simple</em> if it has no repeated vertices
-    (other than the requisite repetition of the first and last vertices).
-    
-    <li>
-    The <em>length</em> of a path or a cycle is its number of edges.
-    
-    <li>
-    We say that a vertex <tt>w</tt> is <em>reachable from</em> a vertex <tt>v</tt>
-    if there exists a directed path from <tt>v</tt> to <tt>w</tt>.
-    
-    <li>
-    We say that two vertices <tt>v</tt> and <tt>w</tt> are <em>strongly connected</em>
-    if they are mutually reachable: there is a directed path from <tt>v</tt> to <tt>w</tt>
-    and a directed path from <tt>w</tt> to <tt>v</tt>.
-    
-    <li>
-    A digraph is <em>strongly connected</em> if there is a directed path from
-    every vertex to every other vertex.
-    
-    <li>
-    A digraph that is not strongly connected consists of a set of
-    <em>strongly connected components</em>, which are maximal strongly connected
-    subgraphs.
-    
-    <li>
-    A <em>directed acyclic graph</em> (or DAG) is a digraph with no 
-    directed cycles.
-    
-    </ul>
-    
-    <p>
-    <center>
-    <img src = "images/digraph-anatomy.png" alt = "Anatomy of a Graph">
-    &nbsp;&nbsp;&nbsp;
-    <img src = "images/strong-components.png" alt = "A digraph and its strong components">
-    </center>
-    <p>
-    <br>
-    
-    
-    
-    <p><h2>Digraph graph data type.</h2>
-    We implement the following digraph API.
-    
-    <p>
-    <center>
-    <IMG SRC="images/digraph-api.png" alt = "Digraph API">
-    </center>
-    
-    <p>
-    The key method <tt>adj()</tt> allows client code
-    to iterate through the vertices adjacent from a given vertex. 
-    
-    <p>
-    We prepare the test data 
-    <a href = "tinyDG.txt">tinyDG.txt</a>
-    using the following input file format.
-    
-    
-    <p>
-    <center>
-    <IMG SRC="images/digraph-input.png" alt = "Digraph input format">
-    </center>
-    
-    
-    
-    <p><h2>Graph representation.</h2>
-    We use the <em>adjacency-lists representation</em>, where we maintain
-    a vertex-indexed array of lists of the vertices connected by an edge
-    to each vertex.
-    
-    <p>
-    <center>
-    <IMG SRC="images/adjacency-lists.png" alt = "Adjacency-lists
-    representation of an undirected graph">
-    </center>
-    
-    
-    <p>
-    <a href = "Digraph.java.html">Digraph.java</a>
-    implements the digraph API using the adjacency-lists representation.
-    <a href = "AdjMatrixDigraph.java.html">AdjMatrixDigraph.java</a>
-    implements the same API using the adjacency-matrix representation.
-    
-    
-    
-    <p><h2>Reachability in digraphs.</h2>
-    Depth-first search and breadth-first search are fundamentally digraph-processing
-    algorithms.
-    
-    <ul>
-    <p><li> <em>Single-source reachability:</em>
-    Given a digraph and source <tt>s</tt>, is there a directed path from 
-    s to v? If so, find such a path.
-    <a href = "DirectedDFS.java.html">DirectedDFS.java</a>
-    uses depth-first search to solve this problem.
-    
-    <p><li> <em>Multiple-source reachability:</em>
-    Given a digraph and a <em>set</em> of source vertices,
-    is there a directed path from <em>any</em> vertex in the set
-    to v?
-    <a href = "DirectedDFS.java.html">DirectedDFS.java</a>
-    uses depth-first search to solve this problem.
-    
-    <p><li><em>Single-source directed paths:</em> given a digraph and source
-    <tt>s</tt>, is there a directed path from s to v? If so, find such a path.
-    <a href = "DepthFirstDirectedPaths.java.html">DepthFirstDirectedPaths.java</a>
-    uses depth-first search to solve this problem.
-    
-    <p><li><em>Single-source shortest directed paths</em>: given a digraph and source
-    <tt>s</tt>, is there a directed path from 
-    s to v? If so, find a shortest such path.
-    <a href = "BreadthFirstDirectedPaths.java.html">BreadthFirstDirectedPaths.java</a>
-    uses breadth-first search to solve this problem.
-    
-    </ul>
-    
-    
-    
-    <p><h2>Cycles and DAGs.</h2>
-    Directed cycles are of particular importance in applications that
-    involve processing digraphs.
-    
-    The input file
-    <a href = "tinyDAG.txt">tinyDAG.txt</a>
-    corresponds to the following DAG:
-    
-    <p>
-    <center>
-    <img src = "images/dag.png" alt = "DAG">
-    </center>
-    <p>
-    <br>
-    
-    <!--
-    For example, consider a college student planning a 
-    course schedule, under the constraint that certain courses are prerequisite
-    for certain other courses.
-    If we further assume that the student can take only one course at a time, we have an
-    instance of the
-    <em>Precedence-constrained scheduling problem</em>:
-    Given a set of jobs to be completed,
-    with precedence constraints that specify that certain jobs have to be
-    completed before certain other jobs are begun,
-    how can we schedule the jobs such that they are all
-    completed while still respecting the constraints?
-    -->
-    
-    <ul>
-    
-    <p><li><em>Directed cycle detection</em>: does a given digraph have a directed
-    cycle? If so, find such a cycle.
-    <a href = "DirectedCycle.java.html">DirectedCycle.java</a>
-    solves this problem using depth-first search.
-    
-    <p><li><em>Depth-first orders</em>: 
-    Depth-first search search visits each vertex exactly once. 
-    Three vertex orderings are of interest in typical applications:
-    <ul>
-    <p><li><em>Preorder</em>: Put the vertex on a queue before the recursive calls.
-    <p><li><em>Postorder</em>: Put the vertex on a queue after the recursive calls.
-    <p><li><em>Reverse postorder</em>: Put the vertex on a stack after the recursive calls.
-    </ul>
-    
-    <p>
-    <a href = "DepthFirstOrder.java.html">DepthFirstOrder.java</a> computes these
-    orders.
-    
-    <p>
-    <center>
-    <img src = "images/depth-first-orders.png" alt = "Preorder, postorder, and reverse postorder">
-    </center>
-    
-    <p><li><em>Topological sort</em>: given a digraph, put the vertices in order
-    such that all its directed edges point from a vertex earlier in the order to a
-    vertex later in the order (or report that doing so is not possible).
-    <a href = "Topological.java.html">Topological.java</a> solves this problem
-    using depth-first search. Remarkably, a reverse postorder in a DAG provides 
-    a topological order.
-    
-    <p>
-    <center>
-    <img src = "images/topological-sort.png" alt = "Topologial sort">
-    </center>
-    <p>
-    <br>
-    
-    </ul>
-    
-    
-    <p><h3>Proposition.</h3>
-    A digraph has a topological order if and only if it is a DAG.
-    
-    <p><h3>Proposition.</h3>
-    Reverse postorder in a DAG is a topological sort.
-    
-    <p><h3>Proposition.</h3>
-    With depth-first search, we can topologically sort a DAG in time proportional
-    to V + E.
-    
-    <p><h2>Strong connectivity.</h2>
-    Strong connectivity is an equivalence relation on the set of vertices:
-    <ul>
-    <p><li><em>Reflexive</em>: Every vertex v is strongly connected to itself.
-    <p><li><em>Symmetric</em>: If v is strongly connected to w, then w is
-    strongly connected to v.
-    <p><li><em>Transitive</em>: If v is strongly connected to w and w
-    is strongly connected to x, then v is also strongly connected to x.
-    </ul>
-    
-    Strong connectivity partitions the vertices into equivalence classes,
-    which we refer to as <em>strong components</em> for short.
-    We seek to implement the following API:
-    
-    <p>
-    <center>
-    <IMG SRC="images/scc-api.png" alt = "API for strong components">
-    </center>
-    
-    
-    <p>
-    Remarkably, <a href = "KosarajuSharirSCC.java.html">KosarajuSharirSCC.java</a> implements
-    the API with just a few lines of code added to
-    <a href = "../41graph/CC.java.html">CC.java</a>, as follows:
-    
-    <ul>
-    <p><li>Given a digraph G, use <a href = "DepthFirstOrder.java.html">DepthFirstOrder.java</a>
-    to compute the reverse postorder of its reverse, G<sup>R</sup>.
-    
-    <p><li>Run standard DFS on G, but consider the unmarked vertices
-    in the order just computed instead of the standard numerical order.
-    
-    <p><li>
-    All vertices reached on a call to the recursive <tt>dfs()</tt>
-    from the constructor are in a strong component (!), so identify them as in CC.
-    
-    </ul>
-    
-    
-    <h3>Proposition.</h3> The Kosaraju-Sharir algorithm uses
-    preprocessing time and space proportional to V + E to support
-    constant-time strong connectivity queries in a digraph.
-    
-    
-    
-    
-    
-    
-    <p><h2>Transitive closure.</h2>
-    The <em>transitive closure</em> of a digraph G is another digraph
-    with the same set of vertices, but with an edge from v to w 
-    if and only if w is reachable from v in G.
-    
-    <p>
-    <center>
-    <img src = "images/transitive-closure.png" alt = "Transitive closure">
-    </center>
-    <p>
-    <br>
-    
-    <a href = "TransitiveClosure.java.html">TransitiveClosure.java</a> computes the
-    transitive closure of a digraph by running depth-first search
-    from each vertex and storing the results.
-    This solution is ideal for small or dense digraphs,
-    but it is not a solution for the large digraphs we might encounter
-    in practice because the constructor uses space proportional to V^2
-    and time proportional to V (V + E).
-    

@@ -124,7 +124,7 @@
                                 We use the names 0 through V-1 for the vertices in a V-vertex graph.
                             </p>
                             <p class="container--aligncenter">
-                                <img src = "images/graph.png" alt = "Graph">
+                                <img src="../../images/pages/gr/41graph/graph.png" alt = "Graph">
                             </p>
                         </div>
                     </div>
@@ -207,9 +207,9 @@
                                     in the other set.
                             </ul>
                             <p class="container--aligncenter">
-                                <img src = "images/graph-anatomy.png" alt = "Anatomy of a Graph">
-                                <img src = "images/tree.png" alt = "A tree">
-                                <img src = "images/forest.png" alt = "A spanning forest">
+                                <img src="../../images/pages/gr/41graph/graph-anatomy.png" alt="Anatomy of a Graph">
+                                <img src="../../images/pages/gr/41graph/tree.png" alt="A tree">
+                                <img src="../../images/pages/gr/41graph/forest.png" alt="A spanning forest">
                             </p>
                         </div>
                     </div>
@@ -222,13 +222,13 @@
                         <div class="section-content">
                             We implement the following undirected graph API.
                             <p class="container--aligncenter">
-                                <IMG SRC="images/graph-api.png" alt = "Graph API">
+                                <img src="../../images/pages/gr/41graph/graph-api.png" alt = "Graph API">
                             </p>
                             <p>
-                                The key method <tt>adj()</tt> allows client code
+                                The key method <code>adj()</code> allows client code
                                 to iterate through the vertices adjacent to a given
                                 vertex. Remarkably, we can build all of the algorithms that we
-                                consider in this section on the basic abstraction embodied in <tt>adj()</tt>. 
+                                consider in this section on the basic abstraction embodied in <code>adj()</code>. 
                             </p>
                             <p>
                                 We prepare the test data <a href = "tinyG.txt">tinyG.txt</a>,
@@ -237,7 +237,7 @@
                                 input file format.
                             </p>
                             <p class="container--aligncenter">
-                                <IMG SRC="images/graph-input.png" alt = "Graph input format">
+                                <img src="../../images/pages/gr/41graph/graph-input.png" alt = "Graph input format">
                             </p>
                             <p>
                                 <a href = "GraphClient.java.html">GraphClient.java</a> contains
@@ -258,7 +258,7 @@
                                 to each vertex.
                             </p>
                             <p class="container--aligncenter">
-                                <IMG SRC="images/adjacency-lists.png" alt = "Adjacency-lists
+                                <img src="../../images/pages/gr/41graph/adjacency-lists.png" alt = "Adjacency-lists
                                         representation of an undirected graph">
                             </p>
                             <p>
@@ -288,7 +288,7 @@
                             <a href = "DepthFirstSearch.java.html">DepthFirstSearch.java</a>
                                 implements this approach and the following API:
                             <p class="container--aligncenter">
-                                <img src = "images/search-api.png" alt = "Search API">
+                                <img src="../../images/pages/gr/41graph/search-api.png" alt = "Search API">
                             </p>
                         </div>
                     </div>
@@ -305,14 +305,14 @@
                                 We seek to implement the following API:
                             </p>
                             <p class="container--aligncenter">
-                                <img src = "images/paths-api.png" alt = "Paths API">
+                                <img src="../../images/pages/gr/41graph/paths-api.png" alt = "Paths API">
                             </p>
                             <p>
-                                To accomplish this, we remember the edge <tt>v-w</tt> that takes us to each
-                                vertex <tt>w</tt> for the <em>first</em> time by setting <tt>edgeTo[w]</tt>
-                                to <tt>v</tt>. In other words, <tt>v-w</tt> is the last edge on the known
-                                path from <t>s</tt> to <tt>w</tt>. The result of the 
-                                search is a tree rooted at the source; <tt>edgeTo[]</tt> is a parent-link
+                                To accomplish this, we remember the edge <code>v-w</code> that takes us to each
+                                vertex <code>w</code> for the <em>first</em> time by setting <code>edgeTo[w]</code>
+                                to <code>v</code>. In other words, <code>v-w</code> is the last edge on the known
+                                path from <t>s</code> to <code>w</code>. The result of the 
+                                search is a tree rooted at the source; <code>edgeTo[]</code> is a parent-link
                                 representation of that tree. 
                                 <a href = "DepthFirstPaths.java.html">DepthFirstPaths.java</a>
                                 implements this approach.
@@ -331,11 +331,11 @@
                                 We are often interested in finding the <em>shortest</em> such path (one with 
                                 a minimal number of edges). 
                                 Breadth-first search is a classic method based on this goal.
-                                To find a  shortest path from <tt>s</tt> to <tt>v</tt>,
-                                we start at <tt>s</tt> and check for <tt>v</tt> among all the vertices that we can 
-                                reach by following one edge, then we check for <tt>v</tt>
+                                To find a  shortest path from <code>s</code> to <code>v</code>,
+                                we start at <code>s</code> and check for <code>v</code> among all the vertices that we can 
+                                reach by following one edge, then we check for <code>v</code>
                                 among all the vertices that we can reach from 
-                                <tt>s</tt> by following two edges, and so forth.
+                                <code>s</code> by following two edges, and so forth.
                             </p>
                             <p>
                                 To implement this strategy, we maintain a queue of all vertices that
@@ -344,12 +344,12 @@
                                 steps until the queue is empty:
                             </p>
                             <ul>
-                                <li> Remove the next vertex <tt>v</tt> from the queue.
-                                <li> Put onto the queue all unmarked vertices that are adjacent to <tt>v</tt> and mark them.
+                                <li> Remove the next vertex <code>v</code> from the queue.
+                                <li> Put onto the queue all unmarked vertices that are adjacent to <code>v</code> and mark them.
                             </ul>
                             <p>
                                 <a href = "BreadthFirstPaths.java.html">BreadthFirstPaths.java</a>
-                                is an implementation of the <tt>Paths</tt> API that finds shortest paths.
+                                is an implementation of the <code>Paths</code> API that finds shortest paths.
                                 It relies on <a href = "Queue.java.html">Queue.java</a> for the FIFO queue.
                             </p>
                         </div>
@@ -369,7 +369,7 @@
                                 For this task, we define the following API:
                             </p>
                             <p class="container--aligncenter">
-                                <img src = "images/cc-api.png" alt = "Connected Components API">
+                                <img src="../../images/pages/gr/41graph/cc-api.png" alt = "Connected Components API">
                             </p>
                             <p>
                             <a href = "CC.java.html">CC.java</a>
@@ -381,9 +381,9 @@
                                 a given source to any marked vertex in time proportional to its length.
                             </p>
                             <p>
-                                <b>Proposition.</b> For any vertex <tt>v</tt> reachable from <tt>s</tt>,
-                                BFS computes a shortest path from <tt>s</tt> to <tt>v</tt>
-                                (no path from <tt>s</tt> to <tt>v</tt> has fewer edges).
+                                <b>Proposition.</b> For any vertex <code>v</code> reachable from <code>s</code>,
+                                BFS computes a shortest path from <code>s</code> to <code>v</code>
+                                (no path from <code>s</code> to <code>v</code> has fewer edges).
                                 BFS takes time proportional to V + E in the worst case.
                             </p>
                             <p>
@@ -465,7 +465,7 @@
                                 The input file <a href = "routes.txt">routes.txt</a> is a small example.
                             </p>
                             <blockquote>
-                                <img src = "images/routes.png" alt = "airline routes">
+                                <img src="../../images/pages/gr/41graph/routes.png" alt = "airline routes">
                             </blockquote>
                             <p>
                                 The input file <a href = "movies.txt">movies.txt</a> is a larger example
@@ -474,30 +474,30 @@
                                 performers in the movie.
                             </p>
                             <blockquote>
-                                <img src = "images/movies.png" alt = "movie-performer graph">
+                                <img src="../../images/pages/gr/41graph/movies.png" alt = "movie-performer graph">
                             </blockquote>
                             <ul>
                                 <li><em>API.</em>
                                     The following API allows us to use our graph-processing routines for such input files.
                                     <blockquote>
-                                        <img src = "images/symbol-graph-api.png" alt = "symbol graph API">
+                                        <img src="../../images/pages/gr/41graph/symbol-graph-api.png" alt = "symbol graph API">
                                     </blockquote>
                                 
                                 <li><em>Implementation.</em>
                                     <a href = "SymbolGraph.java.html">SymbolGraph.java</a> implements the API.
                                     It builds three data structures:
                                     <ul>
-                                        <li> A symbol table <tt>st</tt> with <tt>String</tt> keys (vertex names)
-                                        and <tt>int</tt> values (indices)
+                                        <li> A symbol table <code>st</code> with <code>String</code> keys (vertex names)
+                                        and <code>int</code> values (indices)
                                         
-                                        <li> An array <tt>keys[]</tt> that serves as an inverted index,
+                                        <li> An array <code>keys[]</code> that serves as an inverted index,
                                         giving the vertex name associated with each integer index
                                         
-                                        <li> A <tt>Graph</tt> <tt>G</tt> built using the indices to refer to vertices
+                                        <li> A <code>Graph</code> <code>G</code> built using the indices to refer to vertices
                             
                                     </ul>
                                     <blockquote>
-                                        <img src = "images/symbol-graph.png" alt = "symbol graph data structures">
+                                        <img src="../../images/pages/gr/41graph/symbol-graph.png" alt = "symbol graph data structures">
                                     </blockquote>
                             
                                 <li><em>Degrees of separation.</em>
@@ -506,36 +506,6 @@
                                     two individuals in a social network. For the actor-movie graph, it plays 
                                     the Kevin Bacon game.
                             </ul>
-                        </div>
-                    </div>
-                </section>
-                <section class="section">
-                    <div class="section-container">
-                        <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;</h3>
-                        </div>
-                        <div class="section-content">
-                            
-                        </div>
-                    </div>
-                </section>
-                <section class="section">
-                    <div class="section-container">
-                        <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;</h3>
-                        </div>
-                        <div class="section-content">
-                            
-                        </div>
-                    </div>
-                </section>
-                <section class="section">
-                    <div class="section-container">
-                        <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;</h3>
-                        </div>
-                        <div class="section-content">
-                            
                         </div>
                     </div>
                 </section>

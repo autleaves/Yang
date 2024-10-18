@@ -142,10 +142,8 @@
                                         which is a list of <em>constructors</em> and <em>instance methods</em>
                                         (operations), with an informal description of the effect of each,
                                         as in this API for <code>Counter</code>:
-                                        <p>
-                                            <center>
-                                                <IMG SRC="../../images/pages/fu/12oop/counter-api.png" alt="api for counter">
-                                            </center>
+                                        <p class="container--aligncenter">
+                                            <IMG SRC="../../images/pages/fu/12oop/counter-api.png" alt="api for counter">
                                         </p>
                                     <li><em>Client.</em>
                                         A client is a program that uses a data type.
@@ -172,10 +170,8 @@
                                     Each time that a client uses <code>new</code>, the system
                                     allocates memory space for the object, initializes its value,
                                     and returns a reference to the object.
-                                    <p>
-                                        <center>
-                                            <IMG SRC="../../images/pages/fu/12oop/constructor.png" alt="constructor">
-                                        </center>
+                                    <p class="container--aligncenter">
+                                        <IMG SRC="../../images/pages/fu/12oop/constructor.png" alt="constructor">
                                     </p>
                                 <li><em>Invoking instance methods.</em>
                                     The purpose of an instance method is to operate on data-type values.
@@ -185,10 +181,8 @@
                                     side
                                     effects. They have an additional property that characterizes them:
                                     <em>each invocation is associated with an object</em>.
-                                    <p>
-                                        <center>
-                                            <IMG SRC="../../images/pages/fu/12oop/instance-method.png" alt="instance method">
-                                        </center>
+                                    <p class="container--aligncenter">
+                                        <IMG SRC="../../images/pages/fu/12oop/instance-method.png" alt="instance method">
                                     </p>
                                 <li><em>Using objects.</em>
                                     Declarations give us variable names for objects that we can use in code.
@@ -216,19 +210,15 @@
                                     as illustrated by the following example:
 
                                     <blockquote>
-                                        <table>
-                                            <TR>
-                                                <TD>
-                                                    <pre>
-                                                    Counter c1 = new Counter("ones");
-                                                    c1.increment();
-                                                    Counter c2 = c1;
-                                                    c2.increment(); 
-                                                    StdOut.println(c1);
-                                                    </pre>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <div class="container">
+<pre class="sourcecode">
+Counter c1 = new Counter("ones");
+c1.increment();
+Counter c2 = c1;
+c2.increment(); 
+StdOut.println(c1);
+</pre>
+                                        </div>
                                     </blockquote>
                                     The code prints the string <code>"2 ones"</code>.
 
@@ -315,10 +305,8 @@
                                     A <code>String</code> is an indexed sequence of <code>char</code> values.
                                     <code>String</code> has dozens of instance methods, including the
                                     following:
-                                    <p>
-                                        <center>
-                                            <IMG SRC="../../images/pages/fu/12oop/string-api.png" alt="string api">
-                                        </center>
+                                    <p class="container--aligncenter">
+                                        <IMG SRC="../../images/pages/fu/12oop/string-api.png" alt="string api">
                                     </p>
                                     <code>String</code> has special language support for initialization
                                     and concatenation: instead of creating and initializing a
@@ -397,10 +385,8 @@
                                     Instance methods may be <em>public</em> (specified in the API)
                                     or <em>private</em> (used to organize the computation and not available to
                                     clients).
-                                    <p>
-                                        <center>
-                                            <IMG SRC="../../images/pages/fu/12oop/counter-anatomy.png" alt="anatomy of a class">
-                                        </center>
+                                    <p class="container--aligncenter">
+                                        <IMG SRC="../../images/pages/fu/12oop/counter-anatomy.png" alt="anatomy of a class">
                                     </p>
                                 <li><em>Scope.</em>
                                     Instance methods use three kinds of
@@ -418,10 +404,8 @@
                                     an ambiguity,
                                     you can use the <code>this</code> prefix to identify instance variables).
 
-                                    <p>
-                                        <center>
-                                            <IMG SRC="../../images/pages/fu/12oop/scope.png" alt="scope">
-                                        </center>
+                                    <p class="container--aligncenter">
+                                        <IMG SRC="../../images/pages/fu/12oop/scope.png" alt="scope">
                                     </p>
                             </ul>
                         </div>
@@ -496,11 +480,9 @@
                                     each implementing class must contain.
                                     We use interface inheritance for
                                     <em>comparison</em> and for <em>iteration</em>.
-                                    <p>
-                                        <center>
-                                            <IMG SRC="../../images/pages/fu/12oop/interfaces.png"
-                                                alt="Java interfaces used in this book">
-                                        </center>
+                                    <p class="container--aligncenter">
+                                        <IMG SRC="../../images/pages/fu/12oop/interfaces.png"
+                                            alt="Java interfaces used in this book">
                                     </p>
                                 <li><em>Implementation inheritance.</em>
                                     Java also supports another inheritance mechanism known as <em>subclassing</em>,
@@ -515,11 +497,9 @@
                                     specifically, every class is a subclass of
                                     <a
                                         href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html">Object</a>.
-                                    <p>
-                                        <center>
-                                            <IMG SRC="../../images/pages/fu/12oop/inherited.png"
-                                                alt="Inherited methods from Object used in this book">
-                                        </center>
+                                    <p class="container--aligncenter">
+                                        <IMG SRC="../../images/pages/fu/12oop/inherited.png"
+                                            alt="Inherited methods from Object used in this book">
                                     </p>
                                 <li><em>String conversion.</em>
                                     Every Java type inherits <code>toString()</code> from
@@ -536,47 +516,47 @@
                                 <li><em> Wrapper types.</em> Java supplies built-in
                                     reference types known as <em>wrapper types</em>,
                                     one for each of the primitive types:
-                                    <table cellspacing="1" cellpadding="4" border="0" bgcolor="#ffffff">
-                                        <tr align=center>
-                                            <th align=center width=150><b>primitive type</b></th>
-                                            <th align=center width=150><b>wrapper type</B></th>
+                                    <table class="sourcecode-list a_initial">
+                                        <tr>
+                                            <th width=150><b>primitive type</b></th>
+                                            <th width=150><b>wrapper type</b></th>
                                         </tr>
-                                        <tr align=center bgcolor="#ebebeb">
+                                        <tr>
                                             <td><code>boolean</code>
                                             <td><a
                                                     href="http://download.oracle.com/javase/6/docs/api/java/lang/Boolean.html">Boolean</a>
                                         </tr>
-                                        <tr align=center bgcolor="#ebebeb">
+                                        <tr>
                                             <td><code>byte</code>
                                             <td><a
                                                     href="http://download.oracle.com/javase/6/docs/api/java/lang/Byte.html">Byte</a>
                                         </tr>
-                                        <tr align=center bgcolor="#ebebeb">
+                                        <tr>
                                             <td><code>char</code>
                                             <td><a
                                                     href="http://download.oracle.com/javase/6/docs/api/java/lang/Character.html">Character</a>
                                         </tr>
-                                        <tr align=center bgcolor="#ebebeb">
+                                        <tr>
                                             <td><code>double</code>
                                             <td><a
                                                     href="http://download.oracle.com/javase/6/docs/api/java/lang/Double.html">Double</a>
                                         </tr>
-                                        <tr align=center bgcolor="#ebebeb">
+                                        <tr>
                                             <td><code>float</code>
                                             <td><a
                                                     href="http://download.oracle.com/javase/6/docs/api/java/lang/Float.html">Float</a>
                                         </tr>
-                                        <tr align=center bgcolor="#ebebeb">
+                                        <tr>
                                             <td><code>int</code>
                                             <td><a
                                                     href="http://download.oracle.com/javase/6/docs/api/java/lang/Integer.html">Integer</a>
                                         </tr>
-                                        <tr align=center bgcolor="#ebebeb">
+                                        <tr>
                                             <td><code>long</code>
                                             <td><a
                                                     href="http://download.oracle.com/javase/6/docs/api/java/lang/Long.html">Long</a>
                                         </tr>
-                                        <tr align=center bgcolor="#ebebeb">
+                                        <tr>
                                             <td><code>short</code>
                                             <td><a
                                                     href="http://download.oracle.com/javase/6/docs/api/java/lang/Short.html">Short</a>
@@ -693,15 +673,11 @@
                                         that terminates execution of the program and prints an error message.
                                     </p>
                                     <blockquote>
-                                        <table>
-                                            <TR>
-                                                <TD>
-                                                    <pre>
-                                                    throw new RuntimeException("Error message here.");
-                                                    </pre>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <div class="container">
+<pre class="sourcecode">
+throw new RuntimeException("Error message here.");
+</pre>
+                                        </div>
                                     </blockquote>
                                 <li><em>Assertions</em> are boolean expressions which verify assumptions
                                     that we make <em>within</em> code we develop.
@@ -712,15 +688,11 @@
                                     <code>ArrayIndexOutOfBoundsException</code> sometime later.
                                     But if you write the code
                                     <blockquote>
-                                        <table>
-                                            <TR>
-                                                <TD>
-                                                    <pre>
-                                                    assert index >= 0; 
-                                                    </pre>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <div class="container">
+<pre class="sourcecode">
+assert index >= 0; 
+</pre>
+                                        </div>
                                     </blockquote>
                                     you can pinpoint the place where the error occurred.
                                     By default, assertions are disabled.You can enable them from the command line by

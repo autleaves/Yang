@@ -85,6 +85,10 @@ h2 {
   font-size: 1.3rem;
   font-weight: 500;
 }
+h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
 em {
   font-weight: 500;
 }
@@ -94,6 +98,9 @@ em {
   }
   h2 {
     font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.3rem;
   }
 }
 /*

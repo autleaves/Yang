@@ -1,5 +1,25 @@
 @charset "utf-8";
 
+
+.container {
+	text-align: auto;
+}
+
+.container--aligncenter {
+	text-align: center;
+}
+
+pre.sourcecode {
+	display: inline-block;
+	background-color: rgb(242,242,242);
+	border: 1px solid #b6b6b6;
+	border-radius: var(--radius-C);
+	padding: 2em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
 main > .contents {
     display: flex;
 }

@@ -105,30 +105,208 @@
                 <section class="section">
                     <div class="section-container ">
                         <div class="section-title chapter-title">
-                            <h1>Bags, Queues, and Stacks</h1>
+                            <h1>Mergesort</h1>
                         </div>
                         <div class="section-content chapter-content">
-                            
+                            <p>
+                            The algorithms that we consider in this section is based on a simple
+                            operation known as <em>merging</em>:
+                            combining two ordered arrays to make one larger ordered array. 
+                            This operation immediately lends itself to a simple recursive sort method
+                            known as <em>mergesort</em>: to sort an array,
+                            divide it into two halves, sort the two halves (recursively),
+                            and then merge the results. 
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/22mergesort/mergesort-overview.png" alt = "Mergesort">
+                            <p>
+                            Mergesort
+                            guarantees to sort an array of N items in time proportional to N log N,
+                            no matter what the input. Its 
+                            prime disadvantage is that it uses extra space proportional to N.
+                            </p>
                         </div>
                     </div>
                 </section>
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class="">&sect;&nbsp;</h2>
+                            <h2 class="">&sect;&nbsp;Abstract in-place merge.</h2>
                         </div>
                         <div class="section-content">
-                            
+                            <p>
+                                The method <tt>merge(a, lo, mid, hi)</tt> in
+                                <a href = "Merge.java.html">Merge.java</a>
+                                puts the results of merging the subarrays <tt>a[lo..mid]</tt> with <tt>a[mid+1..hi]</tt>
+                                into a single ordered array, leaving the result in <tt>a[lo..hi]</tt>.
+                                While it would be desirable to implement this method without using a significant
+                                amount of extra space, such solutions are remarkably complicated.
+                                Instead, <tt>merge()</tt>  copies everything to an auxiliary array 
+                                and then merges back to the original.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/22mergesort/merge.png" width = 600 alt = "Mergesort">
+                            </p>
                         </div>
                     </div>
                 </section>
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;</h2>
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Top-down mergesort.</h3>
                         </div>
                         <div class="section-content">
-                            
+                            <p>
+                                <a href = "Merge.java.html">Merge.java</a> is a recursive mergesort 
+                                implementation based on this abstract in-place merge.
+                                It is one of the best-known examples
+                                of the utility of the <em>divide-and-conquer</em> paradigm for efficient algorithm
+                                design.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/22mergesort/mergesortTD.png" alt = "Mergesort">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Top-down mergesort uses between 1/2 N lg N and N lg N compares 
+                                and at most 6 N lg N array accesses to sort any array
+                                of length N.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Improvements.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We can cut the running time of mergesort substantially with some
+                                carefully considered modifications to the implementation.
+                            </p>
+                            <ul>
+                                <li><em>Use insertion sort for small subarrays.</em>
+                                We can improve most recursive algorithms by handling small cases differently.
+                                Switching 
+                                to insertion sort for small subarrays will improve the running time of a
+                                typical mergesort implementation by 10 to 15 percent.
+                                
+                                <li><em>Test whether array is already in order.</em>
+                                We can reduce the running time to be linear for arrays that are already
+                                in order by adding a test to skip call to <tt>merge()</tt> if <tt>a[mid]</tt>
+                                is less than or equal to <tt>a[mid+1]</tt>.
+                                With this change, we still do all the recursive calls, but 
+                                the running time for any sorted subarray is linear.
+                                
+                                <li><em>Eliminate the copy to the auxiliary array.</em>
+                                It is possible to eliminate the time (but not the space) taken to copy
+                                to the auxiliary array used for merging. To do so, we use 
+                                two invocations of the sort method, one that takes its input from the given
+                                array and puts the sorted output in the auxiliary array;
+                                the other takes its input from the auxiliary array and puts the sorted output
+                                in the given array. With this approach, in a bit of 
+                                mindbending recursive trickery, we can arrange the recursive calls such that
+                                the computation switches the roles of the input array and the
+                                auxiliary array at each level.
+                                
+                            </ul>
+                            <p>
+                                <a href = "MergeX.java.html">MergeX.java</a> implements these improvements.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Visualization.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                <a href = "MergeBars.java.html">MergeBars.java</a> provides a visualization 
+                                    of mergesort with cutoff for small subarrays.
+                            </p>
+                            <p class="container-aligncenter">
+                                <IMG SRC="../../images/pages/so/22mergesort/mergesortTD-bars.png" alt = "Mergesort visualization">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Bottom-up mergesort.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Even though we are thinking in terms of merging together two large subarrays,
+                                the fact is that most merges are merging together tiny 
+                                subarrays. Another way to implement mergesort is to organize the merges so
+                                that we do all the merges of tiny arrays on one pass,
+                                then do a second pass to merge those arrays in 
+                                pairs, and so forth, continuing until we do a merge that encompasses the whole array. 
+                                This method requires even less code than the standard recursive implementation. We 
+                                start by doing a pass of 1-by-1 merges (considering individual
+                                items as subarrays of size 1), then a pass of 2-by-2 merges
+                                (merge subarrays of size 2 to make subarrays of size 4), 
+                                then 4-by-4 merges, and so forth. 
+                                <a href = "MergeBU.java.html">MergeBU.java</a> is an implementation
+                                of bottom-up mergesort.
+                            </p>
+                            <p class="container-aligncenter">
+                                <IMG SRC="../../images/pages/so/22mergesort/mergesortBU.png" alt = "Bottom-up mergesort">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Bottom-up mergesort uses between 1/2 N lg N and N lg N compares 
+                                and at most 6 N lg N array accesses to sort any array
+                                of length N.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                No compare-based sorting algorithm can guarantee to sort N items
+                                with fewer than lg(N!) ~ N lg N compares.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Mergesort is an asymptotically optimal compare-based sorting algorithm.
+                                That is, both the number of compares used by mergesort 
+                                in the worst case and the minimum number of compares that any compare-based sorting 
+                                algorithm can guarantee are ~N lg N. 
+                            </p>
                         </div>
                     </div>
                 </section>

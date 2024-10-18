@@ -142,3 +142,336 @@
 </body>
 
 </html>
+
+
+<div id = "content">
+    <H1>3.2 &nbsp; Binary Search Trees</H1>
+    
+    <!-- REDO EXERICSE NUMBERINGS -->
+    
+    <p><br>
+    
+    We examine a symbol-table implementation that combines the 
+    flexibility of insertion in linked lists with the efficiency
+    of search in an ordered array.
+    Specifically, using two links per node
+    leads to an efficient symbol-table implementation based
+    on the binary search tree data structure, which qualifies as one of the most fundamental
+    algorithms in computer science.
+    
+    <p><b>Definition.</b> A <em>binary search tree</em> (BST) is a binary 
+    tree where each node has a <tt>Comparable</tt> key
+    (and an associated value) and satisfies the restriction 
+    that the key in any node is larger than the keys in all
+    nodes in that node's left subtree and smaller than the keys
+    in all nodes in that node's right subtree.
+    
+    <p>
+    <blockquote>
+    <TABLE BORDER = 0 CELLPADDING =2 CELLSPACING = 0>
+    <tr>
+    <td><IMG SRC="images/binary-tree-anatomy.png" alt = "Anatomy of a binary tree">
+    <td>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <td><IMG SRC="images/bst-anatomy.png" alt = "Anatomy of a binary search tree">
+    </tr>
+    </table>
+    </blockquote>
+    
+    <p><br>
+    
+    
+    <p><h2>Basic implementation.</h2>
+    Program <a href = "BST.java.html">BST.java</a> implements
+    the ordered symbol-table API using a binary search tree.
+    We define a inner private class to define nodes in BST.
+    Each node contains a key, a value, a left link, a right link, and a node count.
+    The left link points to a BST for 
+    items with smaller keys, and the right link points to a BST for items with
+    larger keys. The instance variable <tt>N</tt> gives the node count
+    in the subtree rooted at the node. This field facilitates the implementation
+    of various ordered symbol-table operations, as you will see. 
+    
+    <p>
+    <center>
+    <IMG SRC="images/bst-subtree-count.png"  alt = "Subtree counts in a BST">
+    </center>
+    
+    
+    <ul>
+    <p><li><em>Search.</em>
+    A recursive algorithm to search for a key in a BST
+    follows immediately from the recursive structure: If the tree is 
+    empty, we have a search miss; if the search key is equal to the key at the root, we have a 
+    search hit. Otherwise, we search (recursively) in the appropriate subtree.
+    The recursive <tt>get()</tt> method implements this algorithm directly.
+    It takes a node (root of a subtree) as 
+    first argument and a key as second argument, starting
+    with the root of the tree and the search key.
+    
+    <p>
+    <center>
+    <IMG SRC="images/bst-search.png"  alt = "Search in a BST">
+    </center>
+    
+    
+    <p><li><em>Insert.</em>
+    Insert is not much more difficult to implement than search.
+    Indeed, a search for a key not in the tree ends 
+    at a null link, and all that we need to do is replace that link with a
+    new node containing the key.
+    The recursive <tt>put()</tt> method
+    accomplishes this task using logic similar to that we used for the
+    recursive search: If the tree is empty, we return a new node
+    containing the key and value; if the search key is less 
+    than the key at the root, we set the left link to the result
+    of inserting the key into the left subtree; otherwise,
+    we set the right link to the result of inserting the key into the right subtree.
+    
+    <p>
+    <center>
+    <IMG SRC="images/bst-insert.png"  alt = "Insert in a BST">
+    </center>
+    
+    </ul>
+    
+    
+    <p><h2>Analysis.</h2>
+    The running times of algorithms on binary search trees depend on the 
+    shapes of the trees, which, in turn, depends on the order in which keys are inserted.
+    
+    <p>
+    <blockquote>
+    <TABLE BORDER = 0 CELLPADDING =2 CELLSPACING = 0>
+    <tr>
+    <td><IMG SRC="images/bst-best.png" alt = "Best case for BST">
+    <td>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <td><IMG SRC="images/bst-typical.png" alt = "Typical case for BST">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <td><IMG SRC="images/bst-worst.png" alt = "Worst case for BST">
+    </tr>
+    </table>
+    </blockquote>
+    
+    It is reasonable, for many applications, to use the following 
+    simple model: We assume that the keys are (uniformly) random, or,
+    equivalently, that they are inserted in random order.
+    
+    <p><h3>Proposition.</h3> Search hits in a BST built from N random keys
+    requires ~ 2 ln N (about 1.39 lg N) compares on the average.
+    
+    <p><h3>Proposition.</h3> Insertion and search misses in a BST built
+    from N random keys requires ~ 2 ln N (about 1.39 lg N) compares on the average.
+    
+    
+    <p>
+    The visualization below shows the result of inserting 255 keys in a BST in random order.
+    It displays the number of keys (N),
+    the maximum number of nodes on a path from the root to a leaf (max),
+    the average number of nodes on a path from the root to a leaf (avg),
+    the average number of nodes on a path from the root to a leaf in a perfectly 
+    balanced BST (opt).
+    
+    
+    <p>
+    <blockquote>
+    <video controls="controls" width="630"
+           name="Insert 255 keys in a BST in random order"
+           poster="media/bst-255random.jpg"
+           src="media/bst-255random.mov">
+    Your browser does not support the video tag.
+    </video>
+    </blockquote>
+    
+    <!--
+    <p><b>Property C.</b> [Bruce Reed]
+    The expected height of a random BST is &alpha; ln n - &beta; ln ln n + O(1),
+    where &alpha; = 4.3111 (solution to &alpha; ln ((2e) / &alpha;) = 1)
+    and &beta; = 1.953 (3/2  &alpha; / (&alpha; - 1) ).
+    Variance of height = O(1).
+    This is also equal to number of levels of recursion when applying
+    quicksort to random permutation of 1..n.
+    -->
+    
+    
+    
+    <p><br>
+    <p><h2>Order-based methods and deletion.</h2>
+    An important reason that BSTs are widely used is that
+    they allow us to keep the keys <em>in order</em>. 
+    As such, they can serve as the basis for implementing the
+    numerous methods in our ordered symbol-table API.
+    
+    <ul>
+    <p><li><em>Minimum and maximum.</em>
+    If the left link of the root is null, the smallest key in a BST is the key at the root;
+    if the left link is not null, the smallest key in the BST is
+    the smallest key in the subtree rooted at the node referenced by the left link.
+    Finding the maximum key is similar, moving to the right instead of to the left.
+    
+    <p><li><em>Floor and ceiling.</em>
+    If a given key key is less than the key at the root of a BST, then the 
+    floor of key (the largest key in the BST less than or equal to key)
+    <em>must</em> be in the left subtree.
+    If key is greater than the key at the root, then the floor of key <em>could</em>
+    be in the right subtree, but only if there is a key smaller than or equal to key
+    in the right subtree; 
+    if not (or if key is equal to the key at the root) then the key at the root
+    is the floor of key.
+    Finding the ceiling is similar, interchanging right and left.
+    
+    <p><li><em>Selection.</em>
+    Suppose that we seek the key of rank <em>k</em>
+    (the key such that precisely <em>k</em> other keys in the BST are smaller).
+    If the number of keys <em>t</em> in the left subtree is larger than <em>k</em>,
+    we look (recursively) for the key of rank <tt>k</tt> in the left subtree;
+    if <em>t</em> is equal to <em>k</em>, we return the key at the root;
+    and if <em>t</em> is smaller than <em>k</em>, we look (recursively) for the 
+    key of rank <em>k - t - 1</em> in the right subtree.
+    
+    <p>
+    <blockquote>
+    <TABLE BORDER = 0 CELLPADDING =2 CELLSPACING = 0>
+    <tr>
+    <td><IMG SRC="images/bst-floor.png" alt = "Floor in a BST">
+    <td>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <td><IMG SRC="images/bst-select.png" alt = "Selection in a BST">
+    </tr>
+    </table>
+    </blockquote>
+    
+    
+    <p><li><em>Rank.</em>
+    If the given key is equal to the key at the root, we return the number of keys
+    <em>t</em> in the left subtree; if the given key is less than the key at the root,
+    we return the rank of the key in the left 
+    subtree; and if the given key is larger than the key
+    at the root, we return <em>t</em> plus one (to count the key at the root)
+    plus the rank of the key in the right subtree.
+    
+    <p><li><em>Delete the minimum and maximum.</em>
+    For delete the minimum, we go left 
+    until finding a node that that has a null left link and then replace
+    the link to that node by its right link.
+    The symmetric method works for delete the maximum.
+    
+    <p><li><em>Delete.</em>
+    We can proceed in a similar manner to delete any node that has one child (or no children), 
+    but what can we do to delete a node that has two children?
+    We are left with two links, but have a place in the parent node for only one of them.
+    An answer to this dilemma, first proposed by T. Hibbard in 1962,
+    is to delete a node x by replacing it with its <em>successor</em>. 
+    Because <tt>x</tt> has a right child, its successor is the node with the smallest
+    key in its right subtree.
+    The replacement preserves order in the tree because there are no keys between <tt>x.key</tt>
+    and the successor's key.
+    We accomplish the task of replacing <t>x</tt> by its successor in four (!) easy steps:
+    
+    <ul>
+    <p><li> Save a link to the node to be deleted in <tt>t</tt>
+    <p><li> Set <tt>x</tt> to point to its successor <tt>min(t.right)</tt>.
+    <p><li> Set the right link of <tt>x</tt> (which is supposed to point to the
+    BST containing all the keys larger than <tt>x.key</tt>) to <tt>deleteMin(t.right)</tt>,
+    the link to the BST containing all the keys that are larger than <tt>x.key</tt> after the deletion.
+    <p><li> Set the left link of <tt>x</tt> (which was null) to <tt>t.left</tt>
+    (all the keys that are less than both the deleted key and its successor).
+    </ul>
+    
+    <p>
+    <blockquote>
+    <TABLE BORDER = 0 CELLPADDING =2 CELLSPACING = 0>
+    <tr>
+    <td><IMG SRC="images/bst-deletemin.png" alt = "Delete the min in a BST">
+    <td>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <td><IMG SRC="images/bst-delete.png" alt = "Hibbard deletion in a BST">
+    </tr>
+    </table>
+    </blockquote>
+    
+    
+    While this method does the job, it has a flaw that might cause
+    performance problems in some practical 
+    situations. The problem is that the choice of using the successor is arbitrary
+    and not symmetric. Why not use the predecessor?
+    
+    <!--
+    <p>
+    One alternative is a symmetric version of Hibbard's rule.
+    Conjecture to yield BST with O(log N) average time per operation.
+    [Reference: The Effects of Updates in Binary Search Trees by
+    Joseph Culberson.]
+    -->
+    
+    
+    <p><br>
+    <blockquote>
+    <p>
+    <em>Each BST contains 150 nodes. We then repeatedly delete (via Hibbard deletion)
+    and insert keys at random. The BST becomes skewed toward the left.</em>
+    <p>
+    
+    <p>
+    <blockquote>
+    <video controls="controls" width="630"
+           name="Insert 150 keys into a BST then repeatedly delete and reinsert"
+           poster="media/jibbard-150random.jpg"
+           src="media/hibbard-150random.mov">
+    Your browser does not support the video tag.
+    </video>
+    </blockquote>
+    
+    <p<br>
+    <p><li><em>Range search.</em>
+    To implement the <tt>keys()</tt> method that returns the keys in a given range,
+    we begin with a basic recursive BST traversal method, known as <em>inorder</em> traversal.
+    To illustrate the method, we 
+    consider the task of printing all the keys in a BST in order. To do so, print all the keys in 
+    the left subtree (which are less than the key at the root by
+    definition of BSTs),
+    then print the key at the root, then print all the keys in the right subtree,
+    (which are greater than the key at the root by definition of BSTs).
+    
+    <blockquote>
+    <table>
+    <TR><TD><pre>
+    private void print(Node x) {
+       if (x == null) return;
+       print(x.left);
+       StdOut.println(x.key);
+       print(x.right);
+    }
+    </pre></td></tr>
+    </table>
+    </blockquote>
+    
+    <p>
+    To implement the two-argument <tt>keys()</tt> method,
+    we modify this code to add each key that is in the range to a <tt>Queue</tt>, and to 
+    skip the recursive calls for subtrees that cannot contain keys in the range.
+    
+    </ul>
+    
+    
+    
+    <p><h3>Proposition.</h3>
+    Search, insertion, finding the minimum, finding the maximum, floor, ceiling, 
+    rank, select, delete the minimum, delete the maximum, delete, and range count operations all 
+    take time proportional to the height of the tree, in the worst case.
+    
+    
+    <p><br>

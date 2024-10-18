@@ -142,3 +142,336 @@
 </body>
 
 </html>
+
+
+<div id = "content">
+    <H1>3.4 &nbsp; Hash Tables</H1>
+    <p><br>
+    
+    
+    If keys are small integers, we can use an array to implement a symbol
+    table, by interpreting the key as an array index so that we can store the value
+    associated with key i in array position i.  In this section, we
+    consider <em>hashing</em>, an extension of this simple method
+    that handles more complicated types of keys. We 
+    reference key-value pairs using arrays by doing arithmetic operations
+    to transform keys into array indices. 
+    
+    <p>
+    <center>
+    <IMG SRC="images/hashing-crux.png" alt = "crux of hashing">
+    </center>
+    <p>
+    
+    <p>
+    Search algorithms that use hashing consist of two separate parts. The
+    first step is to compute a <em>hash function</em>
+    that transforms the search key into an array index.
+    Ideally, different keys would map to different indices. This ideal is generally 
+    beyond our reach, so we have to face the possibility that two or 
+    more different keys may hash to the same array index. Thus, the 
+    second part of a hashing search is a <em>collision-resolution</em> process 
+    that deals with this situation.
+    
+    
+    <IMG SRC="images/modular-hashing.png"  align=right hspace=25 alt = "Modular hashing">
+    
+    <p><h2>Hash functions.</h2>
+    If we have an array that can hold M key-value pairs, then we need a
+    function
+    that can transform any given key into an index into that array:
+    an integer in the range [0, M-1].
+    We seek a hash function that is both easy to compute and uniformly
+    distributes the keys.
+    
+    
+    <ul>
+    <li><em>Typical example.</em>
+    Suppose that we have an application where the keys
+    are U.S. social security numbers. A social security number such as
+    123-45-6789 is a 9-digit number divided into three fields. The first
+    field identifies the 
+    <a href =
+    "http://cpsr.org/prevsite/cpsr/privacy/ssn/ssn.structure.html/">geographical
+    area</a>
+    where the number was issued
+    (for example number whose first field are 035 are from Rhode Island and numbers 
+    whose first field are 214 are from Maryland) and the other two fields 
+    identify the individual. There are a billion different social
+    security numbers, but suppose that our application will need to process just a 
+    few hundred keys, so that we could use a hash table of size M = 1000. 
+    One possible approach to implementing a hash function is to use three 
+    digits from the key. Using three digits from the field on the right is
+    likely to be preferable to using the three digits in the field on the left
+    (since customers may not be equally dispersed over geographic areas), but a
+    better approach is to use all nine digits to make an int value,
+    then consider hash functions for integers, described next. 
+    
+    <p><li><em>Positive integers.</em>
+    The most commonly used method for hashing integers is called 
+    <em>modular hashing</em>: we choose the array size M to be prime, and, for any
+    positive integer key k, compute the remainder when dividing k by M. 
+    This function is very easy to compute (k % M, in Java), and is
+    effective in dispersing the keys evenly between 0 and M-1.
+    
+    <p><li><em>Floating-point numbers.</em>
+    If the keys are real numbers between 0 and 1, we might just 
+    multiply by M and round off to the nearest integer to get an index
+    between 0 and M-1.
+    Although it is intuitive, this approach is defective because it gives
+    more weight to the most significant bits of the keys;
+    the least significant bits play no role. One way to address
+    this situation is to use modular hashing on the binary
+    representation of the key (this is what Java does). 
+    
+    
+    <p><li><em>Strings.</em>
+    Modular hashing works for long keys such as strings, too:
+    we simply treat them as huge integers.
+    For example, the code below computes a modular hash function for 
+    a String s, where R is a small prime integer (Java uses 31).
+    
+    <blockquote>
+    <table>
+    <TR><TD><pre>
+    int hash = 0;
+    for (int i = 0; i < s.length(); i++)
+        hash = (R * hash + s.charAt(i)) % M;
+    </pre></td></tr>
+    </table>
+    </blockquote>
+    
+    
+    <p><li><em>Compound keys.</em>
+    If the key type has multiple integer fields, we can typically mix them 
+    together in the way just described for <tt>String</tt> values.
+    For example, suppose that search keys are of type 
+    <a href = "PhoneNumber.java.html">USPhoneNumber.java</a>,
+    which has three integer fields area (3-digit area code), 
+    exch (3-digit exchange), and ext (4-digit extension).
+    In this case, we can compute the number 
+    
+    <blockquote>
+    <table>
+    <TR><TD><pre>
+    int hash = (((area * R + exch) % M) * R + ext) % M; 
+    </pre></td></tr>
+    </table>
+    </blockquote>
+    
+    <p><li><em>Java conventions.</em>
+    Java helps us address the basic problem that every type of data needs 
+    a hash function by requiring that every data type must implement a method called 
+    <tt>hashCode()</tt> (which returns a 32-bit integer).
+    The implementation of <tt>hashCode()</tt>
+    for an object must be <em>consistent with equals</em>.
+    That is, if <tt>a.equals(b)</tt> is true, then <tt>a.hashCode()</tt>
+    must have the same numerical value as <tt>b.hashCode()</tt>.
+    If the <tt>hashCode()</tt> values are the same, the objects may or may not be equal,
+    and we must use <tt>equals()</tt> to decide which condition holds.
+    
+    <p><li><em>Converting a <tt>hashCode()</tt> to an array index.</em>
+    Since our goal is an array index, not a 32-bit integer, we combine <tt>hashCode()</tt>
+    with modular hashing in our implementations to produce integers
+    between 0 and M-1 as follows:
+    
+    <blockquote>
+    <table>
+    <TR><TD><pre>
+    private int hash(Key key) {
+       return (key.hashCode() & 0x7fffffff) % M;
+    }
+    </pre></td></tr>
+    </table>
+    </blockquote>
+    
+    The code masks off the sign bit (to turn the 32-bit integer into a
+    31-bit nonnegative integer)
+    and then computing the remainder when dividing by M, as in modular
+    hashing.
+    
+    
+    <p><li><em>User-defined <tt>hashCode()</tt></em>.
+    Client code expects that <tt>hashCode()</tt> disperses the keys 
+    uniformly among the possible 32-bit result values.
+    That is, for any object <tt>x</tt>, you can write <tt>x.hashCode()</tt>
+    and, in principle, expect to get any one of the 2^32 possible 32-bit 
+    values with equal likelihood. Java provides <tt>hashCode()</tt>
+    implementations that aspire to this functionality for many common types
+    (including <tt>String</tt>, <tt>Integer</tt>, <tt>Double</tt>, 
+    <tt>Date</tt>, and <tt>URL</tt>), but for your own type,
+    you have to try to do it on your own.
+    Program <a href = "PhoneNumber.java.html">PhoneNumber.java</a> illustrates
+    one way to proceed: make integers from the instance variables and use
+    modular hashing.
+    Program <a href = "Transaction.java.html">Transaction.java</a> illustrates
+    an even simpler approach: use the <tt>hashCode()</tt> method for the
+    instance variables to convert each to a 32-bit <tt>int</tt> value
+    and then do the arithmetic.
+    
+    </ul>
+    
+    We have three primary requirements in implementing a good hash 
+    function for a given data type: 
+    
+    <ul>
+    <p><li> It should be <em>deterministic</em>&mdash;equal keys must produce
+    the same hash value.
+    
+    <p><li> It should be <em>efficient to compute</em>.
+    
+    <p><li> It should  <em>uniformly distribute the keys</em>.
+    
+    </ul>
+    
+    To analyze our hashing algorithms and develop hypotheses about their performance,
+    we make the following idealized assumption.
+    
+    <p><h2>Assumption J (uniform hashing assumption).</h2>
+    The hash function that we use uniformly distributes keys among the
+    integer values between 0 and M-1.
+    
+    
+    
+    <p><h2>Hashing with separate chaining.</h2>
+    A hash function converts keys into array indices.
+    The second component of a hashing algorithm is collision resolution: a strategy 
+    for handling the case when two or more keys to be inserted hash to the same index. A 
+    straightforward approach to collision resolution is to build, for each of the 
+    M array indices, a linked list of the key-value pairs whose keys hash to that index.
+    The basic idea is to choose M to be sufficiently large that the lists 
+    are sufficiently short to enable efficient search through a two-step process:
+    hash to find the list that could contain the key,
+    then sequentially search through that list for the key. 
+    
+    <p>
+    <center>
+    <IMG SRC="images/separate-chaining.png" alt = "hashing with separate chaining">
+    </center>
+    <p>
+    
+    Program <a href = "SeparateChainingHashST.java.html">SeparateChainingHashST.java</a>
+    implements a symbol table with a separate-chaining hash table.
+    It maintains an array of 
+    <a href = "SequentialSearchST.java.html">SequentialSearchST</a>
+    objects and implements <tt>get()</tt> and <tt>put()</tt>
+    by computing a hash function to choose which <tt>SequentialSearchST</tt>
+    can contain the key and then using <tt>get()</tt> and <tt>put()</tt>
+    from <tt>SequentialSearchST</tt> to complete either job.
+    Program <a href = "SeparateChainingLiteHashST.java.html">SeparateChainingLiteHashST.java</a>
+    is similar but does it using an explict <tt>Node</tt> nested class.
+    
+    
+    
+    <p><b>Proposition K.</b>
+    In a separate-chaining hash table with M lists and N keys, the
+    probability (under Assumption J) that the number of keys in a list
+    is within a small constant factor of N/M is extremely close to 1.
+    of N/M is extremely close to 1. (Assumes an idealistic hash function.)
+    
+    <p>
+    This classical mathematical result is compelling, but it completely 
+    depends on Assumption J. Still, in practice, the same behavior occurs.
+    
+    
+    <p><b>Property L.</b>
+    In a separate-chaining hash table with M lists and N keys, the
+    number of compares (equality tests) for search and insert is
+    proportional to N/M.
+    
+    
+    
+    <p><h2>Hashing with linear probing.</h2> 
+    Another approach to implementing hashing is to store 
+    N key-value pairs in a hash table of size M > N,
+    relying on empty entries in the table to help with 
+    with collision resolution. Such methods are called <em>open-addressing</em>
+    hashing methods.
+    The simplest open-addressing method is called <em>linear probing</em>:
+    when there is a collision (when we hash to a table index that is
+    already occupied with a key different from the search key),
+    then we just check the next entry in the table (by incrementing the
+    index). There are three possible outcomes:
+    <ul>
+    <li> key equal to search key: search hit
+    <li> empty position (null key at indexed position): search miss
+    <li> key not equal to search key: try next entry
+    </ul>
+    
+    <p>
+    <center>
+    <IMG SRC="images/linear-probing.png" alt = "hashing with linear probing">
+    </center>
+    <p>
+    
+    <p>
+    Program <a href = "LinearProbingHashST.java.html">LinearProbingHashST.java</a>
+    is an implementation of the symbol-table ADT using this method.
+    
+    
+    <p>
+    As with separate chaining, the performance of open-addressing methods
+    is dependent on the ratio &alpha; = N/M, but we interpret it
+    differently. For separate chaining &alpha; is the average number
+    of items per list and is generally larger than 1. For open addressing,
+    &alpha; is the percentage of table positions that are occupied; it
+    <em>must</em> be less than 1. We refer to &alpha; as the <em>load factor</em>
+    of the hash table.
+    
+    
+    <p><b>Proposition M.</b>
+    In a linear-probing has table of size M with N = &alpha; M keys,
+    the average number of probes (under Assumption J) is
+    ~ 1/2 (1 + 1 / (1 - &alpha;)) for search hits and 
+    ~ 1/2 (1 + 1 / (1 - &alpha;)^2) for search misses or inserts.
+    
+    
+    
+    
+    
+    
+    <p>
+    <br>
+    
+    <p>
+    <H4>Q + A.</H4>
+    <ol>
+    
+    <li class = qa value = 17>
+    Why does Java use 31 in the <tt>hashCode()</tt> for <tt>String</tt>?
+    
+    <li class = qa value = 1> 
+    It's prime, so that when the user mods out by another number, they
+    have no common factors (unless it's a multiple of 31). 31 is also a
+    Mersenne prime (like 127 or 8191) which is a prime number that is 
+    one less than a power of 2.
+    This means that the mod can be done with one shift and one subtract if the
+    machine's multiply instruction is slow.
+    
+    <li class = qa value = 17>
+    How do you extract the bits from a variable of type <tt>double</tt>
+    for use in hashing?
+    
+    <li class = qa value = 1> 
+    <tt>Double.doubleToLongBits(x)</tt> returns a 64-bit <tt>long</tt> integer
+    whose bit representation is the same as the floating-point representation
+    of the <tt>double</tt> value <tt>x</tt>.
+    
+    <li class = qa value = 17>
+    What's wrong with using <tt>(s.hashCode() % M)</tt> or 
+    <tt>Math.abs(s.hashCode()) % M</tt> to hash to a value between 0 and M-1?
+    
+    <li class = qa value = 1> 
+    The <tt>%</tt> operator returns a non-positive integer if its first argument
+    is negative, and this would create an array index out-of-bounds error.
+    Surprisingly, the absolute value function can even return a negative integer.
+    This happens if its argument is <tt>Integer.MIN_VALUE</tt> because the
+    resulting positive integer cannot be represented using a 32-bit two's
+    complement integer. This kind of bug would be excruciatingly
+    difficult to track down because it would only occur one time in
+    4 billion! [ The String hash code of "polygenelubricants" is -2^31. ]
+    </ol>
+    
+    
+    
+    <p><br>

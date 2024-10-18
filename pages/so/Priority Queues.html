@@ -105,30 +105,395 @@
                 <section class="section">
                     <div class="section-container ">
                         <div class="section-title chapter-title">
-                            <h1>Bags, Queues, and Stacks</h1>
+                            <h1>Priority Queues</h1>
                         </div>
                         <div class="section-content chapter-content">
-                            
+                            <p>
+                                Many applications require that we process items having keys in order,
+                                but not necessarily in full sorted order and not necessarily all at once.
+                                Often, we collect a set of items, then process the one
+                                with the largest key, then perhaps collect more items, then process
+                                the one with the current largest key, and so forth.
+                                An appropriate data type in such an environment supports two operations:
+                                <em>remove the maximum</em> and <em>insert</em>.
+                                Such a data type is called a <em>priority queue</em>.
+                            </p>
                         </div>
                     </div>
                 </section>
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class="">&sect;&nbsp;</h2>
+                            <h2 class="">&sect;&nbsp;API.</h2>
                         </div>
                         <div class="section-content">
+                            <p>
+                                Priority queues are characterized by the 
+                                <em>remove the maximum</em> and <em>insert</em> operations.
+                                By convention, we will compare keys only with a <code>less()</code> method, 
+                                as we have been doing for sorting. Thus, if records can have duplicate keys,
+                                <em>maximum</em> means <em>any</em> record with the largest key value.
+                                To complete the API, we also need to add constructors 
+                                and a <em>test if empty</em> operation. 
+                                For flexibility, we use a generic implementation with a generic type 
+                                <code>Key</code> that implements <code>Comparable</code>.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/24pq/pq-api.png"  alt = "Priority queue API">
+                            </p>
+                            <p>
+                                Program <a href = "TopM.java.html">TopM.java</a> is a priority queue client
+                                that takes a command-line argument <em>M</em>, reads transactions from
+                                standard input, and prints out the <em>M</em> largest transactions.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Elementary implementations.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                The basic data structures that we discussed in 
+                                <a href = "../13stacks">Section 1.3</a> provide us with four
+                                immediate starting points for implementing priority queues.
+                            </p>
+                            <ul>
+                                <li><em>Array representation (unordered).</em>
+                                Perhaps the simplest priority queue implementation is based on our code for
+                                pushdown stacks. The code for <em>insert</em>
+                                in the priority queue is the same as for <em>push</em> in the stack.
+                                To implement <em>remove the maximum</em>, we can add code like
+                                the inner loop of selection sort to exchange the maximum item
+                                with the item at the end and then delete that one, as we did with 
+                                <code>pop()</code> for stacks.
+                                Program <a href = "UnorderedArrayMaxPQ.java.html">UnorderedArrayMaxPQ.java</a>
+                                implements a priority queue using this approach.
+                                
+                                <li><em>Array representation (ordered).</em>
+                                Another approach is to add code for <em>insert</em> to move 
+                                larger entries one position to the right, thus keeping the entries in the
+                                array in order (as in insertion sort). Thus the largest item is
+                                always at the end, and the code for <em>remove the maximum</em> in the priority queue
+                                is the same as for <em>pop</em> in the stack.
+                                Program <a href = "OrderedArrayMaxPQ.java.html">OrderedArrayMaxPQ.java</a>
+                                implements a priority queue using this approach.
+                                
+                                <li><em>Linked-list representations (unordered and reverse-ordered).</em>
+                                Similarly, we can start with our linked-list code for pushdown stacks,
+                                either modifying the code for <code>pop()</code> to find and return the maximum or 
+                                the code for <code>push()</code> to keep items in reverse order and the code for
+                                <code>pop()</code> to unlink and return the first (maximum) item on the list. 
                             
+                            </ul>
+                            
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/24pq/pq-array.png"  alt = "Priority queue array implementations">
+                            </p>
+                            <p>
+                                All of the elementary implementations just discussed have the property
+                                that <em>either</em> the <em>insert</em> or the <em>remove the
+                                maximum</em> operation takes linear time in the worst case.
+                                Finding an implementation where <em>both</em> operations are guaranteed
+                                to be fast is a more interesting task, and it is the main subject of this section.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Heap definitions.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                The <em>binary heap</em> is a data structure that can efficiently support 
+                                the basic priority-queue operations. In a binary heap, the items are stored in an array 
+                                such that each key is guaranteed to be larger than (or equal to)
+                                the keys at two other specific
+                                positions. In turn, each of those keys must be larger than two more keys, and so forth. This 
+                                ordering is easy to see if we view the keys as being in a binary tree structure with edges 
+                                from each key to the two keys known to be smaller. 
+                            </p>
+                            <p>
+                                <b>Definition.</b>
+                                A binary tree is <em>heap-ordered</em> if the key in each node is larger than (or 
+                                equal to) the keys in that nodes two children (if any). 
+                            </p>
+                            <p>
+                                <b>Proposition.</b> The largest key in a heap-ordered binary tree is found at the root.
+                            </p>
+                            <p>
+                                We can impose the heap-ordering restriction on any binary tree.
+                                It is particularly convenient, however, to use a <em>complete</em>
+                                binary tree like the one below.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/24pq/heap.png"  alt = "Heap representations">
+                            </p>
+                            <p>
+                                We represent complete binary trees sequentially within an array
+                                by putting the nodes with <em>level order</em>,
+                                with the root at position 1, its children at positions 2 and 3,
+                                their children in positions 4, 5, 6 and 7, and so on.
+                            </p>
+                            
+                            <p>
+                                <b>Definition.</b>
+                                A <em>binary heap</em> is a set of nodes with keys arranged in a 
+                                complete heap-ordered binary tree, represented in level order in an array
+                                (not using the first entry).
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/24pq/heap-representations.png"  alt = "Heap representations">
+                            </p>                            
+                            <p>
+                                In a heap, the parent of the node in position k is in position k/2; and,
+                                conversely, the two children of the node in position k are in positions 2k and 2k + 1.
+                                We can travel up and down by doing simple arithmetic on array indices: to 
+                                move up the tree from a[k] we set k to k/2;
+                                to move down the tree we set k to 2*k or 2*k+1. 
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Algorithms on heaps.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We represent a heap of size <em>n</em> in private array 
+                                <code>pq[]</code> of length <em>n</em> + 1, with <code>pq[0]</code> unused and the heap
+                                in <code>pq[1]</code> through <code>pq[n]</code>. We
+                                access keys only through private helper functions <code>less()</code>
+                                and <code>exch()</code>.
+                                The heap operations that we consider work by first making a
+                                simple modification that could violate the heap condition, then traveling through 
+                                the heap, modifying the heap as required to ensure that the heap condition is satisfied 
+                                everywhere. We refer to this process as <em>reheapifying</em>, or
+                                <em>restoring heap order</em>. 
+                            </p>
+                            <ul>
+                                <li><em>Bottom-up reheapify (swim).</em>
+                                    If the heap order is violated because a node's key becomes larger than
+                                    that node's parents key, then we can make progress toward fixing the 
+                                    violation by exchanging the node with its parent. After the exchange, the node is larger 
+                                    than both its children (one is the old parent, and the other is smaller than
+                                    the old parent because it was a child of that node)
+                                    but the node may still be larger than its parent. 
+                                    We can fix that violation in the same way, and so forth, moving up the heap until we 
+                                    reach a node with a larger key, or the root.
+                                
+                                    <IMG SRC="../../images/pages/so/24pq/swim.png"  align=right hspace=25 alt = "Bottom-up heapify (swim)">
+                                    <blockquote>
+                                        <div class=".container">
+<pre class="sourcecode">
+private void swim(int k) {
+while (k > 1 && less(k/2, k)) {
+    exch(k, k/2);
+    k = k/2;
+}
+}
+</pre>
+                                        </div>
+                                    </blockquote>
+                                <li><em>Top-down heapify (sink).</em>
+                                    If the heap order is violated because a node's key becomes 
+                                    smaller than one or both of that node's children's keys, then we can make progress 
+                                    toward fixing the violation by exchanging the node with the larger of its two children. 
+                                    This switch may cause a violation at the child; we fix that violation in the same way, 
+                                    and so forth, moving down the heap until we reach 
+                                    a node with both children smaller, or the bottom.
+                                    
+                                    <IMG SRC="../../images/pages/so/24pq/sink.png"  align=right hspace=25 alt = "Top-down heapify (sink)">
+                                    <blockquote>
+                                        <div class=".container">
+<pre class="sourcecode">
+private void sink(int k) {
+while (2*k <= N) {
+    int j = 2*k;
+    if (j < N && less(j, j+1)) j++;
+    if (!less(k, j)) break;
+    exch(k, j);
+    k = j;
+}
+}
+</pre>
+                                        </div>
+                                    </blockquote>
+                            </ul>
+                            <IMG SRC="../../images/pages/so/24pq/heap-pq.png"  alt = "Heap representations" align=right hspace=25>
                         </div>
                     </div>
                 </section>
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;</h2>
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Heap-based priority queue.</h3>
                         </div>
                         <div class="section-content">
+                            <p>
+                                These <code>sink()</code> and <code>swim()</code>
+                                operations provide the basis for efficient implementation of the priority-queue API,
+                                as diagrammed below and implemented in <a href = "MaxPQ.java.html">MaxPQ.java</a> and
+                                <a href = "MinPQ.java.html">MinPQ.java</a>.
+                            </p>
+                            <ul>
+                                <li><em>Insert.</em>
+                                We add the new item at the end of the array, increment the size
+                                of the heap, and then swim up through the heap with that item
+                                to restore the heap condition.
+                                <li><em>Remove the maximum.</em>
+                                We take the largest item off the top, put the item from the end of the heap at the top,
+                                decrement the size of the heap, and then sink down through the heap with 
+                                that item to restore the heap condition.
+                            </ul>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/24pq/heap-ops.png"  alt = "Heap operations">
+                            </p>
+                            <p>
+                                <b>Proposition.</b>
+                                In an <em>n</em>-item priority queue,
+                                the heap algorithms require no more than 1 + lg <em>n</em> compares
+                                for <em>insert</em> and no more than 2 lg <em>n</em> compares for
+                                <em>remove the maximum</em>.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Practical considerations.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We conclude our study of the heap priority queue API with a few
+                                practical considerations.
+                            </p>
+                            <ul>
+                                <li><em>Multiway heaps.</em>
+                                    It is not difficult to modify our code to 
+                                    build heaps based on an array representation of complete 
+                                    heap-ordered ternary or <em>d</em>-ary trees.
+                                    There is a tradeoff between the lower cost from the reduced
+                                    tree height and the higher cost of finding the largest of
+                                    the three or <em>d</em> children at each node.
+                                
+                                <li><em>Array resizing.</em>
+                                    We can add a no-argument constructor, code for array doubling in <code>insert()</code>,
+                                    and code for array halving in <code>delMax()</code>,
+                                    just as we did for stacks in Section 1.3.
+                                    The logarithmic time bounds 
+                                    are <em>amortized</em> when the size of the priority queue is arbitrary
+                                    and the arrays are resized.
+                                
+                                
+                                <li><em>Immutability of keys.</em>
+                                    The priority queue contains objects that are created by clients but
+                                    assumes that the client code does not change the keys
+                                    (which might invalidate the heap invariants).
+                                    
+                                <li><em>Index priority queue.</em>
+                                    In many applications, it makes sense to allow clients to refer to
+                                    items that are already on the priority queue.
+                                    One easy way to do so is to associate a unique integer index with each item.
+                                    <p class="container--aligncenter">
+                                        <IMG SRC="../../images/pages/so/24pq/indexpq-api.png"  alt = "Index Priority queue API">
+                                    </p>
+                                    <p>
+                                        <a href = "IndexMinPQ.java.html">IndexMinPQ.java</a> is a heap-based
+                                        implementation of this API;
+                                        <a href = "IndexMaxPQ.java.html">IndexMaxPQ.java</a> is similar but
+                                        for maximum-oriented priority queues.
+                                        <a href = "Multiway.java.html">Multiway.java</a> is a client
+                                        that merges together several sorted input streams into one sorted output stream.
+                                    </p>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Heapsort.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We can use any priority queue to develop a sorting method.
+                                We insert all the keys to be sorted into a minimum-oriented priority queue,
+                                then repeatedly use <em>remove the minimum</em> to remove them all in order.
+                                When using a heap for the priority queue, we obtain <em>heapsort</em>.
+                            </p>
+                            <p>
+                                Focusing on the task of sorting, we abandon the notion of hiding
+                                the heap representation of the priority queue and use
+                                <code>swim()</code> and <code>sink()</code> directly.
+                                Doing so allows us to sort an array without needing
+                                any extra space, by maintaining the heap within the
+                                array to be sorted.
+                                Heapsort breaks into two phases: <em>heap construction</em>,
+                                where we reorganize the original array into a heap, and the
+                                <em>sortdown</em>, where we pull the items out of the heap in 
+                                decreasing order to build the sorted result. 
+                            </p>
                             
+                            <ul>
+                                <li><em>Heap construction.</em>
+                                    We can accomplish this task in time proportional to <em>n</em> lg <em>n</em>,by proceeding 
+                                    from left to right through the array, using <code>swim()</code>
+                                    to ensure that the entries to the left of the scanning pointer
+                                    make up a heap-ordered complete tree,
+                                    like successive priority queue insertions.
+                                    A clever method that is much more efficient is to proceed from right 
+                                    to left, using <code>sink()</code> to make subheaps as we go.
+                                    Every position in the array is the root of a small subheap;
+                                    <code>sink()</code> works or such subheaps, as well. If the two children 
+                                    of a node are heaps, then calling <code>sink()</code>
+                                    on that node makes the subtree rooted there a heap.
+                                <li><em>Sortdown.</em>
+                                    Most of the work during heapsort is done during the second phase, where
+                                    we remove the largest remaining items from the heap and put it
+                                    into the array position vacated as the heap shrinks.
+                            </ul>
+                            
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/24pq/heapsort-trace.png"  alt = "Trace of heapsort">
+                            </p>
+                            <p>
+                                <a href = "Heap.java.html">Heap.java</a> is a full implementation of heapsort.
+                                Below is a trace of the contents of the array after each sink.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/24pq/heapsort.png"  alt = "Trace of heapsort">
+                            </p>
+                            <p><br>
+                                <b>Proposition.</b>
+                                Sink-based heap construction is linear time.
+                            </p>
+                            <p><br>
+                                <b>Proposition.</b>
+                                Heapsort users fewer than 2 <em>n</em> lg <em>n</em> compare and exchanges to sort n items.
+                            </p>
+                            <p>
+                            <p>
+                                <!--<em>Sink to the bottom, then swim.</em> -->
+                                Most items reinserted into the heap during sortdown go
+                                all the way to the bottom. We can
+                                thus save time by avoiding the check for whether the
+                                item has reached its position, simply promoting
+                                the larger of the two children 
+                                until the bottom is reached, then moving back up the heap 
+                                to the proper position. This idea cuts the number of compares by a factor of 2
+                                at the expense of extra bookkeeping.
+                            </p>
                         </div>
                     </div>
                 </section>

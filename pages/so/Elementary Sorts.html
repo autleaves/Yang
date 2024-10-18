@@ -132,17 +132,19 @@
                             method <code>exch()</code> that exchanges them.
                             </p>
                             <blockquote>
-                                <pre>
-                                    private static boolean less(Comparable v, Comparable w) {
-                                    return (v.compareTo(w) < 0);
-                                    }
-                                    
-                                    private static void exch(Comparable[] a, int i, int j) {
-                                    Comparable swap = a[i];
-                                    a[i] = a[j];
-                                    a[j] = swap;
-                                    } 
-                                </pre>
+                                <div class="container">
+<pre class="sourcecode">
+private static boolean less(Comparable v, Comparable w) {
+return (v.compareTo(w) < 0);
+}
+
+private static void exch(Comparable[] a, int i, int j) {
+Comparable swap = a[i];
+a[i] = a[j];
+a[j] = swap;
+} 
+</pre>
+                                </div>
                             </blockquote>
                             <ul>
                                 <li><em>Sorting cost model.</em> When studying sorting algorithms,
@@ -203,7 +205,7 @@
                                 <a href = "Selection.java.html">Selection.java</a> is an implementation 
                                 of this method.
                             </p>
-                            <p>
+                            <p class="container--aligncenter">
                                 <IMG SRC="../../images/pages/so/21elementary/selection.png" alt = "Selection sort">
                             </p>
                         </div>
@@ -238,7 +240,7 @@
                                 <a href = "Insertion.java.html">Insertion.java</a> is an implementation
                                 of this method, which is called <em>insertion sort</em>.
                             </p>
-                            <p>
+                            <p class="container--aligncenter">
                                 <IMG SRC="../../images/pages/so/21elementary/insertion.png" alt = "Selection sort">
                             </p>
                                 
@@ -314,7 +316,7 @@
                                 <a href ="InsertionBars.java.html">InsertionBars.java</a> produce these
                                 visualizations.
                             </p>
-                            <p>
+                            <p class="container--aligncenter">
                                 <IMG SRC="../../images/pages/so/21elementary/bars.png" alt = "Visualization of selection sort and insertion sort">
                             </p>
                         </div>
@@ -334,7 +336,7 @@
                                 entry (starting anywhere) yields a sorted sequence. 
                                 Such an array is said to be <em>h-sorted</em>.
                             </p>
-                            <p>
+                            <p class="container--aligncenter">
                                 <IMG SRC="../../images/pages/so/21elementary/h-sorted.png" alt = "An h-sorted file in shellsort">
                             </p>
                             <p>
@@ -395,11 +397,13 @@
                                 <b>Q.</b> The compiler gives a warning when I compile <a href = "Insertion.java.html">Insertion.java</a>.
                                 Is ther any way to avoid this?
                                 <blockquote>
-                                    <pre>
-                                    Insertion.java:73: warning: [unchecked] unchecked call to compareTo(T)
-                                                as a member of the raw type java.lang.Comparable
-                                        return (v.compareTo(w) < 0);
-                                    </pre>
+                                    <div class="container">
+<pre class="sourcecode">
+Insertion.java:73: warning: [unchecked] unchecked call to compareTo(T)
+            as a member of the raw type java.lang.Comparable
+    return (v.compareTo(w) < 0);
+</pre>
+                                    </div>
                                 </blockquote>
                                 </p>
                             <p>

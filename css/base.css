@@ -136,13 +136,14 @@ a:active {
 
 section a {
   color: #0066cc;
-  text-decoration: underline;
+  text-decoration: none;
 }
 section a:visited {
   color: revert;
 }
 section a:hover {
   color: revert;
+  text-decoration: underline;
 }
 section a:active {
   color: revert;

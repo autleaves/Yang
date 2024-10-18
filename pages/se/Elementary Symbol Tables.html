@@ -104,7 +104,7 @@
                 <section class="section">
                     <div class="section-container ">
                         <div class="section-title chapter-title">
-                            <h1>Bags, Queues, and Stacks</h1>
+                            <h1>Elementary Symbol Tables</h1>
                         </div>
                         <div class="section-content chapter-content">
                             
@@ -114,20 +114,337 @@
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class="">&sect;&nbsp;</h2>
+                            <h2 class="">&sect;&nbsp;Symbol table.</h2>
                         </div>
                         <div class="section-content">
-                            
+                            <p>
+                                The primary purpose of a <em>symbol table</em> is to associate
+                                a <em>value</em> with a <em>key</em>.
+                                The client can <em>insert</em> key–value pairs into the symbol table
+                                with the expectation of later being able to 
+                                <em>search</em> for the value associated with a given key.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/se/31elementary/symbol-table-applications.png" alt = "Typical symbol-table applications">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section"></section>
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;API.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Here is the API.
+                                <p class="container--aligncenter">
+                                    <IMG SRC="../../images/pages/se/31elementary/symbol-table-api.png" alt = "Symbol-table API">
+                                </p>
+                                We consider several design choices for our implementations to 
+                                make our code consistent, compact, and useful.
+                                <ul>
+                                    <li><em>Generics.</em>
+                                    We consider the methods without specifying the types of keys
+                                    and values being processed, using generics.
+                                    
+                                    <li><em>Duplicate keys.</em>
+                                    Only one value is associated with each key (no duplicate keys in a table).
+                                    When a client puts a key-value pair into a table already
+                                    containing that key (and an associated value), the new value replaces the 
+                                    old one.
+                                    These conventions define the <em>associative array abstraction</em>,
+                                    where you can think of a symbol table as being just like
+                                    an array, where keys are indices and values are array entries.
+                                    
+                                    <li><em>Null values.</em>
+                                    No key can be associated with the value <code>null</code>.
+                                    This convention is directly tied to our specification in the
+                                    API that <code>get()</code> should return <code>null</code> for keys not in
+                                    the table.
+                                    This convention has two (intended) consequences:
+                                    First, we can test whether or not the symbol table defines
+                                    a value associated with a given key by testing whether 
+                                    <code>get()</code> returns <code>null</code>.
+                                    Second, we can use the operation of calling <code>put()</code>
+                                    with <code>null</code> as its second (value) argument to
+                                    implement deletion.
+                                    
+                                    <li><em>Deletion.</em>
+                                    Deletion in symbol tables generally involves one of two strategies:
+                                    <em>lazy</em> deletion, where we associate keys in the table with <code>null</code>,
+                                    then perhaps remove all such keys at some later time,
+                                    and <em>eager</em> deletion, where we remove the key from the table 
+                                    immediately.
+                                    As just discussed, the code <code>put(key, null)</code> is an easy (lazy) 
+                                    implementation of <code>delete(key)</code>.
+                                    When we give an (eager) implementation of <code>delete()</code>, 
+                                    it is intended to replace this default.
+                                    
+                                    <li><em>Iterators.</em>
+                                    The <code>keys()</code> method returns an <code>Iterable&lt;Key&gt;</code>
+                                    object for clients to use to iterate through the keys.
+                                    
+                                    <li><em>Key equality.</em>
+                                    Java requires that all objects implement an 
+                                    <code>equals()</code> method and provides
+                                    implementations both for standard types such as 
+                                    <code>Integer</code>, <code>Double</code>, and <code>String</code>
+                                    and for more complicated types such as <code>Date</code>, <code>File</code> and 
+                                    <code>URL</code>.
+                                    For applications involving these types of data, you can just use the built-in 
+                                    implementation.
+                                    For example, if <code>x</code> and <code>y</code> are <code>String</code> values,
+                                    then <code>x.equals(y)</code> is true if and only if <code>x</code> and <code>y</code>
+                                    have the same length and are identical in each character position.
+                                    In practice, keys might be more complicated, as in
+                                    <a href = "Person.java.html">Person.java</a>.
+                                    For such client-defined keys, you need to override <code>equals()</code>.
+                                    Java's convention is that <code>equals()</code> must implement
+                                    an <em>equivalence relation</em>:
+                                    <ul>
+                                        <li><em>Reflexive</em>: <code>x.equals(x)</code> is <code>true</code>.
+                                        <li><em>Symmetric</em>: <code>x.equals(y)</code> is <code>true</code> if and only
+                                        if <code>y.equals(x)</code> is <code>true</code>.
+                                        <li><em>Transitive</em>: if <code>x.equals(y)</code> and <code>y.equals(z)</code>
+                                        are <code>true</code>, then so is <code>x.equals(z)</code>.
+                                    </ul>
+                                    <p>
+                                        In addition, <code>equals()</code> must take an
+                                        <code>Object</code> as argument and satisfy the following 
+                                        properties:
+                                        <ul>
+                                            <li><em>Consistency</em>: multiple invocations of <code>x.equals(y)</code>
+                                                consistently return the same value, provided neither object
+                                                is modified
+                                            <li><em>Not null</em>: <code>x.equals(null)</code> returns <code>false</code>.
+                                        </ul>
+                                    
+                                    </p>
+                                    A best practice is to make <code>Key</code>
+                                    types immutable, because consistency cannot otherwise be guaranteed.
+                                </ul>
                         </div>
                     </div>
                 </section>
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;</h2>
+                            <h2 class="">&sect;&nbsp;Ordered symbol tables.</h2>
                         </div>
                         <div class="section-content">
-                            
+                            <p>
+                                In typical applications, keys are <code>Comparable</code> objects, so 
+                                the option exists of using the code <code>a.compareTo(b)</code>
+                                to compare two keys <code>a</code> and <code>b</code>. 
+                                Several 
+                                symbol-table implementations take advantage of order among the keys that
+                                is implied by <code>Comparable</code> to provide efficient implementations of 
+                                the <code>put()</code> and <code>get()</code> operations. 
+                                More important, in such implementations, we can think of the symbol table as 
+                                keeping the keys in order and consider a significantly expanded API that defines 
+                                numerous natural and useful operations involving relative key order.
+                                For applications where keys are <code>Comparable</code>, we implement
+                                the following API:
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/se/31elementary/ordered-symbol-table-api.png" alt = "Ordered Symbol-table API">
+                            </p>
+                            <IMG SRC="../../images/pages/se/31elementary/ordered-symbol-table-ops.png"  align=right hspace=25 alt = "Examples of ordered symbol table operations">
+                            <ul>
+                                <li><em>Minimum and maximum.</em>
+                                    Perhaps the most natural queries for a set of ordered keys are to ask for the 
+                                    smallest and largest keys. We have already encountered the need for these 
+                                    operations (in our discussion of priority queues in Section 3.4).
+                                
+                                <li><em>Floor and ceiling.</em>
+                                    Given a key, it is often useful to be able to perform the
+                                    <em>floor</em> operation
+                                    (find the largest key that is less than or equal to the given key)
+                                    and the <em>ceiling</em>
+                                    operation (find the smallest key that is greater than or equal to the given key). 
+                                    The nomenclature comes from functions defined on real numbers (the floor of a real 
+                                    number x is the largest integer that is smaller than or equal to x and the ceiling 
+                                    of a real number x is the smallest integer that is greater than or equal to x). 
+                                
+                                <li><em>Rank and selection.</em>
+                                    The basic operations for determining 
+                                    where a new key fits in the order are the <em>rank</em>
+                                    operation (find the number of keys 
+                                    less than a given key) and the <em>select</em>
+                                    operation (find the key with a given rank). 
+                                    We also have already encountered the need for these 
+                                    operations, in our discussion of sort applications in Section 2.5.
+                                
+                                <li><em>Range queries.</em>
+                                    How many keys fall within 
+                                    a given range? Which keys fall in a given range?
+                                    The two-argument <code>size()</code> and <code>keys()</code> 
+                                    methods that answer these questions are useful in many applications, particularly 
+                                    in large databases.
+                                
+                                <li><em>Delete minimum and delete maximum.</em>
+                                    Our ordered symbol table API adds to the basic API methods
+                                    to delete the maximum and minimum keys (and their associated values).
+                                
+                                <li><em>Exceptional cases.</em>
+                                    When a method is to return a key and there is no key fitting the description 
+                                    in the table, our convention is to throw an exception.
+                                
+                                <li><em>Key equality (revisited).</em>
+                                    The best practice in Java is to make <code>compareTo()</code>
+                                    consistent with <code>equals()</code> in all 
+                                    <code>Comparable</code> types. That is,
+                                    for every pair of objects <code>a</code> and <code>b</code>
+                                    in any give <code>Comparable</code>
+                                    type, it should be the case that <code>(a.compareTo(b) == 0)</code> and
+                                    <code>a.equals(b)</code> have the same value.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Sample clients.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                We consider two clients: a test client that we use to trace algorithm
+                                behavior on small inputs and a performance client.
+                            </p>
+                            <ul>
+                                <li><em>Test client.</em>
+                                    The <code>main()</code> client in each of our symbol table implementations
+                                    reads in a sequence of strings from standard input, builds a
+                                    symbol table by associating the value i with the ith key in
+                                    the input, and then prints the table.
+                                
+                                <li><em>Frequency counter.</em>
+                                    Program <a href = "FrequencyCounter.java.html">FrequencyCounter.java</a>
+                                    is a symbol-table client that finds the number 
+                                    of occurrences of each string (having at least as many characters as a given 
+                                    threshold length) in a sequence of strings from standard input,
+                                    then iterates through the keys to find the one that occurs the most
+                                    frequently.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Sequential search in an unordered linked list.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Program <a href = "SequentialSearchST.java.html">SequentialSearchST.java</a>
+                                implements a symbol table with a linked list of nodes that contain keys and values.
+                                To implement <code>get()</code>, we scan through the list,
+                                using <code>equals()</code> to compare the search key 
+                                with the key in each node in the list. If we find the match, we return the 
+                                associated value; if not, we return <code>null</code>.
+                                To implement <code>put()</code>, we also scan through 
+                                the list, using <code>equals()</code>
+                                to compare the client key with the key in each node in the 
+                                list. If we find the match, we update the value associated with that key to be the 
+                                value given in the second argument; if not, we create a new node with the given key 
+                                and value and insert it at the beginning of the list.
+                                This method is known as <em>sequential search</em>.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/se/31elementary/sequential-search.png" alt = "Sequential search">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition A.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Unsuccessful search and insert in an (unordered) linked-list
+                                symbol table both use N compares, and successful search uses N compares
+                                in the worst case.
+                                In particular, inserting N keys into an initially empty linked-list
+                                symbol table uses ~N^2/2 compares.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Binary search in an ordered array.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Program <a href = "BinarySearchST.java.html">BinarySearchST.java</a>
+                                implements the ordered symbol table API.
+                                The underlying data structure is two parallel array, with the keys kept in order.
+                                The heart of the implementation is the <code>rank()</code> method,
+                                which returns the number of keys smaller than a given key.
+                                For <code>get()</code>, the rank tells us precisely where the key is
+                                to be found if it is in the table (and, if it is not there,
+                                that it is not in the table). For <code>put()</code>, the 
+                                rank tells us precisely where to update the value when the key
+                                is in the table, and precisely where to put the key when the key
+                                is not in the table. We move all larger 
+                                keys over one position to make room (working from back to front) and insert the 
+                                given key and value into the proper positions in their respective arrays.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/se/31elementary/binary-search.png" alt = "Binary search symbol table">
+                            </p>
+                            <ul>
+                                <li><em>Binary search.</em>
+                                    The reason that we keep keys in an ordered array is so that we can 
+                                    use array indexing to dramatically reduce the number of compares required for each 
+                                    search, using a venerable classic algorithm known as <em>binary search</em>.
+                                    The basic idea is simple: we maintain indices into the sorted key array 
+                                    that delimit the subarray that might contain the search key.
+                                    To search, we compare the search key against the key in the middle of the 
+                                    subarray. If the search key is less than the key in the middle, we search in the 
+                                    left half of the subarray; if the search key is greater than the key in the middle 
+                                    we search in the right half of the subarray; otherwise the key in the middle is 
+                                    equal to the search key.
+                                    <p class="container--aligncenter">
+                                        <IMG SRC="../../images/pages/se/31elementary/rank.png" alt = "Rank">
+                                    </p>
+                                <li><em>Other operations.</em>
+                                    Since the keys are kept in an ordered array,
+                                    most of the order-based operations are compact and straightforward.
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition B.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Binary search in an ordered array with N keys uses no more
+                                than lg N + 1 compares for a search (successful or unsuccessful)
+                                in the worst case.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition C.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Inserting a new key into an ordered array uses ~ 2N array accesses
+                                in the worst case, so inserting N keys into an initially empty table
+                                uses ~ N^2 array accesses in the worst case.
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -142,296 +459,3 @@
 </body>
 
 </html>
-
-
-<div id = "content">
-    <H1>3.1 &nbsp; Elementary Symbol Tables</H1>
-    
-    <p><br>
-    
-    <h2>Symbol table.</h2>
-    The primary purpose of a <em>symbol table</em> is to associate
-    a <em>value</em> with a <em>key</em>.
-    The client can <em>insert</em> key–value pairs into the symbol table
-    with the expectation of later being able to 
-    <em>search</em> for the value associated with a given key.
-    
-    <p>
-    <center>
-    <IMG SRC="images/symbol-table-applications.png" alt = "Typical symbol-table applications">
-    </center>
-    
-    
-    <p><h2>API.</h2>
-    Here is the API.
-    
-    <p>
-    <center>
-    <IMG SRC="images/symbol-table-api.png" alt = "Symbol-table API">
-    </center>
-    
-    We consider several design choices for our implementations to 
-    make our code consistent, compact, and useful.
-    
-    <ul>
-    <p><li><em>Generics.</em>
-    We consider the methods without specifying the types of keys
-    and values being processed, using generics.
-    
-    <p><li><em>Duplicate keys.</em>
-    Only one value is associated with each key (no duplicate keys in a table).
-    When a client puts a key-value pair into a table already
-    containing that key (and an associated value), the new value replaces the 
-    old one.
-    These conventions define the <em>associative array abstraction</em>,
-    where you can think of a symbol table as being just like
-    an array, where keys are indices and values are array entries.
-    
-    <p><li><em>Null values.</em>
-    No key can be associated with the value <tt>null</tt>.
-    This convention is directly tied to our specification in the
-    API that <tt>get()</tt> should return <tt>null</tt> for keys not in
-    the table.
-    This convention has two (intended) consequences:
-    First, we can test whether or not the symbol table defines
-    a value associated with a given key by testing whether 
-    <tt>get()</tt> returns <tt>null</tt>.
-    Second, we can use the operation of calling <tt>put()</tt>
-    with <tt>null</tt> as its second (value) argument to
-    implement deletion.
-    
-    <p><li><em>Deletion.</em>
-    Deletion in symbol tables generally involves one of two strategies:
-    <em>lazy</em> deletion, where we associate keys in the table with <tt>null</tt>,
-    then perhaps remove all such keys at some later time,
-    and <em>eager</em> deletion, where we remove the key from the table 
-    immediately.
-    As just discussed, the code <tt>put(key, null)</tt> is an easy (lazy) 
-    implementation of <tt>delete(key)</tt>.
-    When we give an (eager) implementation of <tt>delete()</tt>, 
-    it is intended to replace this default.
-    
-    <p><li><em>Iterators.</em>
-    The <tt>keys()</tt> method returns an <tt>Iterable&lt;Key&gt;</tt>
-    object for clients to use to iterate through the keys.
-    
-    <p><li><em>Key equality.</em>
-    Java requires that all objects implement an 
-    <tt>equals()</tt> method and provides
-    implementations both for standard types such as 
-    <tt>Integer</tt>, <tt>Double</tt>, and <tt>String</tt>
-    and for more complicated types such as <tt>Date</tt>, <tt>File</tt> and 
-    <tt>URL</tt>.
-    For applications involving these types of data, you can just use the built-in 
-    implementation.
-    For example, if <tt>x</tt> and <tt>y</tt> are <tt>String</tt> values,
-    then <tt>x.equals(y)</tt> is true if and only if <tt>x</tt> and <tt>y</tt>
-    have the same length and are identical in each character position.
-    In practice, keys might be more complicated, as in
-    <a href = "Person.java.html">Person.java</a>.
-    For such client-defined keys, you need to override <tt>equals()</tt>.
-    Java's convention is that <tt>equals()</tt> must implement
-    an <em>equivalence relation</em>:
-    <ul>
-    <li><em>Reflexive</em>: <tt>x.equals(x)</tt> is <tt>true</tt>.
-    <li><em>Symmetric</em>: <tt>x.equals(y)</tt> is <tt>true</tt> if and only
-    if <tt>y.equals(x)</tt> is <tt>true</tt>.
-    <li><em>Transitive</em>: if <tt>x.equals(y)</tt> and <tt>y.equals(z)</tt>
-    are <tt>true</tt>, then so is <tt>x.equals(z)</tt>.
-    </ul>
-    
-    <p>In addition, <tt>equals()</tt> must take an
-    <tt>Object</tt> as argument and satisfy the following 
-    properties:
-    
-    <ul>
-    <li><em>Consistency</em>: multiple invocations of <tt>x.equals(y)</tt>
-    consistently return the same value, provided neither object
-    is modified
-    <li><em>Not null</em>: <tt>x.equals(null)</tt> returns <tt>false</tt>.
-    </ul>
-    
-    <p>
-    A best practice is to make <tt>Key</tt>
-    types immutable, because consistency cannot otherwise be guaranteed.
-    
-    </ul>
-    
-    <p><h2>Ordered symbol tables.</h2>
-    In typical applications, keys are <tt>Comparable</tt> objects, so 
-    the option exists of using the code <tt>a.compareTo(b)</tt>
-    to compare two keys <tt>a</tt> and <tt>b</tt>. 
-    Several 
-    symbol-table implementations take advantage of order among the keys that
-    is implied by <tt>Comparable</tt> to provide efficient implementations of 
-    the <tt>put()</tt> and <tt>get()</tt> operations. 
-    More important, in such implementations, we can think of the symbol table as 
-    keeping the keys in order and consider a significantly expanded API that defines 
-    numerous natural and useful operations involving relative key order.
-    For applications where keys are <tt>Comparable</tt>, we implement
-    the following API:
-    
-    <p>
-    <center>
-    <IMG SRC="images/ordered-symbol-table-api.png" alt = "Ordered Symbol-table API">
-    </center>
-    
-    
-    <IMG SRC="images/ordered-symbol-table-ops.png"  align=right hspace=25 alt = "Examples of ordered symbol table operations">
-    <ul>
-    
-    <p><li><em>Minimum and maximum.</em>
-    Perhaps the most natural queries for a set of ordered keys are to ask for the 
-    smallest and largest keys. We have already encountered the need for these 
-    operations (in our discussion of priority queues in Section 3.4).
-    
-    <p><li><em>Floor and ceiling.</em>
-    Given a key, it is often useful to be able to perform the
-    <em>floor</em> operation
-    (find the largest key that is less than or equal to the given key)
-    and the <em>ceiling</em>
-    operation (find the smallest key that is greater than or equal to the given key). 
-    The nomenclature comes from functions defined on real numbers (the floor of a real 
-    number x is the largest integer that is smaller than or equal to x and the ceiling 
-    of a real number x is the smallest integer that is greater than or equal to x). 
-    
-    <p><li><em>Rank and selection.</em>
-    The basic operations for determining 
-    where a new key fits in the order are the <em>rank</em>
-    operation (find the number of keys 
-    less than a given key) and the <em>select</em>
-    operation (find the key with a given rank). 
-    We also have already encountered the need for these 
-    operations, in our discussion of sort applications in Section 2.5.
-    
-    <p><li><em>Range queries.</em>
-    How many keys fall within 
-    a given range? Which keys fall in a given range?
-    The two-argument <tt>size()</tt> and <tt>keys()</tt> 
-    methods that answer these questions are useful in many applications, particularly 
-    in large databases.
-    
-    <p><li><em>Delete minimum and delete maximum.</em>
-    Our ordered symbol table API adds to the basic API methods
-    to delete the maximum and minimum keys (and their associated values).
-    
-    <p><li><em>Exceptional cases.</em>
-    When a method is to return a key and there is no key fitting the description 
-    in the table, our convention is to throw an exception.
-    
-    <p><li><em>Key equality (revisited).</em>
-    The best practice in Java is to make <tt>compareTo()</tt>
-    consistent with <tt>equals()</tt> in all 
-    <tt>Comparable</tt> types. That is,
-    for every pair of objects <tt>a</tt> and <tt>b</tt>
-    in any give <tt>Comparable</tt>
-    type, it should be the case that <tt>(a.compareTo(b) == 0)</tt> and
-    <tt>a.equals(b)</tt> have the same value.
-    
-    </ul>
-    
-    <p><h2>Sample clients.</h2>
-    We consider two clients: a test client that we use to trace algorithm
-    behavior on small inputs and a performance client.
-    
-    <ul>
-    <p><li><em>Test client.</em>
-    The <tt>main()</tt> client in each of our symbol table implementations
-    reads in a sequence of strings from standard input, builds a
-    symbol table by associating the value i with the ith key in
-    the input, and then prints the table.
-    
-    <p><li><em>Frequency counter.</em>
-    Program <a href = "FrequencyCounter.java.html">FrequencyCounter.java</a>
-    is a symbol-table client that finds the number 
-    of occurrences of each string (having at least as many characters as a given 
-    threshold length) in a sequence of strings from standard input,
-    then iterates through the keys to find the one that occurs the most
-    frequently.
-    </ul>
-    
-    
-    <p><h2>Sequential search in an unordered linked list.</h2>
-    Program <a href = "SequentialSearchST.java.html">SequentialSearchST.java</a>
-    implements a symbol table with a linked list of nodes that contain keys and values.
-    To implement <tt>get()</tt>, we scan through the list,
-    using <tt>equals()</tt> to compare the search key 
-    with the key in each node in the list. If we find the match, we return the 
-    associated value; if not, we return <tt>null</tt>.
-    To implement <tt>put()</tt>, we also scan through 
-    the list, using <tt>equals()</tt>
-    to compare the client key with the key in each node in the 
-    list. If we find the match, we update the value associated with that key to be the 
-    value given in the second argument; if not, we create a new node with the given key 
-    and value and insert it at the beginning of the list.
-    This method is known as <em>sequential search</em>.
-    
-    <p>
-    <center>
-    <IMG SRC="images/sequential-search.png" alt = "Sequential search">
-    </center>
-    
-    <p><h3>Proposition A.</h3>
-    Unsuccessful search and insert in an (unordered) linked-list
-    symbol table both use N compares, and successful search uses N compares
-    in the worst case.
-    In particular, inserting N keys into an initially empty linked-list
-    symbol table uses ~N^2/2 compares.
-    
-    
-    <p><h2>Binary search in an ordered array</h2>.
-    Program <a href = "BinarySearchST.java.html">BinarySearchST.java</a>
-    implements the ordered symbol table API.
-    The underlying data structure is two parallel array, with the keys kept in order.
-    The heart of the implementation is the <tt>rank()</tt> method,
-    which returns the number of keys smaller than a given key.
-    For <tt>get()</tt>, the rank tells us precisely where the key is
-    to be found if it is in the table (and, if it is not there,
-    that it is not in the table). For <tt>put()</tt>, the 
-    rank tells us precisely where to update the value when the key
-    is in the table, and precisely where to put the key when the key
-    is not in the table. We move all larger 
-    keys over one position to make room (working from back to front) and insert the 
-    given key and value into the proper positions in their respective arrays.
-    
-    <p>
-    <center>
-    <IMG SRC="images/binary-search.png" alt = "Binary search symbol table">
-    </center>
-    
-    <ul>
-    <p><li><em>Binary search.</em>
-    The reason that we keep keys in an ordered array is so that we can 
-    use array indexing to dramatically reduce the number of compares required for each 
-    search, using a venerable classic algorithm known as <em>binary search</em>.
-    The basic idea is simple: we maintain indices into the sorted key array 
-    that delimit the subarray that might contain the search key.
-    To search, we compare the search key against the key in the middle of the 
-    subarray. If the search key is less than the key in the middle, we search in the 
-    left half of the subarray; if the search key is greater than the key in the middle 
-    we search in the right half of the subarray; otherwise the key in the middle is 
-    equal to the search key.
-    
-    <p>
-    <center>
-    <IMG SRC="images/rank.png" alt = "Rank">
-    </center>
-    
-    <p><li><em>Other operations.</em>
-    Since the keys are kept in an ordered array,
-    most of the order-based operations are compact and straightforward.
-    
-    </ul>
-    
-    <p><h3>Proposition B.</h3>
-    Binary search in an ordered array with N keys uses no more
-    than lg N + 1 compares for a search (successful or unsuccessful)
-    in the worst case.
-    
-    
-    <p><h3>Proposition C.</h3>
-    Inserting a new key into an ordered array uses ~ 2N array accesses
-    in the worst case, so inserting N keys into an initially empty table
-    uses ~ N^2 array accesses in the worst case.
-    
-    <p><br>

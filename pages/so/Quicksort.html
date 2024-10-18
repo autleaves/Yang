@@ -105,30 +105,320 @@
                 <section class="section">
                     <div class="section-container ">
                         <div class="section-title chapter-title">
-                            <h1>Bags, Queues, and Stacks</h1>
+                            <h1>Quicksort</h1>
                         </div>
                         <div class="section-content chapter-content">
-                            
+                            <p>
+                                Quicksort is popular because it is not difficult to implement, 
+                                works well for a variety of different kinds of input data, and is substantially faster than 
+                                any other sorting method in typical applications.
+                                It is in-place (uses only a small auxiliary stack), requires time
+                                proportional to N log N on the average to sort N items,
+                                and has an extremely short inner loop.
+                            </p>
                         </div>
                     </div>
                 </section>
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class="">&sect;&nbsp;</h2>
+                            <h2 class="">&sect;&nbsp;The basic algorithm.</h2>
                         </div>
                         <div class="section-content">
-                            
+                            <p>
+                                Quicksort is a divide-and-conquer method for sorting. It 
+                                works by <em>partitioning</em> an array into two parts,
+                                then sorting the parts independently. 
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/23quicksort/quicksort-overview.png" alt = "Quicksort overview">
+                            </p>
+                            <p>
+                                The crux of the method is the partitioning process, which rearranges the array 
+                                to make the following three conditions hold: 
+                            </p>    
+                            <ul>
+                                <li> The entry <tt>a[j]</tt> is in its final place in the array, for some <tt>j</tt>.
+                                <li> No entry in <tt>a[lo]</tt> through <tt>a[j-1]</tt> is greater than <tt>a[j]</tt>.
+                                <li> No entry in <tt>a[j+1]</tt> through <tt>a[hi]</tt> is less than <tt>a[j]</tt>.
+                            </ul>
+                            <p>
+                                We achieve a complete sort by partitioning,
+                                then recursively applying the method to
+                                the subarrays.
+                                It is a <em>randomized</em> algorithm, because it 
+                                randomly shuffles the array before sorting it.
+                            </p>
                         </div>
                     </div>
                 </section>
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;</h2>
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Partitioning.</h3>
                         </div>
                         <div class="section-content">
+                            <p>
+                                To complete the implementation, we need to implement the partitioning method. We use 
+                                the following general strategy: First, we arbitrarily 
+                                choose <tt>a[lo]</tt> to be the partitioning item&mdash;the one that will go into
+                                its final position. Next, we 
+                                scan from the left end of the array until we find an 
+                                entry that is greater than (or equal to) the partitioning item,
+                                and we scan from the right 
+                                end of the array until we find an entry less than (or equal to) the partitioning
+                                item. 
+                            </p>
                             
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/23quicksort/partitioning-overview.png" alt = "Quicksort partitioning overview">
+                            </p>
+                            <p>
+                                The two items that stopped the scans are out of place in the final partitioned 
+                                array, so we exchange them.
+                                When the scan 
+                                indices cross, all that we need to do to complete the partitioning process is to exchange 
+                                the partitioning item
+                                <tt>a[lo]</tt> with the rightmost entry of the left subarray
+                                (<tt>a[j]</tt>) and return its index <tt>j</tt>. 
+                            </p>
+                            
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/23quicksort/partitioning.png" alt = "Quicksort partitioning">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Quicksort.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                <a href = "Quick.java.html">Quick.java</a> is an implementation
+                                of quicksort, using the partitioning method described above.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/23quicksort/quicksort.png" alt = "Quicksort trace">
+                            </p>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Implementation details.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                There are several subtle issues with respect to implementing quicksort that are 
+                                reflected in this code and worthy of mention.
+                            </p>
+                            <ul>
+                                <li><em>Partitioning inplace.</em> 
+                                    If we use an extra array,
+                                    partitioning is easy to implement, but not so much easier
+                                    that it is worth the extra cost of copying the partitioned
+                                    version back into the original.
+                                <li><em>Staying in bounds.</em>
+                                    If the smallest item or the largest item in the array is
+                                    the partitioning item, we have to take care that the 
+                                    pointers do not run off the left or right ends of the array,
+                                    respectively.
+                                <li><em>Preserving randomness.</em>
+                                    The random shuffle puts the array in random order. 
+                                    Since it treats all items in the subarrays uniformly,
+                                    <a href = "Quick.java.html">Quick.java</a>
+                                    has the property that its two subarrays are
+                                    also in random order. This fact is crucial to the
+                                    algorithm's predictability.
+                                    An alternate way to preserve randomness is to choose a random
+                                    item for partitioning within <tt>partition()</tt>.
+                                <li><em>Terminating the loop.</em>
+                                    Properly testing whether the pointers have crossed is a bit
+                                    trickier than it might seem at first glance.
+                                    A common error is to fail to take into account that the array might 
+                                    contain other keys with the same value as the partitioning item.
+                                <li><em>Handling items with keys equal to the partitioning item's key.</em>
+                                    It is best to stop the left scan for items with keys greater than
+                                    <em>or equal to</em> the partitioning item's key and the 
+                                    right scan for items less than <em>or equal to</em>
+                                    the partitioning item's key. Even though this policy might seem to
+                                    create unnecessary exchanges involving items with keys equal to the 
+                                    partitioning item's key, it is crucial to avoiding
+                                    quadratic running time in certain typical applications.
+                                <li><em>Terminating the recursion.</em>
+                                    A common mistake in implementing quicksort involves not 
+                                    ensuring that one item is always put into position,
+                                    then falling into an infinite recursive loop when the
+                                    partitioning item happens to be the largest or smallest item
+                                    in the array. 
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Quicksort uses ~2 N ln N compares
+                                (and one-sixth that many exchanges) on the average to
+                                sort an array of length N with distinct keys.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Quicksort uses ~N<sup>2</sup>/2 compares
+                                in the worst case, but random shuffling protects against this
+                                case.
+                            </p>
+                            <p>
+                                The standard deviation of the running time
+                                is about .65 N, so the running time tends to the average as
+                                N grows and is unlikely to be far from the average.
+                                The probability that quicksort will use a quadratic number of
+                                compares when sorting a large 
+                                array on your computer is much less than the probability that your
+                                computer will be struck by lightning!
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Improvements.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Quicksort was invented in 1960 by C. A. R. Hoare, and it has been studied
+                                and refined by many people since that time.
+                            </p>
+                            <ul>
+                                <li><em>Cutoff to insertion sort.</em>
+                                    As with mergesort, it pays to switch to insertion sort for tiny arrays.
+                                    The optimum value of the cutoff is system-dependent, but any 
+                                    value between 5 and 15 is likely to work well in most situations. 
+                                <li><em>Median-of-three partitioning.</em>
+                                    A second easy way to improve the performance of quicksort is to use the 
+                                    median of a small sample of items taken from the array as the 
+                                    partitioning item. Doing so will give a slightly better partition, but at
+                                    the cost of computing the median. It turns out that most of the available
+                                    improvement comes from choosing a sample of size 3 (and then partitioning
+                                    on the middle item).
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Visualization.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                <a href = "QuickBars.java.html">QuickBars.java</a> visualizes quicksort with
+                                median-of-3 partitioning and cutoff for small subarrays.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/23quicksort/quicksort-bars.png" alt = "Quicksort visualization">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Entropy-optimal sorting.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Arrays with large numbers of duplicate sort keys arise
+                                frequently in applications.
+                                In such applications, there is potential to
+                                reduce the time of the sort from linearithmic to linear.
+                            </p>
+                            <p>
+                                One straightforward idea is to partition the array into three parts,
+                                one each for items with keys smaller than, equal to, and larger than the
+                                partitioning item's key. Accomplishing 
+                                this partitioning was a classical programming exercise 
+                                popularized by E. W. Dijkstra as the <em>Dutch National 
+                                Flag problem</em>, because it is like sorting an array with three 
+                                possible key values, which might correspond to the three 
+                                colors on the flag. 
+                            </p>
+                            <p>
+                                Dijkstra's solution is based on a single left-to-right  
+                                pass through the array that maintains a pointer <tt>lt</tt> such 
+                                that <tt>a[lo..lt-1]</tt> is less than <tt>v</tt>,
+                                a pointer <tt>gt</tt> such that <tt>a[gt+1..hi]</tt> is greater than <tt>v</tt>,
+                                and a pointer <tt>i</tt> such that <tt>a[lt..i-1]</tt> are
+                                equal to v, and <tt>a[i..gt]</tt> are not yet examined.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/23quicksort/partitioning3-overview.png" alt = "Quicksort 3-way partitioning overview">
+                            </p>
+                            <p>
+                                Starting with <tt>i</tt> equal to <tt>lo</tt>
+                                we process <tt>a[i]</tt> using the 3-way compare
+                                given us by the <tt>Comparable</tt> interface
+                                to handle the three possible cases: 
+                                <ul>
+                                    <li> <tt>a[i]</tt> less than <tt>v</tt>:
+                                        exchange <tt>a[lt]</tt> with <tt>a[i]</tt> and increment both <tt>lt</tt>
+                                        and <tt>i</tt> 
+                                    <li> <tt>a[i]</tt> greater than <tt>v</tt>:
+                                        exchange <tt>a[i]</tt> with <tt>a[gt]</tt> and decrement <tt>gt</tt>
+                                    <li> <tt>a[i]</tt> equal to <tt>v</tt>: increment <tt>i</tt>
+                                </ul>
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/23quicksort/partitioning3.png" alt = "Quicksort 3-way partitioning trace">
+                            </p>
+                            <p>
+                                <a href = "Quick3way.java.html">Quick3way.java</a> is an implementation of this method.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                Quicksort with 3-way partitioning is entropy-optimal. 
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-container">
+                        <div class="section-title">
+                            <h2 class="">&sect;&nbsp;Visualization.</h2>
+                        </div>
+                        <div class="section-content">
+                            <p>
+                                <a href = "Quick3wayBars.java.html">Quick3wayBars.java</a> visualizes quicksort with
+                                    3-way partitioning.
+                            </p>
+                            <p class="container--aligncenter">
+                                <IMG SRC="../../images/pages/so/23quicksort/quicksort3-bars.png" alt="3-way quicksort visualization">
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -143,257 +433,3 @@
 </body>
 
 </html>
-
-<div id = "content">
-    <H1>2.3 &nbsp; Quicksort</H1>
-    <p><br>
-    
-    Quicksort is popular because it is not difficult to implement, 
-    works well for a variety of different kinds of input data, and is substantially faster than 
-    any other sorting method in typical applications.
-    It is in-place (uses only a small auxiliary stack), requires time
-    proportional to N log N on the average to sort N items,
-    and has an extremely short inner loop.
-    
-    <p><h2>The basic algorithm.</h2>
-    Quicksort is a divide-and-conquer method for sorting. It 
-    works by <em>partitioning</em> an array into two parts,
-    then sorting the parts independently. 
-    
-    <p><center>
-    <IMG SRC="images/quicksort-overview.png" alt = "Quicksort overview">
-    </center>
-    
-    The crux of the method is the partitioning process, which rearranges the array 
-    to make the following three conditions hold: 
-    
-    <ul>
-    <p><li> The entry <tt>a[j]</tt> is in its final place in the array, for some <tt>j</tt>.
-    <p><li> No entry in <tt>a[lo]</tt> through <tt>a[j-1]</tt> is greater than <tt>a[j]</tt>.
-    <p><li> No entry in <tt>a[j+1]</tt> through <tt>a[hi]</tt> is less than <tt>a[j]</tt>.
-    </ul>
-    
-    We achieve a complete sort by partitioning,
-    then recursively applying the method to
-    the subarrays.
-    It is a <em>randomized</em> algorithm, because it 
-    randomly shuffles the array before sorting it.
-    
-    <p><h3>Partitioning.</h3>
-    To complete the implementation, we need to implement the partitioning method. We use 
-    the following general strategy: First, we arbitrarily 
-    choose <tt>a[lo]</tt> to be the partitioning item&mdash;the one that will go into
-    its final position. Next, we 
-    scan from the left end of the array until we find an 
-    entry that is greater than (or equal to) the partitioning item,
-    and we scan from the right 
-    end of the array until we find an entry less than (or equal to) the partitioning
-    item. 
-    
-    <p><center>
-    <IMG SRC="images/partitioning-overview.png" alt = "Quicksort partitioning overview">
-    </center>
-    
-    The two items that stopped the scans are out of place in the final partitioned 
-    array, so we exchange them.
-    When the scan 
-    indices cross, all that we need to do to complete the partitioning process is to exchange 
-    the partitioning item
-    <tt>a[lo]</tt> with the rightmost entry of the left subarray
-    (<tt>a[j]</tt>) and return its index <tt>j</tt>. 
-    
-    <p><center>
-    <IMG SRC="images/partitioning.png" alt = "Quicksort partitioning">
-    </center>
-    
-    
-    <p><h3>Quicksort.</h3>
-    <a href = "Quick.java.html">Quick.java</a> is an implementation
-    of quicksort, using the partitioning method described above.
-    
-    <p><center>
-    <IMG SRC="images/quicksort.png" alt = "Quicksort trace">
-    </center>
-    
-    
-    
-    <p><h3>Implementation details.</h3>
-    There are several subtle issues with respect to implementing quicksort that are 
-    reflected in this code and worthy of mention.
-    
-    <ul>
-    <li><em>Partitioning inplace.</em> If we use an extra array,
-    partitioning is easy to implement, but not so much easier
-    that it is worth the extra cost of copying the partitioned
-    version back into the original.
-    
-    <li><em>Staying in bounds.</em>
-    If the smallest item or the largest item in the array is
-    the partitioning item, we have to take care that the 
-    pointers do not run off the left or right ends of the array,
-    respectively.
-    
-    
-    <li><em>Preserving randomness.</em>
-    The random shuffle puts the array in random order. 
-    Since it treats all items in the subarrays uniformly,
-    <a href = "Quick.java.html">Quick.java</a>
-    has the property that its two subarrays are
-    also in random order. This fact is crucial to the
-    algorithm's predictability.
-    An alternate way to preserve randomness is to choose a random
-    item for partitioning within <tt>partition()</tt>.
-    
-    <li><em>Terminating the loop.</em>
-    Properly testing whether the pointers have crossed is a bit
-    trickier than it might seem at first glance.
-    A common error is to fail to take into account that the array might 
-    contain other keys with the same value as the partitioning item.
-    
-    <li><em>Handling items with keys equal to the partitioning item's key.</em>
-    It is best to stop the left scan for items with keys greater than
-    <em>or equal to</em> the partitioning item's key and the 
-    right scan for items less than <em>or equal to</em>
-    the partitioning item's key. Even though this policy might seem to
-    create unnecessary exchanges involving items with keys equal to the 
-    partitioning item's key, it is crucial to avoiding
-    quadratic running time in certain typical applications.
-    
-    <li><em>Terminating the recursion.</em>
-    A common mistake in implementing quicksort involves not 
-    ensuring that one item is always put into position,
-    then falling into an infinite recursive loop when the
-    partitioning item happens to be the largest or smallest item
-    in the array. 
-    
-    </ul>
-    
-    
-    <!--
-    <p><h3>Performance characteristics.</h3>
-    The best case for quicksort is when each partitioning stage
-    divides the array exactly in half. This circumstance
-    would make the number of compares used by 
-    quicksort satisfy the divide-and-conquer recurrence
-    C(N) = 2 C(N/2) + N, which has the solution C(N) ~ N lg N.
-    Although things do not always go this well, it is true that
-    the partition falls in the middle 
-    on the average. 
-    -->
-    
-    <p><h3>Proposition.</h3> Quicksort uses 
-    ~2 N ln N compares
-    (and one-sixth that many exchanges) on the average to
-    sort an array of length N with distinct keys.
-    
-    <p><h3>Proposition.</h3> Quicksort uses ~N<sup>2</sup>/2 compares
-    in the worst case, but random shuffling protects against this
-    case.
-    
-    <p>
-    The standard deviation of the running time
-    is about .65 N, so the running time tends to the average as
-    N grows and is unlikely to be far from the average.
-    The probability that quicksort will use a quadratic number of
-    compares when sorting a large 
-    array on your computer is much less than the probability that your
-    computer will be struck by lightning!
-    
-    
-    <p><h3>Improvements.</h3>
-    Quicksort was invented in 1960 by C. A. R. Hoare, and it has been studied
-    and refined by many people since that time.
-    
-    <ul>
-    <li><em>Cutoff to insertion sort.</em>
-    As with mergesort, it pays to switch to insertion sort for tiny arrays.
-    The optimum value of the cutoff is system-dependent, but any 
-    value between 5 and 15 is likely to work well in most situations. 
-    
-    <li><em>Median-of-three partitioning.</em>
-    A second easy way to improve the performance of quicksort is to use the 
-    median of a small sample of items taken from the array as the 
-    partitioning item. Doing so will give a slightly better partition, but at
-    the cost of computing the median. It turns out that most of the available
-    improvement comes from choosing a sample of size 3 (and then partitioning
-    on the middle item).
-    
-    </ul>
-    
-    
-    <p><h2>Visualization.</h2>
-    <a href = "QuickBars.java.html">QuickBars.java</a> visualizes quicksort with
-    median-of-3 partitioning and cutoff for small subarrays.
-    
-    <p><center>
-    <IMG SRC="images/quicksort-bars.png" alt = "Quicksort visualization">
-    </center>
-    
-    <p><h2>Entropy-optimal sorting.</h2>
-    Arrays with large numbers of duplicate sort keys arise
-    frequently in applications.
-    In such applications, there is potential to
-    reduce the time of the sort from linearithmic to linear.
-    <p>
-    
-    One straightforward idea is to partition the array into three parts,
-    one each for items with keys smaller than, equal to, and larger than the
-    partitioning item's key. Accomplishing 
-    this partitioning was a classical programming exercise 
-    popularized by E. W. Dijkstra as the <em>Dutch National 
-    Flag problem</em>, because it is like sorting an array with three 
-    possible key values, which might correspond to the three 
-    colors on the flag. 
-    
-    <p>
-    Dijkstra's solution is based on a single left-to-right  
-    pass through the array that maintains a pointer <tt>lt</tt> such 
-    that <tt>a[lo..lt-1]</tt> is less than <tt>v</tt>,
-    a pointer <tt>gt</tt> such that <tt>a[gt+1..hi]</tt> is greater than <tt>v</tt>,
-    and a pointer <tt>i</tt> such that <tt>a[lt..i-1]</tt> are
-    equal to v, and <tt>a[i..gt]</tt> are not yet examined.
-    
-    
-    <p><center>
-    <IMG SRC="images/partitioning3-overview.png" alt = "Quicksort 3-way partitioning overview">
-    </center>
-    
-    <p>
-    Starting with <tt>i</tt> equal to <tt>lo</tt>
-    we process <tt>a[i]</tt> using the 3-way compare
-    given us by the <tt>Comparable</tt> interface
-    to handle the three possible cases: 
-    <ul>
-    <p><li> <tt>a[i]</tt> less than <tt>v</tt>:
-    exchange <tt>a[lt]</tt> with <tt>a[i]</tt> and increment both <tt>lt</tt>
-    and <tt>i</tt> 
-    
-    <p><li> <tt>a[i]</tt> greater than <tt>v</tt>:
-    exchange <tt>a[i]</tt> with <tt>a[gt]</tt> and decrement <tt>gt</tt>
-    
-    <p><li> <tt>a[i]</tt> equal to <tt>v</tt>: increment <tt>i</tt>
-    
-    </ul>
-     
-    <p><center>
-    <IMG SRC="images/partitioning3.png" alt = "Quicksort 3-way partitioning trace">
-    </center>
-    
-    <p><a href = "Quick3way.java.html">Quick3way.java</a> is an implementation of
-    this method.
-    
-    
-    <p><h3>Proposition.</h3>
-    Quicksort with 3-way partitioning is entropy-optimal. 
-    
-    <p><h2>Visualization.</h2>
-    <a href = "Quick3wayBars.java.html">Quick3wayBars.java</a> visualizes quicksort with
-    3-way partitioning.
-    
-    <p><center>
-    <IMG SRC="images/quicksort3-bars.png" alt = "3-way quicksort visualization">
-    </center>
-    
-    
-    
-    <p>

@@ -1,33 +1,36 @@
-const nav_menuButton = document.querySelector('#toggle-menu');
-console.log(nav_menuButton);
-nav_menuButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    const menu = document.querySelector('#main-menu');
-    menu.classList.toggle('is-open');
-});
-
-const search_input = document.querySelector(".search-input");
-
-const search_handleInputChange = (e) => {
-    if (e.target.value && !search_input.classList.contains("search--touched")) {
-        search_input.classList.add("search--touched");
-    } else if (!e.target.value && search_input.classList.contains("search--touched")) {
-        search_input.classList.remove("search--touched");
-    }
+function header_addEventListener() {
+  const nav_menuButton = document.querySelector('#toggle-menu');
+  console.log(nav_menuButton);
+  nav_menuButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      const menu = document.querySelector('#main-menu');
+      menu.classList.toggle('is-open');
+  });
+  
+  const search_input = document.querySelector(".search-input");
+  
+  const search_handleInputChange = (e) => {
+      if (e.target.value && !search_input.classList.contains("search--touched")) {
+          search_input.classList.add("search--touched");
+      } else if (!e.target.value && search_input.classList.contains("search--touched")) {
+          search_input.classList.remove("search--touched");
+      }
+  }
+  search_input.addEventListener("input", search_handleInputChange);
+  
+  const search_toggle = document.querySelector('#search__menu-toggle');
+  search_toggle.addEventListener('focus', function(event) {
+      event.preventDefault();
+      const menu = document.querySelector('#search__menu-list');
+      menu.style.display = "block";
+  });
+  search_toggle.addEventListener('blur', function(event) {
+      event.preventDefault();
+      const menu = document.querySelector('#search__menu-list');
+      menu.style.display = "none";
+  });
 }
-search_input.addEventListener("input", search_handleInputChange);
 
-const search_toggle = document.querySelector('#search__menu-toggle');
-search_toggle.addEventListener('focus', function(event) {
-    event.preventDefault();
-    const menu = document.querySelector('#search__menu-list');
-    menu.style.display = "block";
-});
-search_toggle.addEventListener('blur', function(event) {
-    event.preventDefault();
-    const menu = document.querySelector('#search__menu-list');
-    menu.style.display = "none";
-});
 
 
 const headerElement = document.querySelector("header");
@@ -38,6 +41,7 @@ const fetchHeader = async () => {
     const template = await res.text();
 
     headerElement.innerHTML = template;
+    header_addEventListener();
   } catch (err) {
     console.log(err);
   }

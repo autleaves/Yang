@@ -56,11 +56,11 @@
     .nav-menu a:visited {
         color: var(--text-color);
     }
-    .fundamentals   li.nav_fundamentals > a,
-    .sorting       li.nav_sorting > a,
-    .searching      li.nav_searching > a,
-    .graphs         li.nav_graphs > a,
-    .strings        li.nav_strings > a,
+    #fundamentals   li.nav_fundamentals > a,
+    #sorting        li.nav_sorting > a,
+    #searching      li.nav_searching > a,
+    #graphs         li.nav_graphs > a,
+    #strings        li.nav_strings > a,
     .nav-menu a:hover {
         background-color: #969696;
         color: #fff;

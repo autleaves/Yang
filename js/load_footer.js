@@ -1,6 +1,6 @@
 
 
-const footerElement = document.querySelector("footer");
+const footerElement = document.querySelector("#footer");
 const fetchFooter = async () => {
   try {
     const res = await fetch("/modules/footer.txt");

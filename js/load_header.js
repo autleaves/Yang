@@ -1,4 +1,4 @@
-const headerElement = document.querySelector("header");
+const headerElement = document.querySelector("#header");
 
 const fetchHeader = async () => {
   try {

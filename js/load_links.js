@@ -7,6 +7,7 @@ const head_links = `
     
             <link href="/css/base.css" rel="stylesheet">
             <link href="/css/lib.css" rel="stylesheet">
+            <link href="/css/common.css" rel="stylesheet">
             <link href="/css/coms/com-nav.css" rel="stylesheet">
             <link href="/css/coms/com-search.css" rel="stylesheet">
             <link href="/css/coms/com-explore.css" rel="stylesheet">
@@ -15,4 +16,4 @@ const head_links = `
             <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 `;
 
-document.querySelector(".html_head").insertAdjacentHTML('beforeend', head_links);
+document.querySelector("#html_head").insertAdjacentHTML('beforeend', head_links);

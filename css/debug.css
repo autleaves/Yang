@@ -460,25 +460,25 @@ input.search-input:focus {
     }
 }
 
-.header {
+#header {
     background-color: #fff;
     border-bottom: 1px solid #dedede;
 }
 
 @media (min-width:50em) {
-    .header {
+    #header {
         display: flex;
         align-items: flex-end;
         flex-wrap: nowrap;
     }
-    .header > .logo {
+    #header > .logo {
         align-self: center;
         padding-right: 2em;
     }
-    .header > .-lib--menu {
+    #header > .-lib--menu {
         flex: 1;
     }
-    .header > .contact-us--icons {
+    #header > .contact-us--icons {
         text-align: right;
         padding-right: 1em;
     }

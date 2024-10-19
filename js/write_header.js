@@ -1,19 +1,3 @@
-
-const headerElement = document.querySelector("header");
-
-const fetchHeader = () => {
-  try {
-    const res =  fetch("/modules/header.txt");
-    const template =  res.text();
-
-    headerElement.innerHTML = template;
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-fetchHeader();
-
 const nav_menuButton = document.querySelector('#toggle-menu');
 console.log(nav_menuButton);
 nav_menuButton.addEventListener('click', function(event) {
@@ -44,3 +28,20 @@ search_toggle.addEventListener('blur', function(event) {
     const menu = document.querySelector('#search__menu-list');
     menu.style.display = "none";
 });
+
+
+const headerElement = document.querySelector("header");
+
+const fetchHeader = async () => {
+  try {
+    const res = await fetch("/modules/header.txt");
+    const template = await res.text();
+
+    headerElement.innerHTML = template;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+fetchHeader();
+

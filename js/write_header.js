@@ -1,10 +1,10 @@
 
 const headerElement = document.querySelector("header");
 
-const fetchHeader = async () => {
+const fetchHeader = () => {
   try {
-    const res = await fetch("/modules/header.txt");
-    const template = await res.text();
+    const res =  fetch("/modules/header.txt");
+    const template =  res.text();
 
     headerElement.innerHTML = template;
   } catch (err) {

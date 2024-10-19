@@ -15,6 +15,7 @@ const fetchHeader = async () => {
 fetchHeader();
 
 const nav_menuButton = document.querySelector('#toggle-menu');
+console.log(nav_menuButton);
 nav_menuButton.addEventListener('click', function(event) {
     event.preventDefault();
     const menu = document.querySelector('#main-menu');

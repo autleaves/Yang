@@ -10,14 +10,14 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <link href="../../css/base.css" rel="stylesheet">
-    <link href="../../css/lib.css" rel="stylesheet">
-    <link href="../../css/common.css" rel="stylesheet">
-    <link href="../../css/coms/com-nav.css" rel="stylesheet">
-    <link href="../../css/coms/com-search.css" rel="stylesheet">
-    <link href="../../css/coms/com-explore.css" rel="stylesheet">
-    <link href="../../css/header.css" rel="stylesheet">
-    <link href="../../css/footer.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/lib.css" rel="stylesheet">
+    <link href="/css/common.css" rel="stylesheet">
+    <link href="/css/coms/com-nav.css" rel="stylesheet">
+    <link href="/css/coms/com-search.css" rel="stylesheet">
+    <link href="/css/coms/com-explore.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
 
     <title>Priority Queues</title>
 
@@ -34,7 +34,7 @@
                 <div class="topicpath null">
                     <ol>
                         <li class="topicpath-icon"><span>&nbsp;</span></li>
-                        <li><a class="underline" href="../../index.html">Home</a>&nbsp;&gt;</li>
+                        <li><a class="underline" href="/index.html">Home</a>&nbsp;&gt;</li>
                         <li><a class="underline" href="./sorting.html">Sorting</a>&nbsp;&gt;</li>
                         <!-- <li>Bags, Queues, and Stacks</li> -->
                     </ol>
@@ -114,7 +114,7 @@
                                 <code>Key</code> that implements <code>Comparable</code>.
                             </p>
                             <p class="container--aligncenter">
-                                <IMG SRC="../../images/pages/so/24pq/pq-api.png"  alt = "Priority queue API">
+                                <IMG SRC="/images/pages/so/24pq/pq-api.png"  alt = "Priority queue API">
                             </p>
                             <p>
                                 Program <a href = "TopM.java.html">TopM.java</a> is a priority queue client
@@ -166,7 +166,7 @@
                             </ul>
                             
                             <p class="container--aligncenter">
-                                <IMG SRC="../../images/pages/so/24pq/pq-array.png"  alt = "Priority queue array implementations">
+                                <IMG SRC="/images/pages/so/24pq/pq-array.png"  alt = "Priority queue array implementations">
                             </p>
                             <p>
                                 All of the elementary implementations just discussed have the property
@@ -208,7 +208,7 @@
                                 binary tree like the one below.
                             </p>
                             <p class="container--aligncenter">
-                                <IMG SRC="../../images/pages/so/24pq/heap.png"  alt = "Heap representations">
+                                <IMG SRC="/images/pages/so/24pq/heap.png"  alt = "Heap representations">
                             </p>
                             <p>
                                 We represent complete binary trees sequentially within an array
@@ -224,7 +224,7 @@
                                 (not using the first entry).
                             </p>
                             <p class="container--aligncenter">
-                                <IMG SRC="../../images/pages/so/24pq/heap-representations.png"  alt = "Heap representations">
+                                <IMG SRC="/images/pages/so/24pq/heap-representations.png"  alt = "Heap representations">
                             </p>                            
                             <p>
                                 In a heap, the parent of the node in position k is in position k/2; and,
@@ -266,7 +266,7 @@
                                     We can fix that violation in the same way, and so forth, moving up the heap until we 
                                     reach a node with a larger key, or the root.
                                 
-                                    <IMG SRC="../../images/pages/so/24pq/swim.png"  align=right hspace=25 alt = "Bottom-up heapify (swim)">
+                                    <IMG SRC="/images/pages/so/24pq/swim.png"  align=right hspace=25 alt = "Bottom-up heapify (swim)">
                                     <blockquote>
                                         <div class=".container">
 <pre class="sourcecode">
@@ -287,7 +287,7 @@ while (k > 1 && less(k/2, k)) {
                                     and so forth, moving down the heap until we reach 
                                     a node with both children smaller, or the bottom.
                                     
-                                    <IMG SRC="../../images/pages/so/24pq/sink.png"  align=right hspace=25 alt = "Top-down heapify (sink)">
+                                    <IMG SRC="/images/pages/so/24pq/sink.png"  align=right hspace=25 alt = "Top-down heapify (sink)">
                                     <blockquote>
                                         <div class=".container">
 <pre class="sourcecode">
@@ -304,14 +304,14 @@ while (2*k <= N) {
                                         </div>
                                     </blockquote>
                             </ul>
-                            <IMG SRC="../../images/pages/so/24pq/heap-pq.png"  alt = "Heap representations" align=right hspace=25>
+                            <IMG SRC="/images/pages/so/24pq/heap-pq.png"  alt = "Heap representations" align=right hspace=25>
                         </div>
                     </div>
                 </section>
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Heap-based priority queue.</h3>
+                            <h3 class=""><img src="/images/base/paper-clip.png">&nbsp;Heap-based priority queue.</h3>
                         </div>
                         <div class="section-content">
                             <p>
@@ -331,7 +331,7 @@ while (2*k <= N) {
                                 that item to restore the heap condition.
                             </ul>
                             <p class="container--aligncenter">
-                                <IMG SRC="../../images/pages/so/24pq/heap-ops.png"  alt = "Heap operations">
+                                <IMG SRC="/images/pages/so/24pq/heap-ops.png"  alt = "Heap operations">
                             </p>
                             <p>
                                 <b>Proposition.</b>
@@ -346,7 +346,7 @@ while (2*k <= N) {
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Practical considerations.</h3>
+                            <h3 class=""><img src="/images/base/paper-clip.png">&nbsp;Practical considerations.</h3>
                         </div>
                         <div class="section-content">
                             <p>
@@ -381,7 +381,7 @@ while (2*k <= N) {
                                     items that are already on the priority queue.
                                     One easy way to do so is to associate a unique integer index with each item.
                                     <p class="container--aligncenter">
-                                        <IMG SRC="../../images/pages/so/24pq/indexpq-api.png"  alt = "Index Priority queue API">
+                                        <IMG SRC="/images/pages/so/24pq/indexpq-api.png"  alt = "Index Priority queue API">
                                     </p>
                                     <p>
                                         <a href = "IndexMinPQ.java.html">IndexMinPQ.java</a> is a heap-based
@@ -440,14 +440,14 @@ while (2*k <= N) {
                             </ul>
                             
                             <p class="container--aligncenter">
-                                <IMG SRC="../../images/pages/so/24pq/heapsort-trace.png"  alt = "Trace of heapsort">
+                                <IMG SRC="/images/pages/so/24pq/heapsort-trace.png"  alt = "Trace of heapsort">
                             </p>
                             <p>
                                 <a href = "Heap.java.html">Heap.java</a> is a full implementation of heapsort.
                                 Below is a trace of the contents of the array after each sink.
                             </p>
                             <p class="container--aligncenter">
-                                <IMG SRC="../../images/pages/so/24pq/heapsort.png"  alt = "Trace of heapsort">
+                                <IMG SRC="/images/pages/so/24pq/heapsort.png"  alt = "Trace of heapsort">
                             </p>
                             <p><br>
                                 <b>Proposition.</b>

@@ -10,14 +10,14 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <link href="../../css/base.css" rel="stylesheet">
-    <link href="../../css/lib.css" rel="stylesheet">
-    <link href="../../css/common.css" rel="stylesheet">
-    <link href="../../css/coms/com-nav.css" rel="stylesheet">
-    <link href="../../css/coms/com-search.css" rel="stylesheet">
-    <link href="../../css/coms/com-explore.css" rel="stylesheet">
-    <link href="../../css/header.css" rel="stylesheet">
-    <link href="../../css/footer.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/lib.css" rel="stylesheet">
+    <link href="/css/common.css" rel="stylesheet">
+    <link href="/css/coms/com-nav.css" rel="stylesheet">
+    <link href="/css/coms/com-search.css" rel="stylesheet">
+    <link href="/css/coms/com-explore.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
 
     <title>Balanced Search Trees</title>
 
@@ -34,7 +34,7 @@
                 <div class="topicpath null">
                     <ol>
                         <li class="topicpath-icon"><span>&nbsp;</span></li>
-                        <li><a class="underline" href="../../index.html">Home</a>&nbsp;&gt;</li>
+                        <li><a class="underline" href="/index.html">Home</a>&nbsp;&gt;</li>
                         <li><a class="underline" href="./searching.html">Searching</a>&nbsp;&gt;</li>
                         <!-- <li>Bags, Queues, and Stacks</li> -->
                     </ol>
@@ -108,7 +108,7 @@
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Definition.</h3>
+                            <h3 class=""><img src="/images/base/paper-clip.png">&nbsp;Definition.</h3>
                         </div>
                         <div class="section-content">
                             A <em>2-3 search tree</em> is a tree that either is empty or:
@@ -123,7 +123,7 @@
                                     with larger keys.
                             </ul>
                             <p class="container--aligncenter">
-                                <IMG SRC="../../images/pages/se/33balanced/23tree-anatomy.png"  alt = "Anatomy of a 2-3 tree">
+                                <IMG SRC="/images/pages/se/33balanced/23tree-anatomy.png"  alt = "Anatomy of a 2-3 tree">
                             </p>
                             <p>
                                 A <em>perfectly balanced</em> 2-3 search tree (or 2-3 tree for short)
@@ -138,7 +138,7 @@
                                     to the interval of key values that could contain 
                                     the search key, and then recursively search in that subtree.
                                     <p class="container--aligncenter">
-                                        <IMG SRC="../../images/pages/se/33balanced/23tree-search.png"  alt = "Search in a 2-3 tree">
+                                        <IMG SRC="/images/pages/se/33balanced/23tree-search.png"  alt = "Search in a 2-3 tree">
                                     </p>
                                 <li><em>Insert into a 2-node.</em>
                                     To insert a new node in a 2-3 tree, we might do an unsuccessful search and then hook on the 
@@ -147,7 +147,7 @@
                                     is a 2-node: We just replace the node with a 3-node containing its key and the new key to be 
                                     inserted.
                                     <p class="container--aligncenter">
-                                        <IMG SRC="../../images/pages/se/33balanced/23tree-insert2.png"  alt = "Insert into a 2-node in a 2-3 tree">
+                                        <IMG SRC="/images/pages/se/33balanced/23tree-insert2.png"  alt = "Insert into a 2-node in a 2-3 tree">
                                     </p>
                                 
                                 <li><em>Insert into a tree consisting of a single 3-node.</em>
@@ -160,7 +160,7 @@
                                     one with the smallest of the three keys (pointed to by the left link of the root), and one 
                                     with the largest of the three keys (pointed to by the right link of the root).
                                     <p class="container--aligncenter">
-                                        <IMG SRC="../../images/pages/se/33balanced/23tree-insert3a.png"  alt = "Insert into a 2-3 tree consisting of a single 3-node">
+                                        <IMG SRC="/images/pages/se/33balanced/23tree-insert3a.png"  alt = "Insert into a 2-3 tree consisting of a single 3-node">
                                     </p>
                                 
                                 <li><em>Insert into a 3-node whose parent is a 2-node.</em>
@@ -171,7 +171,7 @@
                                     instead of creating a new node to hold the middle key, moving the middle key
                                     to the nodes parent.
                                     <p class="container--aligncenter">
-                                        <IMG SRC="../../images/pages/se/33balanced/23tree-insert3b.png"  alt = "Insert in a 2-3 tree into a 3-node whose parent is a 2-node">
+                                        <IMG SRC="/images/pages/se/33balanced/23tree-insert3b.png"  alt = "Insert in a 2-3 tree into a 3-node whose parent is a 2-node">
                                     </p>
                                 <li><em>Insert into a 3-node whose parent is a 3-node.</em>
                                     Now suppose that the search ends at a node whose parent is a 3-node. Again, we make a 
@@ -184,7 +184,7 @@
                                     reaching a 2-node, which we replace with a 3-node that does not to 
                                     be further split, or until reaching a 3-node at the root.
                                     <p class="container--aligncenter">
-                                        <IMG SRC="../../images/pages/se/33balanced/23tree-insert3c.png"  alt = "Insert in a 2-3 tree into a 3-node whose parent is a 3-node">
+                                        <IMG SRC="/images/pages/se/33balanced/23tree-insert3c.png"  alt = "Insert in a 2-3 tree into a 3-node whose parent is a 3-node">
                                     </p>
                                 
                                 <li><em>Splitting the root.</em>
@@ -192,7 +192,7 @@
                                     root, we end up with a temporary 4-node at the root. In this case we 
                                     split the temporary 4-node into three 2-nodes.
                                     <p class="container--aligncenter">
-                                        <IMG SRC="../../images/pages/se/33balanced/23tree-split.png"  alt = "Splitting the root in a 2-3 tree">
+                                        <IMG SRC="/images/pages/se/33balanced/23tree-split.png"  alt = "Splitting the root in a 2-3 tree">
                                     </p>
                                 
                                 <li><em>Local transformations.</em>
@@ -216,7 +216,7 @@
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                            <h3 class=""><img src="/images/base/paper-clip.png">&nbsp;Proposition.</h3>
                         </div>
                         <div class="section-content">
                             <p>
@@ -224,7 +224,7 @@
                                 to visit at most lg N nodes.
                             </p>
                             <p class="container--aligncenter">
-                                <IMG SRC="../../images/pages/se/33balanced/23tree-random.png"  alt = "Typical 2-3 tree built from random keys">
+                                <IMG SRC="/images/pages/se/33balanced/23tree-random.png"  alt = "Typical 2-3 tree built from random keys">
                             </p>
                             <p>
                                 However, we are only part of the way to an implementation.
@@ -264,7 +264,7 @@
                                     code for standard BST search without modification.
                                     </p>
                                     <p class="container--aligncenter">
-                                        <IMG SRC="../../images/pages/se/33balanced/redblack-encoding.png"  alt = "Encoding a 3-node in a red-black BST">
+                                        <IMG SRC="/images/pages/se/33balanced/redblack-encoding.png"  alt = "Encoding a 3-node in a red-black BST">
                                     </p>
                                 
                                 <li><em>A 1-1 correspondence.</em>
@@ -275,7 +275,7 @@
                                     distance from the root, and if we then collapse together the nodes connected
                                     by red links, the result is a 2-3 tree.
                                     <p class="container--aligncenter">
-                                        <IMG SRC="../../images/pages/se/33balanced/redblack-1-1.png"  alt = "1-1 correspondence between left-leaning
+                                        <IMG SRC="/images/pages/se/33balanced/redblack-1-1.png"  alt = "1-1 correspondence between left-leaning
                                             red-black BSTs and 2-3 trees">
                                     </p>
                                 <li><em>Color representation.</em>
@@ -286,7 +286,7 @@
                                     the parent is red and <code>false</code> if it is black.
                                     By convention, null links are black.
                                     <p class="container--aligncenter">
-                                        <IMG SRC="../../images/pages/se/33balanced/redblack-color.png"  alt = "Color representation in a red-black BST">
+                                        <IMG SRC="/images/pages/se/33balanced/redblack-color.png"  alt = "Color representation in a red-black BST">
                                     </p>
                                 <li><em>Rotations.</em>
                                     The implementation that we will consider might allow right-leaning red links or two red-links 
@@ -308,16 +308,16 @@
                                     <blockquote>
                                     <TABLE BORDER = 0 CELLPADDING =2 CELLSPACING = 0>
                                         <tr>
-                                            <td><IMG SRC="../../images/pages/se/33balanced/redblack-left-rotate.png" alt = "Left rotation in a red-black BST">
+                                            <td><IMG SRC="/images/pages/se/33balanced/redblack-left-rotate.png" alt = "Left rotation in a red-black BST">
                                             <td>
                                             &nbsp;&nbsp;&nbsp;&nbsp;
                                             &nbsp;&nbsp;&nbsp;&nbsp;
                                             &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <td><IMG SRC="../../images/pages/se/33balanced/redblack-right-rotate.png" alt = "Right rotation in a red-black BST">
+                                            <td><IMG SRC="/images/pages/se/33balanced/redblack-right-rotate.png" alt = "Right rotation in a red-black BST">
                                             &nbsp;&nbsp;&nbsp;&nbsp;
                                             &nbsp;&nbsp;&nbsp;&nbsp;
                                             &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <td><IMG SRC="../../images/pages/se/33balanced/color-flip.png" alt = "Color flip in a red-black BST">
+                                            <td><IMG SRC="/images/pages/se/33balanced/color-flip.png" alt = "Color flip in a red-black BST">
                                         </tr>
                                     </table>
                                     </blockquote>
@@ -351,7 +351,7 @@
                                 is a simpler version that only implement put, get, and contains.
                             </p>
                             <p class="container--aligncenter">
-                                <IMG SRC="../../images/pages/se/33balanced/redblack-construction.png"  alt = "Red-black BST construction">
+                                <IMG SRC="/images/pages/se/33balanced/redblack-construction.png"  alt = "Red-black BST construction">
                             </p>
                         </div>
                     </div>
@@ -369,7 +369,7 @@
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                            <h3 class=""><img src="/images/base/paper-clip.png">&nbsp;Proposition.</h3>
                         </div>
                         <div class="section-content">
                             <p>
@@ -381,7 +381,7 @@
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                            <h3 class=""><img src="/images/base/paper-clip.png">&nbsp;Proposition.</h3>
                         </div>
                         <div class="section-content">
                             <p>
@@ -396,7 +396,7 @@
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Property.</h3>
+                            <h3 class=""><img src="/images/base/paper-clip.png">&nbsp;Property.</h3>
                         </div>
                         <div class="section-content">
                             <p>

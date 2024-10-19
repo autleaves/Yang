@@ -10,14 +10,14 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <link href="../../css/base.css" rel="stylesheet">
-    <link href="../../css/lib.css" rel="stylesheet">
-    <link href="../../css/common.css" rel="stylesheet">
-    <link href="../../css/coms/com-nav.css" rel="stylesheet">
-    <link href="../../css/coms/com-search.css" rel="stylesheet">
-    <link href="../../css/coms/com-explore.css" rel="stylesheet">
-    <link href="../../css/header.css" rel="stylesheet">
-    <link href="../../css/footer.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/lib.css" rel="stylesheet">
+    <link href="/css/common.css" rel="stylesheet">
+    <link href="/css/coms/com-nav.css" rel="stylesheet">
+    <link href="/css/coms/com-search.css" rel="stylesheet">
+    <link href="/css/coms/com-explore.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
 
     <title>Shortest Paths</title>
 
@@ -34,7 +34,7 @@
                 <div class="topicpath null">
                     <ol>
                         <li class="topicpath-icon"><span>&nbsp;</span></li>
-                        <li><a class="underline" href="../../index.html">Home</a>&nbsp;&gt;</li>
+                        <li><a class="underline" href="/index.html">Home</a>&nbsp;&gt;</li>
                         <li><a class="underline" href="./graphs.html">Graphs</a>&nbsp;&gt;</li>
                         <!-- <li>Bags, Queues, and Stacks</li> -->
                     </ol>
@@ -99,7 +99,7 @@
                                 from s to t with the property that no other such path has a lower weight.
                             </p>
                             <p class="container--aligncenter">
-                                <img src="../../images/pages/gr/44sp/shortest-path.png" alt = "Shortest path">
+                                <img src="/images/pages/gr/44sp/shortest-path.png" alt = "Shortest path">
                             </p>
                             <p>
                         </div>
@@ -155,7 +155,7 @@
                                 We represent the weighted edges using the following API:
                             </p>
                             <p class="container--aligncenter">
-                                <img src="../../images/pages/gr/44sp/directed-edge-api.png" alt = "API for a weighted directed edge">
+                                <img src="/images/pages/gr/44sp/directed-edge-api.png" alt = "API for a weighted directed edge">
                             </p>
                             <p>
                                 The <tt>from()</tt> and <tt>to()</tt> methods are useful
@@ -166,7 +166,7 @@
                             We represent edge-weighted digraphs using the following API:
                             </p>
                             <p class="container--aligncenter">
-                                <img src="../../images/pages/gr/44sp/edge-weighted-digraph-api.png" alt = "API for an
+                                <img src="/images/pages/gr/44sp/edge-weighted-digraph-api.png" alt = "API for an
                                     edge-weighted graph">
                             </p>
                             <p>
@@ -174,7 +174,7 @@
                                 implements the API using the adjacency-lists representation.
                             </p>
                             <p class="container--aligncenter">
-                                <img src="../../images/pages/gr/44sp/edge-weighted-digraph-representation.png" alt = "edge-weighted digraph representation">
+                                <img src="/images/pages/gr/44sp/edge-weighted-digraph-representation.png" alt = "edge-weighted digraph representation">
                             </p>
                         </div>
                     </div>
@@ -189,7 +189,7 @@
                                 We use the following API for computing the shortest paths of an edge-weighted digraph:
                             </p>  
                             <p class="container--aligncenter">
-                                <img src="../../images/pages/gr/44sp/sp-api.png" alt = "API for SP implementations">
+                                <img src="/images/pages/gr/44sp/sp-api.png" alt = "API for SP implementations">
                             </p>
                             <p>
                                 We prepare some test data:
@@ -243,7 +243,7 @@
                             -->
                             
                             <p class="container--aligncenter">
-                                <img src="../../images/pages/gr/44sp/spt.png" width = 350 alt = "Shortest paths tree">
+                                <img src="/images/pages/gr/44sp/spt.png" width = 350 alt = "Shortest paths tree">
                             </p>
                         </div>
                     </div>
@@ -278,7 +278,7 @@ private void relax(DirectedEdge e) {
                                         </div>
                                     </blockquote>
                                     <p class="container--aligncenter">
-                                        <img src="../../images/pages/gr/44sp/relaxation-edge.png" alt = "edge relaxation">
+                                        <img src="/images/pages/gr/44sp/relaxation-edge.png" alt = "edge relaxation">
                                     </p>
                                 
                                 <li><em>Vertex relaxation.</em>
@@ -348,7 +348,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
                                 <!--
                                 <p>
                                 <p class="container--aligncenter">
-                                <img src="../../images/pages/gr/44sp/dijkstra-trace.png" alt = "Trace of Dijkstra's algorithm">
+                                <img src="/images/pages/gr/44sp/dijkstra-trace.png" alt = "Trace of Dijkstra's algorithm">
                                 </p>
                                 <p>
                                 -->
@@ -434,10 +434,10 @@ private void relax(EdgeWeightedDigraph G, int v) {
                                     processors (as many as needed) such that they are all completed in
                                     the minimum amount of time while still respecting the constraints?
                                     <p class="container--aligncenter">
-                                        <img src="../../images/pages/gr/44sp/scheduling-problem.png" alt = "Job-scheduling problem">
+                                        <img src="/images/pages/gr/44sp/scheduling-problem.png" alt = "Job-scheduling problem">
                                     </p>
                                     <p class="container--aligncenter">
-                                        <img src="../../images/pages/gr/44sp/scheduling-solution.png" alt = "Job-scheduling solution">
+                                        <img src="/images/pages/gr/44sp/scheduling-solution.png" alt = "Job-scheduling solution">
                                     </p>
                                     <p>
                                         This problem can be solved by formulating it as a longest paths problem
@@ -452,14 +452,14 @@ private void relax(EdgeWeightedDigraph G, int v) {
                                         start vertex and from each job's end vertex to the sink.
                                     </p>
                                     <p class="container--aligncenter">
-                                        <img src="../../images/pages/gr/44sp/scheduling-reduction.png" alt = "Job-scheduling problem reduction to longest paths">
+                                        <img src="/images/pages/gr/44sp/scheduling-reduction.png" alt = "Job-scheduling problem reduction to longest paths">
                                     </p>
                                     <p>
                                         Now, schedule each job at the time given by the length of its longest
                                         path from the source.
                                     </p>
                                     <p class="container--aligncenter">
-                                        img src="../../images/pages/gr/44sp/scheduling-critical-path.png" alt = "Job-scheduling problem critical path">
+                                        img src="/images/pages/gr/44sp/scheduling-critical-path.png" alt = "Job-scheduling problem critical path">
                                     </p>
                                     <p>
                                         <a href = "CPM.java.html">CPM.java</a> is an implementation of the
@@ -499,7 +499,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
                                     of its edges) is negative.
                                     The concept of a shortest path is meaningless if there is a negative cycle.
                                     <p class="container--aligncenter">
-                                        <img src="../../images/pages/gr/44sp/tinyEWDnc.png" alt = "an edge-weighted digraph with a negative cycle">
+                                        <img src="/images/pages/gr/44sp/tinyEWDnc.png" alt = "an edge-weighted digraph with a negative cycle">
                                     </p>
                                     <p>
                                         Accordingly, we consider edge-weighted digraphs with no negative cycles.
@@ -540,7 +540,7 @@ for (int v = 0; v < G.V(); v++)
                                     to check for and extract negative cycles. Accordingly, we add the following
                                     methods to the API:
                                     <p class="container--aligncenter">
-                                        <img src="../../images/pages/gr/44sp/negative-cycle-api.png" alt = "API for negative cycle detection">
+                                        <img src="/images/pages/gr/44sp/negative-cycle-api.png" alt = "API for negative cycle detection">
                                     </p>
                                     <p>
                                         There is a negative cycle reachable from the source if and only if the queue
@@ -575,12 +575,12 @@ for (int v = 0; v < G.V(); v++)
                                     <p class="container--aligncenter">
                                     <table>
                                         <tr>
-                                            <td><img src="../../images/pages/gr/44sp/rates.png" alt = "Exchange rates"></td>
+                                            <td><img src="/images/pages/gr/44sp/rates.png" alt = "Exchange rates"></td>
                                             <td>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </td>
-                                            <td><img src="../../images/pages/gr/44sp/arbitrage.png" alt = "Arbitrage opportunity"></td>
+                                            <td><img src="/images/pages/gr/44sp/arbitrage.png" alt = "Arbitrage opportunity"></td>
                                             </td>
                                         </tr>
                                     </table>
@@ -600,7 +600,7 @@ for (int v = 0; v < G.V(); v++)
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                            <h3 class=""><img src="/images/base/paper-clip.png">&nbsp;Proposition.</h3>
                         </div>
                         <div class="section-content">
                             <p>
@@ -614,7 +614,7 @@ for (int v = 0; v < G.V(); v++)
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Proposition.</h3>
+                            <h3 class=""><img src="/images/base/paper-clip.png">&nbsp;Proposition.</h3>
                         </div>
                         <div class="section-content">
                             <p>
@@ -630,7 +630,7 @@ for (int v = 0; v < G.V(); v++)
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h3 class=""><img src="../../images/base/paper-clip.png">&nbsp;Q + A</h3>
+                            <h3 class=""><img src="/images/base/paper-clip.png">&nbsp;Q + A</h3>
                         </div>
                         <div class="section-content">
                             <p>

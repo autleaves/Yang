@@ -10,48 +10,23 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <link href="../../css/base.css" rel="stylesheet">
-    <link href="../../css/lib.css" rel="stylesheet">
-    <link href="../../css/common.css" rel="stylesheet">
-    <link href="../../css/coms/com-nav.css" rel="stylesheet">
-    <link href="../../css/coms/com-search.css" rel="stylesheet">
-    <link href="../../css/coms/com-explore.css" rel="stylesheet">
-    <link href="../../css/header.css" rel="stylesheet">
-    <link href="../../css/footer.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/lib.css" rel="stylesheet">
+    <link href="/css/common.css" rel="stylesheet">
+    <link href="/css/coms/com-nav.css" rel="stylesheet">
+    <link href="/css/coms/com-search.css" rel="stylesheet">
+    <link href="/css/coms/com-explore.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
 
-    <script src="../../js/search.js" type="text/javascript" defer></script>
-    <script src="../../js/menu.js" type="text/javascript" defer></script>
     <title>Bags, Queues, and Stacks</title>
 
 
 </head>
 
 <body class="fundamentals">
-    <header class="header null">
-        <div class="logo null">
-            <a href="../../index.html"><img src="../../images/base/logo2.png"></a>
-        </div>
-        <nav class="-lib--menu null" id="main-menu">
-            <div class="-lib--menu-backdrop"></div>
-            <div class="-lib--menu-body">
-                <button class="-lib--menu-toggle -utils--position-btn" id="toggle-menu">
-                    <i class="-utils--sr-only">toggle menu</i>
-                </button>
-                <div class="-lib--menu-dropdown null">
-                    <ul class="nav-menu">
-                        <li class="nav_fundamentals"><a href="../../pages/fu/fundamentals.html">Fundamentals</a></li>
-                        <li class="nav_sorting"><a href="../../pages/so/sorting.html">Sorting</a></li>
-                        <li class="nav_searching"><a href="../../pages/se/searching.html">Searching</a></li>
-                        <li class="nav_graphs"><a href="../../pages/gr/graphs.html">Graphs</a></li>
-                        <li class="nav_strings"><a href="../../pages/st/strings.html">Strings</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="contact-us--icons null">
-            <a href="https://github.com/"><img src="../../images/base/github-mark.png" alt="GitHub"></a>
-            <a href="mailto:@gmail.com"><img src="../../images/base/email-mark.png" alt="Email"></a>
-        </div>
+    <header class="header">
+        <script src="/js/load_header.js"></script>
     </header>
     <main class="">
         <div class="contents">
@@ -59,7 +34,7 @@
                 <div class="topicpath null">
                     <ol>
                         <li class="topicpath-icon"><span>&nbsp</span></li>
-                        <li><a class="underline" href="../../index.html">Home</a>&nbsp;&gt;</li>
+                        <li><a class="underline" href="/index.html">Home</a>&nbsp;&gt;</li>
                         <li><a class="underline" href="./fundamentals.html">Fundamentals</a>&nbsp;&gt;</li>
                         <!-- <li>Bags, Queues, and Stacks</li> -->
                     </ol>
@@ -98,9 +73,6 @@
                     <div class="section-container ">
                         <div class="section-title chapter-title">
                             <h1>Bags, Queues, and Stacks</h1>
-                            <span role="button" aria-expanded="true" data-icon-name="ChevronDownMed"
-                                class="ChevronDownMed"
-                                style="transform: rotate(180deg); transition: transform 0.1s linear; font-size: 16px; font-family: &quot;AMC Icons&quot;; color: rgb(96, 94, 92);"></span>
                         </div>
                         <div class="section-content chapter-content">
                             <p>
@@ -125,7 +97,7 @@
                                 We define the APIs for bags, queues, and stacks. Beyond the basics, these APIs reflect
                                 two Java features: generics and iterable collections.
                             </p>
-                            <IMG SRC="../../images/pages/fu/13stacks/collection-apis.png"
+                            <IMG SRC="/images/pages/fu/13stacks/collection-apis.png"
                                 alt="APIs for bag, queue, and stack">
                             </p>
                             <ul>
@@ -292,25 +264,25 @@ private class Node {
                                     <code>Node</code> for each item, set the item field in each of the nodes to the
                                     desired value,
                                     and set the <code>next</code> fields to build the linked list.
-                                    <p><IMG SRC="../../images/pages/fu/13stacks/linked-list.png"
+                                    <p><IMG SRC="/images/pages/fu/13stacks/linked-list.png"
                                             alt="building a linked list"></p>
                                 <li><em>Insert at the beginning.</em>
                                     The easiest place to insert a new node in a linked list is at the beginning.
                                     <p>
-                                        <IMG SRC="../../images/pages/fu/13stacks/linked-list-insert-front.png"
+                                        <IMG SRC="/images/pages/fu/13stacks/linked-list-insert-front.png"
                                             alt="inserting a new node at the beginning of a linked list">
                                     </p>
                                 <li><em>Remove from the beginning.</em>
                                     Removing the first node in a linked list is also easy.
                                     <p>
-                                        <IMG SRC="../../images/pages/fu/13stacks/linked-list-remove-first.png"
+                                        <IMG SRC="/images/pages/fu/13stacks/linked-list-remove-first.png"
                                             alt="removing the first node in a linked list">
                                     </p>
                                 <li><em>Insert at the end.</em>
                                     To insert a node at the end of a linked list, we maintain a link to the last node in
                                     the list.
                                     <p>
-                                        <IMG SRC="../../images/pages/fu/13stacks/linked-list-insert-end.png"
+                                        <IMG SRC="/images/pages/fu/13stacks/linked-list-insert-end.png"
                                             alt="inserting a node at the end of a linked list">
                                     </p>
                                 <li><em>Traversal.</em>
@@ -471,7 +443,7 @@ public Iterator&lt;Item&gt; iterator() {
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;Autoboxing Q + A</h2>
+                            <h2 class=""><img src="/images/base/paper-clip.png">&nbsp;Autoboxing Q + A</h2>
                         </div>
                         <div class="section-content">
                             <p>
@@ -530,7 +502,7 @@ System.out.println(c1 == c2);   // false
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;Generics Q + A</h2>
+                            <h2 class=""><img src="/images/base/paper-clip.png">&nbsp;Generics Q + A</h2>
                         </div>
                         <div class="section-content">
                             <p><b>Q.</b> Are generics solely for auto-casting?</p>
@@ -631,7 +603,7 @@ public class ResizingArrayStack&lt;Item&gt; {
                 <section class="section">
                     <div class="section-container">
                         <div class="section-title">
-                            <h2 class=""><img src="../../images/base/paper-clip.png">&nbsp;Iterator Q + A</h2>
+                            <h2 class=""><img src="/images/base/paper-clip.png">&nbsp;Iterator Q + A</h2>
                         </div>
                         <div class="section-content">
                             <p><b>Q.</b> Why is the construct called <em>foreach</em> if it uses the keyword
@@ -672,9 +644,7 @@ for (s : listOfStrings)
         </div>
     </main>
     <footer class="footer">
-        <div class="footer__inner">
-            <small>Copyright &copy; 2024 Yang, Inc.</small>
-        </div>
+        <script src="/js/load_footer.js"></script>
     </footer>
 </body>
 

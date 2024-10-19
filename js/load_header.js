@@ -1,4 +1,24 @@
+const headerElement = document.querySelector("header");
+
+const fetchHeader = async () => {
+  try {
+    const res = await fetch("/modules/header.txt");
+    const template = await res.text();
+
+    headerElement.innerHTML = template;
+
+    header_addEventListener();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+fetchHeader();
+
+
+
 function header_addEventListener() {
+  /*********** menu.js start ***********/
   const nav_menuButton = document.querySelector('#toggle-menu');
   console.log(nav_menuButton);
   nav_menuButton.addEventListener('click', function(event) {
@@ -6,7 +26,8 @@ function header_addEventListener() {
       const menu = document.querySelector('#main-menu');
       menu.classList.toggle('is-open');
   });
-  
+  /*********** menu.js end ***********/
+  /*********** search.js start ***********/
   const search_input = document.querySelector(".search-input");
   
   const search_handleInputChange = (e) => {
@@ -29,23 +50,5 @@ function header_addEventListener() {
       const menu = document.querySelector('#search__menu-list');
       menu.style.display = "none";
   });
+  /*********** search.js end ***********/
 }
-
-
-
-const headerElement = document.querySelector("header");
-
-const fetchHeader = async () => {
-  try {
-    const res = await fetch("/modules/header.txt");
-    const template = await res.text();
-
-    headerElement.innerHTML = template;
-    header_addEventListener();
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-fetchHeader();
-

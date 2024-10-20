@@ -13,7 +13,7 @@ const common_links = `
             <link href="/css/coms/com-explore.css" rel="stylesheet">
             <link href="/css/header.css" rel="stylesheet">
             <link href="/css/footer.css" rel="stylesheet">
-            <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+            <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
 `;
 
 document.querySelector("#html_head").insertAdjacentHTML('beforeend', common_links);

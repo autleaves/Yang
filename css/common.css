@@ -114,6 +114,7 @@ ul.sub-nav li  div + div {
 	padding-top: 0;
 	padding-bottom: 1em;
 	margin-right: 3em;
+	box-shadow: rgba(0, 0, 0, 0.133) 0px 1.6px 3.6px 0px, rgba(0, 0, 0, 0.11) 0px 0.3px 0.9px 0px;
 }
 .section-container > .section-title {
 	/* background-color: #d4e2f1; */

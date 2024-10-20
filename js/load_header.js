@@ -20,7 +20,7 @@ fetchHeader();
 function header_addEventListener() {
   /*********** menu.js start ***********/
   const nav_menuButton = document.querySelector('#toggle-menu');
-  console.log(nav_menuButton);
+  // console.log(nav_menuButton);
   nav_menuButton.addEventListener('click', function(event) {
       event.preventDefault();
       const menu = document.querySelector('#main-menu');

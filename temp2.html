@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="stylesheet">
+        #navbar li, #navbar2 li {
+            display: inline;
+            list-style-type: none;
+            padding-right: 20px;
+            }
+    </style>
+
+</head>
+<body>
+    <div class="animals-combobox">
+        <label for="animal">Animal</label>
+        <input
+          id="animal"
+          type="text"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="true" />
+        <button id="animals-button" tabindex="-1" aria-label="Open">▽</button>
+        <ul id="animals-listbox" role="listbox" aria-label="Animals">
+          <li id="animal-cat" role="option">Cat</li>
+          <li id="animal-dog" role="option">Dog</li>
+        </ul>
+      </div>
+
+    <script>
+       let el = document.getElementById("animal");
+        console.log(el.ariaExpanded); // false
+        el.ariaExpanded = "true";
+        console.log(el.ariaExpanded); // true
+
+    </script>
+</body>
+</html>

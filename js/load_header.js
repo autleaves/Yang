@@ -8,6 +8,7 @@ const fetchHeader = async () => {
     headerElement.innerHTML = template;
 
     header_addEventListener();
+    
   } catch (err) {
     console.log(err);
   }

@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Judson-Regular
+font link: https://fonts.google.com/specimen/Judson
+font author: Daniel Johnson
+font author site: http://danieljohnson.name/
+
+
+icon designer: Kirby Wu
+icon designer link: /tkirby
+        
+{"bg":"#E6F2FE","icon-gradient-0":"#51A4FB","icon-gradient-1":"#51A4FB","font":"#193655","slogan":"#2d4a69"}
+      

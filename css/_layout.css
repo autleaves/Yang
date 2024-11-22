@@ -1,0 +1,435 @@
+@use 'sass:math';
+
+$quarter-widescreen: math.div($breakpoint-widescreen, 4);
+$half-widescreen: math.div($breakpoint-widescreen, 2);
+$three-quarters-widescreen: math.div($breakpoint-widescreen, 4) * 3;
+$default-flyout-width-desktop: 360px;
+$default-flyout-width-widescreen: 480px;
+
+:root {
+    --window-inner-height: 100vh; // to be overwritten by JS
+--atlas-header-height: 0px; // to be overwritten by JS
+--atlas-footer-height: 0px; // to be overwritten by JS
+--atlas-contained-height: 1fr; // default value, does not contain the height
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    max-inline-size: 100vw;
+
+// --layout-gutter by default, see tokens/layout.scss
+#{$layout-gap-custom-property-name}: $layout-gap;
+    #{$layout-gap-scalable-custom-property-name}: $layout-gap;
+    #{$layout-flyout-width-desktop-custom-property-name}: $default-flyout-width-desktop;
+    #{$layout-flyout-width-widescreen-custom-property-name}: $default-flyout-width-widescreen;
+    #{$layout-flyout-width-name}: var(#{$layout-flyout-width-desktop-custom-property-name});
+
+    @include widescreen {
+        #{$layout-gap-scalable-custom-property-name}: $layout-widescreen-gap;
+    // sets widescreen custom prop
+    #{$layout-flyout-width-name}: var(#{$layout-flyout-width-widescreen-custom-property-name});
+    }
+}
+
+.layout-padding {
+    padding-inline: var(#{$layout-gap-custom-property-name}) !important;
+}
+
+.layout-margin {
+    margin-inline: var(#{$layout-gap-scalable-custom-property-name}) !important;
+}
+
+@include tablet {
+    .layout-padding-tablet {
+        padding-inline: var(#{$layout-gap-custom-property-name}) !important;
+    }
+
+    .layout-margin-tablet {
+        margin-inline: var(#{$layout-gap-scalable-custom-property-name}) !important;
+    }
+}
+
+.layout-body {
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+}
+
+// grid-area values
+
+   .layout-body-header {
+       grid-area: header;
+   }
+
+.layout-body-hero {
+    grid-area: hero;
+}
+
+.layout-body-menu {
+    grid-area: menu;
+}
+
+.layout-body-main {
+    grid-area: main;
+}
+
+.layout-body-aside {
+    grid-area: aside;
+}
+
+.layout-body-footer {
+    grid-area: footer;
+}
+
+.layout-body-flyout {
+    display: none;
+    grid-area: flyout;
+}
+
+.layout-body-hero,
+.layout-body-main,
+.layout-body-footer,
+.layout-body-aside,
+.layout-body-menu {
+    &:empty {
+        display: none;
+    }
+}
+
+/* It is quite hard to keep the layout rules organized / group while satisfying the no-descrending specificity lint rule. Disabling it here. */
+
+/* stylelint-disable no-descending-specificity */
+
+.layout,
+.layout.layout-single {
+    .layout-body {
+        grid-template: minmax(auto, max-content) auto auto 1fr auto auto / minmax(0, 1fr);
+        grid-template-areas: 'header' 'hero' 'menu' 'main' 'aside' 'footer';
+    }
+
+    &.layout-flyout-active .layout-body {
+        @include desktop {
+            grid-template: minmax(auto, max-content) auto auto 1fr auto auto / minmax(0, 1fr) var(
+					#{$layout-flyout-width-name}
+				);
+            grid-template-areas: 'header header' 'hero flyout' 'menu flyout' 'main flyout' 'aside flyout' 'footer footer';
+        }
+    }
+}
+
+.layout.layout-holy-grail {
+    .layout-body {
+        grid-template: minmax(auto, max-content) auto auto 1fr auto auto / minmax(0, 1fr);
+        grid-template-areas: 'header' 'hero' 'menu' 'main' 'aside' 'footer';
+
+        @include tablet {
+            grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto auto / minmax(0, 1fr)
+				minmax(0, 2fr);
+            grid-template-areas:
+				'header header'
+				'hero hero'
+				'menu main'
+				'menu aside'
+				'footer footer';
+        }
+
+        @include desktop {
+            grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto / minmax(0, 1fr) minmax(
+					0,
+                    2fr
+				)
+				minmax(0, 1fr);
+            grid-template-areas:
+				'header header header'
+				'hero hero hero'
+				'menu main aside'
+				'footer footer footer';
+        }
+
+        @include widescreen {
+            grid-template: minmax(auto, max-content) auto var(--atlas-contained-height) auto / auto #{$quarter-widescreen} #{$half-widescreen} #{$quarter-widescreen} auto;
+            grid-template-areas:
+				'header header header header header'
+				'hero hero hero hero hero'
+				'. menu main aside .'
+				'footer footer footer footer footer';
+        }
+    }
+
+    &.layout-flyout-active .layout-body {
+        @include desktop {
+            grid-template:
+				auto auto var(--atlas-contained-height) auto / minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr)
+				var(#{$layout-flyout-width-name});
+            grid-template-areas:
+				'header header header header'
+				'hero hero hero flyout'
+				'menu main aside flyout'
+				'footer footer footer footer';
+        }
+
+        @include widescreen {
+            grid-template:
+				auto auto var(--atlas-contained-height) auto / minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr)
+				var(#{$layout-flyout-width-name});
+            grid-template-areas:
+				'header header header header'
+				'hero hero hero flyout'
+				'menu main aside flyout'
+				'footer footer footer footer';
+        }
+    }
+}
+
+.layout.layout-sidecar-left {
+    .layout-body-aside {
+        display: none;
+    }
+
+    .layout-body {
+        grid-template: minmax(auto, max-content) auto auto 1fr auto / minmax(0, 1fr);
+        grid-template-areas: 'header' 'hero' 'menu' 'main' 'footer';
+
+        @include tablet {
+            grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto / minmax(0, 1fr)
+				minmax(0, 2fr);
+            grid-template-areas:
+				'header header'
+				'hero hero'
+				'menu main'
+				'footer footer';
+        }
+
+        @include desktop {
+            grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto / minmax(0, 1fr)
+				minmax(0, 3fr);
+            grid-template-areas:
+				'header header'
+				'hero hero'
+				'menu main'
+				'footer footer';
+        }
+
+        @include widescreen {
+            grid-template: minmax(auto, max-content) auto var(--atlas-contained-height) auto / auto #{$quarter-widescreen} #{$three-quarters-widescreen} auto;
+            grid-template-areas:
+				'header header header header'
+				'hero hero hero hero'
+				'. menu main .'
+				'footer footer footer footer';
+        }
+    }
+
+    &.layout-flyout-active .layout-body {
+        @include desktop {
+            grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto / minmax(0, 1fr) minmax(
+					0,
+                    3fr
+				)
+				var(#{$layout-flyout-width-name});
+            grid-template-areas:
+				'header header header'
+				'hero hero flyout'
+				'menu main flyout'
+				'footer footer footer';
+        }
+
+        @include widescreen {
+            grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto / minmax(0, 1fr) minmax(
+					0,
+                    3fr
+				)
+				var(#{$layout-flyout-width-name});
+            grid-template-areas:
+				'header header header'
+				'hero hero flyout'
+				'menu main flyout'
+				'footer footer footer';
+        }
+    }
+}
+
+.layout.layout-sidecar-right {
+    .layout-body-menu {
+        display: none;
+    }
+
+    .layout-body {
+        grid-template: minmax(auto, max-content) auto auto 1fr auto / minmax(0, 1fr);
+        grid-template-areas: 'header' 'hero' 'main' 'aside' 'footer';
+
+        @include tablet {
+            grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto / minmax(0, 2fr)
+				minmax(0, 1fr);
+            grid-template-areas:
+				'header header'
+				'hero hero'
+				'main aside '
+				'footer footer';
+        }
+
+        @include desktop {
+            grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto / minmax(0, 3fr)
+				minmax(0, 1fr);
+            grid-template-areas:
+				'header header'
+				'hero hero'
+				'main aside'
+				'footer footer';
+        }
+
+        @include widescreen {
+            grid-template: minmax(auto, max-content) auto var(--atlas-contained-height) auto / auto #{$three-quarters-widescreen} #{$quarter-widescreen} auto;
+            grid-template-areas:
+				'header header header header'
+				'hero hero hero hero'
+				'. main aside .'
+				'footer footer footer footer';
+        }
+    }
+
+    &.layout-flyout-active .layout-body {
+        @include desktop {
+            grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto / minmax(0, 3fr) minmax(
+					0,
+                    1fr
+				)
+				var(#{$layout-flyout-width-name});
+            grid-template-areas:
+				'header header header'
+				'hero hero flyout'
+				'main aside flyout'
+				'footer footer footer';
+        }
+
+        @include widescreen {
+            grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto / minmax(0, 3fr) minmax(
+					0,
+                    1fr
+				)
+				var(#{$layout-flyout-width-name});
+            grid-template-areas:
+				'header header header'
+				'hero hero flyout'
+				'main aside flyout'
+				'footer footer footer';
+        }
+    }
+}
+
+.layout.layout-twin {
+    .layout-body-menu {
+        display: none;
+    }
+
+    .layout-body {
+        grid-template: minmax(auto, max-content) auto auto 1fr auto / minmax(0, 1fr);
+        grid-template-areas: 'header' 'hero' 'main' 'aside' 'footer';
+
+    // note that to make some extra room this layout is not constrained by the widescreen breakpoint like others
+    @include tablet {
+        grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto / minmax(0, 1fr)
+				minmax(0, 1fr);
+        grid-template-areas:
+				'header header'
+				'hero hero'
+				'main aside'
+				'footer footer';
+    }
+    }
+
+    &.layout-flyout-active .layout-body {
+        @include desktop {
+            grid-template:
+				minmax(auto, max-content) auto var(--atlas-contained-height) auto / minmax(0, 1fr) minmax(
+					0,
+                    1fr
+				)
+				var(#{$layout-flyout-width-name});
+            grid-template-areas:
+				'header header header'
+				'hero hero flyout'
+				'main aside flyout'
+				'footer footer footer';
+        }
+    }
+}
+
+/* stylelint-enable no-descending-specificity */
+
+@mixin constrained-layout-child {
+    position: sticky;
+    inset-block-start: 0;
+    overflow: hidden auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+// hide flyout when it's inactive
+
+@include desktop {
+    .layout.layout-flyout-active {
+        .layout-body-flyout {
+            display: block;
+        }
+    }
+}
+
+@include tablet {
+    .layout.layout-constrained {
+        &.layout-twin,
+        &.layout-sidecar-left,
+        &.layout-sidecar-right {
+            --atlas-contained-height: calc(
+                    var(--window-inner-height) - var(--atlas-header-height) - var(--atlas-footer-height) - 1px
+            );
+        }
+
+        &.layout-twin,
+        &.layout-sidecar-right {
+            .layout-body-main,
+            .layout-body-aside {
+                @include constrained-layout-child;
+            }
+        }
+
+        &.layout-sidecar-left {
+            .layout-body-menu,
+            .layout-body-main {
+                @include constrained-layout-child;
+            }
+        }
+    }
+}
+
+// Because the holy grail has two rows (containing menu main, menu aside) on tablet, we cannot apply height constraints at that size
+@include desktop {
+    .layout.layout-constrained.layout-holy-grail {
+        --atlas-contained-height: calc(
+                var(--window-inner-height) - var(--atlas-header-height) - var(--atlas-footer-height) - 1px
+        );
+
+        .layout-body-main,
+        .layout-body-menu,
+        .layout-body-aside {
+            @include constrained-layout-child;
+        }
+    }
+
+    .layout.layout-constrained {
+        .layout-body-flyout {
+            @include constrained-layout-child;
+        }
+    }
+}

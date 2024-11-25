@@ -6,9 +6,9 @@
     font-size: 1.125rem !important;
 }
 
-// Font family
+/***** Font family *****/
 
-.font-family-monospace {
+/* .font-family-monospace {
 	font-family: $monospace-font-stack !important;
 	-moz-osx-font-smoothing: auto;
 	-webkit-font-smoothing: auto;
@@ -16,11 +16,11 @@
 
 .font-family-quote {
 	font-family: $quote-font-stack !important;
-}
+} */
 
-// Heading sizes
+/***** Heading sizes *****/
 
-.font-size-h0 {
+/* .font-size-h0 {
 	font-size: $font-size-0 !important;
 }
 
@@ -226,4 +226,4 @@
 
 .white-space-pre-wrap {
 	white-space: pre-wrap !important;
-}
+} */

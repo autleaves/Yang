@@ -1,8 +1,6 @@
 /* CSS web fonts, font-family, font-style, font-weight, etc. */
 
-// migration note: all non-variables should soon go into a generic-ish file in base
-// migration note: all variables should move to derived or initial variables
-
+/* 
 h1,
 h2.likeAnH1,
 h2,
@@ -66,6 +64,6 @@ h6 {
 	src: local('Apple Color Emoji'), local('Android Emoji'), local('Segoe UI Emoji'),
 		local(EmojiSymbols), local(Symbola);
 
-	/* Emoji unicode blocks */
+	// Emoji unicode blocks 
 	unicode-range: U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF, U+02600-026FF;
-}
+} */

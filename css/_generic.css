@@ -19,52 +19,52 @@ a:visited {
 /* HTML Tags */
 
 a {
-	color: $hyperlink;
+	color: var(hyperlink);
 	cursor: pointer;
 	text-decoration: none;
 	word-wrap: break-word;
 
-	&:not(.button):hover {
-		color: $primary-hover;
-		text-decoration: underline;
-	}
+}
+a:not(.button):hover {
+	color: var(primary-hover);
+	text-decoration: underline;
+}
 
-	&:visited {
-		color: $visited;
-	}
+a:visited {
+	color: var(visited);
 }
 
 a,
 li {
-	outline: 0; // set outline to 0, this fixes a bug where default outline is overwriting our focus styles in Edge/IE. We can only do this because we have specific focus styles set!
+	outline: 0; /* set outline to 0, this fixes a bug where default outline is overwriting our focus styles in Edge/IE. We can only do this because we have specific focus styles set! */
 }
 
 button {
-	color: $text;
-	background-color: $body-background;
+	color: var(text);
+	background-color: var(body-background);
 	cursor: pointer;
 }
 
-// Inline code
+ /* Inline code */
 :not(a):not(pre) > code {
 	padding: 0.1em 0.2em;
-	background-color: $inline-code;
+	background-color: var(inline-code);
 	border-radius: 3px;
 	font-size: 85%;
 	font-smooth: auto;
 	word-wrap: break-word;
 }
 
-// Code "blocks"
+ /* Code "blocks" */
 pre {
-	font-size: $code-block-size;
+	font-size: var(code-block-size);
 	line-height: 1.3571;
 	overflow: auto;
-	border: $border-width-md solid $border;
-	background-color: $code-block;
+	border: var(border-width-md) solid var(border);
+	background-color: var(code-block);
 	font-smooth: auto;
-	padding: $spacing-3;
-	margin: $spacing-3 0 0;
+	padding: var(spacing-3);
+	margin: var(spacing-3) 0 0;
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
@@ -73,22 +73,22 @@ pre {
 	hyphens: none;
 	-webkit-overflow-scrolling: touch;
 
-	> code {
-		position: relative;
-		border: 0;
-		padding: 0;
-		display: block;
-		line-height: 1.3571;
+}
+pre > code {
+	position: relative;
+	border: 0;
+	padding: 0;
+	display: block;
+	line-height: 1.3571;
 
-		mark {
-			display: inline-block;
-			min-width: calc(100% + #{$spacing-3} + #{$spacing-3});
-			min-height: 18.9px; // Allow for highlighting of blank lines.
-			color: $text;
-			padding: 0 $spacing-3;
-			margin: 0 $spacing-3 * -1;
-		}
-	}
+	/* mark {
+		display: inline-block;
+		min-width: calc(100% + #{$spacing-3} + #{$spacing-3});
+		min-height: 18.9px; // Allow for highlighting of blank lines.
+		color: $text;
+		padding: 0 $spacing-3;
+		margin: 0 $spacing-3 * -1;
+	} */
 }
 
 kbd {

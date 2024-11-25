@@ -1,4 +1,4 @@
-// not greenfielded yet
+/* // not greenfielded yet
 
 .content {
 	img {
@@ -160,7 +160,7 @@
 	$checklist-marker-size: 1em;
 	$checklist-ul-spacing: 1rem;
 
-	/**** checklist list ****/
+	// checklist list 
 
 	.checklist > ul {
 		margin-#{$content-left}: $checklist-ul-spacing;
@@ -214,4 +214,4 @@
 		margin-block: 1.5rem;
 		color: $text-subtle;
 	}
-}
+} */

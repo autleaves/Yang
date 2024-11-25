@@ -1,4 +1,4 @@
-$title-size: $font-size-3 !default;
+/* $title-size: $font-size-3 !default;
 $title-weight: $weight-semibold !default;
 $title-line-height: 1.125 !default;
 $title-strong-weight: inherit !default;
@@ -86,4 +86,4 @@ $supertitle-negative-margin: -0.25rem !default;
 	&:not(.is-spaced) + .title {
 		margin-top: $supertitle-negative-margin;
 	}
-}
+} */

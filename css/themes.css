@@ -104,6 +104,8 @@
     --theme-gradient-vivid-start: #b84dc6;
     --theme-gradient-vivid-end: #0078d4;
 }
+
+
 .theme--dark{
     --theme-text: #e6e6e6;
     --theme-text-subtle: #d2d2d2;
@@ -209,6 +211,8 @@
     --theme-gradient-vivid-start: #b84dc6;
     --theme-gradient-vivid-end: #75b6e7;
 }
+
+
 .theme-high-contrast {
     --theme-text: #fff;
     --theme-text-subtle: #fff;

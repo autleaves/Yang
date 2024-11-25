@@ -1,16 +1,9 @@
-@use 'sass:math';
-
-$quarter-widescreen: math.div($breakpoint-widescreen, 4);
-$half-widescreen: math.div($breakpoint-widescreen, 2);
-$three-quarters-widescreen: math.div($breakpoint-widescreen, 4) * 3;
-$default-flyout-width-desktop: 360px;
-$default-flyout-width-widescreen: 480px;
 
 :root {
     --window-inner-height: 100vh; // to be overwritten by JS
---atlas-header-height: 0px; // to be overwritten by JS
---atlas-footer-height: 0px; // to be overwritten by JS
---atlas-contained-height: 1fr; // default value, does not contain the height
+    --atlas-header-height: 0px; // to be overwritten by JS
+    --atlas-footer-height: 0px; // to be overwritten by JS
+    --atlas-contained-height: 1fr; // default value, does not contain the height
 }
 
 .layout {

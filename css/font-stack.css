@@ -1,28 +1,75 @@
-html {
-	font-size: var(document-font-size);
+@charset "utf-8";
+
+@media (min-width: 35em) {
+    :root {
+        font-size: 1em;
+    }
 }
 
-html,
-body {
-	font-family: var(normal-font-stack);
+:root {
+	--document-font-size: 1em;
+	--weight-normal: normal;
+	--normal-font-stack: "Open Sans", sans-serif;
+	--document-font-size: calc(1vw + 0.6em);
+
+	--title-font-stack: Poppins, sans-serif;
+}
+
+html,body {
+	font-family: var(--normal-font-stack);
+	font-weight: var(--weight-normal);
+	font-size: var(--document-font-size);
 	-webkit-font-smoothing: antialiased;
-	font-weight: var(weight-normal);
 	text-rendering: optimizeLegibility;
 }
 
 kbd,
 pre,
 samp {
-	font-family: var(monospace-font-stack) !important;
+	font-family: var(--monospace-font-stack) !important;
 	/* -moz-osx-font-smoothing: auto;
 	-webkit-font-smoothing: auto; */
 }
 
 code {
 	direction: ltr;
-	font-family: var(monospace-font-stack);
+	font-family: var(--monospace-font-stack);
 }
 
 a > code {
-	font-family: var(normal-font-stack);
+	font-family: var(--normal-font-stack);
+}
+
+@media (min-width: 35em) {
+	h1 {
+	  font-size: 1.8rem;
+	}
+	h2 {
+	  font-size: 1.5rem;
+	}
+	h3 {
+	  font-size: 1.3rem;
+	}
+}
+
+h1, h2, h3, h4 {
+	font-family: var(--title-font-stack);
+	letter-spacing: 0.03em;
+	padding-top: .3em;
+	padding-bottom: .3em;
+}
+h1 {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+h2 {
+	font-size: 1.3rem;
+	font-weight: 500;
+}
+h3 {
+	font-size: 1.2rem;
+	font-weight: 400;
+}
+em {
+	font-weight: 500;
 }

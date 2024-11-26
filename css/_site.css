@@ -1,46 +1,10 @@
 
 
-html {
-	font-size: var(body-size);
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	text-rendering: var(body-rendering);
-	text-size-adjust: 100%;
-
-	box-sizing: border-box;
-	min-height: 100vh;
-	outline-color: var(text);
-
-	
-}
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
-}
-body {
-	display: flex;
-	flex-direction: column;
-	flex: 1 1 100%;
-	background-color: var(body-background);
-	color: var(text);
-	line-height: 160%;
-	min-height: 100vh;
-}
-
  /* outline not needed on active and conflicts with focus styles */
 
-.mainContainer {
-	flex-grow: 1;
-	flex-shrink: 1;
-}
-.mainContainer.primary-holder,
-.mainContainer.left-container,
-.mainContainer.right-container {
-	padding-top: 1.5rem; 
-}
+
+
+
 @media print {
 	body,
 	body > .mainContainer > .columns,

@@ -1,4 +1,33 @@
-// Brand colors
+@charset "utf-8";
+@import url(themes.css);
+
+:root {
+    --text-color: hsl(210, 11%, 15%);
+    --gray: hsl(210, 7%, 56%);
+    --light-gray: hsl(210, 17%, 95%);
+    --extra-light-gray: hsl(210, 17%, 98%);
+    --white: hsl(0, 0%, 100%);
+    --red: hsl(342, 63%, 46%);
+
+    --background--header: #fff;
+    /* --background--main: #f3f3f3; */
+    --background--main: rgb(242,242,242);
+    /* --background--main: #fafafa; */
+    --background--footer: #ececec;
+}
+  
+html,body {
+    color: var(--theme-text);
+    background-color: var(--background--main);
+}
+
+
+
+
+
+
+
+/* // Brand colors
 
 @each $name, $color-set in $brand-colors {
     $base: nth($color-set, $brand-index-base);
@@ -315,4 +344,4 @@ $text-gradient-blue: var(--theme-text-gradient-blue);
     @media (forced-colors: active) {
         fill: LinkText !important;
     }
-}
+} */

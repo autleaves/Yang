@@ -1,4 +1,53 @@
 
+
+:root {
+    /* 
+  --z-static:             0;
+  --z-loading-indicator:100;
+  --z-nav-menu:         200;
+  --z-dropdown-menu:    300;
+  --z-modal-backdrop:   400;
+  --z-model-body:       410; */
+
+  --z-dropdown:       1000;
+  --z-sticky:         1020;
+  --z-fixed:          1030;
+  --z-modal-backdrop: 1040;
+  --z-modal:          1050;
+  --z-popover:        1060;
+  --z-tooltip:        1070;
+
+
+  --radius-A:   4px;
+  --radius-B:   6px;
+  --radius-C:   8px;
+  --radius-X:   20px;
+  --radius-Y:   24px;
+  --radius-Z:   29px;
+  
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100vh;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+}
+
+.mainContainer {
+    flex-grow: 1;
+	flex-shrink: 1;
+    margin-top: 0em;
+}
+.mainContainer.primary-holder,
+.mainContainer.left-container,
+.mainContainer.right-container {
+	padding-top: 1.5rem; 
+}
+
+/* 
 :root {
     --window-inner-height: 100vh; // to be overwritten by JS
     --atlas-header-height: 0px; // to be overwritten by JS
@@ -90,9 +139,9 @@
     }
 }
 
-/* It is quite hard to keep the layout rules organized / group while satisfying the no-descrending specificity lint rule. Disabling it here. */
+// It is quite hard to keep the layout rules organized / group while satisfying the no-descrending specificity lint rule. Disabling it here. 
 
-/* stylelint-disable no-descending-specificity */
+// stylelint-disable no-descending-specificity 
 
 .layout,
 .layout.layout-single {
@@ -360,7 +409,7 @@
     }
 }
 
-/* stylelint-enable no-descending-specificity */
+// stylelint-enable no-descending-specificity 
 
 @mixin constrained-layout-child {
     position: sticky;
@@ -425,4 +474,4 @@
             @include constrained-layout-child;
         }
     }
-}
+} */

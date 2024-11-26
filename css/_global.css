@@ -1,474 +1,163 @@
-html *,
-html a,
-html li {
-	// include a,li {} to override css reset/normalize; this is causing :focus-visible color issues
-	outline-color: inherit;
+@charset "utf-8";
+
+:root {
+	--grey--sectionTitle:rgb(232, 232, 232);
 }
 
-// rule removed from minireset.css in upgrade from 0.06 to 0.07
-td:not([align]),
-th:not([align]) {
-	text-align: #{$user-left};
+.container {
+	text-align: auto;
 }
 
-.vector-icon {
-	position: relative;
-	top: 2px;
-	height: 14px;
-	width: 14px;
-	fill: currentColor;
-	forced-color-adjust: auto;
-}
-
-.textAccent1 {
-	color: $warning-dark;
-}
-
-.textAccent2 {
-	color: $info-dark;
-}
-
-.bgdAccent1 {
-	background-color: $body-background-medium;
-}
-
-span.likeALabel {
-	color: $text-subtle;
-}
-
-time.loading {
-	visibility: hidden;
-}
-
-/* Make hidden attribute compatible with old browser.*/
-
-[hidden] {
-	display: none !important;
-}
-
-/* Container and iFrame styles for embedded video */
-
-div.embeddedvideo {
-	max-width: 640px;
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-}
-
-// expand the div to the 16:9 aspect ratio
-
-div.embeddedvideo:before {
-	content: '';
-	display: block;
-	height: 0;
-	padding-bottom: 56.25%;
-	width: 100%;
-	z-index: -1;
-}
-
-div.embeddedvideo iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.codeHeaderTitle {
-	font-weight: $weight-semibold;
-	margin-top: 24px;
-}
-
-.codeHeader {
-	box-sizing: content-box;
-	background-color: $code-header;
-	color: $code-header-color;
-	display: flex;
-	flex-direction: row;
-	font-size: 0.8rem;
-	border: 1px solid $border;
-	border-bottom: 0;
-	margin-top: 16px;
-	min-height: 30px;
-
-	button.run,
-	button.tryIt {
-		background-color: $success;
-		color: $success-invert;
-
-		&:hover {
-			background-color: $success-hover;
-			color: $success-invert;
-		}
-	}
-}
-
-.codeHeaderTitle + .codeHeader {
-	margin-top: 4px;
-}
-
-.codeHeader > .language {
-	padding: 2px 16px;
-	flex-grow: 1;
-	display: flex;
-	align-items: center;
-}
-
-.codeHeader > .action {
-	padding: 2px 10px;
-	background-color: transparent;
-	border: $border-width-md solid $border;
-	border-#{$content-left}-width: 1px;
-	color: $code-header-color;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	line-height: normal;
-
-	> .docon {
-		margin-#{$content-right}: 0.25em;
-	}
-
-	&:hover {
-		background-color: $code-block;
-	}
-
-	&:focus-visible {
-		z-index: $zindex-focus;
-	}
-
-	&.action-interactive {
-		color: $success-invert;
-		background-color: $success;
-
-		&:hover {
-			background-color: $success-hover !important; // specificity battle with action
-		}
-
-		&.is-loading {
-			&:after {
-				border-color: transparent transparent $success-hover $success-hover !important;
-			}
-		}
-	}
-
-	.successful-copy-alert {
-		&.is-transparent {
-			opacity: 0;
-			transition: 500ms opacity ease-in-out;
-		}
-	}
-}
-
-.codeHeader + pre {
-	margin-top: 0;
-
-	li > & {
-		margin-bottom: 16px;
-	}
-}
-
-.fixed {
-	position: fixed;
-	top: 0;
-	z-index: $zindex-fixed;
-	overflow-y: auto;
-}
-
-.centered {
+.container--aligncenter {
 	text-align: center;
 }
 
-.pageFooter {
-	border-top: 1px solid $border;
-	margin-top: 48px;
-	padding: 24px 0;
-
-	ul.links {
-		list-style-type: none;
-
-		> li {
-			display: inline-block;
-			padding: 0 25px;
-
-			a {
-				font-weight: $weight-semibold;
-				color: $text;
-
-				&:hover {
-					color: $primary;
-					text-decoration: underline;
-				}
-
-				&:visited {
-					color: $text;
-				}
-			}
-		}
-	}
-}
-
-/* adding ref classes here until page templates are cleaned up */
-
-.subtle {
-	color: $text-subtle;
-}
-
-.summaryHolder {
-	margin-top: 24px;
-}
-
-.summary p:first-of-type {
-	margin-top: 0;
-}
-
-.inlineEditButton {
-	font-size: 0.875rem;
-	align-self: center;
-	flex-shrink: 0;
-	margin-#{$user-left}: 24px;
-
-	@include tablet {
-		align-self: flex-end;
-	}
-}
-
-.inlineEditButton a,
-.inlineEditButton a:link {
-	color: $text-subtle;
-}
-
-.inlineEditButton a:hover {
-	color: $primary;
-}
-
-// Removing the unwanted appearance of external-indicator icon from the edit btn
-.inlineEditButton a:after {
-	display: none !important;
-}
-
-.inlineEditButton a span.docon {
-	color: $primary;
-	margin-#{$user-right}: 6px;
-	display: inline;
-}
-
-.summaryHolder .inlineEditButton {
-	float: $content-right;
-}
-
-.content :not(.codeHeader) + pre > code {
-	margin-top: -16px;
-
-	&:before {
-		display: block;
-		height: 31px;
-		box-sizing: border-box;
-		margin: -16px -16px 16px;
-		padding: 5px 16px;
-		content: ' '; // font & line height to match code header.
-		font-weight: $weight-normal;
-		font-size: 0.8rem;
-		line-height: 160%;
-		color: $code-header-color;
-		background-color: $code-header;
-		border-bottom: 1px solid $border;
-	}
-}
-
-pre.wrap {
-	white-space: pre-wrap;
-}
-
-dl.attributeList {
-	display: flex;
-	margin: 0;
-}
-
-dl.attributeList dd {
-	margin-left: 8px;
-}
-
-dl.attributeList dd p:first-child {
-	margin-top: 0;
-}
-
-dl.stack,
-.stack {
-	margin-top: 24px;
-}
-
-dl.halfStack,
-.halfStack {
-	margin-top: 12px;
-}
-
-.pdlHolder {
-	display: flex;
-	flex-direction: column;
-	flex-flow: wrap;
-}
-
-.cdlHolder .cdl,
-.pdlHolder .pdl {
-	@extend %has-text-wrap;
+pre.sourcecode {
 	display: inline-block;
-	a {
-		outline-offset: -$focus-width;
-	}
+	background-color: rgb(242,242,242);
+	border: 1px solid #b6b6b6;
+	border-radius: var(--radius-C);
+	padding: 2em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
 }
 
-.cdlHolder .cdl:after {
-	content: ', ';
+main > .contents {
+    display: flex;
+}
+.contents > aside {
+    padding-left: .5em;
+    flex: 1;
+}
+.contents > article {
+    flex: 4;
 }
 
-.pdlHolder .pdl:after {
-	color: $text-subtle;
-	content: '\2192';
-	font-size: 16px;
-	padding-left: 6px;
-	padding-right: 6px;
-	vertical-align: baseline;
+.topicpath {
+	margin-bottom: .5em;
+	height: 2em;
+	line-height: 2em;
 }
-
-.cdlHolder .cdl:last-child:after,
-.cdlHolder .cdl.cdlLastVisible:after,
-.pdlHolder .pdl:last-child:after {
-	content: '';
-}
-
-.memberNameHolder {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 24px;
-	@extend %has-text-wrap;
-}
-
-.memberInfo {
-	margin-#{$user-left}: 24px;
-}
-
-.memberInfo + p {
-	word-break: break-all;
-}
-
-.propertyInfoTitle {
-	margin-bottom: 2px;
-
-	& + p {
-		margin-top: 0;
-	}
-}
-
-.propertyInfo {
-	@extend %has-text-wrap;
-}
-
-.propertyInfo p:first-child,
-.propertyInfo p:nth-child(2),
-.propertyInfo + p {
-	margin-top: 2px;
-}
-
-dl.parameterList {
-	display: flex;
-	max-width: 100%;
+.topicpath ol {
+	list-style-type: none;
 	margin: 0;
+	padding: 0;
 }
 
-dl.parameterList dd {
-	@extend %has-text-wrap;
-	margin-left: 12px;
-}
-
-dl.parameterList + p {
-	margin-top: 4px;
-}
-
-/*ssssssss*/
-
-.detailTile {
-	width: 50%;
-	float: $user-left;
-	margin-bottom: 28px;
-}
-
-.detailTile h4 {
-	font-size: 1rem;
-	margin: 0 0 6px;
-}
-
-.detailTile div {
-	color: $text-subtle;
-}
-
-.detailTile + h2 {
-	clear: $user-left;
-}
-
-.parameterName,
-dl.parameterList dt {
-	background-color: $body-background-medium;
+.topicpath ol li {
 	display: inline-block;
-	font-family: $monospace-font-stack;
-	font-weight: $weight-semibold;
-	padding: 0 6px 2px;
+	/* margin-right: .3em; */
+}
+.topicpath ol li.topicpath-icon {
+	width: 2em;
+	border-radius: 50%;
+	background-color: #0066cc;
 }
 
-.parameterInfo {
-	margin-left: 24px;
+
+ul.sub-nav {
+	/* background-color: #f5f5f5; */
+    /* border: 1px solid white; */
+    border-radius: var(--radius-A);
+	min-height: 100vh;
+	padding-left: 0;
+	margin-left: 0;
+	width: 15em;
+	list-style-type: none;
+}
+/* ul.sub-nav li {
+	padding-left: 0;
+	margin-left: 0;
+} */
+ul.sub-nav li>a:hover {
+	background-color: rgb(232,232,232);
+	box-shadow: rgba(0, 0, 0, 0.133) 0px 1.6px 3.6px 0px, rgba(0, 0, 0, 0.11) 0px 0.3px 0.9px 0px;
+}
+ul.sub-nav li>a:visited {
+	color: #000;
+}
+ul.sub-nav li + li {
+	margin-top: 1em;
+}
+ul.sub-nav li {
+	border-radius: var(--radius-B);
+	
+}
+ul.sub-nav li>a {
+	display: block;
+	height: 2.4em;
+	line-height: 2.4em;
+	border-radius: inherit;
+	/* width: 10em; */
 }
 
-.parameterInfo table.stack {
-	margin-top: 12px;
+ul.sub-nav .sub-nav-current {
+	background-color: #FFF;
+	box-shadow: rgba(0, 0, 0, 0.133) 0px 1.6px 3.6px 0px, rgba(0, 0, 0, 0.11) 0px 0.3px 0.9px 0px;
+	font-weight: 600;
+}
+ul.sub-nav li>a>div {
+	display: inline-block;
+}
+ul.sub-nav li  div + div {
+	margin-left: 1em;
+}
+.sub-nav-current .icon-container {
+	width: .2em;
+	line-height: 1em;
+	background-color: rgb(0, 95, 184);
 }
 
-.parameterName + .parameterDetails {
-	margin-top: 4px;
+.section-container {
+	background-color: #FFF;
+	border: 1px solid #f2f2f2;
+	border-radius: var(--radius-C);
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: 0;
+	padding-bottom: 1em;
+	margin-right: 3em;
+	box-shadow: rgba(0, 0, 0, 0.133) 0px 1.6px 3.6px 0px, rgba(0, 0, 0, 0.11) 0px 0.3px 0.9px 0px;
+}
+.section-container > .section-title {
+	/* background-color: #d4e2f1; */
+	margin: 0 -2em;
+	border-bottom: 1px solid #dedede;
+	border-radius: inherit inherit 0 0; 
+	text-indent: 2em;
+}
+.section-container > p {
+	text-indent: 2em;
+}
+section.section + section.section {
+	margin-top: 1em;
 }
 
-.parameterDetails {
-	font-size: 0.875rem;
+table.sourcecode-list {
+	border-collapse: collapse;
+	text-align: center;
+}
+table.sourcecode-list td,
+table.sourcecode-list th {
+	padding: .3em;
+	border: 1px solid #525151;
+}
+table.sourcecode-list th {
+	background-color: #817e7e;
+	color: #fff;
+}
+table.sourcecode-list tr:nth-child(odd) {
+	background-color: #f2f2f2;
 }
 
-main .memberDetails table.nameValue td:nth-child(1) {
-	padding: 8px 0 0;
+h2.section-title {
+	background-color: #0066cc;
+}
+.chapter-title h1 {
+	text-align: center;
 }
 
-main .memberDetails table.nameValue td:nth-child(2) {
-	padding: 0 0 8px;
-}
-
-main .memberDetails table.nameValue td:only-child {
-	padding: 8px 0;
-}
-
-@include tablet {
-	main .memberDetails table.nameValue td:nth-child(1) {
-		padding: 8px 16px 8px 0;
-	}
-
-	main .memberDetails table.nameValue td:nth-child(2) {
-		padding: 8px 0;
-	}
-
-	main .memberDetails table.nameValue td:only-child {
-		padding: 8px 0;
-	}
-}
-
-body[dir='rtl'] .locale-selector-link:before {
-	margin-right: 0;
-	margin-left: 5px;
-}
-
-html.is-chromeless {
-	body {
-		display: block;
-		width: auto;
-		overflow: hidden;
-		padding: 0 24px 24px;
-	}
+.section-container .illustration {
+	text-align: center;
 }

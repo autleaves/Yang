@@ -242,8 +242,8 @@
     stroke: currentColor !important;
 }
 
-// Temporary
-// Needs to be moved to the Atlas's palette
+ /* Temporary
+ Needs to be moved to the Atlas's palette */
 :root,
 .theme-light {
     --theme-body-background-learn: #e8e6df;

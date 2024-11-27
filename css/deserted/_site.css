@@ -1,0 +1,38 @@
+
+
+ /* outline not needed on active and conflicts with focus styles */
+
+
+
+
+@media print {
+	body,
+	body > .mainContainer > .columns,
+	body > .mainContainer > .columns > .primary-holder > .columns {
+		display: block !important;
+		margin: 0 auto !important;
+	}
+
+	body > :not(.mainContainer),
+	body > .mainContainer > .columns > .primary-holder > .columns > :not(.column),
+	.left-container,
+	.right-container,
+	.feedback-section {
+		display: none !important;
+	}
+
+	.mainContainer,
+	.primary-holder,
+	.uhf-container {
+		max-width: 100% !important;
+		width: 100% !important;
+	}
+
+	pre {
+		white-space: pre-wrap !important;
+		overflow-wrap: break-word !important;
+		word-wrap: break-word !important;
+		word-break: break-word !important;
+		hyphens: auto !important;
+	}
+}

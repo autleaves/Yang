@@ -28,7 +28,7 @@
         }
 
         .active {
-            width: 100%;
+            width: 350px;
         }
         .search-wrapper input {
             position: absolute;
@@ -65,11 +65,12 @@
     
 </head>
 <body>
-    <div class="search-wrapper">
-        <input type="search" placeholder="Search" />
-        <button class="search-btn">
-          <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
-        </button>
+    <div id="sb-search" class="sb-search">
+        <form>
+            <input class="sb-search-input" placeholder="Enter your search term..." type="search" value="" name="search" id="search">
+            <input class="sb-search-submit" type="submit" value="">
+            <span class="sb-icon-search"></span>
+        </form>
     </div>
       <script>
         const search = document.querySelector(".search-wrapper");

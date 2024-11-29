@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div class="header-holder has-default-focus"></div>
+    <!-- liquid-tag banners global -->
+
+    <!-- site header -->
+    <header id="ms--site-header" data-test-id="site-header-wrapper" role="banner" itemscope="itemscope"
+        itemtype="http://schema.org/Organization">
+        <div id="ms--mobile-nav" class="site-header display-none-tablet padding-inline-none gap-none"
+            data-bi-name="mobile-header" data-test-id="mobile-header"><!---->
+            <div id="ms--site-header-hamburger" data-test-id="site-header-hamburger">
+                <button type="button" class="button button-clear inner-focus" data-test-id="mobile-nav-open-button"
+                    data-bi-name="mobile-nav-open-button" title="Global navigation" aria-label="Global navigation">
+                    <span class="icon" aria-hidden="true">
+                        <span class="docon docon-menu"></span>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Brand -->
+
+            <a class="site-header-brand" itemprop="url" href="/en-us/" data-bi-name="site-header-brand-learn-mobile"
+                data-test-id="site-header-brand-mobile">
+                <span><!---->Learn<!----></span>
+            </a>
+
+
+            <!-- MS logo -->
+
+            <a href="https://www.microsoft.com" aria-label="Microsoft" itemprop="url"
+                data-bi-name="site-header-microsoft-logo-mobile" data-test-id="site-header-microsoft-logo-mobile"
+                class="site-header-logo site-header-logo-centered">
+
+                <svg aria-hidden="true" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    itemprop="logo" itemscope="itemscope">
+                    <path d="M11.5216 0.5H0V11.9067H11.5216V0.5Z" fill="#f25022"></path>
+                    <path d="M24.2418 0.5H12.7202V11.9067H24.2418V0.5Z" fill="#7fba00"></path>
+                    <path d="M11.5216 13.0933H0V24.5H11.5216V13.0933Z" fill="#00a4ef"></path>
+                    <path d="M24.2418 13.0933H12.7202V24.5H24.2418V13.0933Z" fill="#ffb900"></path>
+                </svg>
+
+            </a>
+
+
+            <!-- Search -->
+
+            <search-expander data-test-id="site-header-search-mobile" class="display-flex flex-grow-1 justify-content-flex-end">
+                <div hidden="" id="ms--site-header-search-mobile"
+                    class="display-flex align-items-center gap-xxs width-full padding-left-xxs">
+
+                    <form class="flex-grow-1" method="GET" role="search" id="ms--site-header-search-form-mobile"
+                        data-bi-name="site-header-search-form-mobile" name="site-header-search-form-mobile"
+                        aria-label="Search" action="/en-us/search/">
+                        <div class="autocomplete display-block" data-bi-name="autocomplete"><!---->
+                            <div class="field-body control ">
+                                <input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off"
+                                    autocomplete="off" autocorrect="off" spellcheck="false"
+                                    id="site-header-search-autocomplete-input-mobile"
+                                    data-test-id="site-header-search-autocomplete-input-mobile" class="autocomplete-input input 
+						
+						width-full" type="search" name="terms" aria-expanded="false" aria-owns="ax-1-listbox"
+                                    aria-controls="ax-1-listbox" aria-activedescendant="" aria-label="Search"
+                                    aria-describedby="ms--site-header-search-autocomplete-input-mobile-description"
+                                    placeholder="Search" data-bi-name="site-header-search-autocomplete-input-mobile"
+                                    pattern=".*">
+
+
+
+                                <span aria-hidden="true" class="autocomplete-loader loader has-text-primary "
+                                    hidden=""></span>
+
+                                <span hidden="" id="ms--site-header-search-autocomplete-input-mobile-description">
+                                    Suggestions will filter as you type
+                                </span>
+                            </div>
+
+                            <ul role="listbox" id="ax-1-listbox"
+                                data-test-id="site-header-search-autocomplete-input-mobile-listbox"
+                                class="autocomplete-suggestions is-vertically-scrollable padding-xxs "
+                                aria-label="Suggestions" hidden="">
+
+
+                            </ul>
+                            <!---->
+                        </div>
+                        <!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+                        <button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+                        <input name="category" hidden="" value="Training">
+
+
+                    </form>
+
+                    <button data-search-expander-trigger-close="" type="button" class="button button-clear inner-focus"
+                        aria-controls="ms--site-header-search-mobile" aria-label="Close search"
+                        data-bi-name="site-header-search-close-mobile" data-test-id="site-header-search-close-mobile">
+                        <span class="icon" aria-hidden="true">
+                            <span class="docon docon-navigate-close"></span>
+                        </span>
+                    </button>
+                </div>
+                <button data-search-expander-trigger-open="" type="button" class="button button-clear inner-focus"
+                    aria-controls="ms--site-header-search-mobile" aria-label="Open search"
+                    data-bi-name="site-header-search-open-mobile" data-test-id="site-header-search-open-mobile">
+                    <span class="icon" aria-hidden="true">
+                        <span class="docon docon-search"></span>
+                    </span>
+                </button>
+            </search-expander>
+
+
+            <!-- User avatar/Sign in -->
+            <!---->
+            <a href="#" data-bi-name="site-header-sign-in-mobile" data-test-id="site-header-sign-in-mobile"
+                class="link-button font-size-sm flex-shrink-0 docs-sign-in auth-status-determined not-authenticated margin-right-xs margin-left-xxs">
+                Sign in
+            </a>
+
+            <details data-bi-name="site-header-user-mobile"
+                class="popover popover-right auth-status-determined authenticated margin-right-xs margin-left-xxs">
+                <summary data-bi-name="site-header-user-avatar" aria-label="Your Account"
+                    data-test-id="site-header-user-mobile">
+                    <div class="persona persona-sm">
+                        <figure class="persona-avatar">
+                            <img alt="" data-profile-property="avatarThumbnailUrl">
+                        </figure>
+                    </div>
+                </summary>
+                <div class="popover-content width-auto" data-bi-name="site-header-user-menu">
+                    <div class="persona persona-sm">
+                        <figure class="persona-avatar">
+                            <img alt="" data-profile-property="avatarUrl"
+                                aria-labelledby="ms--user-display-name-mobile">
+                        </figure>
+                        <div class="persona-details" data-test-id="persona-detail-mobile">
+                            <p class="persona-name" data-profile-property="displayName"
+                                id="ms--user-display-name-mobile"></p>
+                            <p data-profile-property="upn"></p>
+                        </div>
+                    </div>
+                    <ul class="padding-block-xs">
+                        <li class="padding-bottom-xs">
+                            <a data-profile-property="profileUrl" class="font-size-sm"
+                                data-bi-name="site-header-user-profile"
+                                href="https://learn.microsoft.com/en-us/users/me/activity/">
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a data-profile-property="settingsUrl" class="font-size-sm"
+                                data-bi-name="site-header-user-settings"
+                                href="https://learn.microsoft.com/en-us/users/me/settings/">
+                                Settings
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="border-top padding-top-xs">
+                        <a class="docs-sign-out font-size-sm" href="#" data-bi-name="site-header-sign-out-mobile"
+                            data-test-id="site-header-user-sign-out-mobile">
+                            Sign out
+                        </a>
+                    </div>
+                </div>
+            </details>
+            <!---->
+            <!---->
+        </div>
+        <div id="ms--primary-nav" class="site-header display-none display-flex-tablet" data-bi-name="L1-header"
+            data-test-id="primary-header"><!---->
+            <!-- MS logo -->
+
+            <a href="https://www.microsoft.com" aria-label="Microsoft" itemprop="url"
+                data-bi-name="site-header-microsoft-logo" data-test-id="site-header-microsoft-logo"
+                class="site-header-logo ">
+
+                <svg aria-hidden="true" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    itemprop="logo" itemscope="itemscope">
+                    <path d="M11.5216 0.5H0V11.9067H11.5216V0.5Z" fill="#f25022"></path>
+                    <path d="M24.2418 0.5H12.7202V11.9067H24.2418V0.5Z" fill="#7fba00"></path>
+                    <path d="M11.5216 13.0933H0V24.5H11.5216V13.0933Z" fill="#00a4ef"></path>
+                    <path d="M24.2418 13.0933H12.7202V24.5H24.2418V13.0933Z" fill="#ffb900"></path>
+                </svg>
+
+            </a>
+
+
+            <!-- Divider -->
+            <div class="site-header-divider"></div>
+
+            <!-- Brand -->
+
+            <a class="site-header-brand" itemprop="url" href="/en-us/" data-bi-name="site-header-brand-learn"
+                data-test-id="site-header-brand">
+                <span><!---->Learn<!----></span>
+            </a>
+
+
+            <div id="ms--search-expander-wrapper"
+                class="display-flex justify-content-space-between flex-grow-1 align-items-center height-full overflow-x-hidden">
+                <!-- Main Nav -->
+
+                <overflow-menu class="align-self-stretch" style="display: block; overflow: hidden; width: 100%;">
+                    <nav class="site-header-nav" data-bi-name="primary-nav" data-overflow-menu-container=""
+                        aria-label="Global" style="visibility: visible; overflow: hidden;">
+                        <button type="button" data-overflow-menu-prev-button="" data-bi-name="site-header-btn-prev"
+                            class="button button-clear button-sm inner-focus" hidden="" aria-label="Previous">
+                            <span class="icon" aria-hidden="true">
+                                <span class="docon docon-chevron-left-light"></span>
+                            </span>
+                        </button>
+
+
+                        <ul class="display-flex gap-xxs-desktop">
+                            <!---->
+                            <li aria-setsize="4" aria-posinset="1">
+                                <panel-controller data-bi-name="site-header-btn-1-discover">
+                                    <button type="button" aria-expanded="false" class="site-header-button"
+                                        data-overflow-menu-item="" aria-controls="ms--panel-1"
+                                        data-test-id="site-header-panel-controller-1" style="white-space: nowrap;">
+                                        <span><!---->Discover<!----></span>
+                                        <span class="icon expanded-indicator" aria-hidden="true">
+                                            <span class="docon docon-chevron-down-light"></span>
+                                        </span>
+                                    </button>
+                                    <div class="site-header-panel" id="ms--panel-1" data-bi-name="panel-1-discover"
+                                        data-test-id="site-header-panel-1" hidden="">
+
+                                        <div class="site-header-panel-content">
+                                            <ul class="site-header-panel-cards">
+                                                <!---->
+                                                <li>
+                                                    <article
+                                                        class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none"
+                                                        data-bi-name="panel-card-1-documentation">
+                                                        <div class="card-content">
+                                                            <a class="card-title color-text background-color-transparent stretched-link"
+                                                                href="/en-us/docs/">
+                                                                Documentation
+                                                            </a>
+                                                            <p class="card-content-description line-clamp-2">
+                                                                <!---->In-depth articles on Microsoft developer tools
+                                                                and technologies<!----></p>
+                                                        </div>
+                                                    </article>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <article
+                                                        class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none"
+                                                        data-bi-name="panel-card-2-training">
+                                                        <div class="card-content">
+                                                            <a class="card-title color-text background-color-transparent stretched-link"
+                                                                href="/en-us/training/">
+                                                                Training
+                                                            </a>
+                                                            <p class="card-content-description line-clamp-2">
+                                                                <!---->Personalized learning paths and courses<!---->
+                                                            </p>
+                                                        </div>
+                                                    </article>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <article
+                                                        class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none"
+                                                        data-bi-name="panel-card-3-credentials">
+                                                        <div class="card-content">
+                                                            <a class="card-title color-text background-color-transparent stretched-link"
+                                                                href="/en-us/credentials/">
+                                                                Credentials
+                                                            </a>
+                                                            <p class="card-content-description line-clamp-2">
+                                                                <!---->Globally recognized, industry-endorsed
+                                                                credentials<!----></p>
+                                                        </div>
+                                                    </article>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <article
+                                                        class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none"
+                                                        data-bi-name="panel-card-4-qna">
+                                                        <div class="card-content">
+                                                            <a class="card-title color-text background-color-transparent stretched-link"
+                                                                href="/en-us/answers/">
+                                                                Q&amp;A
+                                                            </a>
+                                                            <p class="card-content-description line-clamp-2">
+                                                                <!---->Technical questions and answers moderated by
+                                                                Microsoft<!----></p>
+                                                        </div>
+                                                    </article>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <article
+                                                        class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none"
+                                                        data-bi-name="panel-card-5-code-samples">
+                                                        <div class="card-content">
+                                                            <a class="card-title color-text background-color-transparent stretched-link"
+                                                                href="/en-us/samples/">
+                                                                Code Samples
+                                                            </a>
+                                                            <p class="card-content-description line-clamp-2"><!---->Code
+                                                                sample library for Microsoft developer tools and
+                                                                technologies<!----></p>
+                                                        </div>
+                                                    </article>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <article
+                                                        class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none"
+                                                        data-bi-name="panel-card-6-assessments">
+                                                        <div class="card-content">
+                                                            <a class="card-title color-text background-color-transparent stretched-link"
+                                                                href="/en-us/assessments/">
+                                                                Assessments
+                                                            </a>
+                                                            <p class="card-content-description line-clamp-2">
+                                                                <!---->Interactive, curated guidance and
+                                                                recommendations<!----></p>
+                                                        </div>
+                                                    </article>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <article
+                                                        class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none"
+                                                        data-bi-name="panel-card-7-shows">
+                                                        <div class="card-content">
+                                                            <a class="card-title color-text background-color-transparent stretched-link"
+                                                                href="/en-us/shows/">
+                                                                Shows
+                                                            </a>
+                                                            <p class="card-content-description line-clamp-2">
+                                                                <!---->Thousands of hours of original programming from
+                                                                Microsoft experts<!----></p>
+                                                        </div>
+                                                    </article>
+                                                </li>
+                                                <!---->
+                                            </ul>
+
+                                        </div>
+
+                                        <section class="site-header-panel-featured-content"><!----><!---->
+                                            <article
+                                                class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none"
+                                                data-bi-name="featured-card-1-microsoft-learn-for-organizations">
+                                                <div class="card-content">
+                                                    <p class="card-supertitle line-clamp-2 line-height-normal">
+                                                        <!---->Microsoft Learn for Organizations<!----></p>
+                                                    <a class="card-title color-text background-color-transparent stretched-link"
+                                                        href="/en-us/training/organizations/">
+                                                        Boost your team's technical skills
+                                                    </a>
+                                                    <p class="card-content-description line-clamp-2"><!---->Access
+                                                        curated resources to upskill your team and close skills
+                                                        gaps.<!----></p>
+                                                </div>
+                                            </article>
+                                            <!----><!---->
+                                        </section>
+
+
+                                    </div>
+                                </panel-controller>
+                            </li>
+                            <!---->
+                            <li aria-setsize="4" aria-posinset="2">
+                                <panel-controller data-bi-name="site-header-btn-2-product-documentation">
+                                    <button type="button" aria-expanded="false" class="site-header-button"
+                                        data-overflow-menu-item="" aria-controls="ms--panel-2"
+                                        data-test-id="site-header-panel-controller-2" style="white-space: nowrap;">
+                                        <span><!---->Product documentation<!----></span>
+                                        <span class="icon expanded-indicator" aria-hidden="true">
+                                            <span class="docon docon-chevron-down-light"></span>
+                                        </span>
+                                    </button>
+                                    <div class="site-header-panel" hidden="" id="ms--panel-2"
+                                        data-bi-name="panel-2-product-documentation" data-test-id="site-header-panel-2">
+
+                                        <div class="site-header-panel-content">
+                                            <ul class="site-header-panel-links">
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/aspnet/" data-bi-name="panel-link-1-asp-dotnet">
+                                                        ASP.NET
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/azure/" data-bi-name="panel-link-2-azure">
+                                                        Azure
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/dynamics365/"
+                                                        data-bi-name="panel-link-3-dynamics365">
+                                                        Dynamics 365
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/microsoft-365/"
+                                                        data-bi-name="panel-link-4-microsoft-365">
+                                                        Microsoft 365
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/copilot/" data-bi-name="panel-link-5-copilot">
+                                                        Microsoft Copilot
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/microsoft-edge/"
+                                                        data-bi-name="panel-link-6-microsoft-edge">
+                                                        Microsoft Edge
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/entra/"
+                                                        data-bi-name="panel-link-7-microsoft-entra">
+                                                        Microsoft Entra
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/graph/"
+                                                        data-bi-name="panel-link-8-microsoft-graph">
+                                                        Microsoft Graph
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/mem/" data-bi-name="panel-link-9-microsoft-intune">
+                                                        Microsoft Intune
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/purview/"
+                                                        data-bi-name="panel-link-10-microsoft-purview">
+                                                        Microsoft Purview
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/microsoftteams/"
+                                                        data-bi-name="panel-link-11-microsoft-teams">
+                                                        Microsoft Teams
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/dotnet/" data-bi-name="panel-link-12-dotnet">
+                                                        .NET
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/power-apps/"
+                                                        data-bi-name="panel-link-13-power-apps">
+                                                        Power Apps
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/power-bi/" data-bi-name="panel-link-14-power-bi">
+                                                        Power BI
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/power-platform/"
+                                                        data-bi-name="panel-link-15-power-platform">
+                                                        Power Platform
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/powershell/"
+                                                        data-bi-name="panel-link-16-powershell">
+                                                        PowerShell
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/sql/" data-bi-name="panel-link-17-sql">
+                                                        SQL
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/sysinternals/"
+                                                        data-bi-name="panel-link-18-sysinternals">
+                                                        Sysinternals
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/visualstudio/"
+                                                        data-bi-name="panel-link-19-visual-studio">
+                                                        Visual Studio
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/windows/" data-bi-name="panel-link-20-windows">
+                                                        Windows
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/windows-server/"
+                                                        data-bi-name="panel-link-21-windows-server">
+                                                        Windows Server
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                            </ul>
+
+                                            <a class="button button-clear button-sm color-hyperlink justify-content-flex-start border-none background-color-transparent margin-top-sm"
+                                                href="/en-us/docs/" data-bi-name="panel-cta-view-all-products">
+                                                View all products
+                                            </a>
+
+                                        </div>
+
+                                        <section class="site-header-panel-featured-content"><!----><!---->
+                                            <article
+                                                class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none"
+                                                data-bi-name="featured-card-1-microsoft-learn-for-organizations">
+                                                <div class="card-content">
+                                                    <p class="card-supertitle line-clamp-2 line-height-normal">
+                                                        <!---->Microsoft Learn for Organizations<!----></p>
+                                                    <a class="card-title color-text background-color-transparent stretched-link"
+                                                        href="/en-us/training/organizations/">
+                                                        Boost your team's technical skills
+                                                    </a>
+                                                    <p class="card-content-description line-clamp-2"><!---->Access
+                                                        curated resources to upskill your team and close skills
+                                                        gaps.<!----></p>
+                                                </div>
+                                            </article>
+                                            <!----><!---->
+                                        </section>
+
+
+                                    </div>
+                                </panel-controller>
+                            </li>
+                            <!---->
+                            <li aria-setsize="4" aria-posinset="3">
+                                <panel-controller data-bi-name="site-header-btn-3-dev-languages">
+                                    <button type="button" aria-expanded="false" class="site-header-button"
+                                        data-overflow-menu-item="" aria-controls="ms--panel-3"
+                                        data-test-id="site-header-panel-controller-3" style="white-space: nowrap;">
+                                        <span><!---->Development languages<!----></span>
+                                        <span class="icon expanded-indicator" aria-hidden="true">
+                                            <span class="docon docon-chevron-down-light"></span>
+                                        </span>
+                                    </button>
+                                    <div class="site-header-panel" hidden="" id="ms--panel-3"
+                                        data-bi-name="panel-3-dev-languages" data-test-id="site-header-panel-3">
+
+                                        <div class="site-header-panel-content">
+                                            <ul class="site-header-panel-links">
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/cpp/" data-bi-name="panel-link-1-cpp">
+                                                        C++
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/dotnet/csharp/" data-bi-name="panel-link-2-csharp">
+                                                        C#
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/dax/" data-bi-name="panel-link-3-dax">
+                                                        DAX
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/java/" data-bi-name="panel-link-4-java">
+                                                        Java
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/odata/" data-bi-name="panel-link-5-odata">
+                                                        OData
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/openapi/" data-bi-name="panel-link-6-open-api">
+                                                        OpenAPI
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/powerquery-m/"
+                                                        data-bi-name="panel-link-7-power-query-m">
+                                                        Power Query M
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/office/vba/" data-bi-name="panel-link-8-vba">
+                                                        VBA
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                            </ul>
+
+                                        </div>
+
+                                        <section class="site-header-panel-featured-content"><!----><!---->
+                                            <article
+                                                class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none"
+                                                data-bi-name="featured-card-1-microsoft-learn-for-organizations">
+                                                <div class="card-content">
+                                                    <p class="card-supertitle line-clamp-2 line-height-normal">
+                                                        <!---->Microsoft Learn for Organizations<!----></p>
+                                                    <a class="card-title color-text background-color-transparent stretched-link"
+                                                        href="/en-us/training/organizations/">
+                                                        Boost your team's technical skills
+                                                    </a>
+                                                    <p class="card-content-description line-clamp-2"><!---->Access
+                                                        curated resources to upskill your team and close skills
+                                                        gaps.<!----></p>
+                                                </div>
+                                            </article>
+                                            <!----><!---->
+                                        </section>
+
+
+                                    </div>
+                                </panel-controller>
+                            </li>
+                            <!---->
+                            <li aria-setsize="4" aria-posinset="4">
+                                <panel-controller data-bi-name="site-header-btn-4-topics">
+                                    <button type="button" aria-expanded="false" class="site-header-button"
+                                        data-overflow-menu-item="" aria-controls="ms--panel-4"
+                                        data-test-id="site-header-panel-controller-4" style="white-space: nowrap;">
+                                        <span><!---->Topics<!----></span>
+                                        <span class="icon expanded-indicator" aria-hidden="true">
+                                            <span class="docon docon-chevron-down-light"></span>
+                                        </span>
+                                    </button>
+                                    <div class="site-header-panel" hidden="" id="ms--panel-4"
+                                        data-bi-name="panel-4-topics" data-test-id="site-header-panel-4">
+
+                                        <div class="site-header-panel-content">
+                                            <ul class="site-header-panel-links">
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/ai/" data-bi-name="panel-link-1-ai">
+                                                        Artificial intelligence
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/compliance/"
+                                                        data-bi-name="panel-link-2-compliance">
+                                                        Compliance
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/devops/" data-bi-name="panel-link-3-devops">
+                                                        DevOps
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/platform-engineering/"
+                                                        data-bi-name="panel-link-4-platform-engineering">
+                                                        Platform engineering
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="button button-clear button-sm button-block font-weight-normal justify-content-flex-start inner-focus border-none background-color-body-accent-onhover"
+                                                        href="/en-us/security/" data-bi-name="panel-link-5-security">
+                                                        Security
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                            </ul>
+
+                                        </div>
+
+                                        <section class="site-header-panel-featured-content"><!----><!---->
+                                            <article
+                                                class="card position-relative background-color-body-accent-onhover background-color-body-medium box-shadow-none"
+                                                data-bi-name="featured-card-1-microsoft-learn-for-organizations">
+                                                <div class="card-content">
+                                                    <p class="card-supertitle line-clamp-2 line-height-normal">
+                                                        <!---->Microsoft Learn for Organizations<!----></p>
+                                                    <a class="card-title color-text background-color-transparent stretched-link"
+                                                        href="/en-us/training/organizations/">
+                                                        Boost your team's technical skills
+                                                    </a>
+                                                    <p class="card-content-description line-clamp-2"><!---->Access
+                                                        curated resources to upskill your team and close skills
+                                                        gaps.<!----></p>
+                                                </div>
+                                            </article>
+                                            <!----><!---->
+                                        </section>
+
+
+                                    </div>
+                                </panel-controller>
+                            </li>
+                            <!---->
+                        </ul>
+
+
+                        <button type="button" data-overflow-menu-next-button="" data-bi-name="site-header-btn-next"
+                            class="button button-clear button-sm inner-focus margin-left-auto" aria-label="Next"
+                            hidden="">
+                            <span class="icon" aria-hidden="true">
+                                <span class="docon docon-chevron-right-light"></span>
+                            </span>
+                        </button>
+                    </nav>
+                </overflow-menu>
+
+
+                <!-- Search -->
+
+                <search-expander data-test-id="site-header-search" class="flex-grow-1 margin-left-xxs">
+                    <div id="ms--site-header-search" class="display-flex align-items-center gap-xxs " hidden="">
+
+                        <form class="flex-grow-1" method="GET" role="search" id="ms--site-header-search-form"
+                            data-bi-name="site-header-search-form" name="site-header-search-form" aria-label="Search"
+                            action="/en-us/search/">
+                            <div class="autocomplete display-block" data-bi-name="autocomplete"><!---->
+                                <div class="field-body control ">
+                                    <input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off"
+                                        autocomplete="off" autocorrect="off" spellcheck="false"
+                                        id="site-header-search-autocomplete-input"
+                                        data-test-id="site-header-search-autocomplete-input" class="autocomplete-input input input-sm
+						
+						width-full" type="search" name="terms" aria-expanded="false" aria-owns="ax-0-listbox"
+                                        aria-controls="ax-0-listbox" aria-activedescendant="" aria-label="Search"
+                                        aria-describedby="ms--site-header-search-autocomplete-input-description"
+                                        placeholder="Search" data-bi-name="site-header-search-autocomplete-input"
+                                        pattern=".*">
+
+
+
+                                    <span aria-hidden="true" class="autocomplete-loader loader has-text-primary "
+                                        hidden=""></span>
+
+                                    <span hidden="" id="ms--site-header-search-autocomplete-input-description">
+                                        Suggestions will filter as you type
+                                    </span>
+                                </div>
+
+                                <ul role="listbox" id="ax-0-listbox"
+                                    data-test-id="site-header-search-autocomplete-input-listbox"
+                                    class="autocomplete-suggestions is-vertically-scrollable padding-xxs "
+                                    aria-label="Suggestions" hidden="">
+
+
+                                </ul>
+                                <!---->
+                            </div>
+                            <!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+                            <button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+                            <input name="category" hidden="" value="Training">
+
+
+                        </form>
+
+                        <button data-search-expander-trigger-close="" type="button"
+                            class="button button-clear inner-focus" aria-controls="ms--site-header-search"
+                            aria-label="Close search" data-bi-name="site-header-search-close"
+                            data-test-id="site-header-search-close">
+                            <span class="icon" aria-hidden="true">
+                                <span class="docon docon-navigate-close"></span>
+                            </span>
+                        </button>
+                    </div>
+                    <button data-search-expander-trigger-open="" type="button" class="button button-clear inner-focus"
+                        aria-controls="ms--site-header-search" aria-label="Open search"
+                        data-bi-name="site-header-search-open" data-test-id="site-header-search-open">
+                        <span class="icon" aria-hidden="true">
+                            <span class="docon docon-search"></span>
+                        </span>
+                    </button>
+                </search-expander>
+
+            </div>
+
+            <!-- User avatar/Sign in -->
+            <!---->
+            <a href="#" data-bi-name="site-header-sign-in" data-test-id="site-header-sign-in"
+                class="link-button font-size-sm flex-shrink-0 docs-sign-in auth-status-determined not-authenticated ">
+                Sign in
+            </a>
+
+            <details data-bi-name="site-header-user"
+                class="popover popover-right auth-status-determined authenticated ">
+                <summary data-bi-name="site-header-user-avatar" aria-label="Your Account"
+                    data-test-id="site-header-user">
+                    <div class="persona ">
+                        <figure class="persona-avatar">
+                            <img alt="" data-profile-property="avatarThumbnailUrl">
+                        </figure>
+                    </div>
+                </summary>
+                <div class="popover-content width-auto" data-bi-name="site-header-user-menu">
+                    <div class="persona ">
+                        <figure class="persona-avatar">
+                            <img alt="" data-profile-property="avatarUrl" aria-labelledby="ms--user-display-name">
+                        </figure>
+                        <div class="persona-details" data-test-id="persona-detail">
+                            <p class="persona-name" data-profile-property="displayName" id="ms--user-display-name"></p>
+                            <p data-profile-property="upn"></p>
+                        </div>
+                    </div>
+                    <ul class="padding-block-xs">
+                        <li class="padding-bottom-xs">
+                            <a data-profile-property="profileUrl" class="font-size-sm"
+                                data-bi-name="site-header-user-profile"
+                                href="https://learn.microsoft.com/en-us/users/me/activity/">
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a data-profile-property="settingsUrl" class="font-size-sm"
+                                data-bi-name="site-header-user-settings"
+                                href="https://learn.microsoft.com/en-us/users/me/settings/">
+                                Settings
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="border-top padding-top-xs">
+                        <a class="docs-sign-out font-size-sm" href="#" data-bi-name="site-header-sign-out"
+                            data-test-id="site-header-user-sign-out">
+                            Sign out
+                        </a>
+                    </div>
+                </div>
+            </details>
+            <!---->
+            <!---->
+        </div>
+        <div id="ms--secondary-nav" class="display-none display-flex-tablet" data-bi-name="L2-header"
+            data-test-id="secondary-header"><!---->
+            <div class="site-header width-full"><!---->
+                <a class="site-header-brand font-size-h6 padding-inline-none margin-right-xxs" itemprop="url"
+                    href="/en-us/training/" data-bi-name="secondary-nav-link-category-training">
+                    <span>
+                        Training
+
+                    </span>
+                </a>
+
+
+                <nav class="site-header-nav width-auto" data-bi-name="secondary-nav" aria-label="Site">
+                    <ul class="display-flex">
+                        <!---->
+                        <li class="dropdown">
+                            <button type="button" aria-expanded="false"
+                                class="dropdown-trigger site-header-button  site-header-button-icon-chevron"
+                                aria-controls="bx-706" data-bi-name="secondary-nav-btn-1-products" value="products">
+                                <span><!---->Products<!----></span>
+                                <span aria-hidden="true" class="icon expanded-indicator ">
+                                    <span class="docon docon-chevron-down-light"></span>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-706"
+                                aria-label="Products" data-bi-name="secondary-nav-menu-1-products">
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/azure/" data-bi-name="secondary-nav-link-1-azure">
+                                        <span><!---->Azure<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/dynamics365/"
+                                        data-bi-name="secondary-nav-link-2-dynamics-365">
+                                        <span><!---->Dynamics 365<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/defender/" data-bi-name="secondary-nav-link-3-defender">
+                                        <span><!---->Defender<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/dotnet/" data-bi-name="secondary-nav-link-4-dotnet">
+                                        <span><!---->.NET<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/github/" data-bi-name="secondary-nav-link-5-github">
+                                        <span><!---->GitHub<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/m365/" data-bi-name="secondary-nav-link-6-microsoft-365">
+                                        <span><!---->Microsoft 365<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/entra/"
+                                        data-bi-name="secondary-nav-link-7-microsoft-entra">
+                                        <span><!---->Microsoft Entra<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/fabric/"
+                                        data-bi-name="secondary-nav-link-8-microsoft-fabric">
+                                        <span><!---->Microsoft Fabric<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/powerplatform/"
+                                        data-bi-name="secondary-nav-link-9-power-platform">
+                                        <span><!---->Power Platform<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/purview/" data-bi-name="secondary-nav-link-10-purview">
+                                        <span><!---->Purview<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/teams/" data-bi-name="secondary-nav-link-11-teams">
+                                        <span><!---->Teams<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/browse/"
+                                        data-bi-name="secondary-nav-link-12-browse-all-training">
+                                        <span><!---->Browse all training<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                            </ul>
+                        </li>
+                        <!---->
+                        <li class="dropdown">
+                            <button type="button" aria-expanded="false"
+                                class="dropdown-trigger site-header-button  site-header-button-icon-chevron"
+                                aria-controls="bx-707" data-bi-name="secondary-nav-btn-2-career-paths"
+                                value="career-paths">
+                                <span><!---->Career Paths<!----></span>
+                                <span aria-hidden="true" class="icon expanded-indicator ">
+                                    <span class="docon docon-chevron-down-light"></span>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-707"
+                                aria-label="Career Paths" data-bi-name="secondary-nav-menu-2-career-paths">
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/administrator/"
+                                        data-bi-name="secondary-nav-link-1-administrator">
+                                        <span><!---->Administrator<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/ai-engineer/"
+                                        data-bi-name="secondary-nav-link-2-ai-engineer">
+                                        <span><!---->AI Engineer<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/app-maker/"
+                                        data-bi-name="secondary-nav-link-3-app-maker">
+                                        <span><!---->App Maker<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/business-user/"
+                                        data-bi-name="secondary-nav-link-4-business-user">
+                                        <span><!---->Business User<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/data-analyst/"
+                                        data-bi-name="secondary-nav-link-5-data-analyst">
+                                        <span><!---->Data Analyst<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/data-engineer/"
+                                        data-bi-name="secondary-nav-link-6-data-engineer">
+                                        <span><!---->Data Engineer<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/data-scientist/"
+                                        data-bi-name="secondary-nav-link-7-data-scientist">
+                                        <span><!---->Data Scientist<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/developer/"
+                                        data-bi-name="secondary-nav-link-8-developer">
+                                        <span><!---->Developer<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/devops-engineer/"
+                                        data-bi-name="secondary-nav-link-9-devops-engineer">
+                                        <span><!---->DevOps Engineer<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/functional-consultant/"
+                                        data-bi-name="secondary-nav-link-10-functional-consultant">
+                                        <span><!---->Functional Consultant<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/identity-and-access-admin/"
+                                        data-bi-name="secondary-nav-link-11-identity-and-access-administrator">
+                                        <span><!---->Identity and Access Administrator<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/information-protection-admin/"
+                                        data-bi-name="secondary-nav-link-12-information-protection-administrator">
+                                        <span><!---->Information Protection Administrator<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/security-operations-analyst/"
+                                        data-bi-name="secondary-nav-link-13-security-operations-analyst">
+                                        <span><!---->Security Operations Analyst<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/security-engineer/"
+                                        data-bi-name="secondary-nav-link-14-security-engineer">
+                                        <span><!---->Security Engineer<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/career-paths/solution-architect/"
+                                        data-bi-name="secondary-nav-link-15-solutions-architect">
+                                        <span><!---->Solutions Architect<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                            </ul>
+                        </li>
+                        <!---->
+                        <li>
+                            <a data-test-id="header-link-browse-all-training"
+                                class="has-external-link-indicator site-header-button " href="/en-us/training/browse/"
+                                data-bi-name="secondary-nav-link-3-browse-all-training">
+                                <span><!---->Browse all training<!----></span>
+                            </a>
+                        </li>
+                        <!---->
+                        <li class="dropdown">
+                            <button type="button" aria-expanded="false"
+                                class="dropdown-trigger site-header-button  site-header-button-icon-chevron"
+                                aria-controls="bx-708" data-bi-name="secondary-nav-btn-4-educator-center"
+                                value="educator-center">
+                                <span><!---->Educator Center<!----></span>
+                                <span aria-hidden="true" class="icon expanded-indicator ">
+                                    <span class="docon docon-chevron-down-light"></span>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-708"
+                                aria-label="Educator Center" data-bi-name="secondary-nav-menu-4-educator-center">
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/educator-center/"
+                                        data-bi-name="secondary-nav-link-1-overview">
+                                        <span><!---->Overview<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li class="dropdown">
+                                    <button type="button" aria-expanded="false"
+                                        class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs"
+                                        aria-controls="bx-709"
+                                        data-bi-name="secondary-nav-btn-2-professional-development"
+                                        value="professional-development">
+                                        <span><!---->Professional development<!----></span>
+                                        <span aria-hidden="true" class="icon  margin-left-xs">
+                                            <span class="docon docon-chevron-right-light"></span>
+                                        </span>
+                                    </button>
+                                    <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium"
+                                        id="bx-709" aria-label="Professional development"
+                                        data-bi-name="secondary-nav-menu-2-professional-development">
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/topics/accessibility/"
+                                                data-bi-name="secondary-nav-link-1-accessibility-and-inclusivity">
+                                                <span><!---->Accessibility and inclusivity<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/topics/ai-for-education/"
+                                                data-bi-name="secondary-nav-link-2-ai-for-education">
+                                                <span><!---->AI for education<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/topics/blended-learning/"
+                                                data-bi-name="secondary-nav-link-3-blended-remote-and-hybrid-learning">
+                                                <span><!---->Blended, remote, and hybrid learning<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/topics/education-leadership/"
+                                                data-bi-name="secondary-nav-link-4-education-leadership-and-staff-collaboration">
+                                                <span><!---->Education leadership and staff collaboration<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/topics/learning-accelerators/"
+                                                data-bi-name="secondary-nav-link-5-learning-accelerators">
+                                                <span><!---->Learning Accelerators<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/topics/instructional-toolbox/"
+                                                data-bi-name="secondary-nav-link-6-microsoft-instructional-toolbox">
+                                                <span><!---->Microsoft instructional toolbox<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/topics/social-emotional-learning/"
+                                                data-bi-name="secondary-nav-link-7-social-emotional-learning">
+                                                <span><!---->Social emotional learning<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/topics/stem/"
+                                                data-bi-name="secondary-nav-link-8-stem-coding-and-esports">
+                                                <span><!---->STEM, coding, and esports<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/topics/student-centered-learning/"
+                                                data-bi-name="secondary-nav-link-9-student-centered-learning">
+                                                <span><!---->Student-centered learning<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/topics/whats-new/"
+                                                data-bi-name="secondary-nav-link-10-whats-happening-in-education">
+                                                <span><!---->What's happening in education<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian"
+                                                data-bi-name="secondary-nav-link-11-browse-all">
+                                                <span><!---->Browse all<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                    </ul>
+                                </li>
+                                <!---->
+                                <li class="dropdown">
+                                    <button type="button" aria-expanded="false"
+                                        class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs"
+                                        aria-controls="bx-710" data-bi-name="secondary-nav-btn-3-product-guides"
+                                        value="product-guides">
+                                        <span><!---->Product guides<!----></span>
+                                        <span aria-hidden="true" class="icon  margin-left-xs">
+                                            <span class="docon docon-chevron-right-light"></span>
+                                        </span>
+                                    </button>
+                                    <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium"
+                                        id="bx-710" aria-label="Product guides"
+                                        data-bi-name="secondary-nav-menu-3-product-guides">
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/product-guides/teams/"
+                                                data-bi-name="secondary-nav-link-1-microsoft-teams-for-education">
+                                                <span><!---->Microsoft Teams for Education<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/product-guides/onenote/"
+                                                data-bi-name="secondary-nav-link-2-onenote-for-education">
+                                                <span><!---->OneNote for education<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/product-guides/office/"
+                                                data-bi-name="secondary-nav-link-3-microsoft-365-for-education">
+                                                <span><!---->Microsoft 365 for education<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/product-guides/minecraft/"
+                                                data-bi-name="secondary-nav-link-4-minecraft-education">
+                                                <span><!---->Minecraft Education<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/product-guides/windows/"
+                                                data-bi-name="secondary-nav-link-5-windows-for-education">
+                                                <span><!---->Windows for education<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/product-guides/powerpoint/"
+                                                data-bi-name="secondary-nav-link-6-powerpoint-for-education">
+                                                <span><!---->PowerPoint for education<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/product-guides/immersive-reader/"
+                                                data-bi-name="secondary-nav-link-7-immersive-reader">
+                                                <span><!---->Immersive Reader<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/product-guides/reading-progress/"
+                                                data-bi-name="secondary-nav-link-8-reading-progress">
+                                                <span><!---->Reading Progress<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/product-guides/search-coach/"
+                                                data-bi-name="secondary-nav-link-9-search-progress-and-coach">
+                                                <span><!---->Search Progress and Coach<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian"
+                                                data-bi-name="secondary-nav-link-10-browse-all">
+                                                <span><!---->Browse all<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                    </ul>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/educator-center/instructor-materials/"
+                                        data-bi-name="secondary-nav-link-4-instructor-materials">
+                                        <span><!---->Instructor materials<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li class="dropdown">
+                                    <button type="button" aria-expanded="false"
+                                        class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs"
+                                        aria-controls="bx-711" data-bi-name="secondary-nav-btn-5-educator-programs"
+                                        value="educator-programs">
+                                        <span><!---->Educator programs<!----></span>
+                                        <span aria-hidden="true" class="icon  margin-left-xs">
+                                            <span class="docon docon-chevron-right-light"></span>
+                                        </span>
+                                    </button>
+                                    <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium"
+                                        id="bx-711" aria-label="Educator programs"
+                                        data-bi-name="secondary-nav-menu-5-educator-programs">
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/programs/"
+                                                data-bi-name="secondary-nav-link-1-programs-overview">
+                                                <span><!---->Programs and community overview<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/programs/educator-communities"
+                                                data-bi-name="secondary-nav-link-2-microsoft-education-communities">
+                                                <span><!---->Microsoft Education communities<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/programs/educator-programs-certifications"
+                                                data-bi-name="secondary-nav-link-3-educator-certifications">
+                                                <span><!---->Educator programs and certifications<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/programs/educator-partner-programs"
+                                                data-bi-name="secondary-nav-link-4-educator-partner-programs">
+                                                <span><!---->Education partners<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                    </ul>
+                                </li>
+                                <!---->
+                            </ul>
+                        </li>
+                        <!---->
+                        <li class="dropdown">
+                            <button type="button" aria-expanded="false"
+                                class="dropdown-trigger site-header-button  site-header-button-icon-chevron"
+                                aria-controls="bx-712" data-bi-name="secondary-nav-btn-5-student-hub"
+                                value="student-hub">
+                                <span><!---->Student Hub<!----></span>
+                                <span aria-hidden="true" class="icon expanded-indicator ">
+                                    <span class="docon docon-chevron-down-light"></span>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-712"
+                                aria-label="Student Hub" data-bi-name="secondary-nav-menu-5-student-hub">
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/student-hub/"
+                                        data-bi-name="secondary-nav-link-1-overview">
+                                        <span><!---->Overview<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li>
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/student-hub/certifications/"
+                                        data-bi-name="secondary-nav-link-2-student-certifications">
+                                        <span><!---->Student certifications<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                            </ul>
+                        </li>
+                        <!---->
+                        <li>
+                            <a data-test-id="header-link-faq-&amp;-help"
+                                class="has-external-link-indicator site-header-button " href="/en-us/training/support/"
+                                data-bi-name="secondary-nav-link-6-faq-and-help">
+                                <span><!---->FAQ &amp; Help<!----></span>
+                            </a>
+                        </li>
+                        <!---->
+                        <li class="dropdown" hidden="">
+                            <button type="button" aria-expanded="false"
+                                class="dropdown-trigger site-header-button  site-header-button-icon-chevron"
+                                aria-controls="bx-713" data-bi-name="secondary-nav-btn-more" value="undefined">
+                                <span><!---->More<!----></span>
+                                <span aria-hidden="true" class="icon expanded-indicator ">
+                                    <span class="docon docon-chevron-down-light"></span>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium" id="bx-713"
+                                aria-label="More" data-bi-name="secondary-nav-menu-more">
+                                <!---->
+                                <li class="dropdown" hidden="">
+                                    <button type="button" aria-expanded="false"
+                                        class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs"
+                                        aria-controls="bx-714" data-bi-name="secondary-nav-btn-1-products"
+                                        value="products">
+                                        <span><!---->Products<!----></span>
+                                        <span aria-hidden="true" class="icon  margin-left-xs">
+                                            <span class="docon docon-chevron-right-light"></span>
+                                        </span>
+                                    </button>
+                                    <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium"
+                                        id="bx-714" aria-label="Products" data-bi-name="secondary-nav-menu-1-products">
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/azure/" data-bi-name="secondary-nav-link-1-azure">
+                                                <span><!---->Azure<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/dynamics365/"
+                                                data-bi-name="secondary-nav-link-2-dynamics-365">
+                                                <span><!---->Dynamics 365<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/defender/"
+                                                data-bi-name="secondary-nav-link-3-defender">
+                                                <span><!---->Defender<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/dotnet/"
+                                                data-bi-name="secondary-nav-link-4-dotnet">
+                                                <span><!---->.NET<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/github/"
+                                                data-bi-name="secondary-nav-link-5-github">
+                                                <span><!---->GitHub<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/m365/"
+                                                data-bi-name="secondary-nav-link-6-microsoft-365">
+                                                <span><!---->Microsoft 365<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/entra/"
+                                                data-bi-name="secondary-nav-link-7-microsoft-entra">
+                                                <span><!---->Microsoft Entra<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/fabric/"
+                                                data-bi-name="secondary-nav-link-8-microsoft-fabric">
+                                                <span><!---->Microsoft Fabric<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/powerplatform/"
+                                                data-bi-name="secondary-nav-link-9-power-platform">
+                                                <span><!---->Power Platform<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/purview/"
+                                                data-bi-name="secondary-nav-link-10-purview">
+                                                <span><!---->Purview<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/teams/"
+                                                data-bi-name="secondary-nav-link-11-teams">
+                                                <span><!---->Teams<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/browse/"
+                                                data-bi-name="secondary-nav-link-12-browse-all-training">
+                                                <span><!---->Browse all training<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                    </ul>
+                                </li>
+                                <!---->
+                                <li class="dropdown" hidden="">
+                                    <button type="button" aria-expanded="false"
+                                        class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs"
+                                        aria-controls="bx-715" data-bi-name="secondary-nav-btn-2-career-paths"
+                                        value="career-paths">
+                                        <span><!---->Career Paths<!----></span>
+                                        <span aria-hidden="true" class="icon  margin-left-xs">
+                                            <span class="docon docon-chevron-right-light"></span>
+                                        </span>
+                                    </button>
+                                    <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium"
+                                        id="bx-715" aria-label="Career Paths"
+                                        data-bi-name="secondary-nav-menu-2-career-paths">
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/administrator/"
+                                                data-bi-name="secondary-nav-link-1-administrator">
+                                                <span><!---->Administrator<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/ai-engineer/"
+                                                data-bi-name="secondary-nav-link-2-ai-engineer">
+                                                <span><!---->AI Engineer<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/app-maker/"
+                                                data-bi-name="secondary-nav-link-3-app-maker">
+                                                <span><!---->App Maker<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/business-user/"
+                                                data-bi-name="secondary-nav-link-4-business-user">
+                                                <span><!---->Business User<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/data-analyst/"
+                                                data-bi-name="secondary-nav-link-5-data-analyst">
+                                                <span><!---->Data Analyst<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/data-engineer/"
+                                                data-bi-name="secondary-nav-link-6-data-engineer">
+                                                <span><!---->Data Engineer<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/data-scientist/"
+                                                data-bi-name="secondary-nav-link-7-data-scientist">
+                                                <span><!---->Data Scientist<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/developer/"
+                                                data-bi-name="secondary-nav-link-8-developer">
+                                                <span><!---->Developer<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/devops-engineer/"
+                                                data-bi-name="secondary-nav-link-9-devops-engineer">
+                                                <span><!---->DevOps Engineer<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/functional-consultant/"
+                                                data-bi-name="secondary-nav-link-10-functional-consultant">
+                                                <span><!---->Functional Consultant<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/identity-and-access-admin/"
+                                                data-bi-name="secondary-nav-link-11-identity-and-access-administrator">
+                                                <span><!---->Identity and Access Administrator<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/information-protection-admin/"
+                                                data-bi-name="secondary-nav-link-12-information-protection-administrator">
+                                                <span><!---->Information Protection Administrator<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/security-operations-analyst/"
+                                                data-bi-name="secondary-nav-link-13-security-operations-analyst">
+                                                <span><!---->Security Operations Analyst<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/security-engineer/"
+                                                data-bi-name="secondary-nav-link-14-security-engineer">
+                                                <span><!---->Security Engineer<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/career-paths/solution-architect/"
+                                                data-bi-name="secondary-nav-link-15-solutions-architect">
+                                                <span><!---->Solutions Architect<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                    </ul>
+                                </li>
+                                <!---->
+                                <li hidden="">
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/browse/"
+                                        data-bi-name="secondary-nav-link-3-browse-all-training">
+                                        <span><!---->Browse all training<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                                <li class="dropdown" hidden="">
+                                    <button type="button" aria-expanded="false"
+                                        class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs"
+                                        aria-controls="bx-716" data-bi-name="secondary-nav-btn-4-educator-center"
+                                        value="educator-center">
+                                        <span><!---->Educator Center<!----></span>
+                                        <span aria-hidden="true" class="icon  margin-left-xs">
+                                            <span class="docon docon-chevron-right-light"></span>
+                                        </span>
+                                    </button>
+                                    <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium"
+                                        id="bx-716" aria-label="Educator Center"
+                                        data-bi-name="secondary-nav-menu-4-educator-center">
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/"
+                                                data-bi-name="secondary-nav-link-1-overview">
+                                                <span><!---->Overview<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li class="dropdown">
+                                            <button type="button" aria-expanded="false"
+                                                class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs"
+                                                aria-controls="bx-717"
+                                                data-bi-name="secondary-nav-btn-2-professional-development"
+                                                value="professional-development">
+                                                <span><!---->Professional development<!----></span>
+                                                <span aria-hidden="true" class="icon  margin-left-xs">
+                                                    <span class="docon docon-chevron-right-light"></span>
+                                                </span>
+                                            </button>
+                                            <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium"
+                                                id="bx-717" aria-label="Professional development"
+                                                data-bi-name="secondary-nav-menu-2-professional-development">
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/topics/accessibility/"
+                                                        data-bi-name="secondary-nav-link-1-accessibility-and-inclusivity">
+                                                        <span><!---->Accessibility and inclusivity<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/topics/ai-for-education/"
+                                                        data-bi-name="secondary-nav-link-2-ai-for-education">
+                                                        <span><!---->AI for education<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/topics/blended-learning/"
+                                                        data-bi-name="secondary-nav-link-3-blended-remote-and-hybrid-learning">
+                                                        <span><!---->Blended, remote, and hybrid learning<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/topics/education-leadership/"
+                                                        data-bi-name="secondary-nav-link-4-education-leadership-and-staff-collaboration">
+                                                        <span><!---->Education leadership and staff
+                                                            collaboration<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/topics/learning-accelerators/"
+                                                        data-bi-name="secondary-nav-link-5-learning-accelerators">
+                                                        <span><!---->Learning Accelerators<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/topics/instructional-toolbox/"
+                                                        data-bi-name="secondary-nav-link-6-microsoft-instructional-toolbox">
+                                                        <span><!---->Microsoft instructional toolbox<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/topics/social-emotional-learning/"
+                                                        data-bi-name="secondary-nav-link-7-social-emotional-learning">
+                                                        <span><!---->Social emotional learning<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/topics/stem/"
+                                                        data-bi-name="secondary-nav-link-8-stem-coding-and-esports">
+                                                        <span><!---->STEM, coding, and esports<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/topics/student-centered-learning/"
+                                                        data-bi-name="secondary-nav-link-9-student-centered-learning">
+                                                        <span><!---->Student-centered learning<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/topics/whats-new/"
+                                                        data-bi-name="secondary-nav-link-10-whats-happening-in-education">
+                                                        <span><!---->What's happening in education<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian"
+                                                        data-bi-name="secondary-nav-link-11-browse-all">
+                                                        <span><!---->Browse all<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                            </ul>
+                                        </li>
+                                        <!---->
+                                        <li class="dropdown">
+                                            <button type="button" aria-expanded="false"
+                                                class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs"
+                                                aria-controls="bx-718" data-bi-name="secondary-nav-btn-3-product-guides"
+                                                value="product-guides">
+                                                <span><!---->Product guides<!----></span>
+                                                <span aria-hidden="true" class="icon  margin-left-xs">
+                                                    <span class="docon docon-chevron-right-light"></span>
+                                                </span>
+                                            </button>
+                                            <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium"
+                                                id="bx-718" aria-label="Product guides"
+                                                data-bi-name="secondary-nav-menu-3-product-guides">
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/product-guides/teams/"
+                                                        data-bi-name="secondary-nav-link-1-microsoft-teams-for-education">
+                                                        <span><!---->Microsoft Teams for Education<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/product-guides/onenote/"
+                                                        data-bi-name="secondary-nav-link-2-onenote-for-education">
+                                                        <span><!---->OneNote for education<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/product-guides/office/"
+                                                        data-bi-name="secondary-nav-link-3-microsoft-365-for-education">
+                                                        <span><!---->Microsoft 365 for education<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/product-guides/minecraft/"
+                                                        data-bi-name="secondary-nav-link-4-minecraft-education">
+                                                        <span><!---->Minecraft Education<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/product-guides/windows/"
+                                                        data-bi-name="secondary-nav-link-5-windows-for-education">
+                                                        <span><!---->Windows for education<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/product-guides/powerpoint/"
+                                                        data-bi-name="secondary-nav-link-6-powerpoint-for-education">
+                                                        <span><!---->PowerPoint for education<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/product-guides/immersive-reader/"
+                                                        data-bi-name="secondary-nav-link-7-immersive-reader">
+                                                        <span><!---->Immersive Reader<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/product-guides/reading-progress/"
+                                                        data-bi-name="secondary-nav-link-8-reading-progress">
+                                                        <span><!---->Reading Progress<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/product-guides/search-coach/"
+                                                        data-bi-name="secondary-nav-link-9-search-progress-and-coach">
+                                                        <span><!---->Search Progress and Coach<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/browse/?roles=k-12-educator%2Chigher-ed-educator%2Cschool-leader%2Cparent-guardian"
+                                                        data-bi-name="secondary-nav-link-10-browse-all">
+                                                        <span><!---->Browse all<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                            </ul>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/educator-center/instructor-materials/"
+                                                data-bi-name="secondary-nav-link-4-instructor-materials">
+                                                <span><!---->Instructor materials<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li class="dropdown">
+                                            <button type="button" aria-expanded="false"
+                                                class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs"
+                                                aria-controls="bx-719"
+                                                data-bi-name="secondary-nav-btn-5-educator-programs"
+                                                value="educator-programs">
+                                                <span><!---->Educator programs<!----></span>
+                                                <span aria-hidden="true" class="icon  margin-left-xs">
+                                                    <span class="docon docon-chevron-right-light"></span>
+                                                </span>
+                                            </button>
+                                            <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium"
+                                                id="bx-719" aria-label="Educator programs"
+                                                data-bi-name="secondary-nav-menu-5-educator-programs">
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/programs/"
+                                                        data-bi-name="secondary-nav-link-1-programs-overview">
+                                                        <span><!---->Programs and community overview<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/programs/educator-communities"
+                                                        data-bi-name="secondary-nav-link-2-microsoft-education-communities">
+                                                        <span><!---->Microsoft Education communities<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/programs/educator-programs-certifications"
+                                                        data-bi-name="secondary-nav-link-3-educator-certifications">
+                                                        <span><!---->Educator programs and certifications<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                                <li>
+                                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                        href="/en-us/training/educator-center/programs/educator-partner-programs"
+                                                        data-bi-name="secondary-nav-link-4-educator-partner-programs">
+                                                        <span><!---->Education partners<!----></span>
+                                                    </a>
+                                                </li>
+                                                <!---->
+                                            </ul>
+                                        </li>
+                                        <!---->
+                                    </ul>
+                                </li>
+                                <!---->
+                                <li class="dropdown" hidden="">
+                                    <button type="button" aria-expanded="false"
+                                        class="dropdown-trigger site-header-button  width-full justify-content-space-between padding-inline-xs padding-block-xxs"
+                                        aria-controls="bx-720" data-bi-name="secondary-nav-btn-5-student-hub"
+                                        value="student-hub">
+                                        <span><!---->Student Hub<!----></span>
+                                        <span aria-hidden="true" class="icon  margin-left-xs">
+                                            <span class="docon docon-chevron-right-light"></span>
+                                        </span>
+                                    </button>
+                                    <ul class="dropdown-menu padding-bottom-xxs background-color-body-medium"
+                                        id="bx-720" aria-label="Student Hub"
+                                        data-bi-name="secondary-nav-menu-5-student-hub">
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/student-hub/"
+                                                data-bi-name="secondary-nav-link-1-overview">
+                                                <span><!---->Overview<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li>
+                                            <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                                href="/en-us/training/student-hub/certifications/"
+                                                data-bi-name="secondary-nav-link-2-student-certifications">
+                                                <span><!---->Student certifications<!----></span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                    </ul>
+                                </li>
+                                <!---->
+                                <li hidden="">
+                                    <a class="has-external-link-indicator site-header-button width-full justify-content-flex-start padding-inline-xs padding-block-xxs "
+                                        href="/en-us/training/support/"
+                                        data-bi-name="secondary-nav-link-6-faq-and-help">
+                                        <span><!---->FAQ &amp; Help<!----></span>
+                                    </a>
+                                </li>
+                                <!---->
+                            </ul>
+                        </li>
+                        <!---->
+                    </ul>
+                </nav>
+
+                <span class="nav-bar-spacer"></span>
+
+                <div id="level-status-container"
+                    class="display-flex align-items-center is-hidden is-hidden-touch flex-shrink-0">
+                    <div id="level-status" class="position-relative level margin-inline-xxs"><!---->
+                        <span id="level-status-text"
+                            class="font-size-xs has-text-wrap is-inline-truncated is-uppercase font-weight-semibold"></span>
+                        <span id="level-status-progress-container" class="hexagonal-progress">
+                            <progress id="level-status-progress"
+                                class="progress is-hidden-mobile display-inline-block position-relative is-success"
+                                value="1" max="100">
+                                1%
+                            </progress>
+                            <span class="hexagonal-progress-marker"></span>
+                        </span>
+                        <span id="level-status-points"
+                            class="font-size-xs has-text-wrap is-inline-truncated is-uppercase">
+                        </span>
+                        <!---->
+                    </div>
+                </div>
+
+                <!---->
+            </div><!---->
+        </div>
+    </header>
+    <div id="disclaimer-holder" class="has-overflow-hidden has-default-focus">
+        <!-- liquid-tag banners sectional -->
+    </div>
+    </div>
+</body>
+
+</html>

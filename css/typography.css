@@ -6,6 +6,14 @@
     font-size: 1.125rem !important;
 }
 
+.text-decoration-underline {
+	text-decoration: underline !important;
+}
+
+.text-decoration-none {
+	text-decoration: none !important;
+}
+
 /***** Font family *****/
 
 /* .font-family-monospace {

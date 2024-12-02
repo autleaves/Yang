@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+.padding-xxs {
+    padding: .5rem !important;
+}
+.padding-xs {
+    padding: 1rem !important;
+}
+.padding-block-xs {
+    padding-block: 1rem;
+}
+.padding-bottom-xs {
+    padding-block-end: 1rem !important;
+}

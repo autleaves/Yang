@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+.button {
+    border-width: 1px;
+    border-color: var(--theme-text-subtle);
+    background-color: var(--theme-body-background);
+    color: var(--theme-text);
+    text-align: center;
+    cursor: pointer;
+    border-radius: .25rem;
+    justify-content: center;
+    padding-block: calc(.375em - 1px);
+    padding-inline: .75em;
+    font-weight: 600;
+    text-decoration: none;
+}
+.button.button-clear, 
+.button.button-clear:visited {
+    color: currentColor;
+}
+.button.button-clear {
+    background-color: #0000;
+    border-color: #0000;
+}
+
+.button .icon {
+    font-size: .875em;
+}

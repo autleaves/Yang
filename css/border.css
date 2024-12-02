@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+.border-left {
+    border-inline-start: 1px solid var(--theme-border) !important;
+}
+.border-bottom {
+    border-block-end: 1px solid var(--theme-border) !important;
+}

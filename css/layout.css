@@ -1,21 +1,13 @@
 
 
 :root {
-    /* 
-  --z-static:             0;
-  --z-loading-indicator:100;
-  --z-nav-menu:         200;
-  --z-dropdown-menu:    300;
-  --z-modal-backdrop:   400;
-  --z-model-body:       410; */
-
-  --z-dropdown:       1000;
-  --z-sticky:         1020;
-  --z-fixed:          1030;
-  --z-modal-backdrop: 1040;
-  --z-modal:          1050;
-  --z-popover:        1060;
-  --z-tooltip:        1070;
+  --z-dropdown:             1000;
+  --z-sticky:               1020;
+  --z-fixed:                1030;
+  --z-modal-backdrop:       1040;
+  --z-modal:                1050;
+  --z-popover:              1060;
+  --z-tooltip:              1070;
 
 
   --radius-A:   4px;
@@ -26,6 +18,12 @@
   --radius-Z:   29px;
   
 }
+@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
+@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ }
+@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }
+@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
 
 body {
     display: flex;
@@ -48,49 +46,12 @@ body {
 }
 
 /* 
-:root {
-    --window-inner-height: 100vh; // to be overwritten by JS
-    --atlas-header-height: 0px; // to be overwritten by JS
-    --atlas-footer-height: 0px; // to be overwritten by JS
-    --atlas-contained-height: 1fr; // default value, does not contain the height
-}
 
 .layout {
     display: flex;
     flex-direction: column;
     max-inline-size: 100vw;
 
-// --layout-gutter by default, see tokens/layout.scss
-#{$layout-gap-custom-property-name}: $layout-gap;
-    #{$layout-gap-scalable-custom-property-name}: $layout-gap;
-    #{$layout-flyout-width-desktop-custom-property-name}: $default-flyout-width-desktop;
-    #{$layout-flyout-width-widescreen-custom-property-name}: $default-flyout-width-widescreen;
-    #{$layout-flyout-width-name}: var(#{$layout-flyout-width-desktop-custom-property-name});
-
-    @include widescreen {
-        #{$layout-gap-scalable-custom-property-name}: $layout-widescreen-gap;
-    // sets widescreen custom prop
-    #{$layout-flyout-width-name}: var(#{$layout-flyout-width-widescreen-custom-property-name});
-    }
-}
-
-.layout-padding {
-    padding-inline: var(#{$layout-gap-custom-property-name}) !important;
-}
-
-.layout-margin {
-    margin-inline: var(#{$layout-gap-scalable-custom-property-name}) !important;
-}
-
-@include tablet {
-    .layout-padding-tablet {
-        padding-inline: var(#{$layout-gap-custom-property-name}) !important;
-    }
-
-    .layout-margin-tablet {
-        margin-inline: var(#{$layout-gap-scalable-custom-property-name}) !important;
-    }
-}
 
 .layout-body {
     display: grid;
@@ -100,9 +61,9 @@ body {
 
 // grid-area values
 
-   .layout-body-header {
-       grid-area: header;
-   }
+.layout-body-header {
+    grid-area: header;
+}
 
 .layout-body-hero {
     grid-area: hero;

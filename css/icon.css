@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+.icon {
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+}
+
+.icon, 
+.icon svg, 
+.icon img {
+    width: 1em;
+    height: 1em;
+}

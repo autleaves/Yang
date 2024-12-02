@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/minireset.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/spacing.css">
+    <link rel="stylesheet" href="css/border.css">
     
 
     <title>makeclear</title>
@@ -17,7 +19,26 @@
         <div class="model">
             <div class="model-background"></div>
             <div class="model-content">
-                <div id="model-header"></div>
+                <div id="model-header">
+                    <div class="padding-xxs">
+                        <a href="">
+                            <span class="icon">
+                                <span class="docon docon-home">
+                                    <img src="images/icons-home-48.png" />
+                                </span>
+                            </span>
+                            <span>Algorithms</span>
+                        </a>
+                    </div>
+                    <div class="border-left padding-xxs">
+                        <button type="button" class="button button-clear inner-focus modal-close" data-autofocus=""
+                            data-bi-name="mobile-nav-close-button" aria-label="Close">
+                            <span class="icon">
+                                <span class="docon docon-navigate-close"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
                 <div id="model-body">
                     <nav>
                         <ul>
@@ -28,12 +49,38 @@
                 <div class="model-footer"></div>
             </div>
         </div>
-        <div id="mobile-nav">
+        <div id="mobile-nav" class="site-header">
+            <div id="ms--site-header-hamburger" data-test-id="site-header-hamburger"></div>
+                <button type="button" class="button button-clear inner-focus" data-test-id="mobile-nav-open-button"
+                    data-bi-name="mobile-nav-open-button" title="Global navigation" aria-label="Global navigation">
+                    <span class="icon" aria-hidden="true">
+                        <span class="docon docon-menu"></span>
+                    </span>
+                </button>
+            </div>
 
+            <!-- Brand -->
+
+            <a class="site-header-brand" itemprop="url" href="/en-us/" data-bi-name="site-header-brand-learn-mobile"
+                data-test-id="site-header-brand-mobile">
+                <span><!---->Learn<!----></span>
+            </a>
+
+
+            <!-- logo -->
+
+            <a href="https://www.microsoft.com" aria-label="Microsoft" itemprop="url"
+                data-bi-name="site-header-microsoft-logo-mobile" data-test-id="site-header-microsoft-logo-mobile"
+                class="site-header-logo site-header-logo-centered">
+
+                
+            </a>
         </div>
         <div id="primary-nav">
 
         </div>
+        
+
         <div class="logo ">
             <a href="/index.html"><img src="/images/base/logo2.png"></a>
         </div>

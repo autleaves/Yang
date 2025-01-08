@@ -31,4 +31,7 @@ public class Manager extends Employee {
     public String toString(){
         return super.toString() + "[bonus=" + bonus + "]";
     }
+    public void test(Employee other){
+        System.out.println("other.name:" + other.name);
+    }
 }

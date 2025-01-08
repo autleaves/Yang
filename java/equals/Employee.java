@@ -1,11 +1,11 @@
-package equals;
+// package equals;
 
 import java.time.*;
 import java.util.Objects;
 
 public class Employee {
 
-    private String name;
+    protected String name;
     private double salary;
     private LocalDate hireDay;
 
@@ -49,5 +49,9 @@ public class Employee {
 
     public String toString(){
         return getClass().getName() + "[name=" + name + ",salary=" + salary + ",hireDay=" + hireDay + "]";
+    }
+
+    public void test(Employee other){
+        System.out.println("other.name:" + other.name);
     }
 }

@@ -1,13 +1,15 @@
-// package equals;
+package testpackage;
 
 import java.time.*;
 import java.util.Objects;
 
 public class Employee {
 
-    protected String name;
+    private String name;     
     private double salary;
     private LocalDate hireDay;
+
+    protected String pro_field = "protected field";     //protected field;
 
     public Employee(String name, double salary, int year, int month, int day) {
         this.name = name;
@@ -18,6 +20,7 @@ public class Employee {
     public String getName(){
         return name;
     }
+    
     public double getSalary(){
         return salary;
     }
@@ -29,7 +32,7 @@ public class Employee {
         double raise = salary * byPercent / 100;
         salary += raise;
     }
-
+     
     public boolean equals(Object otherObject){
 
         if(this == otherObject) return true;

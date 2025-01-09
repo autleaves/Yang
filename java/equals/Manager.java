@@ -1,5 +1,7 @@
 package equals;
 
+import testpackage.Employee;
+
 public class Manager extends Employee {
     private double bonus;
 
@@ -12,11 +14,11 @@ public class Manager extends Employee {
         double baseSalary = super.getSalary();
         return baseSalary + bonus;
     }
-
+    
     public void setBonus(double bonus) {
         this.bonus = bonus;
     }
-
+    @Override
     public boolean equals(Object otherObject) {
         if(!super.equals(otherObject)) return false;
         Manager other = (Manager) otherObject;
@@ -31,7 +33,7 @@ public class Manager extends Employee {
     public String toString(){
         return super.toString() + "[bonus=" + bonus + "]";
     }
-    public void test(Employee other){
-        System.out.println("other.name:" + other.name);
+    public void test(){
+        System.out.println("ancestor.pro_field:" + super.pro_field);
     }
 }

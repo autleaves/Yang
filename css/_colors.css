@@ -279,29 +279,29 @@ html,body {
     --theme-text-gradient-purple: #702573;
     --theme-text-gradient-blue: #00579a;
 
-    --theme-body-background-learn-dark: #e3e1db; // to do: remove
---theme-border-block-start-learn-dark: 1px solid #bcbcbc; // to do: remove
+    --theme-body-background-learn-dark: #e3e1db; /*// to do: remove*/
+--theme-border-block-start-learn-dark: 1px solid #bcbcbc; /*// to do: remove*/
 }
 .theme-dark {
     --theme-body-background-learn: #091f2c;
     --theme-text-gradient-purple: #d4caf4;
     --theme-text-gradient-blue: #8dc8e8;
 
-    --theme-body-background-learn-dark: #091f2c; // to do: remove
---theme-border-block-start-learn-dark: 1px solid #bcbcbc; // to do: remove
+    --theme-body-background-learn-dark: #091f2c; /*// to do: remove*/
+--theme-border-block-start-learn-dark: 1px solid #bcbcbc; /*// to do: remove*/
 }
 .theme-high-contrast {
     --theme-body-background-learn: #000;
     --theme-text-gradient-purple: #fff;
     --theme-text-gradient-blue: #fff;
 
-    --theme-body-background-learn-dark: #000; // to do: remove
---theme-border-block-start-learn-dark: 1px solid #bcbcbc; // to do: remove
+    --theme-body-background-learn-dark: #000; /*// to do: remove*/
+--theme-border-block-start-learn-dark: 1px solid #bcbcbc; /*// to do: remove*/
 }
 
-$body-background-learn: var(--theme-body-background-learn); // to do: remove
-$body-background-learn-dark: var(--theme-body-background-learn-dark); // to do: remove
-$border-block-start-learn-dark: var(--theme-border-block-start-learn-dark); // to do: remove
+$body-background-learn: var(--theme-body-background-learn); /*// to do: remove*/
+$body-background-learn-dark: var(--theme-body-background-learn-dark); /*// to do: remove*/
+$border-block-start-learn-dark: var(--theme-border-block-start-learn-dark); /*// to do: remove*/
 $card-background: var(--theme-card-background);
 
 $text-gradient-angle: 90deg !default;

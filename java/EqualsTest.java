@@ -1,11 +1,15 @@
 // package equals;
-import equals.Manager;
-import testpackage.Employee;
 import static java.lang.System.out;
+
+import java.util.Random;
+
+import equals.Employee;
+import equals.Manager;
 
 public class EqualsTest {
     
-    public static void main(String[] args){
+    public static void main(String[] args) 
+        throws ReflectiveOperationException {
         Employee alice1 = new Employee("Alice Adams", 75000, 1987, 12, 15);
         Employee alice2 = alice1;
         Employee alice3 = new Employee("Alice Adams", 75000, 1987, 12, 15);
@@ -36,6 +40,17 @@ public class EqualsTest {
         out.println("" + alice1);
         out.println("" + carl);
         out.println(out);
+        out.println(carl.getClass().getName() + " " + carl.getName());
 
+        String className = "java.util.Random";
+    
+        Class cl = Class.forName(className);
+        Object obj = cl.getConstructor().newInstance();
+        
+        out.println(((Random) obj).nextInt(0, 100));
+       
+        // if (carl instanceof Employee) {
+        //     out.println("carl instanceof Employee");
+        // }
     }
 }

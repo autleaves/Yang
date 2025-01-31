@@ -1,23 +1,28 @@
+package equals;
+
 import static java.lang.System.out;
-import java.util.Random;
+
+import java.lang.reflect.Field;
 
 public class Test {
     
     
 
-    public static void main(String[] args){ 
-        String className = "java.util.Random";
-        Class cl;
-        Object obj;
-        try {
-            cl = Class.forName(className);
-            obj = cl.getConstructor().newInstance();
-            out.println(obj);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-        
+    public static void main(String[] args)
+        throws ReflectiveOperationException{ 
 
+        var harry = new Employee("Harry Hacker", 50000, 2001, 10, 1);
+
+        Class cl = harry.getClass();
+
+        Field f = cl.getDeclaredField("name");
+        f.setAccessible(true);
+        
+        out.println(f.get(harry));
+        
+        f.set(harry, "Alice");
+        
+        out.println(harry.getName());
         
     }
 }

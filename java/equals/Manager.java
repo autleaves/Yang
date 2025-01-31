@@ -1,7 +1,5 @@
 package equals;
 
-import testpackage.Employee;
-
 public class Manager extends Employee {
     private double bonus;
 

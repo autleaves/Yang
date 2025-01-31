@@ -1,4 +1,4 @@
-package testpackage;
+package equals;
 
 import java.time.*;
 import java.util.Objects;
